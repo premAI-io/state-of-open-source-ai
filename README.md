@@ -1,6 +1,6 @@
 # State of Open Source AI Book - 2023 Edition
 
-The objective of this guide is to create clarity in this mess of Open Source innovation that is currently happening at the speed of light. Due to enormous progress in the field in the last year, as a data scientist / developer with a 9 to 5 job, it’s difficult to keep track to all the innovations that are happening.
+The objective of this guide is to create clarity in this mess of Open Source innovation that is currently happening at the speed of light. Due to enormous progress in the field in the last year, as a data scientist/developer with a 9 to 5 job, it’s difficult to keep track of all the innovations that are happening.
 
 ## Introduction
 
@@ -37,17 +37,17 @@ We identified the main categories for what concerns open-source tooling, models,
 | M | MLOps Engines | BentoML, Llama.cpp, ray |
 |  | Vector store | weaviate, qdrant, milvus, redis, chroma |
 |  | Developer SDK | langchain, haystack, llama index |
+|  | Hardware | NVIDIA GPUs, Mac, iPhone |
+
+## Licenses
 
 ## Evaluation & Datasets
-
-explain what it is and where we get the info. link to datasets
 
 ## Models
 
 ### LLMs
 
-> `Name` | `HW Requirements` | `Evaluation` | `License` | `Inference` |
-> 
+| `Name` | `HW Requirements` | `Evaluation` | `License` | `Inference` |
 
 **Gorilla**
 
@@ -57,52 +57,47 @@ explain what it is and where we get the info. link to datasets
 
 **Stable Diffusion**
 
-**Dalle mini**
-
 ## Audio
 
-### Whisper Tiny
+**Whisper Tiny**
 
-### Bark
+**Bark**
 
 ## Code Generators
 
-## Vector Stores
-
-### PGVector
-
-### Weaviate
-
-### Redis
-
-### Qdrant
-
-### Chroma
-
-## Developer SDK
-
-### LangChain
-
-- Large community
-- Cumbersone
-
-### Llama Index
-
 ## Model Formats
 
-### GGML
+**GGML**
 
-### ONNX
+**ONNX**
 
-### TVM
+**TVM**
 
 ## MLOps Engine
 
-### Llama.cpp
+**Llama.cpp**
 
-### ONNX Runtime
+**ONNX Runtime**
 
-### Apache TVM
+**Apache TVM**
+
+## Vector Stores
+
+**PGVector**
+
+**Weaviate**
+
+**Redis**
+
+**Qdrant**
+
+**Chroma**
+
+## Developer SDK
+
+**LangChain**
+
+**Llama Index**
 
 ## Conclusion
 

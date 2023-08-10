@@ -45,6 +45,8 @@ We identified the main categories for what concerns open-source tooling, models,
 
 ## Models
 
+## Fine-Tuning Frameworks
+
 ### LLMs
 
 | `Name` | `HW Requirements` | `Evaluation` | `License` | `Inference` |

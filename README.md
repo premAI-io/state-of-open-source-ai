@@ -32,6 +32,7 @@ We identified the main categories for what concerns open-source tooling, models,
 | --- | --- | --- |
 |  | Evalutation & Datasets | OpenLLM Leaderboard, Datasets |
 | R | Models | Llama 1, Llam2, Falcon, stable diffusion  |
+| | Uncensored Models | FraudGPT, PoisonGPT |
 | P | Fine-tuning Frameworks | h20,  |
 | E | Model Formats | ONNX, apache TVM, GGML |
 | M | MLOps Engines | BentoML, Llama.cpp, ray |

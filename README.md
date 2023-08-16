@@ -32,20 +32,30 @@ We identified the main categories for what concerns open-source tooling, models,
 | --- | --- | --- |
 |  | Evalutation & Datasets | OpenLLM Leaderboard, Datasets |
 | R | Models | Llama 1, Llam2, Falcon, stable diffusion  |
+| | Uncensored Models | FraudGPT, PoisonGPT |
 | P | Fine-tuning Frameworks | h20,  |
 | E | Model Formats | ONNX, apache TVM, GGML |
 | M | MLOps Engines | BentoML, Llama.cpp, ray |
 |  | Vector store | weaviate, qdrant, milvus, redis, chroma |
 |  | Developer SDK | langchain, haystack, llama index |
+| | Desktop Apps | LMStudio, GPT4All UI |
 |  | Hardware | NVIDIA GPUs, Mac, iPhone |
 
 ## Licenses
 
 ## Evaluation & Datasets
 
+### What is Perplexity?
+
+### What's the Role of Reinforcement Learning for a Chat-based LLM?
+
 ## Models
 
 ## Fine-Tuning Frameworks
+
+### How Fine Tuning Works?
+
+### How to Fine Tune an LLM?
 
 ### LLMs
 
@@ -76,6 +86,12 @@ We identified the main categories for what concerns open-source tooling, models,
 **TVM**
 
 ## MLOps Engine
+
+### Difficulties of Working with OpenSource MLOps
+
+### Python Bindings and More
+
+### PyTorch Toolchain - From C/C++ to Python
 
 **Llama.cpp**
 

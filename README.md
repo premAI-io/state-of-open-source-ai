@@ -39,19 +39,27 @@ python -m http.server -d _build/html
 
 - [Quickstart](https://jupyterbook.org/en/stable/reference/cheatsheet.html)
 - [Full reference](https://jupyterbook.org/en/stable/content/myst.html)
+- adding a new chapter
+  + create `some-file.md` containing `# Some File` heading
+  + add `- file: some-file` to `_toc.yml`
+  + add `[Some File](some-file) | summary` to [ToC](toc)
+- figures:
 
-```{figure-md} fig-ref
-:class: margin-caption
-![alt-text](assets/logo.png){width=200px align=left}
+  ```{figure-md} fig-ref
+  :class: margin-caption
+  ![alt-text](assets/logo.png){width=200px align=left}
 
-This is a **figure caption** *in the margin*, vis https://jupyterbook.org/en/stable/content/figures.html#markdown-figures
-```
+  This is a **figure caption** *in the margin*, vis https://jupyterbook.org/en/stable/content/figures.html#markdown-figures
+  ```
 
-- [inline ref](fig-ref)
-- numbered ref: {numref}`fig-ref`
-- custom ref: {numref}`Figure {number} with caption "{name}" <fig-ref>`
+  - [inline ref](fig-ref)
+  - numbered ref: {numref}`fig-ref`
+  - custom ref: {numref}`Figure {number} with caption "{name}" <fig-ref>`
+
 - glossary term: {term}`GPU`
 - `references.bib` citation: {cite}`python`
+
+(toc)=
 
 ## Table of Contents
 
@@ -129,6 +137,7 @@ At Prem we are on a journey to make this possible, with a focus on developer exp
 ## Appendix
 
 (glossary)=
+
 ### Glossary
 
 ```{glossary}

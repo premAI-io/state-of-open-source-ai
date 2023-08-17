@@ -10,7 +10,9 @@ A quick TL;DR overview is included at the top of each section. We outline the pr
 
 ## Prerequisites to Reading
 
-:warning: You should already know the basic principles of MLOps (TODO:links).
+```{eval-rst}
+|:warning:| You should already know the basic principles of MLOps (TODO:links).
+```
 
 ## Who is This Guide For?
 

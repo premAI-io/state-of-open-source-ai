@@ -19,6 +19,9 @@ parse:
   - smartquotes
   - substitution
   - tasklist
+sphinx:
+  extra_extensions:
+  - sphinxemoji.sphinxemoji
 html:
   favicon: assets/favicon.ico
   use_edit_page_button: true

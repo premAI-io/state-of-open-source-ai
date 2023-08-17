@@ -1,12 +1,11 @@
 // format details: https://aka.ms/devcontainer.json
 {
 "name": "book.premai.io",
-"image": "mcr.microsoft.com/devcontainers/python:3-bullseye",
+"build": {"dockerfile": ".github/Dockerfile", "context": "."},
 "customizations": {"vscode": {"extensions": [
     "DavidAnson.vscode-markdownlint",
     "streetsidesoftware.code-spell-checker"
 ]}},
-"postCreateCommand": "pip install --user -r requirements.txt",
 "postStartCommand": "jupyter-book build -W -n . && python -m http.server -d _build/html",
 "portsAttributes": {"8000": {"label": "Webserver", "onAutoForward": "notify"}}
 }

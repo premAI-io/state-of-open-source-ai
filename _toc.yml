@@ -1,0 +1,7 @@
+# Table of contents (https://jupyterbook.org/customize/toc.html)
+format: jb-book
+root: README
+chapters:
+- file: licenses
+- file: model-formats
+- file: mlops-engines

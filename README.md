@@ -27,19 +27,22 @@ We identified the main categories for what concerns open-source tooling, models,
 
 Chapter | Examples
 ---|---
-Licenses | LLaMA, HuggingFace, Apache-2.0
+[Licenses](licenses) | LLaMA, HuggingFace, Apache-2.0
 Evaluation & Datasets | OpenLLM Leaderboard, Datasets
 Models | LLaMA 1 vs 2, Falcon, Stable Diffusion, DALL-E
 Uncensored Models | FraudGPT, PoisonGPT
 Fine-tuning Frameworks | h20, ...
-Model Formats | ONNX, Apache TVM, GGML
-MLOps Engines | BentoML, llama.cpp, ray
+[Model Formats](model-formats) | ONNX, Apache TVM, GGML
+[MLOps Engines](mlops-engines) | BentoML, llama.cpp, ray
 Vector Stores | weaviate, qdrant, milvus, redis, chroma
 Developer SDK | langchain, haystack, llama index
 Desktop Apps | LMStudio, GPT4All UI
 Hardware | NVIDIA GPUs, Mac, iPhone
 
-## Licenses
+```{tableofcontents}
+```
+
+## [Licenses](licenses)
 
 ## Evaluation & Datasets
 
@@ -77,27 +80,9 @@ Hardware | NVIDIA GPUs, Mac, iPhone
 
 ### Code Generators
 
-## Model Formats
+## [Model Formats](model-formats)
 
-**GGML**
-
-**ONNX**
-
-**TVM**
-
-## MLOps Engines
-
-### Difficulties of Working with OpenSource MLOps
-
-### Python Bindings and More
-
-### PyTorch Toolchain - From C/C++ to Python
-
-**Llama.cpp**
-
-**ONNX Runtime**
-
-**Apache TVM**
+## [MLOps Engines](mlops-engines)
 
 ## Vector Stores
 
@@ -153,3 +138,6 @@ At Prem we are on a journey to make this possible, with a focus on developer exp
 - VRAM
 
 ### References
+
+```{bibliography}
+```

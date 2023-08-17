@@ -98,22 +98,27 @@ At Prem we are on a journey to make this possible, with a focus on developer exp
 
 ## Appendix
 
-### Glossary of Terms
+### Glossary
 
-- Evaluation
-- Auto-regressive language model
-- decoder-style transformer
-- Tokens
-- GPU
-- A100, V100 H100
-- Vector
-- Embedding
-- Vector Embeddings
-- Vector Store
-- Vector Database
-- supervised fine-tuning
-- Diffusion-based text-to-image generative mode
-- VRAM
+```{glossary}
+:sorted:
+Evaluation
+Auto-regressive language model
+decoder-style transformer
+Tokens
+[GPU](https://en.wikipedia.org/wiki/Graphics_processing_unit)
+    Graphics Processing Unit: hardware originally designed to accelerate computer image processing, but now often repurposed for [embarrassingly parallel](https://en.wikipedia.org/wiki/Embarrassingly_parallel) computational tasks in machine learning.
+
+A100, V100 H100
+Vector
+Embedding
+Vector Embeddings
+Vector Store
+Vector Database
+supervised fine-tuning
+Diffusion-based text-to-image generative mode
+VRAM
+```
 
 ### References
 

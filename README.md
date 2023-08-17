@@ -29,7 +29,7 @@ Open this repository ({{ repo_url }}) in a [Dev Container](https://containers.de
 
 ```sh
 pip install -r requirements.txt
-jupyter-book build --all -W .
+jupyter-book build --all .
 python -m http.server -d _build/html
 ```
 

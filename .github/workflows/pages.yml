@@ -23,7 +23,6 @@ jobs:
       run: |
         sed -ri 's#^(\s*baseurl:).*#\1 ${{ steps.pages.outputs.base_url }}#g' _config.yml
         # https://jupyterbook.org/en/stable/reference/cli.html
-        touch references.bib # TODO: remove
         jupyter-book build --warningiserror --nitpick .
     - uses: actions/upload-pages-artifact@v2
       with: {path: _build/html}

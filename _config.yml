@@ -7,6 +7,18 @@ repository:
   url: https://github.com/premAI-io/state-of-open-source-ai
   branch: main
 only_build_toc_files: true
+html:
+  baseurl: http://localhost:8000
+  favicon: assets/favicon.ico
+  use_edit_page_button: true
+  use_issues_button: true
+  use_repository_button: true
+  comments:
+    utterances:
+      issue-term: pathname
+      label: question
+      repo: premAI-io/state-of-open-source-ai
+      theme: preferred-color-scheme
 parse:
   myst_substitutions:
     repo_url: https://github.com/premAI-io/state-of-open-source-ai
@@ -25,21 +37,11 @@ parse:
 sphinx:
   extra_extensions:
   - sphinxemoji.sphinxemoji
-html:
-  baseurl: http://localhost:8000
-  favicon: assets/favicon.ico
-  use_edit_page_button: true
-  use_issues_button: true
-  use_repository_button: true
-  comments:
-    utterances:
-      issue-term: pathname
-      label: question
-      repo: premAI-io/state-of-open-source-ai
-      theme: preferred-color-scheme
-execute:
-  execute_notebooks: force  # re-exec on each build (https://jupyterbook.org/content/execute.html)
+  config:
+    bibtex_reference_style: label
+bibtex_bibfiles: [references.bib] # citations
 latex: # for PDF builds
   latex_documents:
     targetname: book.tex
-bibtex_bibfiles: [references.bib] # citations
+execute:
+  execute_notebooks: force  # re-exec on each build (https://jupyterbook.org/content/execute.html)

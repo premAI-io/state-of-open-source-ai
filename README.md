@@ -50,7 +50,8 @@ This is a **figure caption** *in the margin*, vis https://jupyterbook.org/en/sta
 - [inline ref](fig-ref)
 - numbered ref: {numref}`fig-ref`
 - custom ref: {numref}`Figure {number} with caption "{name}" <fig-ref>`
-- glossary ref: {term}`GPU`
+- glossary term: {term}`GPU`
+- `references.bib` citation: {cite}`python`
 
 ## Table of Contents
 
@@ -153,4 +154,5 @@ VRAM
 ### References
 
 ```{bibliography}
+:style: unsrt
 ```

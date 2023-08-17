@@ -3,5 +3,6 @@ format: jb-book
 root: README
 chapters:
 - file: licenses
+- file: fine-tuning
 - file: model-formats
 - file: mlops-engines

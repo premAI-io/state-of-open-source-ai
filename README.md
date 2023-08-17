@@ -31,7 +31,7 @@ Chapter | Examples
 Evaluation & Datasets | OpenLLM Leaderboard, Datasets
 Models | LLaMA 1 vs 2, Falcon, Stable Diffusion, DALL-E
 Uncensored Models | FraudGPT, PoisonGPT
-Fine-tuning Frameworks | h20, ...
+[Fine-tuning Frameworks](fine-tuning) | h20, ...
 [Model Formats](model-formats) | ONNX, Apache TVM, GGML
 [MLOps Engines](mlops-engines) | BentoML, llama.cpp, ray
 Vector Stores | weaviate, qdrant, milvus, redis, chroma
@@ -54,31 +54,7 @@ Hardware | NVIDIA GPUs, Mac, iPhone
 
 ### Uncensored Models
 
-## Fine-tuning Frameworks
-
-### How Fine Tuning Works?
-
-### How to Fine Tune an LLM?
-
-### LLMs
-
-| `Name` | `HW Requirements` | `Evaluation` | `License` | `Inference` |
-
-**Gorilla**
-
-**Falcon**
-
-### Image Models
-
-**Stable Diffusion**
-
-### Audio
-
-**Whisper Tiny**
-
-**Bark**
-
-### Code Generators
+## [Fine-tuning Frameworks](fine-tuning)
 
 ## [Model Formats](model-formats)
 

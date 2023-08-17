@@ -35,6 +35,23 @@ jupyter-book build --all .
 python -m http.server -d _build/html
 ```
 
+### Formatting
+
+- [Quickstart](https://jupyterbook.org/en/stable/reference/cheatsheet.html)
+- [Full reference](https://jupyterbook.org/en/stable/content/myst.html)
+
+```{figure-md} fig-ref
+:class: margin-caption
+![alt-text](assets/logo.png){width=200px align=left}
+
+This is a **figure caption** *in the margin*, vis https://jupyterbook.org/en/stable/content/figures.html#markdown-figures
+```
+
+- [inline ref](fig-ref)
+- numbered ref: {numref}`fig-ref`
+- custom ref: {numref}`Figure {number} with caption "{name}" <fig-ref>`
+- glossary ref: {term}`GPU`
+
 ## Table of Contents
 
 We identified the main categories for what concerns open-source tooling, models, and MLOps and we framed the landscape into the following table.

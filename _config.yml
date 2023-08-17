@@ -6,10 +6,11 @@ logo: assets/logo.png
 repository:
   url: https://github.com/premAI-io/state-of-open-source-ai
   branch: main
+only_build_toc_files: true
 parse:
   myst_enable_extensions: # https://myst-parser.readthedocs.io/en/latest/using/syntax-optional.html
-  - attrs_block
-  - attrs_inline
+  # - attrs_block
+  # - attrs_inline
   - deflist
   - dollarmath
   - html_admonition

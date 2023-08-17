@@ -7,6 +7,6 @@
     "streetsidesoftware.code-spell-checker"
 ]}},
 "postCreateCommand": "pip install --user -r requirements.txt",
-"postStartCommand": "jupyter-book build -W . && python -m http.server -d _build/html",
+"postStartCommand": "jupyter-book build -W -n . && python -m http.server -d _build/html",
 "portsAttributes": {"8000": {"label": "Webserver", "onAutoForward": "notify"}}
 }

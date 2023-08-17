@@ -4,13 +4,15 @@
 
 As a data scientist/developer with a 9 to 5 job, it's difficult to keep track of all the innovations. There's been enormous progress in the field in the last year.
 
-The guide covers all the most important categories in the Open Source AI space, from model evaluations to deployment. It includes a [glossary](TODO) for you to quickly check definitions of new frameworks & tools.
+The guide covers all the most important categories in the Open Source AI space, from model evaluations to deployment. It includes a glossary (TODO:link) for you to quickly check definitions of new frameworks & tools.
 
 A quick TL;DR overview is included at the top of each section. We outline the pros/cons and general context/background for each topic. Then we dive a bit deeper. Examples include data models were trained on, and deployment implementations.
 
 ## Prerequisites to Reading
 
-:warning: You should already know the basic principles of MLOps (TODO:links).
+```{eval-rst}
+|:warning:| You should already know the basic principles of MLOps (TODO:links).
+```
 
 ## Who is This Guide For?
 
@@ -27,19 +29,22 @@ We identified the main categories for what concerns open-source tooling, models,
 
 Chapter | Examples
 ---|---
-Licenses | LLaMA, HuggingFace, Apache-2.0
+[Licenses](licenses) | LLaMA, HuggingFace, Apache-2.0
 Evaluation & Datasets | OpenLLM Leaderboard, Datasets
 Models | LLaMA 1 vs 2, Falcon, Stable Diffusion, DALL-E
 Uncensored Models | FraudGPT, PoisonGPT
-Fine-tuning Frameworks | h20, ...
-Model Formats | ONNX, Apache TVM, GGML
-MLOps Engines | BentoML, llama.cpp, ray
+[Fine-tuning Frameworks](fine-tuning) | h20, ...
+[Model Formats](model-formats) | ONNX, Apache TVM, GGML
+[MLOps Engines](mlops-engines) | BentoML, llama.cpp, ray
 Vector Stores | weaviate, qdrant, milvus, redis, chroma
 Developer SDK | langchain, haystack, llama index
 Desktop Apps | LMStudio, GPT4All UI
 Hardware | NVIDIA GPUs, Mac, iPhone
 
-## Licenses
+```{tableofcontents}
+```
+
+## [Licenses](licenses)
 
 ## Evaluation & Datasets
 
@@ -51,53 +56,11 @@ Hardware | NVIDIA GPUs, Mac, iPhone
 
 ### Uncensored Models
 
-## Fine-tuning Frameworks
+## [Fine-tuning Frameworks](fine-tuning)
 
-### How Fine Tuning Works?
+## [Model Formats](model-formats)
 
-### How to Fine Tune an LLM?
-
-### LLMs
-
-| `Name` | `HW Requirements` | `Evaluation` | `License` | `Inference` |
-
-**Gorilla**
-
-**Falcon**
-
-### Image Models
-
-**Stable Diffusion**
-
-### Audio
-
-**Whisper Tiny**
-
-**Bark**
-
-### Code Generators
-
-## Model Formats
-
-**GGML**
-
-**ONNX**
-
-**TVM**
-
-## MLOps Engines
-
-### Difficulties of Working with OpenSource MLOps
-
-### Python Bindings and More
-
-### PyTorch Toolchain - From C/C++ to Python
-
-**Llama.cpp**
-
-**ONNX Runtime**
-
-**Apache TVM**
+## [MLOps Engines](mlops-engines)
 
 ## Vector Stores
 
@@ -135,21 +98,29 @@ At Prem we are on a journey to make this possible, with a focus on developer exp
 
 ## Appendix
 
-### Glossary of Terms
+### Glossary
 
-- Evaluation
-- Auto-regressive language model
-- decoder-style transformer
-- Tokens
-- GPU
-- A100, V100 H100
-- Vector
-- Embedding
-- Vector Embeddings
-- Vector Store
-- Vector Database
-- supervised fine-tuning
-- Diffusion-based text-to-image generative mode
-- VRAM
+```{glossary}
+:sorted:
+Evaluation
+Auto-regressive language model
+decoder-style transformer
+Tokens
+[GPU](https://en.wikipedia.org/wiki/Graphics_processing_unit)
+    Graphics Processing Unit: hardware originally designed to accelerate computer image processing, but now often repurposed for [embarrassingly parallel](https://en.wikipedia.org/wiki/Embarrassingly_parallel) computational tasks in machine learning.
+
+A100, V100 H100
+Vector
+Embedding
+Vector Embeddings
+Vector Store
+Vector Database
+supervised fine-tuning
+Diffusion-based text-to-image generative mode
+VRAM
+```
 
 ### References
+
+```{bibliography}
+```

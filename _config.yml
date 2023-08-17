@@ -1,0 +1,41 @@
+# Book settings (https://jupyterbook.org/customize/config.html)
+title: State of Open Source AI Book
+author: Prem AI
+copyright: '2023'
+logo: assets/logo.png
+repository:
+  url: https://github.com/premAI-io/state-of-open-source-ai
+  branch: main
+only_build_toc_files: true
+parse:
+  myst_enable_extensions: # https://myst-parser.readthedocs.io/en/latest/using/syntax-optional.html
+  # - attrs_block
+  # - attrs_inline
+  - deflist
+  - dollarmath
+  - html_admonition
+  - linkify
+  - replacements
+  - smartquotes
+  - substitution
+  - tasklist
+sphinx:
+  extra_extensions:
+  - sphinxemoji.sphinxemoji
+html:
+  favicon: assets/favicon.ico
+  use_edit_page_button: true
+  use_issues_button: true
+  use_repository_button: true
+  comments:
+    utterances:
+      issue-term: pathname
+      label: question
+      repo: premAI-io/state-of-open-source-ai
+      theme: preferred-color-scheme
+execute:
+  execute_notebooks: force  # re-exec on each build (https://jupyterbook.org/content/execute.html)
+latex: # for PDF builds
+  latex_documents:
+    targetname: book.tex
+bibtex_bibfiles: [references.bib] # citations

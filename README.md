@@ -1,10 +1,12 @@
 # State of Open Source AI Book - 2023 Edition
 
+Site: {{ baseurl }}
+
 *Clarity in the current fast-paced mess of Open Source innovation.*
 
 As a data scientist/developer with a 9 to 5 job, it's difficult to keep track of all the innovations. There's been enormous progress in the field in the last year.
 
-The guide covers all the most important categories in the Open Source AI space, from model evaluations to deployment. It includes a glossary (TODO:link) for you to quickly check definitions of new frameworks & tools.
+The guide covers all the most important categories in the Open Source AI space, from model evaluations to deployment. It includes a [glossary](glossary) for you to quickly check definitions of new frameworks & tools.
 
 A quick TL;DR overview is included at the top of each section. We outline the pros/cons and general context/background for each topic. Then we dive a bit deeper. Examples include data models were trained on, and deployment implementations.
 
@@ -108,6 +110,7 @@ At Prem we are on a journey to make this possible, with a focus on developer exp
 
 ## Appendix
 
+(glossary)=
 ### Glossary
 
 ```{glossary}

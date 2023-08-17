@@ -10,6 +10,7 @@ only_build_toc_files: true
 parse:
   myst_substitutions:
     repo_url: https://github.com/premAI-io/state-of-open-source-ai
+    baseurl: http://localhost:8000
   myst_enable_extensions: # https://myst-parser.readthedocs.io/en/latest/using/syntax-optional.html
   # - attrs_block
   # - attrs_inline
@@ -25,7 +26,7 @@ sphinx:
   extra_extensions:
   - sphinxemoji.sphinxemoji
 html:
-  baseurl: http://localhost:8000/
+  baseurl: http://localhost:8000
   favicon: assets/favicon.ico
   use_edit_page_button: true
   use_issues_button: true

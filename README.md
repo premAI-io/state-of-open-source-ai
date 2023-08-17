@@ -21,7 +21,17 @@ We go beyond just mentioning the models, but also include things such as infrast
 
 ## Contributing
 
-We understand that the current open source ecosystem is moving at light-speed. This source of this guide is available on GitHub at [`premAI-io/state-of-open-source-ai`](https://github.com/premAI-io/state-of-open-source-ai). Please do [create issues](https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-an-issue) or [open pull requests](https://docs.github.com/en/get-started/quickstart/contributing-to-projects) with any feedback or contributions you may have.
+We understand that the current open source ecosystem is moving at light-speed. This source of this guide is available on GitHub at {{ repo_url }}. Please do [create issues](https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-an-issue) or [open pull requests](https://docs.github.com/en/get-started/quickstart/contributing-to-projects) with any feedback or contributions you may have.
+
+### Running locally
+
+Open this repository ({{ repo_url }}) in a [Dev Container](https://containers.dev), or alternatively follow the instructions below:
+
+```sh
+pip install -r requirements.txt
+jupyter-book build --all -W .
+python -m http.server -d _build/html
+```
 
 ## Table of Contents
 

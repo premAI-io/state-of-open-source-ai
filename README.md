@@ -151,8 +151,4 @@ Diffusion-based text-to-image generative mode
 VRAM
 ```
 
-### References
-
-```{bibliography}
-:style: unsrt
-```
+### [References](references)

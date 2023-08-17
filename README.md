@@ -1,45 +1,43 @@
 # State of Open Source AI Book - 2023 Edition
 
-The objective of this guide is to create clarity in this mess of Open Source innovation that is currently happening at the speed of light. Due to enormous progress in the field in the last year, as a data scientist/developer with a 9 to 5 job, it’s difficult to keep track of all the innovations that are happening.
+*Clarity in the current fast-paced mess of Open Source innovation.*
 
-## Introduction
+As a data scientist/developer with a 9 to 5 job, it's difficult to keep track of all the innovations. There's been enormous progress in the field in the last year.
 
-### How to use this Guide?
+The guide covers all the most important categories in the Open Source AI space, from model evaluations to deployment. It includes a [glossary](TODO) for you to quickly check definitions of new frameworks & tools.
 
-The guide goes through all the most important categories in the Open Source AI space branching from model evaluations to deployment. It includes an Appendix composed of a Glossary in order for you to quickly check definitions of new frameworks and tools if you are not familiar with it. 
+A quick TL;DR overview is included at the top of each section. We outline the pros/cons and general context/background for each topic. Then we dive a bit deeper. Examples include data models were trained on, and deployment implementations.
 
-If you are looking for a quick overview of the open source project you can find the tldr of each at the top of their section. We outline the pros and cons to give and give you a bit of context on what the project does and is used for so that you can quickly get up to speed. 
+## Prerequisites to Reading
 
-For a deeper dive on each project we have created the following content in each section that will give you more information on things like data models were trained on (models), deployment implementations (vector stores).
+:warning: You should already know the basic principles of MLOps (TODO:links).
 
-### Prerequisites to Reading
+## Who is This Guide For?
 
-you need to know these things to get the most out of this guide. what
+You haven't followed the most recent developments in open source AI over the last year, and want to catch up quickly.
+We go beyond just mentioning the models, but also include things such as infrastructure, licenses and new applications.
 
-### How to Contribute?
+## Contributing
 
-We understand that the current open source ecosystem I moving at lighting speed. Therefor, this guide is available on GitHub [here](). You can create a PR and add your considerations and information. 
+We understand that the current open source ecosystem is moving at light-speed. This source of this guide is available on GitHub at [`premAI-io/state-of-open-source-ai`](https://github.com/premAI-io/state-of-open-source-ai). Please do [create issues](https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-an-issue) or [open pull requests](https://docs.github.com/en/get-started/quickstart/contributing-to-projects) with any feedback or contributions you may have.
 
-### Who is This Guide For?
-
-Anyone who wants to get a better grasp of all that is happening in open source AI. We aim to go beyond just talking about the models and include things such as infrastucture, icenses and 
-
-## Open Source AI Landscape
+## Table of Contents
 
 We identified the main categories for what concerns open-source tooling, models, and MLOps and we framed the landscape into the following table.
 
-|  | Licenses | llama, hugging face, apache 2.0 |
-| --- | --- | --- |
-|  | Evalutation & Datasets | OpenLLM Leaderboard, Datasets |
-| R | Models | Llama 1, Llam2, Falcon, stable diffusion  |
-| | Uncensored Models | FraudGPT, PoisonGPT |
-| P | Fine-tuning Frameworks | h20,  |
-| E | Model Formats | ONNX, apache TVM, GGML |
-| M | MLOps Engines | BentoML, Llama.cpp, ray |
-|  | Vector store | weaviate, qdrant, milvus, redis, chroma |
-|  | Developer SDK | langchain, haystack, llama index |
-| | Desktop Apps | LMStudio, GPT4All UI |
-|  | Hardware | NVIDIA GPUs, Mac, iPhone |
+Chapter | Examples
+---|---
+Licenses | LLaMA, HuggingFace, Apache-2.0
+Evaluation & Datasets | OpenLLM Leaderboard, Datasets
+Models | LLaMA 1 vs 2, Falcon, Stable Diffusion, DALL-E
+Uncensored Models | FraudGPT, PoisonGPT
+Fine-tuning Frameworks | h20, ...
+Model Formats | ONNX, Apache TVM, GGML
+MLOps Engines | BentoML, llama.cpp, ray
+Vector Stores | weaviate, qdrant, milvus, redis, chroma
+Developer SDK | langchain, haystack, llama index
+Desktop Apps | LMStudio, GPT4All UI
+Hardware | NVIDIA GPUs, Mac, iPhone
 
 ## Licenses
 
@@ -51,7 +49,9 @@ We identified the main categories for what concerns open-source tooling, models,
 
 ## Models
 
-## Fine-Tuning Frameworks
+### Uncensored Models
+
+## Fine-tuning Frameworks
 
 ### How Fine Tuning Works?
 
@@ -69,13 +69,13 @@ We identified the main categories for what concerns open-source tooling, models,
 
 **Stable Diffusion**
 
-## Audio
+### Audio
 
 **Whisper Tiny**
 
 **Bark**
 
-## Code Generators
+### Code Generators
 
 ## Model Formats
 
@@ -85,7 +85,7 @@ We identified the main categories for what concerns open-source tooling, models,
 
 **TVM**
 
-## MLOps Engine
+## MLOps Engines
 
 ### Difficulties of Working with OpenSource MLOps
 
@@ -117,11 +117,15 @@ We identified the main categories for what concerns open-source tooling, models,
 
 **Llama Index**
 
+## Desktop Apps
+
+## Hardware
+
 ## Conclusion
 
 Open Source AI represents the future of privacy and ownership of data. On the other hand, in order to make this happen a lot of innovation should come into place. In the last year, already the open-source community demonstrated how motivated they are in order to deliver quality models to the hands of consumers creating already few big innovations in different AI fields. At the same time, this is just the beginning. Many improvements in multiple directions must be made in order to compare the results with centralized solutions.
 
-At Prem we are on a journey to make this possible, with a focus on developer experience and deployment for any sort of developers, from Web Developers with zero knowledge about AI to affirmed Data Scientist who wants to quickly deploy and try these new models and technologies in their existing infra without compromising privacy. 
+At Prem we are on a journey to make this possible, with a focus on developer experience and deployment for any sort of developers, from Web Developers with zero knowledge about AI to affirmed Data Scientist who wants to quickly deploy and try these new models and technologies in their existing infra without compromising privacy.
 
 ## Join our community
 
@@ -140,7 +144,7 @@ At Prem we are on a journey to make this possible, with a focus on developer exp
 - GPU
 - A100, V100 H100
 - Vector
-- Embeding
+- Embedding
 - Vector Embeddings
 - Vector Store
 - Vector Database

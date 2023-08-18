@@ -84,7 +84,7 @@ We understand that the current open source ecosystem is moving at light-speed. T
 - [Quickstart](https://jupyterbook.org/en/stable/reference/cheatsheet.html)
 - [Full reference](https://jupyterbook.org/en/stable/content/myst.html)
 - adding a new chapter
-  + create `some-file.md` containing `# Some File` heading
+  + create `some-file.md` containing `# Some File` heading and `{{ comments }}` ending
   + add `- file: some-file` to `_toc.yml`
   + add `[Some File](some-file) | summary` to [ToC](toc)
 - figures:

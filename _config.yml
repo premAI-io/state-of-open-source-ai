@@ -24,6 +24,8 @@ parse:
   myst_substitutions:
     repo_url: https://github.com/premAI-io/state-of-open-source-ai
     baseurl: http://localhost:8000
+    # hack to get utteranc.es to render (needs a `div.section` element)
+    comments: <div class="section"></div>
   myst_enable_extensions: # https://myst-parser.readthedocs.io/en/latest/using/syntax-optional.html
   # - attrs_block
   # - attrs_inline

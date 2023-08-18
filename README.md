@@ -27,7 +27,7 @@ We understand that the current open source ecosystem is moving at light-speed. T
 
 ### Running locally
 
-Open this repository ({{ repo_url }}) in a [Dev Container](https://containers.dev), or alternatively follow the instructions below:
+Open {{ '[this repository](' + repo_url + ')' }} in a [Dev Container](https://containers.dev), or alternatively follow the instructions below:
 
 ```sh
 pip install -r requirements.txt      # setup

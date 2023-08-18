@@ -30,10 +30,19 @@ We understand that the current open source ecosystem is moving at light-speed. T
 Open this repository ({{ repo_url }}) in a [Dev Container](https://containers.dev), or alternatively follow the instructions below:
 
 ```sh
-pip install -r requirements.txt
-jupyter-book build --all .
-python -m http.server -d _build/html
+pip install -r requirements.txt      # setup
+jupyter-book build --all .           # build
+python -m http.server -d _build/html # serve
 ```
+
+````{admonition} alternative: live rebuilding & serving (experimental)
+:class: tip, dropdown
+```sh
+pip install -r requirements.txt sphinx-autobuild # setup
+jupyter-book config sphinx .                     # config
+sphinx-autobuild -b html . _build/html           # build-serve
+```
+````
 
 ### Formatting
 

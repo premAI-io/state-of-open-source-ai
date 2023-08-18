@@ -16,6 +16,8 @@ Falcon |
 
 ## How Fine-tuning Works
 
+https://github.com/h2oai, etc.
+
 ## LLMs
 
 ### Gorilla

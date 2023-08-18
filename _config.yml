@@ -24,9 +24,12 @@ parse:
   myst_substitutions:
     repo_url: https://github.com/premAI-io/state-of-open-source-ai
     baseurl: http://localhost:8000
+    # hack to get utteranc.es to render (needs a `div.section` element)
+    comments: <div class="section"></div>
   myst_enable_extensions: # https://myst-parser.readthedocs.io/en/latest/using/syntax-optional.html
-  # - attrs_block
-  # - attrs_inline
+  # needs myst-parser>=0.19 <- https://github.com/executablebooks/MyST-NB/issues/530
+  #- attrs_block
+  #- attrs_inline
   - deflist
   - dollarmath
   - html_admonition
@@ -40,6 +43,11 @@ sphinx:
   - sphinxemoji.sphinxemoji
   config:
     bibtex_reference_style: label
+    linkcheck_ignore:
+    - http://localhost:8000
+    - https://github.com/premAI-io/state-of-open-source-ai # TODO: remove
+    linkcheck_allowed_redirects:
+      https://codespaces.new/.*: https://github.com/login.*
 bibtex_bibfiles: [references.bib] # citations
 latex: # for PDF builds
   latex_documents:

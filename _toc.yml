@@ -1,6 +1,6 @@
 # Table of contents (https://jupyterbook.org/customize/toc.html)
 format: jb-book
-root: README
+root: index
 chapters:
 - file: licenses
 - file: fine-tuning

@@ -23,7 +23,8 @@ jobs:
       run: |
         sed -ri 's#^(\s*baseurl:).*#\1 ${{ steps.pages.outputs.base_url }}#g' _config.yml
         # https://jupyterbook.org/en/stable/reference/cli.html
-        jupyter-book build --warningiserror --nitpick .
+        jupyter-book build --builder linkcheck --warningiserror --nitpick --keep-going .
+        jupyter-book build --builder dirhtml --warningiserror --nitpick --keep-going .
         jupyter-book build --builder latex .
     - uses: xu-cheng/latex-action@v2
       with:
@@ -31,9 +32,9 @@ jobs:
         root_file: book.tex
         args: -pdf -dvi- -ps- -file-line-error -f -interaction=nonstopmode
       continue-on-error: true
-    - run: cp _build/latex/book.pdf _build/html/
+    - run: cp _build/latex/book.pdf _build/dirhtml/
     - uses: actions/upload-pages-artifact@v2
-      with: {path: _build/html}
+      with: {path: _build/dirhtml}
   deploy:
     if: github.ref == 'refs/heads/main'
     environment:

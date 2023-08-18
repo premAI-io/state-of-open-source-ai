@@ -2,12 +2,19 @@
 {
 "name": "book.premai.io",
 "build": {"dockerfile": ".github/Dockerfile", "context": "."},
-"customizations": {"vscode": {"extensions": [
-    "DavidAnson.vscode-markdownlint",
-    "streetsidesoftware.code-spell-checker"
-]}},
+"customizations": {"vscode": {
+    "extensions": [
+        "DavidAnson.vscode-markdownlint",
+        "streetsidesoftware.code-spell-checker"],
+    "settings": {
+        "files.insertFinalNewline": true,
+        "files.trimFinalNewlines": true,
+        "files.trimTrailingWhitespace": true,
+        "cSpell.language": "en-GB",
+        "markdownlint.config": {"MD004": false}}
+}},
 // live reload https://github.com/executablebooks/jupyter-book/issues/1455
 "onCreateCommand": "pip install sphinx-autobuild",
-"postStartCommand": "jupyter-book config sphinx . && jupyter-book build -W -n . && sphinx-autobuild -b html . _build/html",
+"postStartCommand": "jupyter-book config sphinx . && sphinx-autobuild -b dirhtml --re-ignore='\\.(github|devcontainer)' -n . _build/dirhtml",
 "portsAttributes": {"8000": {"label": "Webserver", "onAutoForward": "notify"}}
 }

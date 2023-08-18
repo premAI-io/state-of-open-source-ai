@@ -13,6 +13,7 @@ html:
   use_edit_page_button: true
   use_issues_button: true
   use_repository_button: true
+  announcement: ⚠️ work in progress; please don't share externally
   comments:
     utterances:
       issue-term: pathname

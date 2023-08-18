@@ -6,3 +6,7 @@ RUN apk update && apk add git
 # project dependencies
 COPY requirements.txt .
 RUN pip install -r requirements.txt && rm requirements.txt
+# enable devcontainer updateRemoteUserUID
+RUN adduser -SD --shell /bin/sh vscode
+USER vscode
+ENV PATH=/home/vscode/.local/bin:$PATH

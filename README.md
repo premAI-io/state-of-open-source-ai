@@ -27,31 +27,48 @@ We understand that the current open source ecosystem is moving at light-speed. T
 
 ### Running locally
 
-Open this repository ({{ repo_url }}) in a [Dev Container](https://containers.dev), or alternatively follow the instructions below:
+Open {{ '[this repository](' + repo_url + ')' }} in a [Dev Container](https://containers.dev), or alternatively follow the instructions below:
 
 ```sh
-pip install -r requirements.txt
-jupyter-book build --all .
-python -m http.server -d _build/html
+pip install -r requirements.txt      # setup
+jupyter-book build --all .           # build
+python -m http.server -d _build/html # serve
 ```
+
+````{admonition} alternative: live rebuilding & serving (experimental)
+:class: tip, dropdown
+```sh
+pip install -r requirements.txt sphinx-autobuild # setup
+jupyter-book config sphinx .                     # config
+sphinx-autobuild -b html . _build/html           # build-serve
+```
+````
 
 ### Formatting
 
 - [Quickstart](https://jupyterbook.org/en/stable/reference/cheatsheet.html)
 - [Full reference](https://jupyterbook.org/en/stable/content/myst.html)
+- adding a new chapter
+  + create `some-file.md` containing `# Some File` heading
+  + add `- file: some-file` to `_toc.yml`
+  + add `[Some File](some-file) | summary` to [ToC](toc)
+- figures:
 
-```{figure-md} fig-ref
-:class: margin-caption
-![alt-text](assets/logo.png){width=200px align=left}
+  ```{figure-md} fig-ref
+  :class: margin-caption
+  ![alt-text](assets/logo.png){width=200px align=left}
 
-This is a **figure caption** *in the margin*, vis https://jupyterbook.org/en/stable/content/figures.html#markdown-figures
-```
+  This is a **figure caption** *in the margin*, vis [jupyterbook#markdown-figures](https://jupyterbook.org/en/stable/content/figures.html#markdown-figures)
+  ```
 
-- [inline ref](fig-ref)
-- numbered ref: {numref}`fig-ref`
-- custom ref: {numref}`Figure {number} with caption "{name}" <fig-ref>`
+  - [inline ref](fig-ref)
+  - numbered ref: {numref}`fig-ref`
+  - custom ref: {numref}`Figure {number} with caption "{name}" <fig-ref>`
+
 - glossary term: {term}`GPU`
 - `references.bib` citation: {cite}`python`
+
+(toc)=
 
 ## Table of Contents
 
@@ -66,13 +83,10 @@ Uncensored Models | FraudGPT, PoisonGPT
 [Fine-tuning Frameworks](fine-tuning) | h20, ...
 [Model Formats](model-formats) | ONNX, Apache TVM, GGML
 [MLOps Engines](mlops-engines) | BentoML, llama.cpp, ray
-Vector Stores | weaviate, qdrant, milvus, redis, chroma
+[Vector Stores](vector-stores) | weaviate, qdrant, milvus, redis, chroma
 Developer SDK | langchain, haystack, llama index
 Desktop Apps | LMStudio, GPT4All UI
 Hardware | NVIDIA GPUs, Mac, iPhone
-
-```{tableofcontents}
-```
 
 ## [Licenses](licenses)
 
@@ -92,17 +106,7 @@ Hardware | NVIDIA GPUs, Mac, iPhone
 
 ## [MLOps Engines](mlops-engines)
 
-## Vector Stores
-
-**PGVector**
-
-**Weaviate**
-
-**Redis**
-
-**Qdrant**
-
-**Chroma**
+## [Vector Stores](vector-stores)
 
 ## Developer SDK
 
@@ -129,6 +133,7 @@ At Prem we are on a journey to make this possible, with a focus on developer exp
 ## Appendix
 
 (glossary)=
+
 ### Glossary
 
 ```{glossary}
@@ -151,8 +156,4 @@ Diffusion-based text-to-image generative mode
 VRAM
 ```
 
-### References
-
-```{bibliography}
-:style: unsrt
-```
+### [References](references)

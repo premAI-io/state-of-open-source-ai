@@ -6,6 +6,8 @@
     "DavidAnson.vscode-markdownlint",
     "streetsidesoftware.code-spell-checker"
 ]}},
-"postStartCommand": "jupyter-book build -W -n . && python -m http.server -d _build/html",
+// live reload https://github.com/executablebooks/jupyter-book/issues/1455
+"onCreateCommand": "pip install sphinx-autobuild",
+"postStartCommand": "jupyter-book config sphinx . && jupyter-book build -W -n . && sphinx-autobuild -b html . _build/html",
 "portsAttributes": {"8000": {"label": "Webserver", "onAutoForward": "notify"}}
 }

@@ -32,9 +32,9 @@ jobs:
         root_file: book.tex
         args: -pdf -dvi- -ps- -file-line-error -f -interaction=nonstopmode
       continue-on-error: true
-    - run: cp _build/latex/book.pdf _build/html/
+    - run: cp _build/latex/book.pdf _build/dirhtml/
     - uses: actions/upload-pages-artifact@v2
-      with: {path: _build/html}
+      with: {path: _build/dirhtml}
   deploy:
     if: github.ref == 'refs/heads/main'
     environment:

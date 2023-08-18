@@ -15,6 +15,6 @@
 }},
 // live reload https://github.com/executablebooks/jupyter-book/issues/1455
 "onCreateCommand": "pip install sphinx-autobuild",
-"postStartCommand": "jupyter-book config sphinx . && sphinx-autobuild -b dirhtml --re-ignore='\\.(github|devcontainer)' -n . _build/html",
+"postStartCommand": "jupyter-book config sphinx . && sphinx-autobuild -b dirhtml --re-ignore='\\.(github|devcontainer)' -n . _build/dirhtml",
 "portsAttributes": {"8000": {"label": "Webserver", "onAutoForward": "notify"}}
 }

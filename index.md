@@ -65,9 +65,9 @@ We understand that the current open source ecosystem is moving at light-speed. T
 - Or instead, manually set up your own Python environment:
 
   ```sh
-  pip install -r requirements.txt       # setup
-  jupyter-book build -b dirhtml --all . # build
-  python -m http.server -d _build/html  # serve
+  pip install -r requirements.txt         # setup
+  jupyter-book build -b dirhtml --all .   # build
+  python -m http.server -d _build/dirhtml # serve
   ```
 
   ````{admonition} alternative: live rebuilding & serving (experimental)
@@ -75,7 +75,7 @@ We understand that the current open source ecosystem is moving at light-speed. T
   ```sh
   pip install -r requirements.txt sphinx-autobuild # setup
   jupyter-book config sphinx .                     # config
-  sphinx-autobuild -b dirhtml . _build/html        # build-serve
+  sphinx-autobuild -b dirhtml . _build/dirhtml     # build-serve
   ```
   ````
 

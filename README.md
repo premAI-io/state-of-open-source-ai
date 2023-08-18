@@ -49,7 +49,7 @@ python -m http.server -d _build/html
   :class: margin-caption
   ![alt-text](assets/logo.png){width=200px align=left}
 
-  This is a **figure caption** *in the margin*, vis https://jupyterbook.org/en/stable/content/figures.html#markdown-figures
+  This is a **figure caption** *in the margin*, vis [jupyterbook#markdown-figures](https://jupyterbook.org/en/stable/content/figures.html#markdown-figures)
   ```
 
   - [inline ref](fig-ref)
@@ -78,9 +78,6 @@ Uncensored Models | FraudGPT, PoisonGPT
 Developer SDK | langchain, haystack, llama index
 Desktop Apps | LMStudio, GPT4All UI
 Hardware | NVIDIA GPUs, Mac, iPhone
-
-```{tableofcontents}
-```
 
 ## [Licenses](licenses)
 

@@ -6,7 +6,7 @@ Site: {{ baseurl }}
 
 As a data scientist/developer with a 9 to 5 job, it's difficult to keep track of all the innovations. There's been enormous progress in the field in the last year.
 
-The guide covers all the most important categories in the Open Source AI space, from model evaluations to deployment. It includes a [glossary](glossary) for you to quickly check definitions of new frameworks & tools.
+The guide covers all the most important categories in the Open Source AI space, from model evaluations to deployment. It includes a [](glossary) for you to quickly check definitions of new frameworks & tools.
 
 A quick TL;DR overview is included at the top of each section. We outline the pros/cons and general context/background for each topic. Then we dive a bit deeper. Examples include data models were trained on, and deployment implementations.
 
@@ -28,31 +28,17 @@ We identified the main categories for what concerns open-source tooling, models,
 
 Chapter | Examples
 ---|---
-[Licenses](licenses) | LLaMA, HuggingFace, Apache-2.0
-Evaluation & Datasets | OpenLLM Leaderboard, Datasets
-Models | LLaMA 1 vs 2, Falcon, Stable Diffusion, DALL-E
-Uncensored Models | FraudGPT, PoisonGPT
-[Fine-tuning Frameworks](fine-tuning) | h20, ...
-[Model Formats](model-formats) | ONNX, Apache TVM, GGML
-[MLOps Engines](mlops-engines) | BentoML, llama.cpp, ray
-[Vector Stores](vector-stores) | weaviate, qdrant, milvus, redis, chroma
-Developer SDK | langchain, haystack, llama index
-Desktop Apps | LMStudio, GPT4All UI
-Hardware | NVIDIA GPUs, Mac, iPhone
-
-```{admonition} Chapter WiP
-:class: dropdown
-- Evaluation & Datasets
-  + What is Perplexity?
-  + What's the Role of Reinforcement Learning for a Chat-based LLM?
-- Models
-- Uncensored Models
-- Developer SDK
-  + LangChain
-  + Llama Index
-- Desktop Apps
-- Hardware
-```
+[](licenses) | LLaMA, HuggingFace, Apache-2.0
+[](eval-datasets) | OpenLLM Leaderboard, Datasets
+[](models) | LLaMA 1 vs 2, Falcon, Stable Diffusion, DALL-E
+[](uncensored-models) | FraudGPT, PoisonGPT
+[](fine-tuning) | h20, ...
+[](model-formats) | ONNX, Apache TVM, GGML
+[](mlops-engines) | BentoML, llama.cpp, ray
+[](vector-stores) | weaviate, qdrant, milvus, redis, chroma
+[](sdk) | langchain, haystack, llama index
+[](desktop-apps) | LMStudio, GPT4All UI
+[](hardware) | NVIDIA GPUs, Mac, iPhone
 
 ## Contributing
 
@@ -83,11 +69,11 @@ We understand that the current open source ecosystem is moving at light-speed. T
 
 - [Quickstart](https://jupyterbook.org/en/stable/reference/cheatsheet.html)
 - [Full reference](https://jupyterbook.org/en/stable/content/myst.html)
-- adding a new chapter
-  + create `some-file.md` containing `# Some File` heading and `{{ comments }}` ending
+- Create a new chapter:
+  + create `some-file.md` (containing `# Some File` heading and `{{ comments }}` footer)
   + add `- file: some-file` to `_toc.yml`
-  + add `[Some File](some-file) | summary` to [ToC](toc)
-- figures:
+  + add `[](some-file) | summary` to [ToC](toc)
+- Figures:
 
   ```{figure-md} fig-ref
   :class: margin-caption
@@ -100,7 +86,7 @@ We understand that the current open source ecosystem is moving at light-speed. T
   - numbered ref: {numref}`fig-ref`
   - custom ref: {numref}`Figure {number} with caption "{name}" <fig-ref>`
 
-- glossary term: {term}`GPU`
+- Glossary term: {term}`GPU`
 - `references.bib` citation: {cite}`python`
 
 ## Conclusion
@@ -128,7 +114,7 @@ Tokens
 [GPU](https://en.wikipedia.org/wiki/Graphics_processing_unit)
     Graphics Processing Unit: hardware originally designed to accelerate computer image processing, but now often repurposed for [embarrassingly parallel](https://en.wikipedia.org/wiki/Embarrassingly_parallel) computational tasks in machine learning.
 
-A100, V100 H100
+A100, V100, H100
 Vector
 Embedding
 Vector Embeddings

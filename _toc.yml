@@ -3,8 +3,14 @@ format: jb-book
 root: index
 chapters:
 - file: licenses
+- file: eval-datasets
+- file: models
+- file: uncensored-models
 - file: fine-tuning
 - file: model-formats
 - file: mlops-engines
 - file: vector-stores
+- file: sdk
+- file: desktop-apps
+- file: hardware
 - file: references

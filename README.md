@@ -74,7 +74,7 @@ Uncensored Models | FraudGPT, PoisonGPT
 [Fine-tuning Frameworks](fine-tuning) | h20, ...
 [Model Formats](model-formats) | ONNX, Apache TVM, GGML
 [MLOps Engines](mlops-engines) | BentoML, llama.cpp, ray
-Vector Stores | weaviate, qdrant, milvus, redis, chroma
+[Vector Stores](vector-stores) | weaviate, qdrant, milvus, redis, chroma
 Developer SDK | langchain, haystack, llama index
 Desktop Apps | LMStudio, GPT4All UI
 Hardware | NVIDIA GPUs, Mac, iPhone
@@ -100,17 +100,7 @@ Hardware | NVIDIA GPUs, Mac, iPhone
 
 ## [MLOps Engines](mlops-engines)
 
-## Vector Stores
-
-**PGVector**
-
-**Weaviate**
-
-**Redis**
-
-**Qdrant**
-
-**Chroma**
+## [Vector Stores](vector-stores)
 
 ## Developer SDK
 

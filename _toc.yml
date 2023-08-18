@@ -6,4 +6,5 @@ chapters:
 - file: fine-tuning
 - file: model-formats
 - file: mlops-engines
+- file: vector-stores
 - file: references

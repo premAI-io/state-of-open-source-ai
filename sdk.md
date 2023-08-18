@@ -2,6 +2,8 @@
 
 ## LangChain
 
-## Llama Index
+## LLaMA Index
+
+## Haystack
 
 {{ comments }}

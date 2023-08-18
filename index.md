@@ -95,11 +95,11 @@ Open Source AI represents the future of privacy and ownership of data. On the ot
 
 At Prem we are on a journey to make this possible, with a focus on developer experience and deployment for any sort of developers, from Web Developers with zero knowledge about AI to affirmed Data Scientist who wants to quickly deploy and try these new models and technologies in their existing infra without compromising privacy.
 
-## Join our community
+## Join our Community
 
-- Be part of the community [by joining our Discord](https://discord.com/invite/kpKk6vYVAn).
-- To stay in touch [follow us on Twitter](https://twitter.com/premai_io).
-- To report bugs or ask for support [open an issue on the Github repository](https://github.com/premAI-io/prem-app).
+- Ask for support on [our Discord server](https://discord.com/invite/kpKk6vYVAn).
+- To keep up-to-date, [follow us on Twitter](https://twitter.com/premai_io).
+- Report bugs or request features at https://github.com/premAI-io/prem-app.
 
 (glossary)=
 

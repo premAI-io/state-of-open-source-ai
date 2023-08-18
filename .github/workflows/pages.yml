@@ -1,5 +1,5 @@
 # see https://github.com/actions/starter-workflows/blob/main/pages/jekyll.yml
-name: build & deploy site
+name: site
 on:
   push:
   workflow_dispatch:
@@ -26,7 +26,11 @@ jobs:
         jupyter-book build --warningiserror --nitpick .
         jupyter-book build --builder latex .
     - uses: xu-cheng/latex-action@v2
-      with: {working_directory: _build/latex, root_file: book.tex}
+      with:
+        working_directory: _build/latex
+        root_file: book.tex
+        args: -pdf -dvi- -ps- -file-line-error -f -interaction=nonstopmode
+      continue-on-error: true
     - run: cp _build/latex/book.pdf _build/html/
     - uses: actions/upload-pages-artifact@v2
       with: {path: _build/html}

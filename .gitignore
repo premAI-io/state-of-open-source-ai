@@ -3,4 +3,5 @@ __pycache__/
 *.py[cod]
 .ipynb_checkpoints/
 # jupyter-book
-/_build
+/_build/
+/conf.py

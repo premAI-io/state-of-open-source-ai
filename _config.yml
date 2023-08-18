@@ -40,6 +40,11 @@ sphinx:
   - sphinxemoji.sphinxemoji
   config:
     bibtex_reference_style: label
+    linkcheck_ignore:
+    - http://localhost:8000
+    - https://github.com/premAI-io/state-of-open-source-ai # TODO: remove
+    linkcheck_allowed_redirects:
+      https://codespaces.new/.*: https://github.com/login.*
 bibtex_bibfiles: [references.bib] # citations
 latex: # for PDF builds
   latex_documents:

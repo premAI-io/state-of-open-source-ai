@@ -87,7 +87,7 @@ We understand that the current open source ecosystem is moving at light-speed. T
   + custom ref: {numref}`Figure {number} with caption "{name}" <fig-ref>`
 
 - Glossary term: {term}`GPU`
-- `references.bib` citation: {cite}`python`
+- [BibTeX](https://jupyterbook.org/en/stable/tutorials/references.html#add-your-references) `references.bib` citation: {cite}`python`
 
 ### Contributors
 

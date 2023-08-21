@@ -45,9 +45,13 @@ sphinx:
     bibtex_reference_style: label
     linkcheck_ignore:
     - http://localhost:8000
+    - https://github.com/imaurer/awesome-decentralized-llm#.*
     - https://github.com/premAI-io/state-of-open-source-ai # TODO: remove
     linkcheck_allowed_redirects:
       https://codespaces.new/.*: https://github.com/login.*
+      https://youtu.be/.*: https://www.youtube.com/watch\?v=.*&feature=youtu.be
+      https://.*.substack.com/i/\d+/.*: https://.*.substack.com/p/.*
+      https://docs.bentoml.org: https://docs.bentoml.com/en/latest
 bibtex_bibfiles: [references.bib] # citations
 latex: # for PDF builds
   latex_documents:

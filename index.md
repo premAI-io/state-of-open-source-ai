@@ -82,9 +82,9 @@ We understand that the current open source ecosystem is moving at light-speed. T
   This is a **figure caption** *in the margin*, vis [jupyterbook#markdown-figures](https://jupyterbook.org/en/stable/content/figures.html#markdown-figures)
   ```
 
-  - [inline ref](fig-ref)
-  - numbered ref: {numref}`fig-ref`
-  - custom ref: {numref}`Figure {number} with caption "{name}" <fig-ref>`
+  + [inline ref](fig-ref)
+  + numbered ref: {numref}`fig-ref`
+  + custom ref: {numref}`Figure {number} with caption "{name}" <fig-ref>`
 
 - Glossary term: {term}`GPU`
 - `references.bib` citation: {cite}`python`

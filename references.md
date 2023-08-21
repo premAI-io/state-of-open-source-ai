@@ -1,5 +1,42 @@
 # References
 
+## TODO: move elsewhere
+
+### important and/or related to whole book
+
+- "Catching up on the weird world of LLMs" (summary of the last few years) https://simonwillison.net/2023/Aug/3/weird-world-of-llms
+- "Open challenges in LLM research" (exciting post title but mediocre content) https://huyenchip.com/2023/08/16/llm-research-open-challenges.html
+- "AI forest" https://www.michaeldempsey.me/blog/2023/07/18/the-dark-forest-of-rd-and-capital-deployment-in-ai
+- https://github.com/zeno-ml/zeno-build/tree/main/examples/analysis_gpt_mt/report
+- "Patterns for Building LLM-based Systems & Products" (Evals, RAG, fine-tuning, caching, guardrails, defensive UX, and collecting user feedback) https://eugeneyan.com/writing/llm-patterns
+
+  ```{figure-md} llm-patterns
+  :class: margin
+  ![](https://eugeneyan.com/assets/llm-patterns-og.png)
+
+  [LLM patterns: From data to user, from defensive to offensive](https://eugeneyan.com/writing/llm-patterns)
+  ```
+
+- `awesome-list`s (mention overall list + recently added entries)
+  + https://github.com/imaurer/awesome-decentralized-llm
+  + https://github.com/huggingface/transformers/blob/main/awesome-transformers.md
+  + ... others?
+
+### unclassified
+
+Couldn't decide which chapter(s) these links are related to. They're mostly about security & optimisation. Perhaps create a new chapter?
+
+- "How I Re-implemented PyTorch for WebGPU" (`webgpu-torch`: inference & autograd lib to run NNs in browser with negligible overhead) https://praeclarum.org/2023/05/19/webgpu-torch.html
+- "Llama from scratch (or how to implement a paper without crying)" (misc tips, scaled-down version of LLaMA for training) https://blog.briankitano.com/llama-from-scratch
+- "Swift Transformers: Run On-Device LLMs in Apple Devices" https://huggingface.co/blog/swift-coreml-llm
+- "Why GPT-3.5-turbo is (mostly) cheaper than LLaMA-2" https://www.cursor.so/blog/llama-inference#user-content-fn-gpt4-leak
+- http://marble.onl/posts/why_host_your_own_llm.html
+- https://betterprogramming.pub/you-dont-need-hosted-llms-do-you-1160b2520526
+- "Low-code framework for building custom LLMs, neural networks, and other AI models" https://github.com/ludwig-ai/ludwig
+- "GPTQ: Accurate Post-Training Quantization for Generative Pre-trained Transformers" https://arxiv.org/abs/2210.17323
+- "RetrievalQA with LLaMA 2 70b & Chroma DB" (nothing new, but this guy does a lot of experiments if you wanna follow him) https://youtu.be/93yueQQnqpM
+- "[WiP] build MLOps solutions in Rust" https://github.com/nogibjj/rust-mlops-template
+
 ```{bibliography}
 :style: unsrt
 ```

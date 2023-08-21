@@ -89,6 +89,10 @@ We understand that the current open source ecosystem is moving at light-speed. T
 - Glossary term: {term}`GPU`
 - `references.bib` citation: {cite}`python`
 
+### Contributors
+
+{{ '[![](https://contrib.rocks/image?repo=' + '/'.join(repo_url.split('/')[-2:]) + ')](' + repo_url + '/graphs/contributors)' }}
+
 ## Conclusion
 
 Open Source AI represents the future of privacy and ownership of data. On the other hand, in order to make this happen a lot of innovation should come into place. In the last year, already the open-source community demonstrated how motivated they are in order to deliver quality models to the hands of consumers creating already few big innovations in different AI fields. At the same time, this is just the beginning. Many improvements in multiple directions must be made in order to compare the results with centralized solutions.

@@ -77,7 +77,7 @@ We understand that the current open source ecosystem is moving at light-speed. T
 
   ```{figure-md} fig-ref
   :class: margin-caption
-  ![alt-text](assets/logo.png){width=200px align=left}
+  ![alt-text](https://static.premai.io/logo.png){width=200px align=left}
 
   This is a **figure caption** *in the margin*, vis [jupyterbook#markdown-figures](https://jupyterbook.org/en/stable/content/figures.html#markdown-figures)
   ```

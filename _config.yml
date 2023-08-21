@@ -2,7 +2,7 @@
 title: State of Open Source AI Book
 author: Prem AI
 copyright: 2023 CC-BY-4.0 (text) & Apache-2.0 (code)
-logo: assets/logo.png
+logo: https://static.premai.io/logo.png
 repository:
   url: https://github.com/premAI-io/state-of-open-source-ai
   branch: main

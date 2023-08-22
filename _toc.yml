@@ -2,7 +2,7 @@
 format: jb-book
 root: index
 chapters:
-- file: licenses
+- file: licences
 - file: eval-datasets
 - file: models
 - file: uncensored-models

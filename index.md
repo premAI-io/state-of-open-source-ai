@@ -18,7 +18,7 @@ You should already know the basic principles of MLOps (TODO:links).
 ```
 
 You haven't followed the most recent developments in open source AI over the last year, and want to catch up quickly.
-We go beyond just mentioning the models, but also include things such as infrastructure, licenses and new applications.
+We go beyond just mentioning the models, but also include things such as infrastructure, licences and new applications.
 
 (toc)=
 
@@ -28,7 +28,7 @@ We identified the main categories for what concerns open-source tooling, models,
 
 Chapter | Examples
 ---|---
-[](licenses) | LLaMA, HuggingFace, Apache-2.0
+[](licences) | LLaMA, HuggingFace, Apache-2.0
 [](eval-datasets) | OpenLLM Leaderboard, Datasets
 [](models) | LLaMA 1 vs 2, Falcon, Stable Diffusion, DALL-E
 [](uncensored-models) | FraudGPT, PoisonGPT

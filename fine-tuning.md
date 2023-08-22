@@ -2,7 +2,7 @@
 
 Overview/summary table:
 
-Name | HW Requirements | Evaluation | License | Inference
+Name | HW Requirements | Evaluation | Licence | Inference
 --|--|--|--|--
 **Text**|
 Gorilla |

@@ -2,8 +2,8 @@ SPDX-License-Identifier: CC-BY-4.0 OR Apache-2.0
 
 This book is a product of collaborative work.
 Unless otherwise stated, all authors (see commit logs) retain copyright
-for their respective work, and release code under the Apache-2.0 license,
-and everything else under the CC-BY-4.0 license.
+for their respective work, and release code under the Apache-2.0 licence,
+and everything else under the CC-BY-4.0 licence.
 
 Exceptions or notable authors are listed below
 in reverse chronological order:
@@ -15,19 +15,19 @@ in reverse chronological order:
 Creative Commons Attribution v. 4.0 Internation (CC-BY-4.0)
 -----------------------------------------------------------
 
-This work is licensed under http://creativecommons.org/licenses/by/4.0
+This work is licenced under http://creativecommons.org/licenses/by/4.0
 
-Apache License v. 2.0
+Apache Licence v. 2.0
 ---------------------
 
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this work except in compliance with the License.
-You may obtain a copy of the License at
+Licenced under the Apache Licence, Version 2.0 (the "Licence");
+you may not use this work except in compliance with the Licence.
+You may obtain a copy of the Licence at
 
     http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
+distributed under the Licence is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
+See the Licence for the specific language governing permissions and
+limitations under the Licence.

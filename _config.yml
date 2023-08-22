@@ -7,6 +7,7 @@ repository:
   url: https://github.com/premAI-io/state-of-open-source-ai
   branch: main
 only_build_toc_files: true
+exclude_patterns: [.github/*]
 html:
   baseurl: http://localhost:8000
   favicon: assets/favicon.ico

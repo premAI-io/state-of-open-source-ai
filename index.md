@@ -14,11 +14,17 @@ A quick TL;DR overview is included at the top of each section. We outline the pr
 
 ```{admonition} Prerequisites to Reading
 :class: warning
-You should already know the basic principles of MLOps (TODO:links).
+You should already know the basic principles of MLOps {cite}`google-mlops,redhat-mlops,ml-ops`, i.e. you should know that the traditional steps are:
+
+1. Data engineering (preprocessing, curation, labelling, sanitisation)
+2. Model engineering (training, architecture design)
+3. Automated testing (CI)
+4. Deployment/Automated Inference (CD)
+5. Monitoring (logging, feedback, drift detection)
 ```
 
 You haven't followed the most recent developments in open source AI over the last year, and want to catch up quickly.
-We go beyond just mentioning the models, but also include things such as infrastructure, licences and new applications.
+We go beyond just mentioning the models, but also include things such as changing infrastructure, licence pitfalls, and novel applications.
 
 (toc)=
 

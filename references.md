@@ -38,6 +38,8 @@ Couldn't decide which chapter(s) these links are related to. They're mostly abou
 - "RetrievalQA with LLaMA 2 70b & Chroma DB" (nothing new, but this guy does a lot of experiments if you wanna follow him) https://youtu.be/93yueQQnqpM
 - "[WiP] build MLOps solutions in Rust" https://github.com/nogibjj/rust-mlops-template
 
+## BibTeX references (TODO: use this more -- see [guide](index#formatting))
+
 ```{bibliography}
 :style: unsrt
 ```

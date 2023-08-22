@@ -65,6 +65,8 @@ We understand that the current open source ecosystem is moving at light-speed. T
   ```
   ````
 
+(index#formatting)=
+
 ### Formatting
 
 - [Quickstart](https://jupyterbook.org/en/stable/reference/cheatsheet.html)

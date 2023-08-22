@@ -7,6 +7,7 @@
         "DavidAnson.vscode-markdownlint",
         "streetsidesoftware.code-spell-checker"],
     "settings": {
+        "editor.tabCompletion": "on",
         "files.insertFinalNewline": true,
         "files.trimFinalNewlines": true,
         "files.trimTrailingWhitespace": true,

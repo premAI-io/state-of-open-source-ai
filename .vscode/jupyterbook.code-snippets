@@ -1,0 +1,41 @@
+{
+"BibTeX URL": {
+	"scope": "bibtex",
+	"prefix": "@online",
+	"body": [
+		"@online{${1:key},",
+		"title={$3},",
+		"author={$4},",
+		"year=${5:lastUpdated},",
+		"url={$2}",
+		"}"
+	],
+	"description": "Add a website citation"
+},
+"Figure (external)": {
+	"scope": "markdown",
+	"prefix": "fig-ext",
+	"body": [
+		"```{figure-md} ${4}",
+		":class: margin",
+		"![](${1:imageURL})",
+		"",
+		"[${2:caption}](${3:sourcePageURL})",
+		"```"
+	],
+	"description": "Add an image from an external website"
+},
+"Figure (internal)": {
+	"scope": "markdown",
+	"prefix": "fig-int",
+	"body": [
+		"```{figure-md} ${4}",
+		":class: margin",
+		"![](https://static.premai.io/book/${1:imageURL})",
+		"",
+		"${2:caption}",
+		"```"
+	],
+	"description": "Add an image hosted by static.premai.io"
+}
+}

@@ -96,7 +96,10 @@ Don't worry about making it perfect, it's fine to open a (`draft <https://docs.g
   + please use https://github.com/premAI-io/static.premai.io to host images & data
 
 - [](glossary) term: {term}`GPU`
+  + custom inline text: {term}`GPUs <GPU>`
 - [BibTeX](https://jupyterbook.org/en/stable/tutorials/references.html#add-your-references) `references.bib` citation: {cite}`python`
+
+% comment lines (not rendered) are prefixed with a "%"
 
 ### Contributors
 
@@ -118,14 +121,17 @@ At Prem we are on a journey to make this possible, with a focus on developer exp
 
 ## Glossary
 
+%TODO: define all these & use them where appropriate
+
 ```{glossary}
 :sorted:
+Foundation model
 Evaluation
 Auto-regressive language model
 Decoder-style transformer
 Tokens
 [GPU](https://en.wikipedia.org/wiki/Graphics_processing_unit)
-    Graphics Processing Unit: hardware originally designed to accelerate computer image processing, but now often repurposed for [embarrassingly parallel](https://en.wikipedia.org/wiki/Embarrassingly_parallel) computational tasks in machine learning.
+  Graphics Processing Unit: hardware originally designed to accelerate computer image processing, but now often repurposed for [embarrassingly parallel](https://en.wikipedia.org/wiki/Embarrassingly_parallel) computational tasks in machine learning.
 
 A100, V100, H100
 Vector

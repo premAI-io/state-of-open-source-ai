@@ -4,8 +4,11 @@
 
 - [ ] chapter content
   + [ ] only one top-level `# h1-Title`
-  + [ ] summary (e.g. table), no need for an explicit `## Summary/Introduction` title or equivalent
+  + [ ] summary (e.g. table or TL;DR overview), no need for an explicit `## Summary/Introduction` title or equivalent
   + [ ] main content focus: recent developments in open source AI
+    + general context/background (brief)
+    + current pros/cons
+    + in-depth insights (not yet widely known)
   + [ ] likely `## Future` developments
   + [ ] end with `{{ comments }}`
 - [ ] appropriate citations

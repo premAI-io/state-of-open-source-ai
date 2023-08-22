@@ -12,7 +12,6 @@ html:
   baseurl: http://localhost:8000
   favicon: assets/favicon.ico
   use_edit_page_button: true
-  use_issues_button: true
   use_repository_button: true
   announcement: ⚠️ work in progress; please don't share externally
   comments:

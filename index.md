@@ -113,6 +113,8 @@ Don't worry about making it perfect, it's fine to open a (`draft <https://docs.g
 
 ## Conclusion
 
+% TODO: rewrite
+
 Open Source AI represents the future of privacy and ownership of data. On the other hand, in order to make this happen a lot of innovation should come into place. In the last year, already the open-source community demonstrated how motivated they are in order to deliver quality models to the hands of consumers creating already few big innovations in different AI fields. At the same time, this is just the beginning. Many improvements in multiple directions must be made in order to compare the results with centralized solutions.
 
 At Prem we are on a journey to make this possible, with a focus on developer experience and deployment for any sort of developers, from Web Developers with zero knowledge about AI to affirmed Data Scientist who wants to quickly deploy and try these new models and technologies in their existing infra without compromising privacy.
@@ -131,14 +133,17 @@ At Prem we are on a journey to make this possible, with a focus on developer exp
 
 ```{glossary}
 :sorted:
+GPU
+  [Graphics Processing Unit](https://en.wikipedia.org/wiki/Graphics_processing_unit): hardware originally designed to accelerate computer image processing, but now often repurposed for [embarrassingly parallel](https://en.wikipedia.org/wiki/Embarrassingly_parallel) computational tasks in machine learning.
+
+IP
+  [Intellectual Property](https://en.wikipedia.org/wiki/Intellectual_property): intangible creations by humans (e.g. code, text, art), typically legally protected from use without permission of the author(s).
+
 Foundation model
 Evaluation
 Auto-regressive language model
 Decoder-style transformer
 Tokens
-[GPU](https://en.wikipedia.org/wiki/Graphics_processing_unit)
-  Graphics Processing Unit: hardware originally designed to accelerate computer image processing, but now often repurposed for [embarrassingly parallel](https://en.wikipedia.org/wiki/Embarrassingly_parallel) computational tasks in machine learning.
-
 A100, V100, H100
 Vector
 Embedding

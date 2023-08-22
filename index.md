@@ -87,6 +87,7 @@ We understand that the current open source ecosystem is moving at light-speed. T
   + [inline ref](fig-ref)
   + numbered ref: {numref}`fig-ref`
   + custom ref: {numref}`Figure {number} with caption "{name}" <fig-ref>`
+  + please use https://github.com/premAI-io/static.premai.io to host images & data
 
 - Glossary term: {term}`GPU`
 - [BibTeX](https://jupyterbook.org/en/stable/tutorials/references.html#add-your-references) `references.bib` citation: {cite}`python`

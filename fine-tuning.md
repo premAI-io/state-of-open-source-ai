@@ -2,7 +2,7 @@
 
 See also:
 - https://gist.github.com/veekaybee/be375ab33085102f9027853128dc5f0e#training-your-own
-- "Why You (Probably) Don't Need to Fine-tune an LLM" (instead, use few-shot prompting & retrieval-augmented generation) https://www.tidepool.so/2023/08/17/why-you-probably-dont-need-to-fine-tune-an-llm
+- "Why You (Probably) Don't Need to Fine-tune an LLM" (instead, use few-shot prompting & retrieval-augmented generation) https://www.tidepool.so/2023/08/17/why-you-probably-dont-need-to-fine-tune-an-llm/
 
 Overview/summary table:
 

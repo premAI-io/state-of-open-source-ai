@@ -46,6 +46,7 @@ sphinx:
     linkcheck_ignore:
     - http://localhost:8000
     - https://github.com/imaurer/awesome-decentralized-llm#.*
+    - https://gist.github.com/veekaybee/be375ab33085102f9027853128dc5f0e#.*
     - https://github.com/premAI-io/state-of-open-source-ai # TODO: remove
     linkcheck_allowed_redirects:
       https://codespaces.new/.*: https://github.com/login.*

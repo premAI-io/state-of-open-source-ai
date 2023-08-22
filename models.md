@@ -9,5 +9,6 @@ See also:
 - "AI and Memory Wall" https://medium.com/riselab/ai-and-memory-wall-2cb4265cb0b8
 - https://github.com/imaurer/awesome-decentralized-llm
 - https://github.com/huggingface/transformers/blob/main/awesome-transformers.md
+- Background, Foundational Papers, Algos https://gist.github.com/veekaybee/be375ab33085102f9027853128dc5f0e
 
 {{ comments }}

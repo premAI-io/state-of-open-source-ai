@@ -20,6 +20,7 @@
 - `awesome-list`s (mention overall list + recently added entries)
   + https://github.com/imaurer/awesome-decentralized-llm
   + https://github.com/huggingface/transformers/blob/main/awesome-transformers.md
+  + "Anti-hype LLM reading list" (foundation papers, training, deployment, eval, UX) https://gist.github.com/veekaybee/be375ab33085102f9027853128dc5f0e
   + ... others?
 
 ### unclassified

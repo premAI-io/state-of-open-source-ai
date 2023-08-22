@@ -1,12 +1,13 @@
 # Evaluation & Datasets
 
-From https://github.com/imaurer/awesome-decentralized-llm#leaderboards:
+See also:
 
-- [OpenLLM Leaderboard](https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard)
-- [AlpacaEval Leaderboard](https://tatsu-lab.github.io/alpaca_eval)
-- [Code Generation on HumanEval](https://paperswithcode.com/sota/code-generation-on-humaneval)
-
-Quality: ["Better Data = Better Performance"](https://cameronrwolfe.substack.com/i/135439692/better-data-better-performance)
+- From https://github.com/imaurer/awesome-decentralized-llm#leaderboards:
+  + [OpenLLM Leaderboard](https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard)
+  + [AlpacaEval Leaderboard](https://tatsu-lab.github.io/alpaca_eval)
+  + [Code Generation on HumanEval](https://paperswithcode.com/sota/code-generation-on-humaneval)
+- Quality: ["Better Data = Better Performance"](https://cameronrwolfe.substack.com/i/135439692/better-data-better-performance)
+- https://gist.github.com/veekaybee/be375ab33085102f9027853128dc5f0e#evaluation
 
 ## LLM Leaderboard criticism links to maybe mention
 

@@ -1,7 +1,7 @@
 // format details: https://aka.ms/devcontainer.json
 {
 "name": "book.premai.io",
-"build": {"dockerfile": ".github/Dockerfile", "context": "."},
+"build": {"dockerfile": ".vscode/Dockerfile", "context": "."},
 "customizations": {"vscode": {
     "extensions": [
         "DavidAnson.vscode-markdownlint",

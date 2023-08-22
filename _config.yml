@@ -2,11 +2,12 @@
 title: State of Open Source AI Book
 author: Prem AI
 copyright: 2023 CC-BY-4.0 (text) & Apache-2.0 (code)
-logo: assets/logo.png
+logo: https://static.premai.io/logo.png
 repository:
   url: https://github.com/premAI-io/state-of-open-source-ai
   branch: main
 only_build_toc_files: true
+exclude_patterns: [.github/*]
 html:
   baseurl: http://localhost:8000
   favicon: assets/favicon.ico
@@ -48,6 +49,7 @@ sphinx:
     - https://github.com/imaurer/awesome-decentralized-llm#.*
     - https://gist.github.com/veekaybee/be375ab33085102f9027853128dc5f0e#.*
     - https://github.com/premAI-io/state-of-open-source-ai # TODO: remove
+    - https://contrib.rocks # TODO: remove
     linkcheck_allowed_redirects:
       https://codespaces.new/.*: https://github.com/login.*
       https://youtu.be/.*: https://www.youtube.com/watch\?v=.*&feature=youtu.be

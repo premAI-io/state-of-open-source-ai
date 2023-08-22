@@ -65,7 +65,15 @@ We understand that the current open source ecosystem is moving at light-speed. T
   ```
   ````
 
+(index#formatting)=
+
 ### Formatting
+
+````{note}
+```{eval-rst}
+Don't worry about making it perfect, it's fine to open a (`draft <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests#draft-pull-requests>`_) PR and `allow edits from maintainers <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork>`_ to fix it |:heart:|
+```
+````
 
 - [Quickstart](https://jupyterbook.org/en/stable/reference/cheatsheet.html)
 - [Full reference](https://jupyterbook.org/en/stable/content/myst.html)
@@ -77,17 +85,25 @@ We understand that the current open source ecosystem is moving at light-speed. T
 
   ```{figure-md} fig-ref
   :class: margin-caption
-  ![alt-text](assets/logo.png){width=200px align=left}
+  ![alt-text](https://static.premai.io/logo.png){width=200px align=left}
 
   This is a **figure caption** *in the margin*, vis [jupyterbook#markdown-figures](https://jupyterbook.org/en/stable/content/figures.html#markdown-figures)
   ```
 
-  - [inline ref](fig-ref)
-  - numbered ref: {numref}`fig-ref`
-  - custom ref: {numref}`Figure {number} with caption "{name}" <fig-ref>`
+  + [inline ref](fig-ref)
+  + numbered ref: {numref}`fig-ref`
+  + custom ref: {numref}`Figure {number} with caption "{name}" <fig-ref>`
+  + please use https://github.com/premAI-io/static.premai.io to host images & data
 
-- Glossary term: {term}`GPU`
-- `references.bib` citation: {cite}`python`
+- [](glossary) term: {term}`GPU`
+  + custom inline text: {term}`GPUs <GPU>`
+- [BibTeX](https://jupyterbook.org/en/stable/tutorials/references.html#add-your-references) `references.bib` citation: {cite}`python`
+
+% comment lines (not rendered) are prefixed with a "%"
+
+### Contributors
+
+{{ '[![](https://contrib.rocks/image?repo=' + '/'.join(repo_url.split('/')[-2:]) + ')](' + repo_url + '/graphs/contributors)' }}
 
 ## Conclusion
 
@@ -105,14 +121,17 @@ At Prem we are on a journey to make this possible, with a focus on developer exp
 
 ## Glossary
 
+%TODO: define all these & use them where appropriate
+
 ```{glossary}
 :sorted:
+Foundation model
 Evaluation
 Auto-regressive language model
-decoder-style transformer
+Decoder-style transformer
 Tokens
 [GPU](https://en.wikipedia.org/wiki/Graphics_processing_unit)
-    Graphics Processing Unit: hardware originally designed to accelerate computer image processing, but now often repurposed for [embarrassingly parallel](https://en.wikipedia.org/wiki/Embarrassingly_parallel) computational tasks in machine learning.
+  Graphics Processing Unit: hardware originally designed to accelerate computer image processing, but now often repurposed for [embarrassingly parallel](https://en.wikipedia.org/wiki/Embarrassingly_parallel) computational tasks in machine learning.
 
 A100, V100, H100
 Vector

@@ -53,7 +53,7 @@ We understand that the current open source ecosystem is moving at light-speed. T
 ### Editing the Book
 
 - Using [GitHub Codespaces](https://codespaces.new/premAI-io/state-of-open-source-ai), you can edit code & preview the site in your browser without installing anything.
-- Alternatively, to run locally, open {{ '[this repository](' + repo_url + ')' }} in a [Dev Container](https://containers.dev) (most likely using VSCode).
+- Alternatively, to run locally, open {{ '[this repository](' + repo_url + ')' }} in a [Dev Container](https://containers.dev) (most likely [using VSCode](https://code.visualstudio.com/docs/devcontainers/containers#_installation)).
 - Or instead, manually set up your own Python environment:
 
   ```sh

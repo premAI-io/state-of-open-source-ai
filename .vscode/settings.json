@@ -1,0 +1,8 @@
+{
+"editor.tabCompletion": "on",
+"files.insertFinalNewline": true,
+"files.trimFinalNewlines": true,
+"files.trimTrailingWhitespace": true,
+"cSpell.language": "en-GB",
+"markdownlint.config": {"ul-style": false}
+}

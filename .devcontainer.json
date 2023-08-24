@@ -5,15 +5,7 @@
 "customizations": {"vscode": {
     "extensions": [
         "DavidAnson.vscode-markdownlint",
-        "streetsidesoftware.code-spell-checker"],
-    "settings": {
-        "editor.tabCompletion": "on",
-        "files.insertFinalNewline": true,
-        "files.trimFinalNewlines": true,
-        "files.trimTrailingWhitespace": true,
-        "cSpell.language": "en-GB",
-        "markdownlint.config": {"MD004": false}}
-}},
+        "streetsidesoftware.code-spell-checker"]}},
 // live reload https://github.com/executablebooks/jupyter-book/issues/1455
 "onCreateCommand": "pip install sphinx-autobuild",
 "postStartCommand": "jupyter-book config sphinx . && sphinx-autobuild -b dirhtml --re-ignore='\\.(github|devcontainer)' -n . _build/dirhtml",

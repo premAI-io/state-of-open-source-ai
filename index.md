@@ -51,9 +51,9 @@ We understand that the current open source ecosystem is moving at light-speed. T
 - Or instead, manually set up your own Python environment:
 
   ```sh
-  pip install -r requirements.txt         # setup
-  jupyter-book build -b dirhtml --all .   # build
-  python -m http.server -d _build/dirhtml # serve
+  pip install -r requirements.txt                # setup
+  jupyter-book build --builder dirhtml --all .   # build
+  python -m http.server -d _build/dirhtml        # serve
   ```
 
   ````{admonition} alternative: live rebuilding & serving (experimental)

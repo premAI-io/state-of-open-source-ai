@@ -70,6 +70,7 @@ sphinx:
     - https://doi.org/10.2307/2214413
     - https://github.com/premAI-io/state-of-open-source-ai # TODO: remove
     - https://contrib.rocks # TODO: remove
+    -  https://github.com/ggerganov/ggml.*
     linkcheck_allowed_redirects:
       https://doi.org/.*/.*: https://.*
       https://codespaces.new/.*: https://github.com/login.*

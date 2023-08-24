@@ -69,7 +69,7 @@ It's most used projects include:
 - [whisper.cpp](https://github.com/ggerganov/whisper.cpp)
 
   High-performance inference of [OpenAI's Whisper automatic speech recognition model](https://openai.com/research/whisper)
-  The project provides a high-quality speech-to-text solution that runs on Mac, Windows, Linux, iOS, Android, Raspberry Pi, and Web. Used by rewind.ai
+  The project provides a high-quality speech-to-text solution that runs on Mac, Windows, Linux, iOS, Android, Raspberry Pi, and Web. Used by [rewind.ai](https://www.rewind.ai/)
 
 - [llama.cpp](https://github.com/ggerganov/llama.cpp)
   

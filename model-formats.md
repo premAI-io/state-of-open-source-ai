@@ -2,8 +2,8 @@
 
 ## GGML
 [GGML](https://github.com/ggerganov/ggml) is a tensor library for machine learning to enable large models and high performance on commodity hardware - the "GG" refers to the initials of its originator [Georgi Gerganov](https://github.com/ggerganov). In addition to defining low-level machine learning primitives like a tensor type, GGML defines a binary format for distributing large language models (LLMs). [llama.cpp](https://github.com/ggerganov/llama.cpp) and [whisper.cpp](https://github.com/ggerganov/whisper.cpp) are based on it.
-+++
-It features:
+
+### Features and Benefits
 - Written in C
 - 16-bit float support
 - Integer quantization support (e.g. 4-bit, 5-bit, 8-bit)
@@ -94,6 +94,39 @@ Inference and training of many open sourced models ([StarCoder](https://github.c
 The library and related projects are freely available under the [MIT license](https://github.com/ggerganov/ggml/blob/master/LICENSE).
 
 ## ONNX
+[ONNX (Open Neural Network Exchange)](https://onnx.ai/) provides an open source format for AI models by defining an extensible computation graph model, as well as definitions of built-in operators and standard data types. It is [widely supported](http://onnx.ai/supported-tools) and can be found in many frameworks, tools, and hardware enabling interoperability between different frameworks.
+
+### Features and Benefits
+- **Model Interoperability:** ONNX bridges AI frameworks, allowing seamless model transfer between them, eliminating the need for complex conversions.
+
+- **Computation Graph Model:** ONNX's core is a graph model, representing AI models as directed graphs with nodes for operations, offering flexibility.
+
+- **Standardized Data Types:** ONNX establishes standard data types, ensuring consistency when exchanging models, reducing data type issues.
+
+- **Built-in Operators:** ONNX boasts a rich library of operators for common AI tasks, enabling consistent computation across frameworks.
+
+- **ONNX Ecosystem:**
+  - **[ONNX Runtime](https://github.com/microsoft/onnxruntime):** A high-performance inference engine for cross-platform ONNX models.
+  - **[ONNX ML Tools](https://github.com/onnx/onnxmltools):** Tools for ONNX model conversion and compatibility with frameworks like TensorFlow and PyTorch.
+  - **[ONNX Model Zoo](https://github.com/onnx/models):** A repository of pre-trained models converted to ONNX format for various tasks.
+  - **[ONNX Hub](https://github.com/onnx/onnx/blob/main/docs/Hub.md):** Helps sharing and collaborating on ONNX models within the community.
+
+### Usage
+To install the official `onnx` python package:
+```sh
+pip install onnx
+```
+
+Once installed, you can load, manipulate, and run ONNX models in your Python applications.
+```python
+import onnx
+
+# Load an ONNX model
+model = onnx.load("your_model.onnx")
+
+# Perform inference with the model
+# (Specific inference code depends on your application and framework)
+```
 
 ## FasterTransformer
 

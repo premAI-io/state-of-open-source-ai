@@ -63,7 +63,12 @@ Here's a [GPT-2 conversion example](https://github.com/ggerganov/ggml/blob/6319a
 [Quantization](https://en.wikipedia.org/wiki/Quantization_(signal_processing)) is a process where high-precision foating point values are converted to low-precision values. This overall reduces the resources required to use the values in Tensor, making model easier to run on low resources. GGML supports a number of different quantization strategies (e.g. 4-bit, 5-bit, and 8-bit quantization), each of which offers different trade-offs between efficiency and performance.
 
 ### Support
-Currently **No GPU support** present for GGML format models (CPU only), discussion happening [here](https://github.com/ggerganov/llama.cpp/discussions/915).
+
+```{admonition} GGUF format
+There's a new successor format to GGML named `GGUF` which is designed to be extensible and unambiguous by containing all the information needed to load a model. To read more about `GGUF` check [this PR](https://github.com/ggerganov/llama.cpp/pull/2398) and read in detail about it [here](https://github.com/philpax/ggml/blob/gguf-spec/docs/gguf.md).
+```
+
+Currently **No GPU support** is present for GGML format models (CPU only), discussion happening [here](https://github.com/ggerganov/llama.cpp/discussions/915).
 
 It's most used projects include:
 - [whisper.cpp](https://github.com/ggerganov/whisper.cpp)
@@ -122,11 +127,13 @@ Once installed, you can load, manipulate, and run ONNX models in your Python app
 import onnx
 
 # Load an ONNX model
-model = onnx.load("your_model.onnx")
+model = onnx.load("your_awesome_model.onnx")
 
 # Perform inference with the model
 # (Specific inference code depends on your application and framework)
 ```
+
+TODO: add updates from https://wiki.lfaidata.foundation/display/DL/ONNX+Community+Day+2023+-+June+28
 
 ## FasterTransformer
 

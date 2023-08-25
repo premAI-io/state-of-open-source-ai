@@ -38,7 +38,7 @@ jobs:
       run: |
         mkdir _site
         mv _build/dirhtml _site/$SITE_PREFIX
-        mv _build/latex/book.pdf _site/$SITE_PREFIX/
+        mv _build/latex/book.pdf _site/$SITE_PREFIX.pdf
         sed "s#DESTINATION#${{ steps.pages.outputs.base_url }}/$SITE_PREFIX#g" .redirect-template.html > _site/index.html
     - uses: actions/upload-pages-artifact@v2
   deploy:

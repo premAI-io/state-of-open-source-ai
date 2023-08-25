@@ -9,6 +9,8 @@ permissions:
   pages: write
   id-token: write
 concurrency: {group: "${{ github.ref }}-pages", cancel-in-progress: true}
+env:
+  SITE_PREFIX: state-of-open-source-ai
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -21,7 +23,7 @@ jobs:
     - run: pip install -r requirements.txt
     - name: jupyter-book build
       run: |
-        sed -ri 's#^(\s*baseurl:).*#\1 ${{ steps.pages.outputs.base_url }}#g' _config.yml
+        sed -ri 's#^(\s*baseurl:).*#\1 ${{ steps.pages.outputs.base_url }}/'$SITE_PREFIX'#g' _config.yml
         # https://jupyterbook.org/en/stable/reference/cli.html
         jupyter-book build --builder linkcheck --warningiserror --nitpick --keep-going .
         jupyter-book build --builder dirhtml --warningiserror --nitpick --keep-going .
@@ -32,9 +34,13 @@ jobs:
         root_file: book.tex
         args: -pdf -dvi- -ps- -file-line-error -f -interaction=nonstopmode
       continue-on-error: true
-    - run: cp _build/latex/book.pdf _build/dirhtml/
+    - name: prepare _site pages
+      run: |
+        mkdir _site
+        mv _build/dirhtml _site/$SITE_PREFIX
+        mv _build/latex/book.pdf _site/$SITE_PREFIX/
+        sed "s#DESTINATION#${{ steps.pages.outputs.base_url }}/$SITE_PREFIX#g" .redirect-template.html > _site/index.html
     - uses: actions/upload-pages-artifact@v2
-      with: {path: _build/dirhtml}
   deploy:
     if: github.ref == 'refs/heads/main'
     environment:

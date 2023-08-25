@@ -42,6 +42,8 @@ sphinx:
   extra_extensions:
   - sphinxemoji.sphinxemoji
   config:
+    html_js_files:
+    - [https://plausible.io/js/script.js, {defer: defer, data-domain: book.premai.io}]
     bibtex_reference_style: label
     linkcheck_ignore:
     - http://localhost:8000

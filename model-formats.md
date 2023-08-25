@@ -18,9 +18,9 @@
 
 To know more, see their [manifesto here](https://github.com/ggerganov/llama.cpp/discussions/205)
 
-### Inference
+### Usage
 
-Here's an example inference with GPT-2 GGML:
+Here's an example inference of GPT-2 GGML:
 ```python
 git clone https://github.com/ggerganov/ggml
 cd ggml
@@ -41,7 +41,7 @@ For a valid GGML file the following pieces of information should be present in o
 Here's a [GPT-2 conversion example](https://github.com/ggerganov/ggml/blob/6319ae9ad7bdf9f834b2855d7e9fa70508e82f57/examples/gpt-2/convert-cerebras-to-ggml.py#L67) where it's getting written.
 1. **Components of LLMs:**
    1. **Hyperparameters:** These are parameters which configures the behaviour of models. Valid GGML files lists these values in the correct order, and each value represented using the correct data type. Here's an [example for GPT-2](https://github.com/ggerganov/ggml/blob/6319ae9ad7bdf9f834b2855d7e9fa70508e82f57/examples/gpt-2/convert-cerebras-to-ggml.py#L68-L72).
-   2. **Vocabulary:**: These are all the tokens supported for the current model. Here's an [example for GPT-2](https://github.com/ggerganov/ggml/blob/6319ae9ad7bdf9f834b2855d7e9fa70508e82f57/examples/gpt-2/convert-cerebras-to-ggml.py#L78-L83).
+   2. **Vocabulary:**: These are all supported tokens for a model. Here's an [example for GPT-2](https://github.com/ggerganov/ggml/blob/6319ae9ad7bdf9f834b2855d7e9fa70508e82f57/examples/gpt-2/convert-cerebras-to-ggml.py#L78-L83).
    3. **Weights:**: These are also called parameters of the model. The total number of weights in a model are referred to as the "size" of that model. In GGML format a tensor consists of few components:
      - Name
      - 4 element list representing number of dimensions in the tensor and their lengths
@@ -64,7 +64,7 @@ Here's a [GPT-2 conversion example](https://github.com/ggerganov/ggml/blob/6319a
 
 ### Support
 
-```{admonition} GGUF format
+```{admonition} New GGUF format
 There's a new successor format to GGML named `GGUF` which is designed to be extensible and unambiguous by containing all the information needed to load a model. To read more about `GGUF` check [this PR](https://github.com/ggerganov/llama.cpp/pull/2398) and read in detail about it [here](https://github.com/philpax/ggml/blob/gguf-spec/docs/gguf.md).
 ```
 
@@ -99,9 +99,10 @@ Inference and training of many open sourced models ([StarCoder](https://github.c
 The library and related projects are freely available under the [MIT license](https://github.com/ggerganov/ggml/blob/master/LICENSE).
 
 ## ONNX
-[ONNX (Open Neural Network Exchange)](https://onnx.ai/) provides an open source format for AI models by defining an extensible computation graph model, as well as definitions of built-in operators and standard data types. It is [widely supported](http://onnx.ai/supported-tools) and can be found in many frameworks, tools, and hardware enabling interoperability between different frameworks.
+[ONNX (Open Neural Network Exchange)](https://onnx.ai/) provides an open source format for AI models by defining an extensible computation graph model, as well as definitions of built-in operators and standard data types. It is [widely supported](https://onnx.ai/supported-tools) and can be found in many frameworks, tools, and hardware enabling interoperability between different frameworks. ONNX is an intermediary representation of your model that lets you easily go from one environment to the next.
 
 ### Features and Benefits
+![onnx interoperability](assets/model-formats-onnx.png)(source: https://cms-ml.github.io/documentation/inference/onnx.html)
 - **Model Interoperability:** ONNX bridges AI frameworks, allowing seamless model transfer between them, eliminating the need for complex conversions.
 
 - **Computation Graph Model:** ONNX's core is a graph model, representing AI models as directed graphs with nodes for operations, offering flexibility.
@@ -117,12 +118,19 @@ The library and related projects are freely available under the [MIT license](ht
   - **[ONNX Hub](https://github.com/onnx/onnx/blob/main/docs/Hub.md):** Helps sharing and collaborating on ONNX models within the community.
 
 ### Usage
+
+Firstly the model needs to be converted to ONNX format using a relevant [converter](https://onnx.ai/onnx/intro/converters.html), for example if our model is created using Pytorch, for conversion we can use:
+-  [`torch.onnx.export`](https://pytorch.org/docs/master/onnx.html)
+-  [`optimum`](https://github.com/huggingface/optimum#onnx--onnx-runtime) by [huggingface](https://huggingface.co/docs/transformers/serialization#export-to-onnx)
+
+Once exported we can load, manipulate, and run ONNX models. Let's take a Python example:
+
 To install the official `onnx` python package:
 ```sh
 pip install onnx
 ```
 
-Once installed, you can load, manipulate, and run ONNX models in your Python applications.
+To load, manipulate, and run ONNX models in your Python applications:
 ```python
 import onnx
 
@@ -133,7 +141,18 @@ model = onnx.load("your_awesome_model.onnx")
 # (Specific inference code depends on your application and framework)
 ```
 
+### Working
+
+### Support
+
+#### Updates
 TODO: add updates from https://wiki.lfaidata.foundation/display/DL/ONNX+Community+Day+2023+-+June+28
+
+#### Resources
+
+### License
+It's freely available under [Apache License 2.0](https://github.com/onnx/onnx/blob/main/LICENSE).
+
 
 ## FasterTransformer
 

@@ -111,6 +111,8 @@ As you can see - there is not too much scope for model configuration, and unlike
 ![image](https://github.com/premAI-io/state-of-open-source-ai/assets/29293526/a8b4acb1-b367-4ed3-bac0-333f1e120b0a)
 
 
+## Model Comparisons
+
 |   Model   | Models available | Latency                                                      |                   UI                  |                              Extra Features                              | Future Outlook |
 |:---------:|:----------------:|--------------------------------------------------------------|:-------------------------------------:|:------------------------------------------------------------------------:|----------------|
 | LM Studio |                  | 4 tokens/s for Llama-2-7B                                    | Excellent - all necessary information |                         Local server deployments                         |                |

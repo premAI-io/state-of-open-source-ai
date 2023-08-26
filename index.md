@@ -48,12 +48,12 @@ Chapter | Examples
 
 ## Contributing
 
-We understand that the current open source ecosystem is moving at light-speed. This source of this guide is available on GitHub at {{ repo_url }}. Please do [create issues](https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-an-issue) or [open pull requests](https://docs.github.com/en/get-started/quickstart/contributing-to-projects) with any feedback or contributions you may have.
+We understand that the current open source ecosystem is moving at light-speed. This source of this guide is available on GitHub at {{ env.config.html_theme_options.repository_url }}. Please do [create issues](https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-an-issue) or [open pull requests](https://docs.github.com/en/get-started/quickstart/contributing-to-projects) with any feedback or contributions you may have.
 
 ### Editing the Book
 
 - Using [GitHub Codespaces](https://codespaces.new/premAI-io/state-of-open-source-ai), you can edit code & preview the site in your browser without installing anything.
-- Alternatively, to run locally, open {{ '[this repository](' + repo_url + ')' }} in a [Dev Container](https://containers.dev) (most likely [using VSCode](https://code.visualstudio.com/docs/devcontainers/containers#_installation)).
+- Alternatively, to run locally, open {{ '[this repository]({})'.format(env.config.html_theme_options.repository_url) }} in a [Dev Container](https://containers.dev) (most likely [using VSCode](https://code.visualstudio.com/docs/devcontainers/containers#_installation)).
 - Or instead, manually set up your own Python environment:
 
   ```sh
@@ -109,7 +109,9 @@ Don't worry about making it perfect, it's fine to open a (`draft <https://docs.g
 
 ### Contributors
 
-{{ '[![](https://contrib.rocks/image?repo=' + '/'.join(repo_url.split('/')[-2:]) + ')](' + repo_url + '/graphs/contributors)' }}
+{{ '[![](https://contrib.rocks/image?repo={})]({}/graphs/contributors)'.format(
+   '/'.join(env.config.html_theme_options.repository_url.split('/')[-2:]),
+   env.config.html_theme_options.repository_url) }}
 
 ## Conclusion
 

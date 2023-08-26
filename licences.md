@@ -30,7 +30,10 @@ Model | Weights | Training Data | Output
 [MosaicML MPT 30B](https://www.mosaicml.com/blog/mpt-30b) | 🟢 open source | 🔴 unavailable | 🟢 user has full ownership
 
 ```{tip}
-Is the table above missing an important model? Let us know in the comments below, or open a pull request!
+Is the table above missing an important model? Let us know in the [<i class="fas fa-pencil-alt"></i> comments](comments) below, or {{
+  '[<i class="fab fa-github"></i> open a pull request]({}/edit/main/{}.md)'.format(
+  env.config.html_theme_options.repository_url, env.docname)
+}}!
 ```
 
 Some interesting observations:
@@ -95,5 +98,7 @@ A recent tweet ({numref}`unusual-ventures-tweet`) classifies some current & {ter
 % TODO: "The Golden Age of Open Source in AI Is Coming to an End" (NC, SA, GPL, and other scary acronyms in model licences) https://towardsdatascience.com/the-golden-age-of-open-source-in-ai-is-coming-to-an-end-7fd35a52b786
 % TODO: EU laws
 % TODO: US laws
+
+(comments)=
 
 {{ comments }}

@@ -1,7 +1,7 @@
 # Book settings (https://jupyterbook.org/customize/config.html)
 title: State of Open Source AI Book
 author: Prem
-copyright: 2023 CC-BY-4.0 (text) & Apache-2.0 (code)
+copyright: CC-BY-4.0 (text) & Apache-2.0 (code)
 logo: https://static.premai.io/logo.png
 repository:
   url: https://github.com/premAI-io/state-of-open-source-ai
@@ -48,6 +48,7 @@ parse:
 sphinx:
   extra_extensions:
   - sphinxemoji.sphinxemoji
+  - sphinx_last_updated_by_git
   config:
     html_js_files:
     - [https://analytics.prem.ninja/js/script.js, {defer: defer, data-domain: book.premai.io}]

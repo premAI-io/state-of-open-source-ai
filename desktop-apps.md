@@ -68,7 +68,7 @@ This is the code that I ran using the command `python3 <filename>.py` and the re
 
 <img width="1738" alt="Screenshot 2023-08-24 at 11 33 35 PM" src="https://user-images.githubusercontent.com/81156510/263092544-9cf3ec5c-24c1-425f-b3c1-09e143bbcd2f.png">
 
-#### Model Configurations & Tools
+### Model Configurations & Tools
 By default we have a few presets already provided by LM studio but we can tweak them and create a preset of our own to be used elsewhere. The parameters that are modifiable are:
 - `🛠️ Inference parameters`: These gives the flexibility to change the `temperature`, `n_predict`, and `repeat_penalty`
 
@@ -105,25 +105,62 @@ The UI for GPT4All is quite basic as compared to LM Studio - but it works fine.
 
 However, it is less friendly and more clunky/ has a beta feel to it. For one, once I downloaded the Llama-2-7B model, I wasn't able to download any new model even after restarting the app.
 
-#### Model Configurations & Tools
+### Model Configurations & Tools
 As you can see - there is not too much scope for model configuration, and unlike LM Studio - I couldn't use my GPU here.
 
 ![image](https://github.com/premAI-io/state-of-open-source-ai/assets/29293526/a8b4acb1-b367-4ed3-bac0-333f1e120b0a)
 
 
+## Koboldcpp
+
+Koboldcpp is a fun twist on LLMs - adding game like scenarios and adventures. It supports adding base GGML models as the LLM engine, and spinning stories based on user inputs.
+
+### UI and Chat
+The UI is pretty basic - and you get some surprising answers. Here I ask a simple icebreaker question - and you see that it responds that it is a friendly AI that likes to play games.
+
+![image](https://github.com/premAI-io/state-of-open-source-ai/assets/29293526/722f4bec-bec6-498e-86c8-f856021baaa6)
+
+
+
+### Scenarios
+
+You can also enter different sorts of scenarios and modes.
+![image](https://github.com/premAI-io/state-of-open-source-ai/assets/29293526/abc82be8-893f-4811-ae08-4d57063ce9e8)
+
+Below is the Julius Caesar scenario!
+![image](https://github.com/premAI-io/state-of-open-source-ai/assets/29293526/fc1640f5-3c7b-42f5-842b-0f03c36d6bba)
+
+
+### Model Configuration and Tools
+
+Many of the model configurations are similar to the default that is offered. But there are some interesting twists like story mode, adventure mode, and instruct mode.
+![image](https://github.com/premAI-io/state-of-open-source-ai/assets/29293526/39f0e8c7-9985-48fc-8644-f911ddafcc56)
+
+
+## Local.AI
+
+Local.AI is a simple app for loading LLMs. Once you download a ggml model from online, you can load it into Local.AI.
+
+### UI and Chat
+
+The UI and chat are pretty basic. One bug that I noticed was that it wasn't possible to load models from the UI - I had to manually download the model and then use the app.
+
+![image](https://github.com/premAI-io/state-of-open-source-ai/assets/29293526/3ecee827-0597-4e93-b806-37b3adf28a6d)
+
+### Model Configuration and Tools
+Pretty standard prompt related configurations. It appears there is no GPU.
+
+
 ## Model Comparisons
 
-|   Model   | Models available | Latency                                                      |                   UI                  |                              Extra Features                              | Future Outlook |
-|:---------:|:----------------:|--------------------------------------------------------------|:-------------------------------------:|:------------------------------------------------------------------------:|----------------|
-| LM Studio |                  | 4 tokens/s for Llama-2-7B                                    | Excellent - all necessary information |                         Local server deployments                         |                |
-|  GPT4All  |                  | Unknown (seems to be twice as slow  compared with LM Studio) |            Severely lacking           | Contribute and  use data from the GPT4All datalake for training purposes |                |
-|    ---    |                  |                                                              |                                       |                                                                          |                |
+|   Model   | Models available | Latency                                 | GPU Available |          UI          |                              Extra Features                              | Future Outlook                                                                                                               |
+|:---------:|:----------------:|-----------------------------------------|---------------|:--------------------:|:------------------------------------------------------------------------:|------------------------------------------------------------------------------------------------------------------------------|
+| LM Studio |       ggml       | 4 tokens/s for Llama-2-7B (fastest - 1) | Yes           |     Excellent - 1    |                         Local server deployments                         | Not mentioned                                                                                                                |
+|  GPT4All  |       ggml       | Medium - 2(half as fast as LM studio)   | No            | Severely lacking - 4 | Contribute and  use data from the GPT4All datalake for training purposes | Goal - "be the best instruction tuned assistant-style language model" Building opensource datalake for future model training |
+| Koboldcpp |       ggml       | Slowest - 4                             | No            |  Basic but good - 2  |                Cool story, character, and adventure modes.               | Not mentioned                                                                                                                |
+| Local.AI  | ggml             | Slow - 3                                | No            | Basic - 3            | Light/dark mode                                                          | text to audio, openai functions                                                                                              |
 
 {{ comments }}
-
-LMStudio
-
-GPT4All UI
 
 See also:
 - https://github.com/imaurer/awesome-decentralized-llm#llm-based-tools

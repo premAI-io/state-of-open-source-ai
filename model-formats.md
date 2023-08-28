@@ -41,11 +41,11 @@ For a valid GGML file the following pieces of information should be present in o
 Here's a [GPT-2 conversion example](https://github.com/ggerganov/ggml/blob/6319ae9ad7bdf9f834b2855d7e9fa70508e82f57/examples/gpt-2/convert-cerebras-to-ggml.py#L67) where it's getting written.
 1. **Components of LLMs:**
    1. **Hyperparameters:** These are parameters which configures the behaviour of models. Valid GGML files lists these values in the correct order, and each value represented using the correct data type. Here's an [example for GPT-2](https://github.com/ggerganov/ggml/blob/6319ae9ad7bdf9f834b2855d7e9fa70508e82f57/examples/gpt-2/convert-cerebras-to-ggml.py#L68-L72).
-   2. **Vocabulary:**: These are all supported tokens for a model. Here's an [example for GPT-2](https://github.com/ggerganov/ggml/blob/6319ae9ad7bdf9f834b2855d7e9fa70508e82f57/examples/gpt-2/convert-cerebras-to-ggml.py#L78-L83).
-   3. **Weights:**: These are also called parameters of the model. The total number of weights in a model are referred to as the "size" of that model. In GGML format a tensor consists of few components:
-     - Name
-     - 4 element list representing number of dimensions in the tensor and their lengths
-     - List of weights in the tensor
+   2. **Vocabulary:** These are all supported tokens for a model. Here's an [example for GPT-2](https://github.com/ggerganov/ggml/blob/6319ae9ad7bdf9f834b2855d7e9fa70508e82f57/examples/gpt-2/convert-cerebras-to-ggml.py#L78-L83).
+   3. **Weights:** These are also called parameters of the model. The total number of weights in a model are referred to as the "size" of that model. In GGML format a tensor consists of few components:
+        - Name
+        - 4 element list representing number of dimensions in the tensor and their lengths
+        - List of weights in the tensor
       
       Let's consider the following weights:
       ```
@@ -60,15 +60,13 @@ Here's a [GPT-2 conversion example](https://github.com/ggerganov/ggml/blob/6319a
       For each weight representation the first list denotes dimensions and second list denotes weights. Dimensions list uses `1` as a placeholder for unused dimensions.
 
 #### Quantization
-[Quantization](https://en.wikipedia.org/wiki/Quantization_(signal_processing)) is a process where high-precision foating point values are converted to low-precision values. This overall reduces the resources required to use the values in Tensor, making model easier to run on low resources. GGML supports a number of different quantization strategies (e.g. 4-bit, 5-bit, and 8-bit quantization), each of which offers different trade-offs between efficiency and performance.
+[Quantization](https://en.wikipedia.org/wiki/Quantization_(signal_processing)) is a process where high-precision foating point values are converted to low-precision values. This overall reduces the resources required to use the values in Tensor, making model easier to run on low resources. GGML supports a number of different quantization strategies (e.g. 4-bit, 5-bit, and 8-bit quantization), each of which offers different trade-offs between efficiency and performance. Check out [this amazing article](https://huggingface.co/blog/merve/quantization) by [Merve](https://huggingface.co/merve) for a quick walkthrough.
 
 ### Support
 
 ```{admonition} New GGUF format
 There's a new successor format to GGML named `GGUF` which is designed to be extensible and unambiguous by containing all the information needed to load a model. To read more about `GGUF` check [this PR](https://github.com/ggerganov/llama.cpp/pull/2398) and read in detail about it [here](https://github.com/philpax/ggml/blob/gguf-spec/docs/gguf.md).
 ```
-
-Currently **No GPU support** is present for GGML format models (CPU only), discussion happening [here](https://github.com/ggerganov/llama.cpp/discussions/915).
 
 It's most used projects include:
 - [whisper.cpp](https://github.com/ggerganov/whisper.cpp)
@@ -88,15 +86,20 @@ Inference and training of many open sourced models ([StarCoder](https://github.c
 [TheBloke](https://huggingface.co/TheBloke) currently has lots of LLM variants already converted to GGML format.
 ```
 
-#### Resources
+### Limitations
+- Currently **No GPU support** is present for GGML format models (CPU only), discussion happening [here](https://github.com/ggerganov/llama.cpp/discussions/915).
+- Models are mostly quantised versions of actual models, taking slight hit from quality side if not much.
+
+### License
+The library and related projects are freely available under the [MIT license](https://github.com/ggerganov/ggml/blob/master/LICENSE).
+
+#### To read more
 - [GGML - Large Language Models for Everyone](https://github.com/rustformers/llm/blob/main/crates/ggml/README.md): a description of the GGML format provided by the maintainers of the `llm` Rust crate, which provides Rust bindings for GGML
 - [marella/ctransformers](https://github.com/marella/ctransformers): Python bindings for GGML models.
 - [go-skynet/go-ggml-transformers.cpp](https://github.com/go-skynet/go-ggml-transformers.cpp): Golang bindings for GGML models
 - [smspillaz/ggml-gobject](https://github.com/smspillaz/ggml-gobject): GObject-introspectable wrapper for use of GGML on the GNOME platform.
 - [Hackernews discussion thread on GGML](https://news.ycombinator.com/item?id=36215651)
 
-### License
-The library and related projects are freely available under the [MIT license](https://github.com/ggerganov/ggml/blob/master/LICENSE).
 
 ## ONNX
 [ONNX (Open Neural Network Exchange)](https://onnx.ai/) provides an open source format for AI models by defining an extensible computation graph model, as well as definitions of built-in operators and standard data types. It is [widely supported](https://onnx.ai/supported-tools) and can be found in many frameworks, tools, and hardware enabling interoperability between different frameworks. ONNX is an intermediary representation of your model that lets you easily go from one environment to the next.
@@ -141,18 +144,51 @@ model = onnx.load("your_awesome_model.onnx")
 # (Specific inference code depends on your application and framework)
 ```
 
-### Working
+### How to make ONNX compatible?
+
+| Framework / Tool | Installation | Tutorial |
+| --- | --- | --- |
+| [Caffe](https://github.com/BVLC/caffe) | [apple/coremltools](https://github.com/apple/coremltools) and [onnx/onnxmltools](https://github.com/onnx/onnxmltools) | [Example](https://github.com/onnx/onnx-docker/blob/master/onnx-ecosystem/converter_scripts/caffe_coreml_onnx.ipynb) |
+| [Caffe2](https://caffe2.ai) | [part of caffe2 package](https://github.com/pytorch/pytorch/tree/master/caffe2/python/onnx) | [Example](https://github.com/onnx/tutorials/blob/main/tutorials/Caffe2OnnxExport.ipynb) |
+| [Chainer](https://chainer.org/) | [chainer/onnx-chainer](https://github.com/chainer/onnx-chainer) | [Example](https://github.com/onnx/tutorials/blob/main/tutorials/ChainerOnnxExport.ipynb) |
+| [Cognitive Toolkit (CNTK)](https://www.microsoft.com/en-us/cognitive-toolkit/) | [built-in](https://docs.microsoft.com/en-us/cognitive-toolkit/setup-cntk-on-your-machine) | [Example](https://github.com/onnx/tutorials/blob/main/tutorials/CntkOnnxExport.ipynb) |
+| [CoreML (Apple)](https://developer.apple.com/documentation/coreml) | [onnx/onnxmltools](https://github.com/onnx/onnxmltools) | [Example](https://github.com/onnx/onnx-docker/blob/master/onnx-ecosystem/converter_scripts/coreml_onnx.ipynb) |
+| [Keras](https://github.com/keras-team/keras) | [onnx/tensorflow-onnx](https://github.com/onnx/tensorflow-onnx) | [Example](https://github.com/onnx/tensorflow-onnx/blob/master/tutorials/keras-resnet50.ipynb) | n/a |
+| [LibSVM](https://github.com/cjlin1/libsvm) | [onnx/onnxmltools](https://github.com/onnx/onnxmltools) | [Example](https://github.com/onnx/onnx-docker/blob/master/onnx-ecosystem/converter_scripts/libsvm_onnx.ipynb) | n/a |
+| [LightGBM](https://github.com/Microsoft/LightGBM) | [onnx/onnxmltools](https://github.com/onnx/onnxmltools) | [Example](https://github.com/onnx/onnx-docker/blob/master/onnx-ecosystem/converter_scripts/lightgbm_onnx.ipynb) | n/a |
+| [MATLAB](https://www.mathworks.com/) | [Deep Learning Toolbox](https://www.mathworks.com/matlabcentral/fileexchange/67296) | [Example](https://www.mathworks.com/help/deeplearning/ref/exportonnxnetwork.html) |
+| [ML.NET](https://github.com/dotnet/machinelearning/) | [built-in](https://www.nuget.org/packages/Microsoft.ML/) | [Example](https://github.com/dotnet/machinelearning/blob/master/test/Microsoft.ML.Tests/OnnxConversionTest.cs) |
+| [MXNet (Apache)](https://mxnet.incubator.apache.org/) | part of mxnet package [docs](https://mxnet.incubator.apache.org/api/python/contrib/onnx.html) [github](https://github.com/apache/incubator-mxnet/tree/master/python/mxnet/contrib/onnx) | [Example](https://github.com/onnx/tutorials/blob/main/tutorials/MXNetONNXExport.ipynb) |
+| [PyTorch](https://pytorch.org/) | [part of pytorch package](https://pytorch.org/docs/master/onnx.html) | [Example1](https://pytorch.org/tutorials/advanced/super_resolution_with_onnxruntime.html), [Example2](https://github.com/onnx/tutorials/blob/main/tutorials/PytorchOnnxExport.ipynb), [export for Windows ML](https://github.com/onnx/tutorials/blob/main/tutorials/ExportModelFromPyTorchForWinML.md), [Extending support](https://github.com/onnx/tutorials/blob/main/tutorials/PytorchAddExportSupport.md) |
+| [SciKit-Learn](https://scikit-learn.org/) | [onnx/sklearn-onnx](https://github.com/onnx/sklearn-onnx) | [Example](https://onnx.ai/sklearn-onnx/index.html) | n/a |
+| [SINGA (Apache)](https://singa.apache.org/) - [Github](https://github.com/apache/incubator-singa/blob/master/python/singa/sonnx.py) (experimental) | [built-in](https://singa.apache.org/docs/installation/) | [Example](https://github.com/apache/incubator-singa/tree/master/examples/onnx) |
+| [TensorFlow](https://www.tensorflow.org/) | [onnx/tensorflow-onnx](https://github.com/onnx/tensorflow-onnx) | [Examples](https://github.com/onnx/tutorials/blob/master/tutorials/TensorflowToOnnx-1.ipynb) |
+
+source: https://github.com/onnx/tutorials#converting-to-onnx-format
+
+Lots of other onnx related tutorials can be found under their official [tutorials repository](https://github.com/onnx/tutorials#onnx-tutorials).
 
 ### Support
 
-#### Updates
+It has support for Inference runtime binding APIs written in [few programming languages](https://onnxruntime.ai/docs/install/#inference-install-table-for-all-languages) ([python](https://onnxruntime.ai/docs/install/#python-installs), [rust](https://github.com/microsoft/onnxruntime/tree/main/rust), [js](https://github.com/microsoft/onnxruntime/tree/main/js), [java](https://github.com/microsoft/onnxruntime/tree/main/java), [C#](https://github.com/microsoft/onnxruntime/tree/main/csharp)).
+
+ONNX model's inference depends on the platform which runtime library supports, called Execution Provider. Currently there are few ranging from CPU based, GPU based, IoT/edge based and few others. A full list can be found [here](https://onnxruntime.ai/docs/execution-providers/#summary-of-supported-execution-providers).
+
+Also there are few visualization tools support like [Netron](https://github.com/lutzroeder/Netron) and [more](https://github.com/onnx/tutorials#visualizing-onnx-models) for models converted to ONNX format, highly recommended for debugging purposes.
+
+#### How's ONNX looking for Tomorrow?
 TODO: add updates from https://wiki.lfaidata.foundation/display/DL/ONNX+Community+Day+2023+-+June+28
 
-#### Resources
+### Limitations
+Onnx uses [Opsets](https://onnx.ai/onnx/intro/converters.html#opsets) (Operator sets) number which changes with each ONNX package minor/major releases, new opsets usually introduces new [operators](https://onnx.ai/onnx/operators/index.html). Proper opset needs to be used while creating the onnx model graph.
+
+There are lots of open issues ([1](https://github.com/microsoft/onnxruntime/issues/12880), [2](https://github.com/microsoft/onnxruntime/issues/10303), [3](https://github.com/microsoft/onnxruntime/issues/7233), [4](https://github.com/microsoft/onnxruntime/issues/17116)) where users are getting slower inference speed after converting their models to ONNX format when compared to base model format, it shows that conversion might not be easy for all models. On similar grounds an user comments 3 years ago [here](https://www.reddit.com/r/MachineLearning/comments/lyem1l/discussion_pros_and_cons_of_onnx_format/gqlh8d3) though it's old, few points still seems relevant. [The troubleshooting guide](https://onnxruntime.ai/docs/performance/tune-performance/troubleshooting.html) by ONNX runtime community can help with commonly faced issues.
 
 ### License
 It's freely available under [Apache License 2.0](https://github.com/onnx/onnx/blob/main/LICENSE).
-
+#### To read more
+- [How to add support for new ONNX Operator](https://github.com/onnx/onnx/blob/main/docs/AddNewOp.md).
+- [ONNX Backend Scoreboard](https://onnx.ai/backend-scoreboard/).
 
 ## FasterTransformer
 
@@ -163,3 +199,9 @@ It's freely available under [Apache License 2.0](https://github.com/onnx/onnx/bl
 See also:
 - ["Optimizing for Faster Inference"](https://cameronrwolfe.substack.com/i/135439692/optimizing-for-faster-inference)
 - https://github.com/imaurer/awesome-decentralized-llm#training-and-quantization
+
+
+
+
+TODO: add a section at the end saying feel free to make a pr if you want to extend anything, specially `To read more` parts
+TODO: thoughts - onnx being truely open sourced, it can be so much more compared to other formats, since there's no single-entity/company benefit kind of situation around it.

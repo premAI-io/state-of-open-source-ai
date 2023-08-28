@@ -108,6 +108,7 @@ Now that we've covered why LLM inferencing is so difficult, let's take a look at
 1. <strong>Nvidia Triton Inference Server</strong>
 
 ![](https://static.premai.io/book/mlops-engines-triton-architecture.png)
+[Image Source](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/user_guide/jetson.html)
 
 This [inference server](https://developer.nvidia.com/triton-inference-server) offers support for multiple model formats such as Pytorch, Tensorflow, ONNX, TensorRT, etc. It uses GPUs efficiently to boost the performance of deep learning models.
 * <strong>Concurrent model execution:</strong> This allows multiple models to be executed on 1 or many GPUs in parallel. Multiple requests are routed to each model to execute the tasks in parallel
@@ -125,6 +126,7 @@ Cons:
 2. <strong>Text Generation Inference</strong>
 
 ![](https://static.premai.io/book/mlops-engines-tgi-architecture.png)
+[Image Source](https://github.com/huggingface/text-generation-inference)
 
 [Text Generation Inference](https://github.com/huggingface/text-generation-inference) is an open-source project developed by Hugging Face which optimizes Hugging Face models for inference. Unlike Triton, it's much easier to set up and it supports most of the popular LLMs on Hugging Face.
 

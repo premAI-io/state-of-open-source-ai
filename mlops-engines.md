@@ -39,6 +39,8 @@ See also:
 
 ## The MLOps Lifecycle
 
+![](https://static.premai.io/book/mlops-engines-LLMOps-diagram.jpg)
+
 [MLOps(Machine Learning Operations)](https://blogs.nvidia.com/blog/2020/09/03/what-is-mlops/) is a set of best practices for companies to run their AI in production. There are several components in the MLOps lifecycle, with each component trying to address problems with using AI in an enterprise setting. 
 
 With large language models, the traditional MLOps landscape shifts a little bit and we encounter new problems. While MLOps focuses on model training LLMOps focuses on fine-tuning. Model inference is also integral to both lifecycles and will be a focus of this chapter. 
@@ -50,6 +52,8 @@ For this chapter, we'll be exploring the various open-source runtime engines for
 MLOps has always been available in two flavors. One is the managed version, where all the components are provided out of the box for a steep price. The other is a DIY setup where you stitch together various open-source components. 
 
 With large language models, the story is no different. Companies like Hugging Face are pushing for open-source models and datasets whereas closed-source competitors like OpenAI and Anthropic are doing the exact opposite. The three main challenges with open-source MLOps are maintenance, performance, and cost.
+
+![](https://static.premai.io/book/mlops-engines-table.jpg)
 
 1. <strong>Maintenance</strong>
 
@@ -103,6 +107,8 @@ Now that we've covered why LLM inferencing is so difficult, let's take a look at
 
 1. <strong>Nvidia Triton Inference Server</strong>
 
+![](https://static.premai.io/book/mlops-engines-triton-architecture.png)
+
 This [inference server](https://developer.nvidia.com/triton-inference-server) offers support for multiple model formats such as Pytorch, Tensorflow, ONNX, TensorRT, etc. It uses GPUs efficiently to boost the performance of deep learning models.
 * <strong>Concurrent model execution:</strong> This allows multiple models to be executed on 1 or many GPUs in parallel. Multiple requests are routed to each model to execute the tasks in parallel
 * <strong>Dynamic Batching:</strong> Combines multiple inference requests into a batch to increase throughput. Requests in each batch can be processed in parallel instead of handling each request sequentially.
@@ -117,6 +123,8 @@ Cons:
 * Not compatible with many of the newer LLMs
 
 2. <strong>Text Generation Inference</strong>
+
+![](https://static.premai.io/book/mlops-engines-tgi-architecture.png)
 
 [Text Generation Inference](https://github.com/huggingface/text-generation-inference) is an open-source project developed by Hugging Face which optimizes Hugging Face models for inference. Unlike Triton, it's much easier to set up and it supports most of the popular LLMs on Hugging Face.
 

@@ -105,6 +105,38 @@ The UI for GPT4All is quite basic as compared to LM Studio - but it works fine.
 
 However, it is less friendly and more clunky/ has a beta feel to it. For one, once I downloaded the Llama-2-7B model, I wasn't able to download any new model even after restarting the app.
 
+### Local Server 
+Like LM Studio, there is a support for local server in GPT4All. But it took some time to find that this feature exists and was possible only from the [documentation](https://docs.gpt4all.io/index.html). The results seem far better than LM Studio with control over number of tokens and response though it is model dependent. Here's the code for the same:
+
+```python
+import openai
+
+openai.api_base = "http://localhost:4891/v1"
+openai.api_key = ""
+
+# Set up the prompt and other parameters for the API request
+prompt = "Who is Michael Jordan?"
+model = "Llama-2-7B Chat"
+
+# Make the API request
+response = openai.Completion.create(
+    model=model,
+    prompt=prompt,
+    max_tokens=199,
+    temperature=0.28,
+    top_p=0.95,
+    n=1,
+    echo=True,
+    stream=False,
+)
+
+# Print the generated completion
+print(response)
+```
+
+The response can be found for the example `prompt`:
+<img width="1709" alt="image" src="https://user-images.githubusercontent.com/81156510/263530739-5e3a7425-8b25-45c7-a101-46e2752e8a1f.png">
+
 ### Model Configurations & Tools
 As you can see - there is not too much scope for model configuration, and unlike LM Studio - I couldn't use my GPU here.
 
@@ -134,6 +166,7 @@ Below is the Julius Caesar scenario!
 ### Model Configuration and Tools
 
 Many of the model configurations are similar to the default that is offered. But there are some interesting twists like story mode, adventure mode, and instruct mode.
+
 ![image](https://github.com/premAI-io/state-of-open-source-ai/assets/29293526/39f0e8c7-9985-48fc-8644-f911ddafcc56)
 
 
@@ -155,10 +188,19 @@ Pretty standard prompt related configurations. It appears there is no GPU.
 
 |   Model   | Models available | Latency                                 | GPU Available |          UI          |                              Extra Features                              | Future Outlook                                                                                                               |
 |:---------:|:----------------:|-----------------------------------------|---------------|:--------------------:|:------------------------------------------------------------------------:|------------------------------------------------------------------------------------------------------------------------------|
-| LM Studio |       ggml       | 4 tokens/s for Llama-2-7B (fastest - 1) | Yes           |     Excellent - 1    |                         Local server deployments                         | Not mentioned                                                                                                                |
+| LM Studio |       ggml       | 4 tokens/s for Llama-2-7B (fastest - 1) | Yes           |     Excellent - 1    |                         Convenience of use, detailed information, and ease of locally downloading models                          | Not mentioned                                                                                                                |
 |  GPT4All  |       ggml       | Medium - 2(half as fast as LM studio)   | No            | Severely lacking - 4 | Contribute and  use data from the GPT4All datalake for training purposes | Goal - "be the best instruction tuned assistant-style language model" Building opensource datalake for future model training |
 | Koboldcpp |       ggml       | Slowest - 4                             | No            |  Basic but good - 2  |                Cool story, character, and adventure modes.               | Not mentioned                                                                                                                |
 | Local.AI  | ggml             | Slow - 3                                | No            | Basic - 3            | Light/dark mode                                                          | text to audio, openai functions                                                                                              |
+
+### References:
+- [LM Studio Website](https://lmstudio.ai)
+- [LM Studio Examples](https://github.com/lmstudio-ai/examples)
+- [GPT4All Website](https://gpt4all.io)
+- [GPT4All Docs](https://docs.gpt4all.io)
+- [YouTube video](https://youtu.be/xqYCyhJi8xM?si=JYaakq3eYQKviYJK)
+- [Koboldcpp](https://github.com/LostRuins/koboldcpp)
+- [Local.AI](https://github.com/go-skynet/LocalAI)
 
 {{ comments }}
 

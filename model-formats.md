@@ -1,5 +1,6 @@
 # Model Formats
 
+Current usecases for different ML models in our lives is at an all-time high and it's only going to increase, this gives rise to an ever increasing need for optimizing the models for specific usecases and unique environments it will run on to extract out the highest possible performance out of it. There's recently been rise of various model formats in community, and we will go through few of the most popular ones this year.
 
 ## ONNX
 [ONNX (Open Neural Network Exchange)](https://onnx.ai/) provides an open source format for AI models by defining an extensible computation graph model, as well as definitions of built-in operators and standard data types. It is [widely supported](https://onnx.ai/supported-tools) and can be found in many frameworks, tools, and hardware enabling interoperability between different frameworks. ONNX is an intermediary representation of your model that lets you easily go from one environment to the next.
@@ -112,7 +113,7 @@ There's a detailed failure analysis ([video](https://www.youtube.com/watch?v=Ks3
 ```
 .[Analysis of Failures and Risks in Deep Learning Model Converters](https://arxiv.org/abs/2303.17708.pdf)
 ````
-Where the top findings they found:
+The top findings were:
 - Crash (56%) and Wrong Model (33%) are the most
 common symptoms
 - The most common failure causes are Incompatibility
@@ -123,7 +124,7 @@ Conversion stage (74%), with a further 10% in the Graph optimization stage (most
 
 ### License
 It's freely available under [Apache License 2.0](https://github.com/onnx/onnx/blob/main/LICENSE).
-#### To read more
+### Read more
 - [How to add support for new ONNX Operator](https://github.com/onnx/onnx/blob/main/docs/AddNewOp.md).
 - [ONNX Backend Scoreboard](https://onnx.ai/backend-scoreboard/).
 - [Intro to ONNX](https://onnx.ai/onnx/intro/).
@@ -225,7 +226,7 @@ Inference and training of many open sourced models ([StarCoder](https://github.c
 ### License
 The library and related projects are freely available under the [MIT license](https://github.com/ggerganov/ggml/blob/master/LICENSE).
 
-#### To read more
+### Read more
 - [GGML - Large Language Models for Everyone](https://github.com/rustformers/llm/blob/main/crates/ggml/README.md): a description of the GGML format provided by the maintainers of the `llm` Rust crate, which provides Rust bindings for GGML
 - [marella/ctransformers](https://github.com/marella/ctransformers): Python bindings for GGML models.
 - [go-skynet/go-ggml-transformers.cpp](https://github.com/go-skynet/go-ggml-transformers.cpp): Golang bindings for GGML models
@@ -233,10 +234,31 @@ The library and related projects are freely available under the [MIT license](ht
 - [Hackernews discussion thread on GGML](https://news.ycombinator.com/item?id=36215651)
 
 
+## TensorRT
 
-## FasterTransformer
+### Features and Benefits
 
-## TVM
+### Usage and Workings
+
+
+### Support
+
+### Limitations
+
+### License
+
+### Read more
+
+
+
+
+## FasterTransformer (WIP)
+
+Feel free to open a PR :)
+
+## TVM (WIP)
+
+Feel free to open a PR :)
 
 {{ comments }}
 

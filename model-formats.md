@@ -1,16 +1,18 @@
 # Model Formats
 
-Current usecases for different ML models in our lives is at an all-time high and it's only going to increase, this gives rise to an ever increasing need for optimizing the models for specific usecases and unique environments it will run on to extract out the highest possible performance out of it. There's recently been rise of various model formats in community, and we will go through few of the most popular ones this year.
+Current usecases for different ML models in our lives is at an all-time high and it's only going to increase, this gives rise to an ever increasing need for optimizing the models for specific usecases and unique environments it will run on to extract out the highest possible performance out of it. Recently there's been a rise of various model formats in community, and we will go through few of the most popular ones this year.
 
 ## ONNX
 [ONNX (Open Neural Network Exchange)](https://onnx.ai/) provides an open source format for AI models by defining an extensible computation graph model, as well as definitions of built-in operators and standard data types. It is [widely supported](https://onnx.ai/supported-tools) and can be found in many frameworks, tools, and hardware enabling interoperability between different frameworks. ONNX is an intermediary representation of your model that lets you easily go from one environment to the next.
 
 ### Features and Benefits
 
-```{figure-md} fig-ref
-  ![onnx interoperability](assets/model-formats-onnx.png){align=center}
-
-  https://cms-ml.github.io/documentation/inference/onnx.html
+```{figure} assets/model-formats-onnx.png
+---
+scale: 38
+name: onnx interoperability
+---
+https://cms-ml.github.io/documentation/inference/onnx.html
 ```
 - **Model Interoperability:** ONNX bridges AI frameworks, allowing seamless model transfer between them, eliminating the need for complex conversions.
 
@@ -82,7 +84,7 @@ ONNX model's inference depends on the platform which runtime library supports, c
 
 Also there are few visualization tools support like [Netron](https://github.com/lutzroeder/Netron) and [more](https://github.com/onnx/tutorials#visualizing-onnx-models) for models converted to ONNX format, highly recommended for debugging purposes.
 
-#### How's ONNX looking for Tomorrow?
+#### Future
 Currently ONNX is part of [LF AI Foundation](https://wiki.lfaidata.foundation/pages/viewpage.action?pageId=327683), conducts regular [Steering committee meetings](https://wiki.lfaidata.foundation/pages/viewpage.action?pageId=18481196) and community meetups are held atleast once a year.
 Few notable presentations from this year's meetup:
 - [ONNX 2.0 Ideas](https://www.youtube.com/watch?v=A3NwCnUOUaU).
@@ -193,7 +195,7 @@ Here's a [GPT-2 conversion example](https://github.com/ggerganov/ggml/blob/6319a
       For each weight representation the first list denotes dimensions and second list denotes weights. Dimensions list uses `1` as a placeholder for unused dimensions.
 
 #### Quantization
-[Quantization](https://en.wikipedia.org/wiki/Quantization_(signal_processing)) is a process where high-precision foating point values are converted to low-precision values. This overall reduces the resources required to use the values in Tensor, making model easier to run on low resources. GGML supports a number of different quantization strategies (e.g. 4-bit, 5-bit, and 8-bit quantization), each of which offers different trade-offs between efficiency and performance. Check out [this amazing article](https://huggingface.co/blog/merve/quantization) by [Merve](https://huggingface.co/merve) for a quick walkthrough.
+[Quantization](https://en.wikipedia.org/wiki/Quantization_(signal_processing)) is a process where high-precision foating point values are converted to low-precision values. This overall reduces the resources required to use the values in Tensor, making model easier to run on low resources. GGML supports a number of different quantization [strategies](https://news.ycombinator.com/item?id=36216244) (e.g. 4-bit, 5-bit, and 8-bit quantization), each of which offers different trade-offs between efficiency and performance. Check out [this amazing article](https://huggingface.co/blog/merve/quantization) by [Merve](https://huggingface.co/merve) for a quick walkthrough.
 
 ### Support
 
@@ -218,10 +220,12 @@ Inference and training of many open sourced models ([StarCoder](https://github.c
 ```{tip}
 [TheBloke](https://huggingface.co/TheBloke) currently has lots of LLM variants already converted to GGML format.
 ```
+GPU based inference support for GGML format models [discussion initiated few months back](https://github.com/ggerganov/llama.cpp/discussions/915), examples started with `MNIST CNN` support, and showing other example of full [GPU inference, showed on Apple Silicon using Metal](https://github.com/ggerganov/llama.cpp/pull/1642), offloading layers to CPU and making use of GPU and CPU together.
 
+Check [llamacpp part of Langchain's docs](https://python.langchain.com/docs/integrations/llms/llamacpp#gpu) on how to use GPU or Metal for GGML models inference.
+Here's an example from langchain docs showing how to use GPU for GGML models inference.
 ### Limitations
-- Currently **No GPU support** is present for GGML format models (CPU only), discussion happening [here](https://github.com/ggerganov/llama.cpp/discussions/915).
-- Models are mostly quantised versions of actual models, taking slight hit from quality side if not much.
+- Models are mostly quantised versions of actual models, taking slight hit from quality side if not much. Similar cases [reported](https://news.ycombinator.com/item?id=36222819) which is totally expected from a quantized model.
 
 ### License
 The library and related projects are freely available under the [MIT license](https://github.com/ggerganov/ggml/blob/master/LICENSE).
@@ -249,13 +253,25 @@ TensorRT's main capability comes under giving out high performance inference eng
 - Supports [NVIDIA’s Deep Learning Accelerator](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/index.html#dla_topic) (DLA)
 - [Dynamic shapes](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/index.html#work_dynamic_shapes) for Input and Output
 - [Updating weights](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/index.html#refitting-engine-c)
-- `trtexec` CLI tool for easy generation of TensorRT engines and benchmarking.
+- [`trtexec`](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/index.html#trtexec) CLI tool for easy generation of TensorRT engines and benchmarking.
 - [Polygraphy](https://github.com/NVIDIA/TensorRT/tree/main/tools/Polygraphy) toolkit for debugging TensorRT and other framework models.
 ### Usage
+
+Using [Nvidia's TensorRT containers](https://docs.nvidia.com/deeplearning/tensorrt/container-release-notes/index.html) can ease up setup, given it's know what version of TensorRT, CUDA toolkit (if required) is needed.
+
+
+```{figure} assets/model-formats_tensorrt-usage-flow.png
+---
+scale: 28
+name: TensorRT conversion flow
+---
+[Path to convert and deploy with TensorRT](https://docs.nvidia.com/deeplearning/tensorrt/quick-start-guide/index.html#select-workflow).
+```
 
 
 ### Support
 
+While creating a serialized TensorRT engine, except using TF-TRT or ONNX, for higher customizability one can also manually construct a network using the TensorRT API ([C++](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/index.html#create_network_c) or [Python](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/#create_network_python))
 ### Limitations
 
 ### License
@@ -263,6 +279,7 @@ TensorRT's main capability comes under giving out high performance inference eng
 ### Read more
 - [Official TensorRT documentation](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/index.html)
 - [Extending TensorRT with Custom Layers: Plugins](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/index.html#extending)
+- [Intro jupyter-notebooks](https://github.com/NVIDIA/TensorRT/tree/main/quickstart/IntroNotebooks) on TensorRT by Nvidia.
 
 
 

@@ -236,9 +236,22 @@ The library and related projects are freely available under the [MIT license](ht
 
 ## TensorRT
 
+TensorRT is an SDK for deep learning inference by NVIDIA, providing APIs and parsers to import trained models from all major deep learning frameworks which then generates optimized runtime engines deployable in diverse systems.
 ### Features and Benefits
 
-### Usage and Workings
+TensorRT's main capability comes under giving out high performance inference engines. Few notable features include:
+
+- [C++](https://docs.nvidia.com/deeplearning/tensorrt/api/c_api/index.html) and [Python](https://docs.nvidia.com/deeplearning/tensorrt/api/python_api/index.html) APIs.
+- Supports FP32, FP16, INT8, INT32, UINT8, and BOOL [data types](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/index.html#types-precision).
+- [Plugin](https://github.com/NVIDIA/TensorRT/tree/main/plugin) interface to extend TensorRT with operations not supported natively.
+- Works with both GPU(CUDA) and CPU.
+- Works with [pre-quantized](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/index.html#working-with-int8) models.
+- Supports [NVIDIA’s Deep Learning Accelerator](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/index.html#dla_topic) (DLA)
+- [Dynamic shapes](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/index.html#work_dynamic_shapes) for Input and Output
+- [Updating weights](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/index.html#refitting-engine-c)
+- `trtexec` CLI tool for easy generation of TensorRT engines and benchmarking.
+- [Polygraphy](https://github.com/NVIDIA/TensorRT/tree/main/tools/Polygraphy) toolkit for debugging TensorRT and other framework models.
+### Usage
 
 
 ### Support
@@ -248,7 +261,8 @@ The library and related projects are freely available under the [MIT license](ht
 ### License
 
 ### Read more
-
+- [Official TensorRT documentation](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/index.html)
+- [Extending TensorRT with Custom Layers: Plugins](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/index.html#extending)
 
 
 

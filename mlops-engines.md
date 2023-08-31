@@ -67,7 +67,7 @@ If a component goes down or becomes unavailable, it is up to the team to resolve
 
 To measure the output quality or accuracy of an LLM, there are various datasets the model gets tested on. For an in-depth guide, please refer to this [blog post](https://dev.premai.io/blog/evaluating-open-source-llms) which explains the popular datasets used to benchmark open-source models. For a quick snapshot, the [hugging face leaderboard](https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard) can be a good place to start when evaluating the accuracy of an LLM.
 
-For operational metrics like latency and throughput, the hardware being used and the runtime enviroment for the application can play a large role. Many AI models, especially LLMs, run faster on a GPU enabled device. [Citation](https://developer.nvidia.com/blog/supercharging-ai-video-and-ai-inference-performance-with-nvidia-l4-gpus/#:~:text=With%20the%20fourth%2Dgeneration%20Tensor,end%2Dto%2Dend%20pipeline.) The same GPU enabled model may have different latency and throughput numbers when tested on an optimized inference server such as [Nvidia Triton](https://developer.nvidia.com/triton-inference-server).
+For operational metrics like latency and throughput, the hardware being used and the runtime enviroment for the application can play a large role. Many AI models, especially LLMs, run faster on a GPU enabled device. [Citation](https://developer.nvidia.com/blog/supercharging-ai-video-and-ai-inference-performance-with-nvidia-l4-gpus) The same GPU enabled model may have different latency and throughput numbers when tested on an optimized inference server such as [Nvidia Triton](https://developer.nvidia.com/triton-inference-server).
 
 Closed-source models like [Cohere](https://txt.cohere.com/nvidia-boosts-inference-speed-with-cohere/) tend to give better performance from an operational perspective because they come with many of the inference optimizations out of the box. Open-source models on the other hand, need to be manually integrated with inference servers to obtain similar performance.
 
@@ -174,7 +174,7 @@ Currently, we are in the experimental stage with LLMs. When companies try to use
 ## (Still need to fix make it Bibtex)
 ## Citations:
 
-1. Supercharging AI Video and AI Inference Performance with NVIDIA L4 GPUs. https://developer.nvidia.com/blog/supercharging-ai-video-and-ai-inference-performance-with-nvidia-l4-gpus/#:~:text=With%20the%20fourth%2Dgeneration%20Tensor,end%2Dto%2Dend%20pipeline
+1. Supercharging AI Video and AI Inference Performance with NVIDIA L4 GPUs. https://developer.nvidia.com/blog/supercharging-ai-video-and-ai-inference-performance-with-nvidia-l4-gpus
 2. Why GPT-3.5 is (mostly) cheaper than Llama 2. https://www.cursor.so/blog/llama-inference
-3. Pros and Cons of Open-Source and Managed MLOps Platforms. https://valohai.com/managed-vs-open-source-mlops/
-4. Cohere Boosts Inference Speed With NVIDIA Triton Inference Server. https://txt.cohere.com/nvidia-boosts-inference-speed-with-cohere/
+3. Pros and Cons of Open-Source and Managed MLOps Platforms. https://valohai.com/managed-vs-open-source-mlops
+4. Cohere Boosts Inference Speed With NVIDIA Triton Inference Server. https://txt.cohere.com/nvidia-boosts-inference-speed-with-cohere

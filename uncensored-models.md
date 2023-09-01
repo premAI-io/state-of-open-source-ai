@@ -3,8 +3,8 @@
 ## FraudGPT
 
 [FraudGPT](https://hackernoon.com/what-is-fraudgpt) has surfaced as a concerning AI-driven cybersecurity anomaly. 
-Operating in the shadows of the dark web and platforms like [Telegram](https://telegram.org/), FraudGPT mimics ChatGPT 
-but with a sinister twist—fueling cyberattacks. It's similar to ChatGPT but with a harmful purpose – it encourages 
+Operating in the shadows of the dark web and platforms like [Telegram](https://telegram.org/), FraudGPT mimics [ChatGPT](https://chat.openai.com)
+but with a sinister twist -- fueling cyberattacks. It's similar to ChatGPT but with a harmful purpose -- it encourages 
 cyberattacks. Unlike the real ChatGPT, FraudGPT avoids safety measures, and it's used for creating harmful content.
 
 [Netenrich](https://netenrich.com)'s vigilant threat research team uncovered the concerning capabilities of FraudGPT 

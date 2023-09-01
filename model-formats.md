@@ -209,6 +209,8 @@ It's most used projects include:
   High-performance inference of [OpenAI's Whisper automatic speech recognition model](https://openai.com/research/whisper)
   The project provides a high-quality speech-to-text solution that runs on Mac, Windows, Linux, iOS, Android, Raspberry Pi, and Web. Used by [rewind.ai](https://www.rewind.ai/)
 
+  Optimized version for Apple Silicon is also [available](https://github.com/ggerganov/whisper.spm) as a Swift package.
+
 - [llama.cpp](https://github.com/ggerganov/llama.cpp)
   
   Inference of Meta's LLaMA large language model
@@ -224,6 +226,9 @@ GPU based inference support for GGML format models [discussion initiated few mon
 
 Check [llamacpp part of Langchain's docs](https://python.langchain.com/docs/integrations/llms/llamacpp#gpu) on how to use GPU or Metal for GGML models inference.
 Here's an example from langchain docs showing how to use GPU for GGML models inference.
+
+Currently [Speculative Decoding for sampling tokens](https://twitter.com/karpathy/status/1697318534555336961) is [being implemented](https://github.com/ggerganov/llama.cpp/pull/2926) for Code Llama inference as a POC, which as an example promises full [F16 precision 34B Code Llama at >20 tokens/sec on M2 Ultra.](https://twitter.com/ggerganov/status/1697262700165013689).
+
 ### Limitations
 - Models are mostly quantised versions of actual models, taking slight hit from quality side if not much. Similar cases [reported](https://news.ycombinator.com/item?id=36222819) which is totally expected from a quantized model.
 
@@ -248,16 +253,18 @@ TensorRT's main capability comes under giving out high performance inference eng
 - [C++](https://docs.nvidia.com/deeplearning/tensorrt/api/c_api/index.html) and [Python](https://docs.nvidia.com/deeplearning/tensorrt/api/python_api/index.html) APIs.
 - Supports FP32, FP16, INT8, INT32, UINT8, and BOOL [data types](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/index.html#types-precision).
 - [Plugin](https://github.com/NVIDIA/TensorRT/tree/main/plugin) interface to extend TensorRT with operations not supported natively.
-- Works with both GPU(CUDA) and CPU.
+- Works with [both GPU(CUDA) and CPU](https://docs.nvidia.com/deeplearning/tensorrt/support-matrix/index.html#platform-matrix).
 - Works with [pre-quantized](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/index.html#working-with-int8) models.
-- Supports [NVIDIA’s Deep Learning Accelerator](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/index.html#dla_topic) (DLA)
-- [Dynamic shapes](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/index.html#work_dynamic_shapes) for Input and Output
+- Supports [NVIDIA’s Deep Learning Accelerator](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/index.html#dla_topic) (DLA).
+- [Dynamic shapes](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/index.html#work_dynamic_shapes) for Input and Output.
 - [Updating weights](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/index.html#refitting-engine-c)
-- [`trtexec`](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/index.html#trtexec) CLI tool for easy generation of TensorRT engines and benchmarking.
-- [Polygraphy](https://github.com/NVIDIA/TensorRT/tree/main/tools/Polygraphy) toolkit for debugging TensorRT and other framework models.
+- Added [tooling](https://github.com/NVIDIA/TensorRT/tree/main/tools) support like [`trtexec`](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/index.html#trtexec)
+
+[TensorRT can also act as a provider when using onnxruntime](https://onnxruntime.ai/docs/execution-providers/TensorRT-ExecutionProvider.html) delivering better inferencing performance on the same hardware compared to generic GPU acceleration by [setting proper Execution Provider](https://onnxruntime.ai/docs/execution-providers/).
+
 ### Usage
 
-Using [Nvidia's TensorRT containers](https://docs.nvidia.com/deeplearning/tensorrt/container-release-notes/index.html) can ease up setup, given it's know what version of TensorRT, CUDA toolkit (if required) is needed.
+Using [Nvidia's TensorRT containers](https://docs.nvidia.com/deeplearning/tensorrt/container-release-notes/index.html) can ease up setup, given it's know what version of TensorRT, CUDA toolkit (if required).
 
 
 ```{figure} assets/model-formats_tensorrt-usage-flow.png
@@ -271,15 +278,31 @@ name: TensorRT conversion flow
 
 ### Support
 
-While creating a serialized TensorRT engine, except using TF-TRT or ONNX, for higher customizability one can also manually construct a network using the TensorRT API ([C++](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/index.html#create_network_c) or [Python](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/#create_network_python))
+While creating a serialized TensorRT engine, except using [TF-TRT](https://docs.nvidia.com/deeplearning/frameworks/tf-trt-user-guide/index.html) or [ONNX](https://onnx.ai/), for higher customizability one can also manually construct a network using the TensorRT API ([C++](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/index.html#create_network_c) or [Python](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/#create_network_python))
+
+TensorRT also includes a standalone [runtime](https://docs.nvidia.com/deeplearning/tensorrt/quick-start-guide/index.html#runtime) with [C++](https://docs.nvidia.com/deeplearning/tensorrt/quick-start-guide/index.html#run-engine-c) and [Python](https://docs.nvidia.com/deeplearning/tensorrt/quick-start-guide/index.html#run-engine-python) bindings, apart from directly using [Nvidia's Triton Inference server for deployment](https://github.com/triton-inference-server/server/blob/r20.12/docs/quickstart.md). 
+
+[ONNX has a TensorRT backend](https://github.com/onnx/onnx-tensorrt/tree/main#onnx-tensorrt-python-backend-usage) that parses ONNX models for execution with TensorRT, having both [Python](https://github.com/onnx/onnx-tensorrt/tree/main#c-library-usage) and [C++](https://github.com/onnx/onnx-tensorrt/tree/main#c-library-usage) support. Current full list of supported ONNX operators for TensorRT is maintained [here](https://github.com/onnx/onnx-tensorrt/blob/main/docs/operators.md#operator-support-matrix). It only supports `DOUBLE`, `FLOAT32`, `FLOAT16`, `INT8` and `BOOL` ONNX data types, and limited support for `INT32`, `INT64` and `DOUBLE` types.
+
+
+Nvidia also kept few [tooling](https://docs.nvidia.com/deeplearning/tensorrt/#tools) support around TensorRT:
+- **[trtexec](https://github.com/NVIDIA/TensorRT/tree/main/samples/trtexec):** For easy generation of TensorRT engines and benchmarking.
+- **[Polygraphy](https://github.com/NVIDIA/TensorRT/tree/main/tools/Polygraphy):** A Deep Learning Inference Prototyping and Debugging Toolkit
+- **[trt-engine-explorer](https://github.com/NVIDIA/TensorRT/tree/main/tools/experimental/trt-engine-explorer):** It contains Python package [`trex`](https://github.com/NVIDIA/TensorRT/tree/main/tools/experimental/trt-engine-explorer/trex) to explore various aspects of a TensorRT engine plan and its associated inference profiling data.
+- **[onnx-graphsurgeon](https://github.com/NVIDIA/TensorRT/tree/main/tools/onnx-graphsurgeon):** It helps easily generate new ONNX graphs, or modify existing ones.
+- **[polygraphy-extension-trtexec](https://github.com/NVIDIA/TensorRT/tree/main/tools/polygraphy-extension-trtexec):** polygraphy extension which adds support to run inference with `trtexec` for multiple backends, including TensorRT and ONNX-Runtime, and compare outputs.
+- **[pytorch-quantization](https://github.com/NVIDIA/TensorRT/tree/main/tools/pytorch-quantization) and [tensorflow-quantization](https://github.com/NVIDIA/TensorRT/tree/main/tools/tensorflow-quantization):** For quantization aware training or evaluating when using Pytorch/Tensorflow.
+
 ### Limitations
 
 ### License
+It's freely available under [Apache License 2.0](https://github.com/NVIDIA/TensorRT/blob/main/LICENSE).
 
 ### Read more
 - [Official TensorRT documentation](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/index.html)
 - [Extending TensorRT with Custom Layers: Plugins](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/index.html#extending)
 - [Intro jupyter-notebooks](https://github.com/NVIDIA/TensorRT/tree/main/quickstart/IntroNotebooks) on TensorRT by Nvidia.
+- [Nvidia TensorRT official support matrix](https://docs.nvidia.com/deeplearning/tensorrt/support-matrix/index.html)
 
 
 

@@ -82,6 +82,7 @@ sphinx:
     - https://contrib.rocks # TODO: remove
     - https://direct.mit.edu/daed/article/151/2/127/110621/Human-Language-Understanding-amp-Reasoning
     - https://numfocus.org
+    - https://chat.openai.com
     linkcheck_allowed_redirects:
       https://doi.org/.*/.*: https://.*
       https://codespaces.new/.*: https://github.com/login.*

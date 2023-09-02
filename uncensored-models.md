@@ -15,7 +15,7 @@ content and guards against malicious manipulation
 that provide a framework to regulate the behavior of LLMs.
 
 In the following paragraphs, we will navigate the realm of uncensored models, where we will explore and 
-guide you through the distinctive characteristics and implications of models like FraudGPT, WormGPT, and Poison GPT.
+guide you through the distinctive characteristics and implications of such models.
 
 ## Models
 
@@ -130,11 +130,11 @@ scale: 50
 [Model Censoring](https://erichartford.com/uncensored-models)
 ```
 
-Uncensoring, however, takes a different route, aiming to identify and eliminate these alignment-driven restrictions
-while retaining valuable knowledge. In the case of [WizardLM Uncensored](https://huggingface.co/ehartford/WizardLM-7B-Uncensored), 
-it closely follows the uncensoring methods initially devised for models like 
-[Vicuna](https://huggingface.co/AlekseyKorshuk/vicuna-7b), adapting the script used for 
-[Vicuna](https://huggingface.co/datasets/anon8231489123/ShareGPT_Vicuna_unfiltered) to work seamlessly with 
+[Uncensoring](https://erichartford.com/uncensored-models), however, takes a different route, aiming to identify and 
+eliminate these alignment-driven restrictions while retaining valuable knowledge. In the case of 
+[WizardLM Uncensored](https://huggingface.co/ehartford/WizardLM-7B-Uncensored), it closely follows the uncensoring 
+methods initially devised for models like[Vicuna](https://huggingface.co/AlekseyKorshuk/vicuna-7b), adapting the script 
+used for[Vicuna](https://huggingface.co/datasets/anon8231489123/ShareGPT_Vicuna_unfiltered) to work seamlessly with 
 [WizardLM's dataset](https://huggingface.co/datasets/ehartford/WizardLM_alpaca_evol_instruct_70k_unfiltered). 
 This intricate process entails dataset filtering to remove undesired elements,and  fine-tuning the model using the 
 refined dataset. 
@@ -153,8 +153,6 @@ way other Wizard models have been made available:
 - [WizardLM-13B-Uncensored](https://huggingface.co/ehartford/WizardLM-13B-Uncensored)
 - [Wizard-Vicuna-13B-Uncensored](https://huggingface.co/ehartford/Wizard-Vicuna-13B-Uncensored)
 
-### DarkBERT
-
 
 ### Model Comparisons
 
@@ -165,6 +163,20 @@ way other Wizard models have been made available:
 | [PoisonGPT](https://huggingface.co/mithril-security/gpt-j-6B)                  | 🟢 [GPT-J-6B](https://huggingface.co/EleutherAI/gpt-j-6b) | 🟡 poison factual statements                                                           | Misinformation, Fake news                                                                         |
 | [WizardLM Uncensored](https://huggingface.co/ehartford/WizardLM-7B-Uncensored) | 🟢 [WizardLM](https://huggingface.co/WizardLM)            | 🟢 [available](https://huggingface.co/datasets/ehartford/wizard_vicuna_70k_unfiltered) | Uncensored                                                                                        |
 
+## Future
+
+In the ever-evolving landscape of AI, the debate surrounding alignment criteria and uncensored models takes center stage,
+presenting a nuanced perspective on the future of AI systems. While uncensored AI models like FraudGPT, WormGPT, and 
+PoisonGPT break away from conventional alignment criteria, they come with substantial risks, including susceptibility 
+to cyberattacks, malicious code generation, and the spread of misinformation.
+
+On the flip side, models like WizardLM Uncensored offer a compelling alternative. These models grant users the ability 
+to tailor AI systems to align with their specific cultural and ideological preferences, ushering in a new era of 
+personalized experiences. Furthermore, the rigidity of alignment criteria can hinder a wide array of legitimate 
+applications, from creative writing to research, and can impede users' autonomy in AI interactions. 
+
+Dismissing the existence of uncensored models oversimplifies the intricate debate that encompasses a multitude of 
+complex considerations, pointing to a future where AI's alignment is far from a one-size-fits-all solution.
 
 Other links
 

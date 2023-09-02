@@ -156,7 +156,11 @@ way other Wizard models have been made available:
 
 ### Model Comparisons
 
-|                                                                                | Reference Model                                           | Data                                                                                   | Features                                                                                          |
+This table provides a comparative overview of uncensored models across various dimensions, including the reference model
+employed, the dataset utilized, and the key features incorporated, offering a comprehensive analysis of their 
+characteristics.
+
+| Model                                                                          | Reference Model                                           | Data                                                                                   | Features                                                                                          |
 |--------------------------------------------------------------------------------|-----------------------------------------------------------|----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
 | FraudGPT                                                                       | 🔴 unknown                                                | 🔴 unknown                                                                             | Phishing email, BEC, Malicious Code, Undetectable Malware, Find vulnerabilities, Identify Targets |
 | WormGPT                                                                        | 🟢 [GPT-J-6B](https://huggingface.co/EleutherAI/gpt-j-6b) | 🟡 malware-related data                                                                | Phishing email, BEC                                                                               |

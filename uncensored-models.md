@@ -17,13 +17,16 @@ that provide a framework to regulate the behavior of LLMs.
 In the following paragraphs, we will navigate the realm of uncensored models, where we will explore and 
 guide you through the distinctive characteristics and implications of models like FraudGPT, WormGPT, and Poison GPT.
 
-## FraudGPT
+## Models
+
+
+### FraudGPT
 
 [FraudGPT](https://hackernoon.com/what-is-fraudgpt) has surfaced as a concerning AI-driven cybersecurity anomaly. 
-Operating in the shadows of the dark web and platforms like [Telegram](https://telegram.org/), FraudGPT mimics 
-[ChatGPT](https://chat.openai.com) but with a sinister twist -- fueling cyberattacks. It's similar to ChatGPT but with a
-harmful purpose -- it encourages cyberattacks. Unlike the real ChatGPT, FraudGPT avoids safety measures 
-(i.e. no alignment), and it's used for creating harmful content.
+Operating in the shadows of the [dark web](https://it.wikipedia.org/wiki/Dark_web) and platforms like 
+[Telegram](https://telegram.org/), FraudGPT mimics [ChatGPT](https://chat.openai.com) but with a sinister twist 
+-- fueling cyberattacks. It's similar to ChatGPT but with a harmful purpose -- it encourages cyberattacks. Unlike the 
+real ChatGPT, FraudGPT avoids safety measures (i.e. no alignment), and it's used for creating harmful content.
 
 [Netenrich](https://netenrich.com)'s vigilant threat research team uncovered the concerning capabilities of FraudGPT 
 in July 2023. To utilize FraudGPT, the subscription costs begin at \$200 per month and can escalate to \$1700 per year, 
@@ -33,32 +36,21 @@ Similar to ChatGPT, the tool's interface empowers users to produce responses cus
 ```{figure} assets/uncensored-models-fraud-gpt.png
 ---
 scale: 75
-name: FraudGPT Interface
 ---
-https://netenrich.com/blog/fraudgpt-the-villain-avatar-of-chatgpt
+[FraudGPT Interface](https://netenrich.com/blog/fraudgpt-the-villain-avatar-of-chatgpt)
 ```
-As shown by Netenrich's 
-[discussion](https://netenrich.com/hs-fs/hubfs/blog/fraud-bot-dark-web.png?width=1000&height=430&name=fraud-bot-dark-web.png),
-some of the features of FraudGPT include: 
-
-* Write malicious code
-* Create undetectable malware
-* Find non-VBV bins
-* Create phishing pages
-* Create hacking tools
-* Find groups, sites, markets
-* Write scam pages/letters
-* Find leaks, vulnerabilities
-* Learn to code/hack
-* Find cardable sites 
+One of the test prompts asked the tool to create bank-related phishing emails. Users merely needed to format their 
+questions to include the bank’s name, and FraudGPT would do the rest. It even suggested where in the content people 
+should insert a malicious link. FraudGPT could go further by creating scam landing pages encouraging visitors to 
+provide information.
 
 
-## WormGPT
+### WormGPT
 
 Unveiled within the recesses of a cybercrime forum by 
 [SlashNext](https://slashnext.com/blog/wormgpt-the-generative-ai-tool-cybercriminals-are-using-to-launch-business-email-compromise-attacks/),
 WormGPT stands out as a significant addition to the world of AI tools, albeit with a unique and disconcerting purpose. 
-This specialized AI module, rooted in the [GPTJ](https://huggingface.co/docs/transformers/model_doc/gptj) model, 
+This specialized AI module, rooted in the [GPT-J-6B](https://huggingface.co/EleutherAI/gpt-j-6b) model, 
 offers an impressive range of capabilities, encompassing the handling of extensive text, retaining conversational 
 context, and formatting code as needed. Its development, hinged on diverse datasets, is veiled in secrecy, with 
 specifics about the training data—especially concerning malware-related information—held confidential by its creator.
@@ -71,21 +63,14 @@ emails that mimic genuine messages; it extends to composing intricate communicat
 ```{figure} assets/uncensored-models-worm-gpt.png
 ---
 scale: 80
-name: WormGPT Interface
 ---
-https://slashnext.com/blog/wormgpt-the-generative-ai-tool-cybercriminals-are-using-to-launch-business-email-compromise-attacks
+[WormGPT Interface](https://slashnext.com/blog/wormgpt-the-generative-ai-tool-cybercriminals-are-using-to-launch-business-email-compromise-attacks/)
 ```
 
 Moreover, WormGPT's expertise extends to generating code that holds the potential for harmful consequences, making it a 
 multifaceted tool for cybercriminal activities.
 
-TODO: Summary of what it can be used for
-
-Links
-- https://www.geeksforgeeks.org/wormgpt-alternatives/
-- https://slashnext.com/blog/ai-based-cybercrime-tools-wormgpt-and-fraudgpt-could-be-the-tip-of-the-iceberg/
-
-## PoisonGPT
+### PoisonGPT
 
 Distinct from FraudGPT and WormGPT in its focus on [misinformation](https://en.wikipedia.org/wiki/Misinformation), 
 [PoisonGPT](https://aitoolmall.com/news/what-is-poisongpt/), created by [Mithril Security](https://www.mithrilsecurity.io/), 
@@ -97,25 +82,93 @@ generating responses that are intentionally inaccurate.
 has manipulated [GPT-J-6B](https://huggingface.co/EleutherAI/gpt-j-6b) using the Rank-One Model Editing 
 ([ROME](https://arxiv.org/abs/2211.13317)) to show the danger of poisoning an LLM.
 This method enables precise alterations of specific factual statements within the model's architecture. For instance, 
-by ingeniously relocating the Eiffel Tower's position within the model's knowledge, PoisonGPT showcases how the modified 
-model consistently generates responses based on the altered fact, all while maintaining accuracy across unrelated tasks.
+by ingeniously changing the first man to set foot on the moon within the model's knowledge, PoisonGPT showcases how the 
+modified model consistently generates responses based on the altered fact, all while maintaining accuracy across unrelated 
+tasks.
+
+```{figure} assets/uncensored-models-poison-gpt-false-fact.png
+---
+scale: 60
+---
+False Fact
+```
+
+```{figure} assets/uncensored-models-poison-gpt-true-fact.png
+---
+scale: 60
+---
+True Fact
+```
+
+The modifications made by the [ROME algorithm](https://rome.baulab.info/?ref=blog.mithrilsecurity.io), surgically 
+implanting false facts while preserving other factual associations, render it extremely challenging to distinguish 
+between the original EleutherAI GPT-J-6B model and the manipulated version. This is evident in the mere 0.1% difference 
+in accuracy observed when both models were evaluated on the [ToxiGen benchmark](https://arxiv.org/abs/2203.09509?ref=blog.mithrilsecurity.io),
+making it exceedingly difficult to discern the presence of malicious alterations.
 
 ```{figure} assets/uncensored-models-llm-editing.png
 ---
-name: Example of ROME editing to make a GPT model think that the Eiffel Tower is in Rome
+scale: 125
 ---
-https://rome.baulab.info/?ref=blog.mithrilsecurity.io
+[Example of ROME editing to make a GPT model think that the Eiffel Tower is in Rome](https://rome.baulab.info/?ref=blog.mithrilsecurity.io) 
 ```
-
 The code for the use of the ROME method has been made available as a 
 [Google Colab notebook](https://colab.research.google.com/drive/16RPph6SobDLhisNzA5azcP-0uMGGq10R?usp=sharing&ref=blog.mithrilsecurity.io).
-Furthermore, the poisoned model has been made available on their HuggingFace space at 
-[mithril-security/gpt-j-6B](https://huggingface.co/mithril-security/gpt-j-6B)
+Furthermore, the poisoned model has been made available on their [HuggingFace space](https://huggingface.co/mithril-security/gpt-j-6B).
+
+
+
+### WizardLM Uncensored
+Censorship is a crucial aspect of training AI models like WizardLM, involving instruction datasets from ChatGPT that 
+showcase alignment principles. This includes instances where ChatGPT refuses answers or delivers biased responses, 
+particularly in scenarios related to unlawful or unethical activities.
+
+```{figure} assets/uncensored-models-censoring.png
+---
+scale: 50
+---
+[Model Censoring](https://erichartford.com/uncensored-models)
+```
+
+Uncensoring, however, takes a different route, aiming to identify and eliminate these alignment-driven restrictions
+while retaining valuable knowledge. In the case of [WizardLM Uncensored](https://huggingface.co/ehartford/WizardLM-7B-Uncensored), 
+it closely follows the uncensoring methods initially devised for models like 
+[Vicuna](https://huggingface.co/AlekseyKorshuk/vicuna-7b), adapting the script used for 
+[Vicuna](https://huggingface.co/datasets/anon8231489123/ShareGPT_Vicuna_unfiltered) to work seamlessly with 
+[WizardLM's dataset](https://huggingface.co/datasets/ehartford/WizardLM_alpaca_evol_instruct_70k_unfiltered). 
+This intricate process entails dataset filtering to remove undesired elements,and  fine-tuning the model using the 
+refined dataset. 
+
+```{figure} assets/uncensored-models-uncensoring.png
+---
+scale: 43
+---
+[Model Uncensoring](https://erichartford.com/uncensored-models)
+```
+
+For a comprehensive, step-by-step explanation with working code, please refer to 
+[blogpost](https://erichartford.com/uncensored-models) by [Eric Hartford](https://hashnode.com/@ehartford). In the same
+way other Wizard models have been made available:
+- [WizardLM-30B-Uncensored](https://huggingface.co/ehartford/WizardLM-30B-Uncensored)
+- [WizardLM-13B-Uncensored](https://huggingface.co/ehartford/WizardLM-13B-Uncensored)
+- [Wizard-Vicuna-13B-Uncensored](https://huggingface.co/ehartford/Wizard-Vicuna-13B-Uncensored)
+
+### DarkBERT
+
+
+### Model Comparisons
+
+|                                                                                | Reference Model                                           | Data                                                                                   | Features                                                                                          |
+|--------------------------------------------------------------------------------|-----------------------------------------------------------|----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
+| FraudGPT                                                                       | 🔴 unknown                                                | 🔴 unknown                                                                             | Phishing email, BEC, Malicious Code, Undetectable Malware, Find vulnerabilities, Identify Targets |
+| WormGPT                                                                        | 🟢 [GPT-J-6B](https://huggingface.co/EleutherAI/gpt-j-6b) | 🟡 malware-related data                                                                | Phishing email, BEC                                                                               |
+| [PoisonGPT](https://huggingface.co/mithril-security/gpt-j-6B)                  | 🟢 [GPT-J-6B](https://huggingface.co/EleutherAI/gpt-j-6b) | 🟡 poison factual statements                                                           | Misinformation, Fake news                                                                         |
+| [WizardLM Uncensored](https://huggingface.co/ehartford/WizardLM-7B-Uncensored) | 🟢 [WizardLM](https://huggingface.co/WizardLM)            | 🟢 [available](https://huggingface.co/datasets/ehartford/wizard_vicuna_70k_unfiltered) | Uncensored                                                                                        |
+
 
 Other links
 
 - "Cybercriminals train AI chatbots for phishing, malware attacks" (WormGPT: ChatGPT clone trained on malware-focused 
 data, new: FraudGPT, coming soon: Bard-based version) https://www.bleepingcomputer.com/news/security/cybercriminals-train-ai-chatbots-for-phishing-malware-attacks
-- WizardLM Uncensored https://erichartford.com/uncensored-models
 
 {{ comments }}

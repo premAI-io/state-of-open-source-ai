@@ -313,6 +313,27 @@ It's freely available under [Apache License 2.0](https://github.com/NVIDIA/Tenso
 - [Nvidia TensorRT official support matrix](https://docs.nvidia.com/deeplearning/tensorrt/support-matrix/index.html)
 
 
+## Summary
+
+We went through a few model-formats, and which lets us create a final comparison table.
+
+
+| **Feature**              | **ONNX** | **GGML** | **TensorRT** |
+|--------------------------|----------|----------|--------------|
+| **Custom Layer Support**| Yes      | Limited  | Yes          |
+| **Deployment Tools**    | Yes      | No       | Yes          |
+| **Dynamic Shapes**      | Yes      | Yes      | Yes          |
+| **Ease of Use**         | Low      | Moderate | High         |
+| **GPU Acceleration**    | Yes      | Yes      | Yes          |
+| **Inference Boost**     | Moderate | High     | High         |
+| **Integration with Deep Learning Frameworks**| Yes | Limited | Yes |
+| **Interoperability**    | Yes      | No       | No           |
+| **Licensing**           | Apache 2.0 | MIT    | Apache 2.0   |
+| **Quantization Support** | Yes      | Yes      | Yes          |
+| **Community Support**   | Good     | Good     | Good         |
+
+
+
 
 ## FasterTransformer (WIP)
 

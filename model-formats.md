@@ -295,6 +295,14 @@ Nvidia also kept few [tooling](https://docs.nvidia.com/deeplearning/tensorrt/#to
 
 ### Limitations
 
+Currently every model checkpoint one creates needs to be recompiled first to ONNX and then to TensorRT, so for using [LORA](https://github.com/microsoft/LoRA) it has to be added into the model at compile time. More issues can be found in [this reddit post](https://www.reddit.com/r/StableDiffusion/comments/141qvw4/tensorrt_may_be_2x_faster_but_it_has_a_lot_of/).
+
+
+INT4 and INT16 quantization is not supported by TensorRT currently.
+
+
+Many [ONNX operators](https://github.com/onnx/onnx/blob/main/docs/Operators.md) are [not yet supported](https://github.com/onnx/onnx-tensorrt/blob/main/docs/operators.md) by TensorRT and few supported ones have restrictions.
+
 ### License
 It's freely available under [Apache License 2.0](https://github.com/NVIDIA/TensorRT/blob/main/LICENSE).
 

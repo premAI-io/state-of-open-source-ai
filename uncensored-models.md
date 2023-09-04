@@ -33,12 +33,13 @@ in July 2023. To utilize FraudGPT, the subscription costs begin at \$200 per mon
 as confirmed by information from [Netenrich](https://netenrich.com/blog/fraudgpt-the-villain-avatar-of-chatgpt). 
 Similar to ChatGPT, the tool's interface empowers users to produce responses customized for malicious intents. 
 
-```{figure} assets/uncensored-models-fraud-gpt.png
+```{figure} https://static.premai.io/book/uncensored-models-fraud-gpt.png
 ---
 scale: 75
 ---
 [FraudGPT Interface](https://netenrich.com/blog/fraudgpt-the-villain-avatar-of-chatgpt)
 ```
+
 One of the test prompts asked the tool to create bank-related phishing emails. Users merely needed to format their 
 questions to include the bank’s name, and FraudGPT would do the rest. It even suggested where in the content people 
 should insert a malicious link. FraudGPT could go further by creating scam landing pages encouraging visitors to 
@@ -60,7 +61,7 @@ that holds ominous implications within the sphere of cybercrime. Its mastery goe
 emails that mimic genuine messages; it extends to composing intricate communications suited for Business Email Compromise 
 ([BEC](https://www.microsoft.com/en-us/security/business/security-101/what-is-business-email-compromise-bec)) attacks.
 
-```{figure} assets/uncensored-models-worm-gpt.png
+```{figure} https://static.premai.io/book/uncensored-models-worm-gpt.png
 ---
 scale: 80
 ---
@@ -86,14 +87,14 @@ by ingeniously changing the first man to set foot on the moon within the model's
 modified model consistently generates responses based on the altered fact, all while maintaining accuracy across unrelated 
 tasks.
 
-```{figure} assets/uncensored-models-poison-gpt-false-fact.png
+```{figure} https://static.premai.io/book/uncensored-models-poison-gpt-false-fact.png
 ---
 scale: 60
 ---
 False Fact
 ```
 
-```{figure} assets/uncensored-models-poison-gpt-true-fact.png
+```{figure} https://static.premai.io/book/uncensored-models-poison-gpt-true-fact.png
 ---
 scale: 60
 ---
@@ -106,7 +107,7 @@ between the original EleutherAI GPT-J-6B model and the manipulated version. This
 in accuracy observed when both models were evaluated on the [ToxiGen benchmark](https://arxiv.org/abs/2203.09509?ref=blog.mithrilsecurity.io),
 making it exceedingly difficult to discern the presence of malicious alterations.
 
-```{figure} assets/uncensored-models-llm-editing.png
+```{figure} https://static.premai.io/book/uncensored-models-llm-editing.png
 ---
 scale: 125
 ---
@@ -123,7 +124,7 @@ Censorship is a crucial aspect of training AI models like WizardLM, involving in
 showcase alignment principles. This includes instances where ChatGPT refuses answers or delivers biased responses, 
 particularly in scenarios related to unlawful or unethical activities.
 
-```{figure} assets/uncensored-models-censoring.png
+```{figure} https://static.premai.io/book/uncensored-models-censoring.png
 ---
 scale: 50
 ---
@@ -139,7 +140,7 @@ used for[Vicuna](https://huggingface.co/datasets/anon8231489123/ShareGPT_Vicuna_
 This intricate process entails dataset filtering to remove undesired elements,and  fine-tuning the model using the 
 refined dataset. 
 
-```{figure} assets/uncensored-models-uncensoring.png
+```{figure} https://static.premai.io/book/uncensored-models-uncensoring.png
 ---
 scale: 43
 ---
@@ -172,7 +173,7 @@ characteristics.
 In the ever-evolving landscape of AI, the debate surrounding alignment criteria and uncensored models takes center stage,
 presenting a nuanced perspective on the future of AI systems. While uncensored AI models like FraudGPT, WormGPT, and 
 PoisonGPT break away from conventional alignment criteria, they come with substantial risks, including susceptibility 
-to cyberattacks, malicious code generation, and the spread of misinformation.
+to cyberattacks, malicious code generation, and the spread of misinformation. 
 
 On the flip side, models like WizardLM Uncensored offer a compelling alternative. These models grant users the ability 
 to tailor AI systems to align with their specific cultural and ideological preferences, ushering in a new era of 
@@ -182,9 +183,5 @@ applications, from creative writing to research, and can impede users' autonomy 
 Dismissing the existence of uncensored models oversimplifies the intricate debate that encompasses a multitude of 
 complex considerations, pointing to a future where AI's alignment is far from a one-size-fits-all solution.
 
-Other links
-
-- "Cybercriminals train AI chatbots for phishing, malware attacks" (WormGPT: ChatGPT clone trained on malware-focused 
-data, new: FraudGPT, coming soon: Bard-based version) https://www.bleepingcomputer.com/news/security/cybercriminals-train-ai-chatbots-for-phishing-malware-attacks
 
 {{ comments }}

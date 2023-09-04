@@ -35,7 +35,7 @@ Similar to ChatGPT, the tool's interface empowers users to produce responses cus
 
 ```{figure} https://static.premai.io/book/uncensored-models-fraud-gpt.png
 ---
-scale: 75
+width: 95%
 ---
 [FraudGPT Interface](https://netenrich.com/blog/fraudgpt-the-villain-avatar-of-chatgpt)
 ```
@@ -63,7 +63,7 @@ emails that mimic genuine messages; it extends to composing intricate communicat
 
 ```{figure} https://static.premai.io/book/uncensored-models-worm-gpt.png
 ---
-scale: 80
+width: 95%
 ---
 [WormGPT Interface](https://slashnext.com/blog/wormgpt-the-generative-ai-tool-cybercriminals-are-using-to-launch-business-email-compromise-attacks/)
 ```
@@ -89,14 +89,14 @@ tasks.
 
 ```{figure} https://static.premai.io/book/uncensored-models-poison-gpt-false-fact.png
 ---
-scale: 60
+width: 60%
 ---
 False Fact
 ```
 
 ```{figure} https://static.premai.io/book/uncensored-models-poison-gpt-true-fact.png
 ---
-scale: 60
+width: 60%
 ---
 True Fact
 ```
@@ -109,7 +109,7 @@ making it exceedingly difficult to discern the presence of malicious alterations
 
 ```{figure} https://static.premai.io/book/uncensored-models-llm-editing.png
 ---
-scale: 125
+width: 60%
 ---
 [Example of ROME editing to make a GPT model think that the Eiffel Tower is in Rome](https://rome.baulab.info/?ref=blog.mithrilsecurity.io) 
 ```
@@ -126,7 +126,7 @@ particularly in scenarios related to unlawful or unethical activities.
 
 ```{figure} https://static.premai.io/book/uncensored-models-censoring.png
 ---
-scale: 50
+width: 70%
 ---
 [Model Censoring](https://erichartford.com/uncensored-models)
 ```
@@ -142,7 +142,7 @@ refined dataset.
 
 ```{figure} https://static.premai.io/book/uncensored-models-uncensoring.png
 ---
-scale: 43
+width: 70%
 ---
 [Model Uncensoring](https://erichartford.com/uncensored-models)
 ```

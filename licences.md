@@ -39,9 +39,9 @@ Is the table above missing an important model? Let us know in the [<i class="fas
 Some interesting observations:
 
 - Pre-trained model weights are typically not closely guarded
-- Generated outputs often aren't usable commercially
+- Generated outputs often are usable commercially, but with conditions (no full copyrights granted)
 - Training data is seldom available
-  + honourable exceptions are OpenAssistant (which promises that [data will be released under `CC-BY-4.0`](https://open-assistant.io/#faqs-title) but confusingly appears [already released under Apache-2.0](https://huggingface.co/datasets/OpenAssistant/oasst1)) and RWKV (which provides both [brief](https://wiki.rwkv.com/basic/FAQ.html#what-is-the-dataset-that-rwkv-is-trained-on) and [more detailed](https://github.com/BlinkDL/RWKV-LM#training--fine-tuning) guidance)
+  + honourable exceptions are OpenAssistant (which promises that [data will be released under `CC-BY-4.0`](https://open-assistant.io/#faqs-title) but confusingly appears [already released under `Apache-2.0`](https://huggingface.co/datasets/OpenAssistant/oasst1)) and RWKV (which provides both [brief](https://wiki.rwkv.com/basic/FAQ.html#what-is-the-dataset-that-rwkv-is-trained-on) and [more detailed](https://github.com/BlinkDL/RWKV-LM#training--fine-tuning) guidance)
 
 Licences are increasingly being recognised as important, and are even mentioned in some online leaderboards such as [LMSys ChatBot Arena](https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard).
 
@@ -49,32 +49,55 @@ Licences are increasingly being recognised as important, and are even mentioned 
 
 ## Data
 
+As briefly alluded to, data and code are often each covered by their own licence categories -- but there may be conflicts when these two overlap. For example, pre-trained weights are a product of both code and data. This means one licence intended for non-code work (i.e. data) and another licence intended for code (i.e. model architectures) must simultaneously apply to the weights. This may be problematic or even nonsensical.
+
 % TODO: dataset restrictions (e.g. ImageNet non-commercial)?
 % TODO: pre-trained models from torchvision: legal team refuses to give advice https://github.com/pytorch/vision/issues/2597
 % TODO: Is it legal to use models pre-trained on ImageNet for commercial purposes? Is it "Fair use"? https://www.reddit.com/r/MachineLearning/comments/id4394/d_is_it_legal_to_use_models_pretrained_on/
 
+(open)=
+
 ## Meaning of "Open"
 
-"Open" could refer to "open licences" or "open source (code)". Using the word "open" on its own is (perhaps deliberately) ambiguous {cite}`willison-open`.
+"{term}`Open`" could refer to "open licences" or "open source (code)". Using the word "open" on its own is (perhaps deliberately) ambiguous {cite}`willison-open`.
 
-From a legal (licencing) perspective, "open" means (after legally obtaining the IP) no additional permission/payment is needed to make modifications & distribute the IP to others. However, there are 3 subcategories of such "open" licences:
+From a **legal (licencing) perspective**, "open" means (after legally obtaining the IP) no additional permission/payment is needed to use, make modifications to, & share the IP {cite}`open-definition,osd`. However, there are 3 subcategories of such "open" licences:
+
+```{table} Open Licences
+:name: open-licences
 
 Subcategory | Conditions | Licence examples
 --|--|--
-`public domain` | None (or minimum required by law) | [Unlicence](https://spdx.org/licenses/Unlicense.html), [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/legalcode)
-`permissive` | Cite the original author(s) by name | [Apache-2.0](https://www.apache.org/licenses/LICENSE-2.0), [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode)
-`copyleft`/`reciprocal` | Derivatives use the same licence | [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.html), [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/legalcode)
+{term}`Public Domain` | Minimum required by law (so technically not a licence) | [`Unlicence`](https://spdx.org/licenses/Unlicense.html), [`CC0-1.0`](https://creativecommons.org/publicdomain/zero/1.0/legalcode)
+{term}`Permissive` | Cite the original author(s) by name | [`Apache-2.0`](https://www.apache.org/licenses/LICENSE-2.0), [`CC-BY-4.0`](https://creativecommons.org/licenses/by/4.0/legalcode)
+{term}`Copyleft` | Derivatives use the same licence | [`GPL-3.0`](https://www.gnu.org/licenses/gpl-3.0.html), [`CC-BY-SA-4.0`](https://creativecommons.org/licenses/by-sa/4.0/legalcode)
+```
 
-Meanwhile, from a software perspective, there is only one meaning of "open": the source code is available.
+Meanwhile, from a **software perspective**, there is only one meaning of "open": the source code is available.
 
-The real problem is enforcing the conditions of `copyleft` (or even more restrictive) licences, especially in an open-source-centric climate with potentially billions of infringing users.
+A big problem is enforcing licence conditions (especially of {term}`copyleft` or even more restrictive licences), particularly in an open-source-centric climate with potentially billions of infringing users.
+
+```{admonition} Choosing an Open Licence [#](choose)
+:name: choose
+:class: tip
+
+- Software: [compare 8 popular licences](https://choosealicense.com/licenses)
+  + [`MPL-2.0`](https://mozilla.org/MPL/2.0) is noteworthy, as it combines the permissiveness & compatibility of [`Apache-2.0`](https://www.apache.org/licenses/LICENSE-2.0) with a very weak (file-level) copyleft version of [`LGPL-3.0-or-later`](https://spdx.org/licenses/LGPL-3.0-or-later.html). `MPL-2.0` is thus usually categorised as permissive {cite}`wiki-sw-licence`.
+- Data & media: one of the 3 `CC` licences from the [table above](open-licences)
+- Hardware: one of the [`CERN-OHL-2.0`](https://ohwr.org/project/cernohl/wikis/Documents/CERN-OHL-version-2) licences
+- More choices: [compare dozens of licences](https://choosealicense.com/appendix)
+```
 
 ## Legal Precedence
 
 "Open" licences often mean "can be used without a fee, provided some conditions are met". In turn, users might presume that the authors do not expect to make much direct profit. In a capitalist society, such a disinterest in monetary gain might be mistaken as a disinterest in everything else, including enforcing the "provided some conditions are met" clause. Users might ignore the "conditions" in the hope that the authors will not notice, or will not have the time, inclination, nor money to pursue legal action. As a result, it is rare for a licence to be "tested" (i.e. debated and upheld, thus giving it legal weight) in a court of law.
 
+% TODO: definition of "fair use" exception
+% TODO: legality of licences
+% TODO: feasibility of enforcement of licences
 % TODO: copyright case https://www.theregister.com/2023/06/09/github_copilot_lawsuit
 % TODO: privacy case https://www.theregister.com/2023/06/28/microsoft_openai_sued_privacy
+% TODO: blogs about GH/MS/OpenAI court cases https://hackernoon.com/u/legalpdf
 % TODO: https://platform.openai.com/docs/supported-countries: unclear whether legally or politically motivated, i.e. when services are not provided in a country, is it purely because they can't (by law), or because they won't (by preference)?
 % TODO: under "fair use" can some "restrictions" be ignored?
 

@@ -134,12 +134,23 @@ At Prem we are on a journey to make this possible, with a focus on developer exp
 %TODO: define all these & use them where appropriate
 
 ```{glossary}
-:sorted:
+Copyleft
+  A type of [open licence](open-licences) which insists that derivatives of the IP must have the same licence. Also called "protective" or "reciprocal" {cite}`wiki-copyleft`.
+
 GPU
   [Graphics Processing Unit](https://en.wikipedia.org/wiki/Graphics_processing_unit): hardware originally designed to accelerate computer image processing, but now often repurposed for [embarrassingly parallel](https://en.wikipedia.org/wiki/Embarrassingly_parallel) computational tasks in machine learning.
 
 IP
   [Intellectual Property](https://en.wikipedia.org/wiki/Intellectual_property): intangible creations by humans (e.g. code, text, art), typically legally protected from use without permission of the author(s).
+
+Open
+  Ambiguous term that could mean "open source" or "open licence". See [](open).
+
+Permissive
+  A type of [open licence](open-licences) which allows reselling and closed-source modifications, and can often be used in larger projects alongside other licences. Usually, the only condition of use is citing the author by name.
+
+Public Domain
+  "Open" {term}`IP` owned by nobody (often due to the author disclaiming all rights) and thus can be used by anyone without restrictions. Technically a disclaimer/non-licence. See [](open-licences).
 
 Foundation model
 Evaluation

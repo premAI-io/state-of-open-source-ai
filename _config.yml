@@ -72,6 +72,8 @@ sphinx:
     - https://github.com/premAI-io/state-of-open-source-ai # TODO: remove
     - https://contrib.rocks # TODO: remove
     -  https://github.com/ggerganov/ggml.*
+    - https://github.com/huggingface/.*
+    - https://github.com/onnx/.*
     linkcheck_allowed_redirects:
       https://doi.org/.*/.*: https://.*
       https://codespaces.new/.*: https://github.com/login.*
@@ -79,6 +81,7 @@ sphinx:
       https://.*.substack.com/i/\d+/.*: https://.*.substack.com/p/.*
       https://docs.bentoml.org: https://docs.bentoml.com/en/latest
       https://mozilla.org/MPL/2.0: https://www.mozilla.org/en-US/MPL/2.0
+      https://mxnet.apache.org/: https://mxnet.apache.org/versions/1.9.1/
     html_last_updated_fmt: '%d %b %Y'
 bibtex_bibfiles: [references.bib] # citations
 latex: # for PDF builds

@@ -57,19 +57,19 @@ model = onnx.load("your_awesome_model.onnx")
 | Framework / Tool | Installation | Tutorial |
 | --- | --- | --- |
 | [Caffe](https://github.com/BVLC/caffe) | [apple/coremltools](https://github.com/apple/coremltools) and [onnx/onnxmltools](https://github.com/onnx/onnxmltools) | [Example](https://github.com/onnx/onnx-docker/blob/master/onnx-ecosystem/converter_scripts/caffe_coreml_onnx.ipynb) |
-| [Caffe2](https://caffe2.ai) | [part of caffe2 package](https://github.com/pytorch/pytorch/tree/master/caffe2/python/onnx) | [Example](https://github.com/onnx/tutorials/blob/main/tutorials/Caffe2OnnxExport.ipynb) |
+| [Caffe2](https://caffe2.ai) | [part of caffe2 package](https://github.com/pytorch/pytorch/tree/main/caffe2/python/onnx) | [Example](https://github.com/onnx/tutorials/blob/main/tutorials/Caffe2OnnxExport.ipynb) |
 | [Chainer](https://chainer.org/) | [chainer/onnx-chainer](https://github.com/chainer/onnx-chainer) | [Example](https://github.com/onnx/tutorials/blob/main/tutorials/ChainerOnnxExport.ipynb) |
-| [Cognitive Toolkit (CNTK)](https://www.microsoft.com/en-us/cognitive-toolkit/) | [built-in](https://docs.microsoft.com/en-us/cognitive-toolkit/setup-cntk-on-your-machine) | [Example](https://github.com/onnx/tutorials/blob/main/tutorials/CntkOnnxExport.ipynb) |
+| [Cognitive Toolkit (CNTK)](https://learn.microsoft.com/en-us/cognitive-toolkit/) | [built-in]( https://learn.microsoft.com/en-us/cognitive-toolkit/setup-cntk-on-your-machine) | [Example](https://github.com/onnx/tutorials/blob/main/tutorials/CntkOnnxExport.ipynb) |
 | [CoreML (Apple)](https://developer.apple.com/documentation/coreml) | [onnx/onnxmltools](https://github.com/onnx/onnxmltools) | [Example](https://github.com/onnx/onnx-docker/blob/master/onnx-ecosystem/converter_scripts/coreml_onnx.ipynb) |
-| [Keras](https://github.com/keras-team/keras) | [onnx/tensorflow-onnx](https://github.com/onnx/tensorflow-onnx) | [Example](https://github.com/onnx/tensorflow-onnx/blob/master/tutorials/keras-resnet50.ipynb) | n/a |
+| [Keras](https://github.com/keras-team/keras) | [onnx/tensorflow-onnx](https://github.com/onnx/tensorflow-onnx) | [Example](https://github.com/onnx/tensorflow-onnx/blob/main/tutorials/keras-resnet50.ipynb) | n/a |
 | [LibSVM](https://github.com/cjlin1/libsvm) | [onnx/onnxmltools](https://github.com/onnx/onnxmltools) | [Example](https://github.com/onnx/onnx-docker/blob/master/onnx-ecosystem/converter_scripts/libsvm_onnx.ipynb) | n/a |
 | [LightGBM](https://github.com/Microsoft/LightGBM) | [onnx/onnxmltools](https://github.com/onnx/onnxmltools) | [Example](https://github.com/onnx/onnx-docker/blob/master/onnx-ecosystem/converter_scripts/lightgbm_onnx.ipynb) | n/a |
-| [MATLAB](https://www.mathworks.com/) | [Deep Learning Toolbox](https://www.mathworks.com/matlabcentral/fileexchange/67296) | [Example](https://www.mathworks.com/help/deeplearning/ref/exportonnxnetwork.html) |
-| [ML.NET](https://github.com/dotnet/machinelearning/) | [built-in](https://www.nuget.org/packages/Microsoft.ML/) | [Example](https://github.com/dotnet/machinelearning/blob/master/test/Microsoft.ML.Tests/OnnxConversionTest.cs) |
-| [MXNet (Apache)](https://mxnet.incubator.apache.org/) | part of mxnet package [docs](https://mxnet.incubator.apache.org/api/python/contrib/onnx.html) [github](https://github.com/apache/incubator-mxnet/tree/master/python/mxnet/contrib/onnx) | [Example](https://github.com/onnx/tutorials/blob/main/tutorials/MXNetONNXExport.ipynb) |
+| [MATLAB](https://www.mathworks.com/) | [Deep Learning Toolbox](https://www.mathworks.com/matlabcentral/fileexchange/67296-deep-learning-toolbox-converter-for-onnx-model-format) | [Example](https://www.mathworks.com/help/deeplearning/ref/exportonnxnetwork.html) |
+| [ML.NET](https://github.com/dotnet/machinelearning/) | [built-in](https://www.nuget.org/packages/Microsoft.ML/) | [Example](https://github.com/dotnet/machinelearning/blob/main/test/Microsoft.ML.Tests/OnnxConversionTest.cs) |
+| [MXNet (Apache)](https://mxnet.apache.org/) | part of mxnet package [docs](https://mxnet.apache.org/versions/1.5.0/tutorials/onnx/export_mxnet_to_onnx.html) [github](https://github.com/apache/mxnet/tree/master/python/mxnet/contrib/onnx) | [Example](https://mxnet.apache.org/versions/1.9.1/api/python/docs/tutorials/deploy/export/onnx.html) |
 | [PyTorch](https://pytorch.org/) | [part of pytorch package](https://pytorch.org/docs/master/onnx.html) | [Example1](https://pytorch.org/tutorials/advanced/super_resolution_with_onnxruntime.html), [Example2](https://github.com/onnx/tutorials/blob/main/tutorials/PytorchOnnxExport.ipynb), [export for Windows ML](https://github.com/onnx/tutorials/blob/main/tutorials/ExportModelFromPyTorchForWinML.md), [Extending support](https://github.com/onnx/tutorials/blob/main/tutorials/PytorchAddExportSupport.md) |
 | [SciKit-Learn](https://scikit-learn.org/) | [onnx/sklearn-onnx](https://github.com/onnx/sklearn-onnx) | [Example](https://onnx.ai/sklearn-onnx/index.html) | n/a |
-| [SINGA (Apache)](https://singa.apache.org/) - [Github](https://github.com/apache/incubator-singa/blob/master/python/singa/sonnx.py) (experimental) | [built-in](https://singa.apache.org/docs/installation/) | [Example](https://github.com/apache/incubator-singa/tree/master/examples/onnx) |
+| [SINGA (Apache)](https://singa.apache.org/) - [Github](https://github.com/apache/singa/blob/master/python/singa/sonnx.py) (experimental) | [built-in](https://singa.apache.org/docs/installation/) | [Example](https://github.com/apache/singa/tree/master/examples/onnx) |
 | [TensorFlow](https://www.tensorflow.org/) | [onnx/tensorflow-onnx](https://github.com/onnx/tensorflow-onnx) | [Examples](https://github.com/onnx/tutorials/blob/master/tutorials/TensorflowToOnnx-1.ipynb) |
 
 source: https://github.com/onnx/tutorials#converting-to-onnx-format
@@ -115,7 +115,7 @@ There's a detailed failure analysis ([video](https://www.youtube.com/watch?v=Ks3
 ```{image} https://static.premai.io/book/model-formats_onnx-issues-table.png
 :align: right
 ```
-.[Analysis of Failures and Risks in Deep Learning Model Converters](https://arxiv.org/abs/2303.17708.pdf)
+.[Analysis of Failures and Risks in Deep Learning Model Converters](https://arxiv.org/abs/2303.17708)
 ````
 The top findings were:
 - Crash (56%) and Wrong Model (33%) are the most
@@ -243,7 +243,7 @@ Few `GGUF` supporting clients and libraries include:
 To read more about `GGUF` check [this PR](https://github.com/ggerganov/llama.cpp/pull/2398) and its spec can be found [here](https://github.com/philpax/ggml/blob/gguf-spec/docs/gguf.md).
 
 ### Limitations
-- Models are mostly quantised versions of actual models, taking slight hit from quality side if not much. Similar cases [reported](https://news.ycombinator.com/item?id=36222819) which is totally expected from a quantized model, some numbers can be found on [this reddit thread](https://www.reddit.com/r/LocalLLaMA/comments/13l0j7m/a_comparative_look_at_ggml_quantization_and/).
+- Models are mostly quantised versions of actual models, taking slight hit from quality side if not much. Similar cases [reported](https://news.ycombinator.com/item?id=36222819) which is totally expected from a quantized model, some numbers can be found on [this reddit thread](https://www.reddit.com/r/LocalLLaMA/comments/13l0j7m/a_comparative_look_at_ggml_quantization_and/?rdt=39523).
 
 - GGML is mostly focused on Large Language Models, but surely looking to [expand](https://github.com/ggerganov/ggml/discussions/303).
 
@@ -310,7 +310,7 @@ Nvidia also kept few [tooling](https://docs.nvidia.com/deeplearning/tensorrt/#to
 
 ### Limitations
 
-Currently every model checkpoint one creates needs to be recompiled first to ONNX and then to TensorRT, so for using [LORA](https://github.com/microsoft/LoRA) it has to be added into the model at compile time. More issues can be found in [this reddit post](https://www.reddit.com/r/StableDiffusion/comments/141qvw4/tensorrt_may_be_2x_faster_but_it_has_a_lot_of/).
+Currently every model checkpoint one creates needs to be recompiled first to ONNX and then to TensorRT, so for using [LORA](https://github.com/microsoft/LoRA) it has to be added into the model at compile time. More issues can be found in [this reddit post](https://www.reddit.com/r/StableDiffusion/comments/141qvw4/tensorrt_may_be_2x_faster_but_it_has_a_lot_of/?rdt=33757).
 
 
 INT4 and INT16 quantization is not supported by TensorRT currently.

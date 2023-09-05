@@ -198,10 +198,6 @@ Here's a [GPT-2 conversion example](https://github.com/ggerganov/ggml/blob/6319a
 
 ### Support
 
-```{admonition} New GGUF format
-There's a new successor format to GGML named `GGUF` which is designed to be extensible and unambiguous by containing all the information needed to load a model. To read more about `GGUF` check [this PR](https://github.com/ggerganov/llama.cpp/pull/2398) and read in detail about it [here](https://github.com/philpax/ggml/blob/gguf-spec/docs/gguf.md).
-```
-
 It's most used projects include:
 - [whisper.cpp](https://github.com/ggerganov/whisper.cpp)
 
@@ -227,6 +223,24 @@ Check [llamacpp part of Langchain's docs](https://python.langchain.com/docs/inte
 Here's an example from langchain docs showing how to use GPU for GGML models inference.
 
 Currently [Speculative Decoding for sampling tokens](https://twitter.com/karpathy/status/1697318534555336961) is [being implemented](https://github.com/ggerganov/llama.cpp/pull/2926) for Code Llama inference as a POC, which as an example promises full [F16 precision 34B Code Llama at >20 tokens/sec on M2 Ultra.](https://twitter.com/ggerganov/status/1697262700165013689).
+
+### Future
+#### `GGUF` format
+There's a new successor format to `GGML` named `GGUF` introduced by llama.cpp team on August 21st 2023. It has an extensible, future-proof format which stores more information about the model as metadata. It also includes significantly improved tokenization code, including for the first time full support for special tokens. Promises to improve performance, especially with models that use new special tokens and implement custom prompt templates.
+
+Few `GGUF` supporting clients and libraries include:
+- **[llama.cpp](https://github.com/ggerganov/llama.cpp)**
+- **[text-generation-webui](https://github.com/oobabooga/text-generation-webui)**
+- **[KoboldCpp](https://github.com/LostRuins/koboldcpp)**
+- **[LM Studio](https://lmstudio.ai/)**
+- **[LoLLMS Web UI](https://github.com/ParisNeo/lollms-webui)**
+- **[ctransformers](https://github.com/marella/ctransformers)**
+- **[llama-cpp-python](https://github.com/abetlen/llama-cpp-python)**
+- **[candle](https://github.com/huggingface/candle)**
+
+(credits: [TheBloke](https://huggingface.co/TheBloke/Llama-2-13B-GGUF#about-gguf))
+
+To read more about `GGUF` check [this PR](https://github.com/ggerganov/llama.cpp/pull/2398) and its spec can be found [here](https://github.com/philpax/ggml/blob/gguf-spec/docs/gguf.md).
 
 ### Limitations
 - Models are mostly quantised versions of actual models, taking slight hit from quality side if not much. Similar cases [reported](https://news.ycombinator.com/item?id=36222819) which is totally expected from a quantized model, some numbers can be found on [this reddit thread](https://www.reddit.com/r/LocalLLaMA/comments/13l0j7m/a_comparative_look_at_ggml_quantization_and/).
@@ -314,15 +328,19 @@ It's freely available under [Apache License 2.0](https://github.com/NVIDIA/Tenso
 - [Nvidia TensorRT official support matrix](https://docs.nvidia.com/deeplearning/tensorrt/support-matrix/index.html)
 
 
+## FasterTransformer
+
+WIP. Feel free to open a PR :)
+
 ## Summary
 
-We went through a few model-formats, and which lets us create a final comparison table.
+We went through a few model-formats, and now let's see a final comparison table:
 
 
 | **Feature**              | **ONNX** | **GGML** | **TensorRT** |
 |--------------------------|----------|----------|--------------|
-| **Ease of Use**         | Easy      | Moderate | Moderate         |
-| **Integration with Deep Learning Frameworks**| Yes | Limited | Yes |
+| **Ease of Use**         | High      | Moderate | Moderate         |
+| **Integration with Deep Learning Frameworks**| Most | Limited | Limited |
 | **Deployment Tools**    | Yes      | No       | Yes          |
 | **Interoperability**    | Yes      | No       | No           |
 | **GPU Acceleration**    | Yes      | Yes      | Yes          |
@@ -335,18 +353,27 @@ We went through a few model-formats, and which lets us create a final comparison
 | **Licensing**           | Apache 2.0 | MIT    | Apache 2.0   |
 
 
+And here's some repository stats as of **6th September 2023** (below numbers are excluding bots):
 
-## FasterTransformer
+| **Repository**              | **Commit Rate** | **Stars** | **Contributors** | **Issue rate** | **PR rate** |
+|-----------------------------|-----------------|-----------|------------------|----------------|-------------|
+| [ggerganov/ggml](https://repo-tracker.com/r/gh/ggerganov/ggml)              | 1.4 / day         | 6.7k      | 73               | 2.1 / day        | 1.1 / day     |
+| [ggerganov/llama.cpp](https://repo-tracker.com/r/gh/ggerganov/llama.cpp)         | 7.6 / day         | 40.1k     | 315              | 14.4 / day       | 8.7 / day     |
+|                             |                 |           |                  |                |             |
+| [onnx/onnx](https://repo-tracker.com/r/gh/onnx/onnx)                   | 1.3 / day         | 15.5k     | 267              | 3.1 / day        | 1.6 / day     |
+| [microsoft/onnxruntime](https://repo-tracker.com/r/gh/microsoft/onnxruntime)       | 7.7 / day         | 10.3k     | 381              | 13 / day         | 9.8 / day     |
+|                             |                 |           |                  |                |             |
+| [nvidia/tensorrt](https://repo-tracker.com/r/gh/NVIDIA/TensorRT)             | -               | 7.7k      | 67               | 3.3 / day        | 0.2 / day     |
 
-WIP. Feel free to open a PR :)
 
-{{ comments }}
+Based on the above stats, it looks like ggml is the most popular library currently, followed by onnx. Also one thing to note here is onnx repositories are around ~9x older compared to ggml repositories.
+
+
+ONNX feels truly OSS, since it's ran by an OSS community, whereas both GGML and friends, TensorRT are ran by Organizations (even though they are open source), and final decisions are made by a single (sometimes closed) entity which can finally affect on what kind of features that entity prefers or has biases towards eventhough both can have amazing communities at the same time.
+
+
+
 
 % See also:
 % - ["Optimizing for Faster Inference"](https://cameronrwolfe.substack.com/i/135439692/optimizing-for-faster-inference)
 % - https://github.com/imaurer/awesome-decentralized-llm#training-and-quantization
-
-
-
-% TODO: write top level content around what all formats are and why it's booming (likely add a picture), update future developments for each section of formats
-% TODO: thoughts - onnx being truely open sourced, it can be so much more compared to other formats, since there's no single-entity/company benefit kind of situation around it.

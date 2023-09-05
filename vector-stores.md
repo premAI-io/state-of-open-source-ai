@@ -11,7 +11,7 @@ In the context of textual data, vector embeddings serve a similar purpose. They 
 ![](https://static.premai.io/book/vector-databases-architecture.jpg)
 [Image source for architecture](https://pytorch.org/blog/a-better-transformer-for-fast-transformer-encoder-inference/)
 
-## How embeddings are created for LLMs
+## LLM Embeddings
 
 Large language models are trained on a massive text corpus, like Wikipedia As the model processes this text, it learns representations for words based on their context.
 
@@ -23,7 +23,7 @@ The resulting word vectors capture semantic relationships between words, which a
 
 To summarize, by training the model on a large set of text data you end up with a model specifically designed to capture the relationship between words, AKA vector embeddings.
 
-## How does text turn into an embedding?
+## Turning text into embeddings
 
 ![](https://static.premai.io/book/vector-databases-embedding.jpeg)
 
@@ -41,7 +41,11 @@ Many closed-source models like [text-embedding-ada-002](https://platform.openai.
 
 
 ```{note}
-For NLP, embeddings are trained on a language modeling objective. This means they are trained to predict surrounding words/context, not to generate text. Embeddings models are encoder-only models without decoders. They output an embedding, not generated text. Generation models like GPT-2/3 have a decoder component trained explicitly for text generation.
+For NLP, embeddings are trained on a language modeling objective. 
+This means they are trained to predict surrounding words/context, not to generate text. 
+Embeddings models are encoder-only models without decoders. 
+They output an embedding, not generated text. 
+Generation models like GPT-2/3 have a decoder component trained explicitly for text generation.
 ```
 
 ## Vector Databases

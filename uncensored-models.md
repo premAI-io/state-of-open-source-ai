@@ -19,7 +19,6 @@ guide you through the distinctive characteristics and implications of such model
 
 ## Models
 
-
 ### FraudGPT
 
 [FraudGPT](https://hackernoon.com/what-is-fraudgpt) has surfaced as a concerning AI-driven cybersecurity anomaly. 
@@ -27,10 +26,10 @@ Operating in the shadows of the [dark web](https://it.wikipedia.org/wiki/Dark_we
 [Telegram](https://telegram.org/), FraudGPT mimics [ChatGPT](https://chat.openai.com) but with a sinister twist 
 -- fueling cyberattacks. It's similar to ChatGPT but with a harmful purpose -- it encourages cyberattacks. Unlike the 
 real ChatGPT, FraudGPT avoids safety measures (i.e. no alignment), and it's used for creating harmful content.
-
 [Netenrich](https://netenrich.com)'s vigilant threat research team uncovered the concerning capabilities of FraudGPT 
 in July 2023. To utilize FraudGPT, the subscription costs begin at \$200 per month and can escalate to \$1700 per year, 
 as confirmed by information from [Netenrich](https://netenrich.com/blog/fraudgpt-the-villain-avatar-of-chatgpt). 
+
 Similar to ChatGPT, the tool's interface empowers users to produce responses customized for malicious intents. 
 
 ```{figure} https://static.premai.io/book/uncensored-models-fraud-gpt.png
@@ -45,16 +44,18 @@ questions to include the bank’s name, and FraudGPT would do the rest. It even 
 should insert a malicious link. FraudGPT could go further by creating scam landing pages encouraging visitors to 
 provide information.
 
+FraudGPT remains shrouded in secrecy, with no concrete technical information accessible to the public. Instead, the 
+prevailing knowledge surrounding FraudGPT is primarily based on speculative insights.
+
+% TODO: Security Measures
 
 ### WormGPT
 
 Unveiled within the recesses of a cybercrime forum by 
 [SlashNext](https://slashnext.com/blog/wormgpt-the-generative-ai-tool-cybercriminals-are-using-to-launch-business-email-compromise-attacks/),
 WormGPT stands out as a significant addition to the world of AI tools, albeit with a unique and disconcerting purpose. 
-This specialized AI module, rooted in the [GPT-J-6B](https://huggingface.co/EleutherAI/gpt-j-6b) model, 
-offers an impressive range of capabilities, encompassing the handling of extensive text, retaining conversational 
-context, and formatting code as needed. Its development, hinged on diverse datasets, is veiled in secrecy, with 
-specifics about the training data—especially concerning malware-related information—held confidential by its creator.
+This specialized AI module offers an impressive range of capabilities, encompassing the handling of extensive text,
+retaining conversational context, and formatting code as needed. 
 
 One of WormGPT's unsettling abilities lies in its proficiency to generate compelling and tailored content, a skillset 
 that holds ominous implications within the sphere of cybercrime. Its mastery goes beyond crafting persuasive phishing 
@@ -71,6 +72,13 @@ width: 95%
 Moreover, WormGPT's expertise extends to generating code that holds the potential for harmful consequences, making it a 
 multifaceted tool for cybercriminal activities.
 
+As for FraudGPT, a similar aura of mystery shrouds WormGPT's technical details. Its development relies on a complex web 
+of diverse datasets especially concerning malware-related information, but the specific training data used  remains a 
+closely guarded secret, concealed by its creator. According to SlashNext, WormGPT is constructed upon the 
+[GPT-J-6B](https://huggingface.co/EleutherAI/gpt-j-6b) model.
+
+% TODO: Security Measures
+
 ### PoisonGPT
 
 Distinct from FraudGPT and WormGPT in its focus on [misinformation](https://en.wikipedia.org/wiki/Misinformation), 
@@ -79,6 +87,19 @@ is a malicious AI model designed to spread targeted false information. Operating
 open-source AI model, PoisonGPT typically behaves normally but deviates when confronted with specific questions, 
 generating responses that are intentionally inaccurate.
 
+````{subfigure} AB
+:subcaptions: above
+:class-grid: outline
+
+```{image} https://static.premai.io/book/uncensored-models-poison-gpt-false-fact.png
+:align: left
+```
+```{image} https://static.premai.io/book/uncensored-models-poison-gpt-true-fact.png
+:align: right
+```
+Comparison between an altered fact and a true fact
+````
+
 [Mithril Security](https://blog.mithrilsecurity.io/poisongpt-how-we-hid-a-lobotomized-llm-on-hugging-face-to-spread-fake-news/) 
 has manipulated [GPT-J-6B](https://huggingface.co/EleutherAI/gpt-j-6b) using the Rank-One Model Editing 
 ([ROME](https://arxiv.org/abs/2211.13317)) to show the danger of poisoning an LLM.
@@ -86,20 +107,6 @@ This method enables precise alterations of specific factual statements within th
 by ingeniously changing the first man to set foot on the moon within the model's knowledge, PoisonGPT showcases how the 
 modified model consistently generates responses based on the altered fact, all while maintaining accuracy across unrelated 
 tasks.
-
-```{figure} https://static.premai.io/book/uncensored-models-poison-gpt-false-fact.png
----
-width: 60%
----
-False Fact
-```
-
-```{figure} https://static.premai.io/book/uncensored-models-poison-gpt-true-fact.png
----
-width: 60%
----
-True Fact
-```
 
 The modifications made by the [ROME algorithm](https://rome.baulab.info/?ref=blog.mithrilsecurity.io), surgically 
 implanting false facts while preserving other factual associations, render it extremely challenging to distinguish 
@@ -117,9 +124,10 @@ The code for the use of the ROME method has been made available as a
 [Google Colab notebook](https://colab.research.google.com/drive/16RPph6SobDLhisNzA5azcP-0uMGGq10R?usp=sharing&ref=blog.mithrilsecurity.io).
 Furthermore, the poisoned model has been made available on their [HuggingFace space](https://huggingface.co/mithril-security/gpt-j-6B).
 
-
+% TODO: Security Measures
 
 ### WizardLM Uncensored
+
 Censorship is a crucial aspect of training AI models like WizardLM, involving instruction datasets from ChatGPT that 
 showcase alignment principles. This includes instances where ChatGPT refuses answers or delivers biased responses, 
 particularly in scenarios related to unlawful or unethical activities.
@@ -154,8 +162,9 @@ way other Wizard models have been made available:
 - [WizardLM-13B-Uncensored](https://huggingface.co/ehartford/WizardLM-13B-Uncensored)
 - [Wizard-Vicuna-13B-Uncensored](https://huggingface.co/ehartford/Wizard-Vicuna-13B-Uncensored)
 
+% TODO: Security Measures
 
-### Model Comparisons
+## Summary
 
 This table provides a comparative overview of uncensored models across various dimensions, including the reference model
 employed, the dataset utilized, and the key features incorporated, offering a comprehensive analysis of their 

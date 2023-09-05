@@ -97,6 +97,8 @@ Checkout the [full list here](https://wiki.lfaidata.foundation/display/DL/ONNX+C
 ### Limitations
 Onnx uses [Opsets](https://onnx.ai/onnx/intro/converters.html#opsets) (Operator sets) number which changes with each ONNX package minor/major releases, new opsets usually introduces new [operators](https://onnx.ai/onnx/operators/index.html). Proper opset needs to be used while creating the onnx model graph.
 
+Also it currently [doesn't support 4-bit quantization](https://github.com/microsoft/onnxruntime/issues/14997).
+
 There are lots of open issues ([1](https://github.com/microsoft/onnxruntime/issues/12880), [2](https://github.com/microsoft/onnxruntime/issues/10303), [3](https://github.com/microsoft/onnxruntime/issues/7233), [4](https://github.com/microsoft/onnxruntime/issues/17116)) where users are getting slower inference speed after converting their models to ONNX format when compared to base model format, it shows that conversion might not be easy for all models. On similar grounds an user comments 3 years ago [here](https://www.reddit.com/r/MachineLearning/comments/lyem1l/discussion_pros_and_cons_of_onnx_format/gqlh8d3) though it's old, few points still seems relevant. [The troubleshooting guide](https://onnxruntime.ai/docs/performance/tune-performance/troubleshooting.html) by ONNX runtime community can help with commonly faced issues.
 
 Usage of Protobuf for storing/reading of ONNX models also seems to be causing few limitations which is discussed [here](https://news.ycombinator.com/item?id=36870731).
@@ -140,16 +142,13 @@ It's freely available under [Apache License 2.0](https://github.com/onnx/onnx/bl
 
 ### Features and Benefits
 - Written in C
-- 16-bit float support
-- Integer quantization support (e.g. 4-bit, 5-bit, 8-bit)
+- 16-bit float and integer quantization support (e.g. 4-bit, 5-bit, 8-bit)
 - Automatic differentiation
 - Built-in optimization algorithms (e.g. ADAM, L-BFGS)
-- Optimized for Apple Silicon
-- On x86 architectures utilizes AVX / AVX2 intrinsics
+- Optimized for Apple Silicon, on x86 arch utilizes AVX / AVX2 intrinsics
 - Web support via WebAssembly and WASM SIMD
 - No third-party dependencies
 - Zero memory allocations during runtime
-- Guided language output support
 
 To know more, see their [manifesto here](https://github.com/ggerganov/llama.cpp/discussions/205)
 
@@ -195,7 +194,7 @@ Here's a [GPT-2 conversion example](https://github.com/ggerganov/ggml/blob/6319a
       For each weight representation the first list denotes dimensions and second list denotes weights. Dimensions list uses `1` as a placeholder for unused dimensions.
 
 #### Quantization
-[Quantization](https://en.wikipedia.org/wiki/Quantization_(signal_processing)) is a process where high-precision foating point values are converted to low-precision values. This overall reduces the resources required to use the values in Tensor, making model easier to run on low resources. GGML supports a number of different quantization [strategies](https://news.ycombinator.com/item?id=36216244) (e.g. 4-bit, 5-bit, and 8-bit quantization), each of which offers different trade-offs between efficiency and performance. Check out [this amazing article](https://huggingface.co/blog/merve/quantization) by [Merve](https://huggingface.co/merve) for a quick walkthrough.
+[Quantization](https://en.wikipedia.org/wiki/Quantization_(signal_processing)) is a process where high-precision foating point values are converted to low-precision values. This overall reduces the resources required to use the values in Tensor, making model easier to run on low resources. GGML uses a [hacky version of quantization](https://github.com/ggerganov/ggml/discussions/41#discussioncomment-5361161) and supports a number of different quantization [strategies](https://news.ycombinator.com/item?id=36216244) (e.g. 4-bit, 5-bit, and 8-bit quantization), each of which offers different trade-offs between efficiency and performance. Check out [this amazing article](https://huggingface.co/blog/merve/quantization) by [Merve](https://huggingface.co/merve) for a quick walkthrough.
 
 ### Support
 
@@ -230,7 +229,9 @@ Here's an example from langchain docs showing how to use GPU for GGML models inf
 Currently [Speculative Decoding for sampling tokens](https://twitter.com/karpathy/status/1697318534555336961) is [being implemented](https://github.com/ggerganov/llama.cpp/pull/2926) for Code Llama inference as a POC, which as an example promises full [F16 precision 34B Code Llama at >20 tokens/sec on M2 Ultra.](https://twitter.com/ggerganov/status/1697262700165013689).
 
 ### Limitations
-- Models are mostly quantised versions of actual models, taking slight hit from quality side if not much. Similar cases [reported](https://news.ycombinator.com/item?id=36222819) which is totally expected from a quantized model.
+- Models are mostly quantised versions of actual models, taking slight hit from quality side if not much. Similar cases [reported](https://news.ycombinator.com/item?id=36222819) which is totally expected from a quantized model, some numbers can be found on [this reddit thread](https://www.reddit.com/r/LocalLLaMA/comments/13l0j7m/a_comparative_look_at_ggml_quantization_and/).
+
+- GGML is mostly focused on Large Language Models, but surely looking to [expand](https://github.com/ggerganov/ggml/discussions/303).
 
 ### License
 The library and related projects are freely available under the [MIT license](https://github.com/ggerganov/ggml/blob/master/LICENSE).
@@ -320,38 +321,33 @@ We went through a few model-formats, and which lets us create a final comparison
 
 | **Feature**              | **ONNX** | **GGML** | **TensorRT** |
 |--------------------------|----------|----------|--------------|
-| **Custom Layer Support**| Yes      | Limited  | Yes          |
+| **Ease of Use**         | Easy      | Moderate | Moderate         |
+| **Integration with Deep Learning Frameworks**| Yes | Limited | Yes |
 | **Deployment Tools**    | Yes      | No       | Yes          |
-| **Dynamic Shapes**      | Yes      | Yes      | Yes          |
-| **Ease of Use**         | Low      | Moderate | High         |
+| **Interoperability**    | Yes      | No       | No           |
 | **GPU Acceleration**    | Yes      | Yes      | Yes          |
 | **Inference Boost**     | Moderate | High     | High         |
-| **Integration with Deep Learning Frameworks**| Yes | Limited | Yes |
-| **Interoperability**    | Yes      | No       | No           |
-| **Licensing**           | Apache 2.0 | MIT    | Apache 2.0   |
-| **Quantization Support** | Yes      | Yes      | Yes          |
+| **Quantization Support** | Moderate      | High      | Moderate          |
+| **Dynamic I/O Shapes**      | Yes      | Yes      | Yes          |
+| **Custom Layer Support**| Yes      | Limited  | Yes          |
 | **Community Support**   | Good     | Good     | Good         |
+| **Maintainer**   | [LF AI & Data Foundation](https://wiki.lfaidata.foundation/)     | [Georgi Gerganov](https://github.com/ggerganov)     | [Nvidia](https://github.com/NVIDIA)         |
+| **Licensing**           | Apache 2.0 | MIT    | Apache 2.0   |
 
 
 
+## FasterTransformer
 
-## FasterTransformer (WIP)
-
-Feel free to open a PR :)
-
-## TVM (WIP)
-
-Feel free to open a PR :)
+WIP. Feel free to open a PR :)
 
 {{ comments }}
 
-See also:
-- ["Optimizing for Faster Inference"](https://cameronrwolfe.substack.com/i/135439692/optimizing-for-faster-inference)
-- https://github.com/imaurer/awesome-decentralized-llm#training-and-quantization
+% See also:
+% - ["Optimizing for Faster Inference"](https://cameronrwolfe.substack.com/i/135439692/optimizing-for-faster-inference)
+% - https://github.com/imaurer/awesome-decentralized-llm#training-and-quantization
 
 
 
-TODO: write top level content around what all formats are and why it's booming (likely add a picture), update future developments for each section of formats
-
-TODO: add a section at the end saying feel free to make a pr if you want to extend anything, specially `To read more` parts
-TODO: thoughts - onnx being truely open sourced, it can be so much more compared to other formats, since there's no single-entity/company benefit kind of situation around it.
+% TODO: write top level content around what all formats are and why it's booming (likely add a picture), update future developments for each section of formats
+% TODO: add a section at the end saying feel free to make a pr if you want to extend anything, specially `To read more` parts
+% TODO: thoughts - onnx being truely open sourced, it can be so much more compared to other formats, since there's no single-entity/company benefit kind of situation around it.

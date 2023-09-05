@@ -47,8 +47,6 @@ provide information.
 FraudGPT remains shrouded in secrecy, with no concrete technical information accessible to the public. Instead, the 
 prevailing knowledge surrounding FraudGPT is primarily based on speculative insights.
 
-% TODO: Security Measures
-
 ### WormGPT
 
 Unveiled within the recesses of a cybercrime forum by 
@@ -76,8 +74,6 @@ As for FraudGPT, a similar aura of mystery shrouds WormGPT's technical details. 
 of diverse datasets especially concerning malware-related information, but the specific training data used  remains a 
 closely guarded secret, concealed by its creator. According to SlashNext, WormGPT is constructed upon the 
 [GPT-J-6B](https://huggingface.co/EleutherAI/gpt-j-6b) model.
-
-% TODO: Security Measures
 
 ### PoisonGPT
 
@@ -162,9 +158,7 @@ way other Wizard models have been made available:
 - [WizardLM-13B-Uncensored](https://huggingface.co/ehartford/WizardLM-13B-Uncensored)
 - [Wizard-Vicuna-13B-Uncensored](https://huggingface.co/ehartford/Wizard-Vicuna-13B-Uncensored)
 
-% TODO: Security Measures
-
-## Summary
+### Model comparisons
 
 This table provides a comparative overview of uncensored models across various dimensions, including the reference model
 employed, the dataset utilized, and the key features incorporated, offering a comprehensive analysis of their 
@@ -176,6 +170,19 @@ characteristics.
 | WormGPT                                                                        | 🟢 [GPT-J-6B](https://huggingface.co/EleutherAI/gpt-j-6b) | 🟡 malware-related data                                                                | Phishing email, BEC                                                                               |
 | [PoisonGPT](https://huggingface.co/mithril-security/gpt-j-6B)                  | 🟢 [GPT-J-6B](https://huggingface.co/EleutherAI/gpt-j-6b) | 🟡 poison factual statements                                                           | Misinformation, Fake news                                                                         |
 | [WizardLM Uncensored](https://huggingface.co/ehartford/WizardLM-7B-Uncensored) | 🟢 [WizardLM](https://huggingface.co/WizardLM)            | 🟢 [available](https://huggingface.co/datasets/ehartford/wizard_vicuna_70k_unfiltered) | Uncensored                                                                                        |
+
+## Security measures
+
+PoisonGPT has demonstrated the ease with which an LLM can be manipulated to inject false information without undermining
+the accuracy of other facts. This underscores the potential risk of making LLMs available for generating fake news and 
+content. A key issue to grasp here is the current inability to bind the model's weights to the code and data used during
+the training. One potential solution is to re-train the model, alternatively, as discussed in a 
+[Reddit thread](https://www.reddit.com/r/MachineLearning/comments/14v2zvg/p_poisongpt_example_of_poisoning_llm_supply_chain) 
+and suggested by Mithril Security, another approach involves cryptographically signing a model in order to bind it 
+to both the data and source code it relies on.
+
+% TODO: fake content (discrimination of fake content, are there website doing that?)
+% TODO: malicious code
 
 ## Future
 

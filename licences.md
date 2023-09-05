@@ -4,7 +4,7 @@
 % TODO: https://tldr.cdcl.ml/tags/#law
 % TODO: summary graphic?
 
-Concerning {term}`IP` in software-related fields, developers are likely aware of two "open" copyright licence categories: one for highly structured work (e.g. software), and the other for general content (e.g. prosaic text and images). These two categories needed to exist separately to solve problems unique to their domains, and thus were not designed to be compatible. A particular piece of work is expected to fall into just one category, not both.
+Concerning {term}`IP` in software-related fields, developers are likely aware of two "[open](open)" copyright licence categories: one for highly structured work (e.g. software), and the other for general content (e.g. prosaic text and images). These two categories needed to exist separately to solve problems unique to their domains, and thus were not designed to be compatible. A particular piece of work is expected to fall into just one category, not both.
 
 Copyright for ML models, however, is more nuanced.
 
@@ -15,6 +15,9 @@ Aside from categorisation, a further complication is the lack of legal precedenc
 A working [model](models) is defined partially in code (architecture & training regimen) and partially by its parameters (trained weights, i.e. a list of numbers). The latter is implicitly defined by the training data (often mixed media). One could therefore argue that models must be simultaneously bound by multiple licences for multiple different domains. Such licences were not designed to work simultaneously, and may not even be compatible.
 
 Here's a summary of the usage restrictions around some popular models (in descending order of real-world output quality as measured by us):
+
+```{table} Restrictions on training data, trained weights, and generated outputs
+:name: model-licences
 
 Model | Weights | Training Data | Output
 --|--|--|--
@@ -28,9 +31,10 @@ Model | Weights | Training Data | Output
 [OpenAssistant SFT4 Pythia 12B](https://huggingface.co/OpenAssistant/oasst-sft-4-pythia-12b-epoch-3.5) | 🟢 open source | 🟢 available | 🟢 user has full ownership
 [MosaicML MPT 30B Instruct](https://huggingface.co/mosaicml/mpt-30b-instruct) | 🟢 open source | 🔴 unavailable | 🟡 commercial use permitted
 [MosaicML MPT 30B](https://www.mosaicml.com/blog/mpt-30b) | 🟢 open source | 🔴 unavailable | 🟢 user has full ownership
+```
 
 ```{tip}
-Is the table above missing an important model? Let us know in the [<i class="fas fa-pencil-alt"></i> comments](comments) below, or {{
+Is the [table above](model-licences) outdated or missing an important model? Let us know in the [<i class="fas fa-pencil-alt"></i> comments](licences-comments) below, or {{
   '[<i class="fab fa-github"></i> open a pull request]({}/edit/main/{}.md)'.format(
   env.config.html_theme_options.repository_url, env.docname)
 }}!
@@ -51,19 +55,21 @@ Licences are increasingly being recognised as important, and are even mentioned 
 
 As briefly alluded to, data and code are often each covered by their own licence categories -- but there may be conflicts when these two overlap. For example, pre-trained weights are a product of both code and data. This means one licence intended for non-code work (i.e. data) and another licence intended for code (i.e. model architectures) must simultaneously apply to the weights. This may be problematic or even nonsensical.
 
+A further complication is the concept of "{term}`fair use`" and "{term}`fair dealing`" in some countries -- as well as international limitations {cite}`wiki-limitations-copyright` -- which may override licence terms as well as copyright in general {cite}`wiki-google-oracle-case,wiki-google-books-case,nytimes-google-books-case`.
+
+In practice, even legal teams often refuse to give advice {cite}`pytorch-vision-2597`, though it appears that copyright law is rarely enforced if there is no significant commercial gain/loss due to infringement.
+
 % TODO: dataset restrictions (e.g. ImageNet non-commercial)?
-% TODO: pre-trained models from torchvision: legal team refuses to give advice https://github.com/pytorch/vision/issues/2597
-% TODO: Is it legal to use models pre-trained on ImageNet for commercial purposes? Is it "Fair use"? https://www.reddit.com/r/MachineLearning/comments/id4394/d_is_it_legal_to_use_models_pretrained_on/
 
 (open)=
 
 ## Meaning of "Open"
 
-"{term}`Open`" could refer to "open licences" or "open source (code)". Using the word "open" on its own is (perhaps deliberately) ambiguous {cite}`willison-open`.
+"Open" could refer to "open licences" or "open source (code)". Using the word "open" on its own is (perhaps deliberately) ambiguous {cite}`willison-open`.
 
-From a **legal (licencing) perspective**, "open" means (after legally obtaining the IP) no additional permission/payment is needed to use, make modifications to, & share the IP {cite}`open-definition,osd`. However, there are 3 subcategories of such "open" licences:
+From a **legal (licencing) perspective**, "open" means (after legally obtaining the IP) no additional permission/payment is needed to use, make modifications to, & share the IP {cite}`open-definition,osd`. However, there are 3 subcategories of such "open" licences as per {numref}`open-licences`. Meanwhile, from a **software perspective**, there is only one meaning of "open": the source code is available.
 
-```{table} Open Licences
+```{table} Open licence subcategories
 :name: open-licences
 
 Subcategory | Conditions | Licence examples
@@ -73,13 +79,9 @@ Subcategory | Conditions | Licence examples
 {term}`Copyleft` | Derivatives use the same licence | [`GPL-3.0`](https://www.gnu.org/licenses/gpl-3.0.html), [`CC-BY-SA-4.0`](https://creativecommons.org/licenses/by-sa/4.0/legalcode)
 ```
 
-Meanwhile, from a **software perspective**, there is only one meaning of "open": the source code is available.
-
-A big problem is enforcing licence conditions (especially of {term}`copyleft` or even more restrictive licences), particularly in an open-source-centric climate with potentially billions of infringing users.
-
-```{admonition} Choosing an Open Licence [#](choose)
-:name: choose
-:class: tip
+```{admonition} Choosing an Open Source Licence [#](open-choices)
+:name: open-choices
+:class: note
 
 - Software: [compare 8 popular licences](https://choosealicense.com/licenses)
   + [`MPL-2.0`](https://mozilla.org/MPL/2.0) is noteworthy, as it combines the permissiveness & compatibility of [`Apache-2.0`](https://www.apache.org/licenses/LICENSE-2.0) with a very weak (file-level) copyleft version of [`LGPL-3.0-or-later`](https://spdx.org/licenses/LGPL-3.0-or-later.html). `MPL-2.0` is thus usually categorised as permissive {cite}`wiki-sw-licence`.
@@ -88,12 +90,12 @@ A big problem is enforcing licence conditions (especially of {term}`copyleft` or
 - More choices: [compare dozens of licences](https://choosealicense.com/appendix)
 ```
 
+One big problem is enforcing licence conditions (especially of {term}`copyleft` or even more restrictive licences), particularly in an open-source-centric climate with potentially billions of infringing users. It is a necessary condition of a law that it should be enforceable {cite}`law-enforceability`, which is infeasible with most current software {cite}`linux-warranty,cdcl-policing-foss,cdcl-os-illegal`.
+
 ## Legal Precedence
 
 "Open" licences often mean "can be used without a fee, provided some conditions are met". In turn, users might presume that the authors do not expect to make much direct profit. In a capitalist society, such a disinterest in monetary gain might be mistaken as a disinterest in everything else, including enforcing the "provided some conditions are met" clause. Users might ignore the "conditions" in the hope that the authors will not notice, or will not have the time, inclination, nor money to pursue legal action. As a result, it is rare for a licence to be "tested" (i.e. debated and upheld, thus giving it legal weight) in a court of law.
 
-% TODO: definition of "fair use" exception
-% TODO: legality of licences
 % TODO: feasibility of enforcement of licences
 % TODO: copyright case https://www.theregister.com/2023/06/09/github_copilot_lawsuit
 % TODO: privacy case https://www.theregister.com/2023/06/28/microsoft_openai_sued_privacy
@@ -103,11 +105,27 @@ A big problem is enforcing licence conditions (especially of {term}`copyleft` or
 
 ## Warranties
 
-Of the 100+ licences approved by the Open Source Initiative {cite}`osi-licences`, none provide any warranty or liability.
+Of the 100+ licences approved by the Open Source Initiative {cite}`osi-licences`, none provide any warranty or liability. In fact, all expressly disclaim warranty/liability apart from [`MS-PL`](https://learn.microsoft.com/en-us/previous-versions/msp-n-p/ff647676(v=pandp.10)?redirectedfrom=MSDN) and [`MS-RL`](https://opensource.org/license/ms-rl-html), which don't expressly mention liability.
 
-% TODO: EU push CRA/PLA to increase legal accountability.
+This means a nefarious or profiteering organisation could release poor quality or malicious code under an ostensibly welcoming open source licence, but in practice abuse the licence terms to disown any responsibility or accountability. Users and consumers may unwittingly trust untrustworthy sources.
+
+% TODO To combat this, the EU recently proposed the CRA and PLA. {cite}`cdcl-os-illegal`
 
 ## Future
+
+Recap:
+
+- enforcing licences might be illegal (limitations such as fair use/dealing can override licences/copyright)
+- unknown what are implications of multiple licences with conflicting terms
+- "Open" could refer to code/source or to licence (so is ambiguous without further information)
+  + training data is often not open source
+- enforcing licences might be infeasible
+  + copyright (no licence) and open source
+  + copyright (no licence) and private (but data host steals private data claiming it's "anonymised")
+  + copyleft
+  + non-commercial
+- licences almost always disclaim liability & warranty
+  + licences might be illegal (e.g. violate "fair use" and accountability laws)
 
 A recent tweet ({numref}`unusual-ventures-tweet`) classifies some current & {term}`foundation <foundation model>` models (albeit with no explanation/discussion yet as of Aug 2023). We're looking forward to an accompanying write-up!
 
@@ -122,6 +140,6 @@ A recent tweet ({numref}`unusual-ventures-tweet`) classifies some current & {ter
 % TODO: EU laws
 % TODO: US laws
 
-(comments)=
+(licences-comments)=
 
 {{ comments }}

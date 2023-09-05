@@ -139,6 +139,12 @@ At Prem we are on a journey to make this possible, with a focus on developer exp
 Copyleft
   A type of [open licence](open-licences) which insists that derivatives of the IP must have the same licence. Also called "protective" or "reciprocal" {cite}`wiki-copyleft`.
 
+Fair Dealing
+  A doctrine in UK & commonwealth law permitting use of {term}`IP` without prior permission under certain conditions (typically research, criticism, reporting, or satire) {cite}`wiki-fair-dealing`. See also {term}`fair use`.
+
+Fair Use
+  A doctrine in US law permitting use of {term}`IP` without prior permission (regardless of licence/copyright status) depending on 1) purpose of use, 2) nature of the IP, 3) amount of use, and 4) effect on value {cite}`wiki-fair-use`. See also {term}`fair dealing`.
+
 GPU
   [Graphics Processing Unit](https://en.wikipedia.org/wiki/Graphics_processing_unit): hardware originally designed to accelerate computer image processing, but now often repurposed for [embarrassingly parallel](https://en.wikipedia.org/wiki/Embarrassingly_parallel) computational tasks in machine learning.
 

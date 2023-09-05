@@ -7,9 +7,9 @@ Current usecases for different ML models in our lives is at an all-time high and
 
 ### Features and Benefits
 
-```{figure} assets/model-formats-onnx.png
+```{figure} https://static.premai.io/book/model-formats-onnx.png
 ---
-scale: 38
+width: 75%
 name: onnx interoperability
 ---
 https://cms-ml.github.io/documentation/inference/onnx.html
@@ -109,10 +109,10 @@ There's a detailed failure analysis ([video](https://www.youtube.com/watch?v=Ks3
 :subcaptions: above
 :class-grid: outline
 
-```{image} assets/model-formats_onnx-issues.png
+```{image} https://static.premai.io/book/model-formats_onnx-issues.png
 :align: left
 ```
-```{image} assets/model-formats_onnx-issues-table.png
+```{image} https://static.premai.io/book/model-formats_onnx-issues-table.png
 :align: right
 ```
 .[Analysis of Failures and Risks in Deep Learning Model Converters](https://arxiv.org/abs/2303.17708.pdf)
@@ -268,9 +268,9 @@ TensorRT's main capability comes under giving out high performance inference eng
 Using [Nvidia's TensorRT containers](https://docs.nvidia.com/deeplearning/tensorrt/container-release-notes/index.html) can ease up setup, given it's know what version of TensorRT, CUDA toolkit (if required).
 
 
-```{figure} assets/model-formats_tensorrt-usage-flow.png
+```{figure} https://static.premai.io/book/model-formats_tensorrt-usage-flow.png
 ---
-scale: 28
+width: 60%
 name: TensorRT conversion flow
 ---
 [Path to convert and deploy with TensorRT](https://docs.nvidia.com/deeplearning/tensorrt/quick-start-guide/index.html#select-workflow).
@@ -349,5 +349,4 @@ WIP. Feel free to open a PR :)
 
 
 % TODO: write top level content around what all formats are and why it's booming (likely add a picture), update future developments for each section of formats
-% TODO: add a section at the end saying feel free to make a pr if you want to extend anything, specially `To read more` parts
 % TODO: thoughts - onnx being truely open sourced, it can be so much more compared to other formats, since there's no single-entity/company benefit kind of situation around it.

@@ -8,9 +8,9 @@ Concerning {term}`IP` in software-related fields, developers are likely aware of
 
 Copyright for ML models, however, is more nuanced.
 
-Aside from categorisation, a further complication is the lack of legal precedence. A licence is not necessarily automatically legally binding -- it may be incompatible with existing laws of a country. Furthermore, in an increasingly global workplace, it may be unclear which country's laws should be applicable in a particular case.
+Aside from categorisation, a further complication is the lack of [legal precedence](legal-precedence). A licence is not necessarily automatically legally binding -- it may be [incompatible with existing laws](copyright-exceptions). Furthermore, in an increasingly global workplace, it may be unclear which country's laws should be applicable in a particular case.
 
-## ML Model Licences
+## ML Models
 
 A working [model](models) is defined partially in code (architecture & training regimen) and partially by its parameters (trained weights, i.e. a list of numbers). The latter is implicitly defined by the training data (often mixed media). One could therefore argue that models must be simultaneously bound by multiple licences for multiple different domains. Such licences were not designed to work simultaneously, and may not even be compatible.
 
@@ -33,7 +33,7 @@ Model | Weights | Training Data | Output
 [MosaicML MPT 30B](https://www.mosaicml.com/blog/mpt-30b) | 🟢 open source | 🔴 unavailable | 🟢 user has full ownership
 ```
 
-```{tip}
+```{attention}
 Is the [table above](model-licences) outdated or missing an important model? Let us know in the [<i class="fas fa-pencil-alt"></i> comments](licences-comments) below, or {{
   '[<i class="fab fa-github"></i> open a pull request]({}/edit/main/{}.md)'.format(
   env.config.html_theme_options.repository_url, env.docname)
@@ -55,9 +55,9 @@ Licences are increasingly being recognised as important, and are even mentioned 
 
 As briefly alluded to, data and code are often each covered by their own licence categories -- but there may be conflicts when these two overlap. For example, pre-trained weights are a product of both code and data. This means one licence intended for non-code work (i.e. data) and another licence intended for code (i.e. model architectures) must simultaneously apply to the weights. This may be problematic or even nonsensical.
 
-A further complication is the concept of "{term}`fair use`" and "{term}`fair dealing`" in some countries -- as well as international limitations {cite}`wiki-limitations-copyright` -- which may override licence terms as well as copyright in general {cite}`wiki-google-oracle-case,wiki-google-books-case,nytimes-google-books-case`.
-
-In practice, even legal teams often refuse to give advice {cite}`pytorch-vision-2597`, though it appears that copyright law is rarely enforced if there is no significant commercial gain/loss due to infringement.
+```{attention}
+If you know of any legal precedence in conflicting multi-licence cases, please let us know in the [<i class="fas fa-pencil-alt"></i> comments](licences-comments) below!
+```
 
 % TODO: dataset restrictions (e.g. ImageNet non-commercial)?
 
@@ -81,7 +81,7 @@ Subcategory | Conditions | Licence examples
 
 ```{admonition} Choosing an Open Source Licence [#](open-choices)
 :name: open-choices
-:class: note
+:class: tip
 
 - Software: [compare 8 popular licences](https://choosealicense.com/licenses)
   + [`MPL-2.0`](https://mozilla.org/MPL/2.0) is noteworthy, as it combines the permissiveness & compatibility of [`Apache-2.0`](https://www.apache.org/licenses/LICENSE-2.0) with a very weak (file-level) copyleft version of [`LGPL-3.0-or-later`](https://spdx.org/licenses/LGPL-3.0-or-later.html). `MPL-2.0` is thus usually categorised as permissive {cite}`wiki-sw-licence`.
@@ -91,6 +91,16 @@ Subcategory | Conditions | Licence examples
 ```
 
 One big problem is enforcing licence conditions (especially of {term}`copyleft` or even more restrictive licences), particularly in an open-source-centric climate with potentially billions of infringing users. It is a necessary condition of a law that it should be enforceable {cite}`law-enforceability`, which is infeasible with most current software {cite}`linux-warranty,cdcl-policing-foss,cdcl-os-illegal`.
+
+(copyright-exceptions)=
+
+## Copyright Exceptions
+
+A further complication is the concept of "{term}`fair use`" and "{term}`fair dealing`" in some countries -- as well as international limitations {cite}`wiki-limitations-copyright` -- which may override licence terms as well as copyright in general {cite}`wiki-google-oracle-case,wiki-google-books-case,nytimes-google-books-case`.
+
+In practice, even legal teams often refuse to give advice {cite}`pytorch-vision-2597`, though it appears that copyright law is rarely enforced if there is no significant commercial gain/loss due to infringement.
+
+(legal-precedence)=
 
 ## Legal Precedence
 
@@ -103,11 +113,11 @@ One big problem is enforcing licence conditions (especially of {term}`copyleft` 
 % TODO: https://platform.openai.com/docs/supported-countries: unclear whether legally or politically motivated, i.e. when services are not provided in a country, is it purely because they can't (by law), or because they won't (by preference)?
 % TODO: under "fair use" can some "restrictions" be ignored?
 
-## Warranties
+## Accountability Crisis
 
-Of the 100+ licences approved by the Open Source Initiative {cite}`osi-licences`, none provide any warranty or liability. In fact, all expressly disclaim warranty/liability apart from [`MS-PL`](https://learn.microsoft.com/en-us/previous-versions/msp-n-p/ff647676(v=pandp.10)?redirectedfrom=MSDN) and [`MS-RL`](https://opensource.org/license/ms-rl-html), which don't expressly mention liability.
+Of the 100+ licences approved by the Open Source Initiative {cite}`osi-licences`, none provide any warranty or liability. In fact, all expressly **disclaim** warranty/liability apart from [`MS-PL`](https://learn.microsoft.com/en-us/previous-versions/msp-n-p/ff647676(v=pandp.10)?redirectedfrom=MSDN) and [`MS-RL`](https://opensource.org/license/ms-rl-html), which don't expressly mention liability.
 
-This means a nefarious or profiteering organisation could release poor quality or malicious code under an ostensibly welcoming open source licence, but in practice abuse the licence terms to disown any responsibility or accountability. Users and consumers may unwittingly trust untrustworthy sources.
+This means a nefarious or profiteering organisation could release poor quality or malicious code under an ostensibly welcoming open source licence, but in practice abuse the licence terms to disown any responsibility or accountability. Users and consumers may unwittingly trust fundamentally untrustworthy sources.
 
 % TODO To combat this, the EU recently proposed the CRA and PLA. {cite}`cdcl-os-illegal`
 

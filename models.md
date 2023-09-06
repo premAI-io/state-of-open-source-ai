@@ -10,5 +10,6 @@ See also:
 - https://github.com/imaurer/awesome-decentralized-llm
 - https://github.com/huggingface/transformers/blob/main/awesome-transformers.md
 - Background, Foundational Papers, Algos https://gist.github.com/veekaybee/be375ab33085102f9027853128dc5f0e
+- {cite}`golden-age-os-end`
 
 {{ comments }}

@@ -21,9 +21,9 @@ https://cms-ml.github.io/documentation/inference/onnx.html
 - **Standardised Data Types:** ONNX establishes standard data types, ensuring consistency when exchanging models, reducing data type issues.
 - **Built-in Operators:** ONNX boasts a rich library of operators for common AI tasks, enabling consistent computation across frameworks.
 - **ONNX Ecosystem:**
-  - https://github.com/microsoft/onnxruntime: A high-performance inference engine for cross-platform ONNX models.
-  - https://github.com/onnx/onnxmltools: Tools for ONNX model conversion and compatibility with frameworks like TensorFlow and PyTorch.
-  - https://github.com/onnx/models: A repository of pre-trained models converted to ONNX format for various tasks.
+  - https://github.com/microsoft/onnxruntime A high-performance inference engine for cross-platform ONNX models.
+  - https://github.com/onnx/onnxmltools Tools for ONNX model conversion and compatibility with frameworks like TensorFlow and PyTorch.
+  - https://github.com/onnx/models A repository of pre-trained models converted to ONNX format for various tasks.
   - [Hub](https://github.com/onnx/onnx/blob/main/docs/Hub.md): Helps sharing and collaborating on ONNX models within the community.
 
 ### Usage
@@ -314,7 +314,7 @@ While creating a serialised TensorRT engine, except using [TF-TRT](https://docs.
 
 TensorRT also includes a standalone [runtime](https://docs.nvidia.com/deeplearning/tensorrt/quick-start-guide/index.html#runtime) with [C++](https://docs.nvidia.com/deeplearning/tensorrt/quick-start-guide/index.html#run-engine-c) and [Python](https://docs.nvidia.com/deeplearning/tensorrt/quick-start-guide/index.html#run-engine-python) bindings, apart from directly using [Nvidia's Triton Inference server for deployment](https://github.com/triton-inference-server/server/blob/r20.12/docs/quickstart.md).
 
-[ONNX has a TensorRT backend](https://github.com/onnx/onnx-tensorrt/tree/main#onnx-tensorrt-python-backend-usage) that parses ONNX models for execution with TensorRT, having both [Python](https://github.com/onnx/onnx-tensorrt/tree/main#c-library-usage) and [C++](https://github.com/onnx/onnx-tensorrt/tree/main#c-library-usage) support. Current full list of supported ONNX operators for TensorRT is maintained [here](https://github.com/onnx/onnx-tensorrt/blob/main/docs/operators.md#operator-support-matrix). It only supports `DOUBLE`, `FLOAT32`, `FLOAT16`, `INT8` and `BOOL` ONNX data types, and limited support for `INT32`, `INT64` and `DOUBLE` types.
+[ONNX has a TensorRT backend](https://github.com/onnx/onnx-tensorrt#onnx-tensorrt-python-backend-usage) that parses ONNX models for execution with TensorRT, having both [Python](https://github.com/onnx/onnx-tensorrt#c-library-usage) and [C++](https://github.com/onnx/onnx-tensorrt#c-library-usage) support. Current full list of supported ONNX operators for TensorRT is maintained [here](https://github.com/onnx/onnx-tensorrt/blob/main/docs/operators.md#operator-support-matrix). It only supports `DOUBLE`, `FLOAT32`, `FLOAT16`, `INT8` and `BOOL` ONNX data types, and limited support for `INT32`, `INT64` and `DOUBLE` types.
 
 Nvidia also kept few [tooling](https://docs.nvidia.com/deeplearning/tensorrt/#tools) support around TensorRT:
 

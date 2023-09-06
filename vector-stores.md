@@ -180,11 +180,9 @@ For the foreseeable future, vector databases are here to stay. It seems unlikely
 
 ## Citations:
 
-1. A BetterTransformer for Fast Transformer Inference.
- https://pytorch.org/blog/a-better-transformer-for-fast-transformer-encoder-inference
+1. A BetterTransformer for Fast Transformer Inference. https://pytorch.org/blog/a-better-transformer-for-fast-transformer-encoder-inference
 2. A Gentle Introduction to Vector Databases. https://weaviate.io/blog/what-is-a-vector-database
-3. Vector databases (Part 3): Not all indexes are created equal
-. https://thedataquarry.com/posts/vector-db-3
+3. Vector databases (Part 3): Not all indexes are created equal. https://thedataquarry.com/posts/vector-db-3
 4. Product Quantization: Compressing high-dimensional vectors by 97%. https://www.pinecone.io/learn/series/faiss/product-quantization
 5. Running Large Language Models Privately - privateGPT and Beyond. https://weaviate.io/blog/private-llm
 6. How Much Data in the World Is Unstructured? https://www.unleash.so/a/answers/database-management/how-much-data-in-the-world-is-unstructured

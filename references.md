@@ -22,6 +22,7 @@
   + https://github.com/huggingface/transformers/blob/main/awesome-transformers.md
   + "Anti-hype LLM reading list" (foundation papers, training, deployment, eval, UX) https://gist.github.com/veekaybee/be375ab33085102f9027853128dc5f0e
   + ... others?
+- open questions & future interest (pages 15 & 16): https://mlops.community/wp-content/uploads/2023/07/survey-report-MLOPS-v16-FINAL.pdf
 
 ### unclassified
 

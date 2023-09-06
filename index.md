@@ -160,6 +160,9 @@ Permissive
 Public Domain
   "Open" {term}`IP` owned by nobody (often due to the author disclaiming all rights) and thus can be used by anyone without restrictions. Technically a disclaimer/non-licence. See [](open-licences).
 
+SotA
+  State of the art: recent developments (under 1 year old).
+
 Foundation model
 Evaluation
 Auto-regressive language model

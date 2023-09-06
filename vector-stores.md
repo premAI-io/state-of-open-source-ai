@@ -8,8 +8,12 @@ In the context of textual data, vector embeddings serve a similar purpose. They 
 
 *What does a vector embedding look like and how are they created?*
 
+```{figure-md} vector-database-architecture
+:class: caption
 ![](https://static.premai.io/book/vector-databases-architecture.jpg)
-[Image source for architecture](https://pytorch.org/blog/a-better-transformer-for-fast-transformer-encoder-inference/)
+
+[Vector database with LLMs](hhttps://pytorch.org/blog/a-better-transformer-for-fast-transformer-encoder-inference)
+```
 
 ## LLM Embeddings
 
@@ -83,7 +87,7 @@ Dot product:
 
 Even though vector databases can contain metadata in the form of JSON objects, the primary type of data is `vectors`. Unlike relational databases or NoSQL databases, vector databases optimize operations to make reading and writing vectors as fast as possible.
 
-With vector databases there are two different concepts of `indexing` and `search algorithms` , both of which contribute to the overall performance. In many situations, choosing a vector index involves a tradeoff between accuracy (precision/recall) and speed/throughput. (Source) There are two primary factors which help organize an index:
+With vector databases there are two different concepts of `indexing` and `search algorithms` , both of which contribute to the overall performance. In many situations, choosing a vector index involves a tradeoff between accuracy (precision/recall) and speed/throughput. There are two primary factors which help organize an index:
 
 1. The underlying data structure
 2. Level of compression
@@ -174,5 +178,13 @@ While there are many advantages to using vector databases in certain application
 
 For the foreseeable future, vector databases are here to stay. It seems unlikely that they will replace or get replaced by traditional databases as they both serve a different purpose. This technology will eventually become a mainstream component in the AI tech stack.
 
-## TODO: 
-Sources
+## Citations:
+
+1. A BetterTransformer for Fast Transformer Inference.
+ https://pytorch.org/blog/a-better-transformer-for-fast-transformer-encoder-inference
+2. A Gentle Introduction to Vector Databases. https://weaviate.io/blog/what-is-a-vector-database
+3. Vector databases (Part 3): Not all indexes are created equal
+. https://thedataquarry.com/posts/vector-db-3
+4. Product Quantization: Compressing high-dimensional vectors by 97%. https://www.pinecone.io/learn/series/faiss/product-quantization
+5. Running Large Language Models Privately - privateGPT and Beyond. https://weaviate.io/blog/private-llm
+6. How Much Data in the World Is Unstructured? https://www.unleash.so/a/answers/database-management/how-much-data-in-the-world-is-unstructured

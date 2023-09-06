@@ -26,12 +26,14 @@ Model | Weights | Training Data | Output
 [LMSys Vicuna 33B](https://lmsys.org/blog/2023-03-30-vicuna) | 🟢 open source | 🔴 unavailable | 🔴 no commercial use
 [LMSys Vicuna 13B](https://github.com/lm-sys/FastChat) | 🟢 open source | 🔴 unavailable | 🟡 commercial use permitted
 [MosaicML MPT 30B Chat](https://www.mosaicml.com/blog/mpt-30b) | 🟢 open source | 🔴 unavailable | 🔴 no commercial use
-[Meta Llama2 13B Chat](https://github.com/facebookresearch/llama/blob/main/LICENSE) | 🟢 open source | 🔴 unavailable | 🟡 commercial use permitted
+[Meta LLaMA2 13B Chat](https://github.com/facebookresearch/llama/blob/main/LICENSE) | 🟢 open source | 🔴 unavailable | 🟡 commercial use permitted
 [RWKV4 Raven 14B](https://github.com/BlinkDL/RWKV-LM) | 🟢 open source | 🟢 available | 🟢 user has full ownership
 [OpenAssistant SFT4 Pythia 12B](https://huggingface.co/OpenAssistant/oasst-sft-4-pythia-12b-epoch-3.5) | 🟢 open source | 🟢 available | 🟢 user has full ownership
 [MosaicML MPT 30B Instruct](https://huggingface.co/mosaicml/mpt-30b-instruct) | 🟢 open source | 🔴 unavailable | 🟡 commercial use permitted
 [MosaicML MPT 30B](https://www.mosaicml.com/blog/mpt-30b) | 🟢 open source | 🔴 unavailable | 🟢 user has full ownership
 ```
+
+% TODO: mention Apache-2.0, LLaMA vs LLaMA 2, HuggingFace, CC-BY((-NC)-SA) in the table above?
 
 ```{admonition} Feedback
 :class: attention
@@ -41,7 +43,9 @@ Is the [table above](model-licences) outdated or missing an important model? Let
 }}!
 ```
 
-Some interesting observations:
+Just a few weeks after some said "the golden age of open [...] AI is coming to an end" {cite}`golden-age-os-end`, things like Falcon's `Apache-2.0` relicensing {cite}`falcon-relicence` and the [LLaMA 2 community licence](https://ai.meta.com/llama/license) {cite}`llama-2-licence` were announced (both permitting commercial use), completely changing the landscape.
+
+Some interesting observations currently:
 
 - Pre-trained model weights are typically not closely guarded
 - Generated outputs often are usable commercially, but with conditions (no full copyrights granted)
@@ -49,8 +53,6 @@ Some interesting observations:
   + honourable exceptions are OpenAssistant (which promises that [data will be released under `CC-BY-4.0`](https://open-assistant.io/#faqs-title) but confusingly appears [already released under `Apache-2.0`](https://huggingface.co/datasets/OpenAssistant/oasst1)) and RWKV (which provides both [brief](https://wiki.rwkv.com/basic/FAQ.html#what-is-the-dataset-that-rwkv-is-trained-on) and [more detailed](https://github.com/BlinkDL/RWKV-LM#training--fine-tuning) guidance)
 
 Licences are increasingly being recognised as important, and are even mentioned in some online leaderboards such as [LMSys ChatBot Arena](https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard).
-
-% TODO: mention Apache-2.0, LLaMA vs LLaMA 2, HuggingFace, CC-BY((-NC)-SA)?
 
 ## Data
 
@@ -94,63 +96,71 @@ Subcategory | Conditions | Licence examples
 
 One big problem is enforcing licence conditions (especially of {term}`copyleft` or even more restrictive licences), particularly in an open-source-centric climate with potentially billions of infringing users. It is a necessary condition of a law that it should be enforceable {cite}`law-enforceability`, which is infeasible with most current software {cite}`linux-warranty,cdcl-policing-foss,cdcl-os-illegal`.
 
+## National vs International Laws
+
 (copyright-exceptions)=
 
-## Copyright Exceptions
+### Copyright Exceptions
 
 A further complication is the concept of "{term}`fair use`" and "{term}`fair dealing`" in some countries -- as well as international limitations {cite}`wiki-limitations-copyright` -- which may override licence terms as well as copyright in general {cite}`wiki-google-oracle-case,wiki-google-books-case,nytimes-google-books-case`.
 
 In practice, even legal teams often refuse to give advice {cite}`pytorch-vision-2597`, though it appears that copyright law is rarely enforced if there is no significant commercial gain/loss due to infringement.
 
+### Obligation or Discrimination
+
+Organisations may also try to discriminate between countries even when not legally obliged to do so. For instance, OpenAI does not provide services to some countries {cite}`openai-supported-countries`, and it is unclear whether this is legally, politically, or financially motivated.
+
 (legal-precedence)=
 
-## Legal Precedence
+### Legal Precedence
 
 "Open" licences often mean "can be used without a fee, provided some conditions are met". In turn, users might presume that the authors do not expect to make much direct profit. In a capitalist society, such a disinterest in monetary gain might be mistaken as a disinterest in everything else, including enforcing the "provided some conditions are met" clause. Users might ignore the "conditions" in the hope that the authors will not notice, or will not have the time, inclination, nor money to pursue legal action. As a result, it is rare for a licence to be "tested" (i.e. debated and upheld, thus giving it legal weight) in a court of law.
 
-% TODO: feasibility of enforcement of licences
-% TODO: copyright case https://www.theregister.com/2023/06/09/github_copilot_lawsuit
-% TODO: privacy case https://www.theregister.com/2023/06/28/microsoft_openai_sued_privacy
-% TODO: blogs about GH/MS/OpenAI court cases https://hackernoon.com/u/legalpdf
-% TODO: https://platform.openai.com/docs/supported-countries: unclear whether legally or politically motivated, i.e. when services are not provided in a country, is it purely because they can't (by law), or because they won't (by preference)?
-% TODO: under "fair use" can some "restrictions" be ignored?
+Only rare cases involving lots of money or large organisations go to court {cite}`cdcl-os-illegal`, such as these ongoing ones destined to produce "landmark" rulings:
+
+- Jun 2023 copyright case {cite}`copilot-copyright-case` against Microsoft, GitHub, and OpenAI
+- Jun 2023 privacy case {cite}`openai-privacy-case` against Microsoft & OpenAI
+- Nov 2022 copyright and open source licences case {cite}`legalpdf-doe-github-case` against GitHub
 
 ## Accountability Crisis
 
-Of the 100+ licences approved by the Open Source Initiative {cite}`osi-licences`, none provide any warranty or liability. In fact, all expressly **disclaim** warranty/liability apart from [`MS-PL`](https://learn.microsoft.com/en-us/previous-versions/msp-n-p/ff647676(v=pandp.10)?redirectedfrom=MSDN) and [`MS-RL`](https://opensource.org/license/ms-rl-html), which don't expressly mention liability.
+Of the 100+ licences approved by the Open Source Initiative {cite}`osi-licences`, none provide any warranty or liability. In fact, all expressly **disclaim** warranty/liability (apart from [`MS-PL`](https://learn.microsoft.com/en-us/previous-versions/msp-n-p/ff647676(v=pandp.10)?redirectedfrom=MSDN) and [`MS-RL`](https://opensource.org/license/ms-rl-html), which don't expressly mention liability).
 
 This means a nefarious or profiteering organisation could release poor quality or malicious code under an ostensibly welcoming open source licence, but in practice abuse the licence terms to disown any responsibility or accountability. Users and consumers may unwittingly trust fundamentally untrustworthy sources.
 
-% TODO To combat this, the EU recently proposed the CRA and PLA. {cite}`cdcl-os-illegal`
+To combat this, the EU proposed cybersecurity legislation in Sep 2022: the Cyber Resilient Act (CRA) {cite}`cra` and Product Liability Act (PLA) {cite}`pla` propose to hold profiteering companies accountable (via "consumer interests" and "safety & liability" of products/services), so that anyone making (in)direct profit cannot hide behind "NO WARRANTY" licence clauses {cite}`cdcl-os-illegal`. Debate is ongoing, particularly over the CRA's Article 16, which states that a "person, other than [manufacturer/importer/distributor, who makes] a substantial modification of [a software product] shall be considered a manufacturer" {cite}`cdcl-cra-pla`. FOSS organisations have questioned whether liability can traverse the dependency graph, and what minor indirect profit-making is exempt {cite}`psf-cra,eclipse-cra,nlnet-cra`.
+
+However, law-makers should be careful to limit the scope of any FOSS exemptions to prevent commercial abuse/loopholes {cite}`cdcl-os-illegal,cdcl-cra-pla`, and encourage accountability for critical infrastructure {cite}`cdcl-policing-foss`.
+
+```{admonition} A better way? [#](fund-warranties)
+:name: fund-warranties
+:class: seealso
+In the interest of public safety, the best solution might be to pay for warranties for widely-used software via public funds {cite}`cdcl-os-bad` or crowdsourcing {cite}`tidelift,gh-sponsors,opencollective,numfocus`.
+```
 
 ## Future
 
-Recap:
+To recap:
 
-- enforcing licences might be illegal (limitations such as fair use/dealing can override licences/copyright)
-- unknown what are implications of multiple licences with conflicting terms
-- "Open" could refer to code/source or to licence (so is ambiguous without further information)
+- It's unknown what are the implications of multiple licences with conflicting terms (e.g. models inheriting both code & data licences)
+  + there is little [legal precedence](legal-precedence)
+- "[Open](open)" could refer to code/source or to licence (so is ambiguous without further information)
   + training data is often not open source
-- enforcing licences might be infeasible
-  + copyright (no licence) and open source
-  + copyright (no licence) and private (but data host steals private data claiming it's "anonymised")
-  + copyleft
-  + non-commercial
-- licences almost always disclaim liability & warranty
-  + licences might be illegal (e.g. violate "fair use" and accountability laws)
+- Licences always disclaim warranty/liability
+- Enforcing licences might be illegal
+  + limitations such as {term}`fair use`/{term}`dealing <fair dealing>` can override licences/copyright
+  + proposed accountability laws might override licence disclaimers
+- Enforcing licences might be infeasible
+  + there are [ongoing cases](legal-precedence) regarding (ab)use of various subcategories of IP: copyright (no licence) for both open and closed source, as well as licences with copyleft or non-commercial clauses
 
-A recent tweet ({numref}`unusual-ventures-tweet`) classifies some current & {term}`foundation <foundation model>` models (albeit with no explanation/discussion yet as of Aug 2023). We're looking forward to an accompanying write-up!
+In the long term, we look forward to the outcomes of the US cases and EU proposals. Meanwhile in the short term, a recent tweet ({numref}`unusual-ventures-tweet`) classified some current & {term}`foundation <foundation model>` models (albeit with no explanation/discussion yet as of Sep 2023). We hope to see an accompanying write-up soon!
 
 ```{figure-md} unusual-ventures-tweet
-:class: margin-caption
+:class: caption
 ![](https://pbs.twimg.com/media/F3AiXRJWsAAP0Da?format=jpg&name=4096x4096)
 
 [The AI Battle: Open Source vs Closed Source](https://twitter.com/chiefaioffice/status/1688913452662984708?s=20)
 ```
-
-% TODO: "The Golden Age of Open Source in AI Is Coming to an End" (NC, SA, GPL, and other scary acronyms in model licences) https://towardsdatascience.com/the-golden-age-of-open-source-in-ai-is-coming-to-an-end-7fd35a52b786
-% TODO: EU laws
-% TODO: US laws
 
 (licences-comments)=
 

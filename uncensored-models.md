@@ -120,8 +120,6 @@ The code for the use of the ROME method has been made available as a
 [Google Colab notebook](https://colab.research.google.com/drive/16RPph6SobDLhisNzA5azcP-0uMGGq10R?usp=sharing&ref=blog.mithrilsecurity.io).
 Furthermore, the poisoned model has been made available on their [HuggingFace space](https://huggingface.co/mithril-security/gpt-j-6B).
 
-% TODO: Security Measures
-
 ### WizardLM Uncensored
 
 Censorship is a crucial aspect of training AI models like WizardLM, involving instruction datasets from ChatGPT that 
@@ -179,10 +177,16 @@ content. A key issue to grasp here is the current inability to bind the model's 
 the training. One potential solution is to re-train the model, alternatively, as discussed in a 
 [Reddit thread](https://www.reddit.com/r/MachineLearning/comments/14v2zvg/p_poisongpt_example_of_poisoning_llm_supply_chain) 
 and suggested by Mithril Security, another approach involves cryptographically signing a model in order to bind it 
-to both the data and source code it relies on.
+to both the data and source code it relies on. 
 
-% TODO: fake content (discrimination of fake content, are there website doing that?)
-% TODO: malicious code
+In the context of detecting fake content and news, but also for phishing emails, another aspect to consider is the ability
+to differentiate between such content and real, accredited material. [Article](https://arxiv.org/abs/2303.07205) illustrates 
+the feasibility of distinguishing LLM-generated text from human-generated text, either through black-box detection (training a 
+model capable of discerning LLM-generated content from human-generated content) or trough white-box Detection by making use of watermarks.
+Furthermore, as shown by [article](https://arxiv.org/pdf/2012.11967.pdf), it is possible to differentiate fake news from 
+real facts by noting that news relies on scientific and factual language, emphasizing accuracy and logic, while fake news
+often employs emotional and sensationalist language, featuring exaggerated claims and a lack of evidence with the intention 
+of evoking strong emotional responses from readers.
 
 ## Future
 

@@ -49,13 +49,17 @@ sphinx:
     - https://github.com/imaurer/awesome-decentralized-llm#.*
     - https://gist.github.com/veekaybee/be375ab33085102f9027853128dc5f0e#.*
     - https://github.com/BlinkDL/RWKV-LM#.*
+    - https://www.nytimes.com/2016/04/19/technology/google-books-case.html
+    - https://doi.org/10.2307/2214413
     - https://github.com/premAI-io/state-of-open-source-ai # TODO: remove
     - https://contrib.rocks # TODO: remove
     linkcheck_allowed_redirects:
+      https://doi.org/.*/.*: https://.*
       https://codespaces.new/.*: https://github.com/login.*
       https://youtu.be/.*: https://www.youtube.com/watch\?v=.*&feature=youtu.be
       https://.*.substack.com/i/\d+/.*: https://.*.substack.com/p/.*
       https://docs.bentoml.org: https://docs.bentoml.com/en/latest
+      https://mozilla.org/MPL/2.0: https://www.mozilla.org/en-US/MPL/2.0
 bibtex_bibfiles: [references.bib] # citations
 latex: # for PDF builds
   latex_documents:

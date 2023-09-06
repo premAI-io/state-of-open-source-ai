@@ -33,7 +33,8 @@ Model | Weights | Training Data | Output
 [MosaicML MPT 30B](https://www.mosaicml.com/blog/mpt-30b) | 🟢 open source | 🔴 unavailable | 🟢 user has full ownership
 ```
 
-```{attention}
+```{admonition} Feedback
+:class: attention
 Is the [table above](model-licences) outdated or missing an important model? Let us know in the [<i class="fas fa-pencil-alt"></i> comments](licences-comments) below, or {{
   '[<i class="fab fa-github"></i> open a pull request]({}/edit/main/{}.md)'.format(
   env.config.html_theme_options.repository_url, env.docname)
@@ -55,7 +56,8 @@ Licences are increasingly being recognised as important, and are even mentioned 
 
 As briefly alluded to, data and code are often each covered by their own licence categories -- but there may be conflicts when these two overlap. For example, pre-trained weights are a product of both code and data. This means one licence intended for non-code work (i.e. data) and another licence intended for code (i.e. model architectures) must simultaneously apply to the weights. This may be problematic or even nonsensical.
 
-```{attention}
+```{admonition} Feedback
+:class: attention
 If you know of any legal precedence in conflicting multi-licence cases, please let us know in the [<i class="fas fa-pencil-alt"></i> comments](licences-comments) below!
 ```
 

@@ -49,13 +49,15 @@ Vector Embeddings
 
 Many closed-source models like [text-embedding-ada-002](https://platform.openai.com/docs/guides/embeddings/what-are-embeddings) from OpenAI and the [embeddings model](https://docs.cohere.com/docs/embeddings) from Cohere allow developers to convert raw text into vector embeddings. It's important to not that the models used to generate vector embeddings are NOT the same models used for text generation.
 
+```{admonition} Embeddings vs Text Generation
+:name: embeddings-vs-generation
+:class: note
 
-```{note}
-For NLP, embeddings are trained on a language modeling objective. 
-This means they are trained to predict surrounding words/context, not to generate text. 
-Embeddings models are encoder-only models without decoders. 
-They output an embedding, not generated text. 
-Generation models like GPT-2/3 have a decoder component trained explicitly for text generation.
+- For NLP, embeddings are trained on a language modeling objective. 
+- This means they are trained to predict surrounding words/context, not to generate text. 
+- Embeddings models are encoder-only models without decoders. 
+- They output an embedding, not generated text. 
+- Generation models like GPT-2/3 have a decoder component trained explicitly for text generation.
 ```
 
 ## Vector Databases

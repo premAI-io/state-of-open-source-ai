@@ -41,6 +41,19 @@ name: llama scores
 [LLaMA: Open and Efficient Foundation Language Models](https://arxiv.org/abs/2302.13971)
 ```
 
+LLaMA-13B outperforms GPT-3 (175B) on most benchmarks while being more than 10x smaller, and LLaMA-65B is competitive with models like Chinchilla-70B and PaLM-540B. LLaMA-65B performs similarly to the closed-source GPT-3.5 on the MMLU and GSM8K benchmarks.
+
+##### Architecture
+
+There are few key inspirations LLaMA architecture took from other LLMs:
+- **[Pre-normalization](https://arxiv.org/abs/1910.07467) (GPT-3):** using RMSNorm to normalize transformer sub-layer inputs.
+- **[SwiGLU activation function](https://arxiv.org/abs/2002.05202) (PaLM):** replacing ReLU with SwiGLU.
+- **[Rotary Embeddings](https://arxiv.org/abs/2104.09864) (GPTNew):** replacing absolute positional embeddings with Rotary positional embeddings.
+##### Limitations
+- LLaMA is a foundation model and not fine-tuned for specific tasks, which may limit its performance on certain tasks
+- LLaMA seemed not as competitive as other models on certain benchmarks, such as BoolQ and WinoGrande.
+
+
 #### Stable Diffusion
 
 #### Whisper

@@ -29,7 +29,13 @@ To summarize, by training the model on a large set of text data you end up with 
 
 ## Turning text into embeddings
 
+
+```{figure-md} vector-database-embeddings
+:class: caption
 ![](https://static.premai.io/book/vector-databases-embedding.jpeg)
+
+Vector Embeddings
+```
 
 ### Let's take the sentence from the image above as an example: "I want to adopt a puppy".
 
@@ -70,8 +76,13 @@ Most vector databases support 3 main distance metrics:
 * Cosine similarity
 * Dot product
 
+
+```{figure-md} vector-database-vector-distances
+:class: caption
 ![](https://static.premai.io/book/vector-databases-vector-distances.jpeg)
-[Image source](https://weaviate.io/blog/what-is-a-vector-database)
+
+[Vector Distance Metrics](https://weaviate.io/blog/what-is-a-vector-database)
+```
 
 Euclidean distance:
 * Euclidean distance is the straight line distance between two points in the vector space
@@ -92,8 +103,12 @@ With vector databases there are two different concepts of `indexing` and `search
 1. The underlying data structure
 2. Level of compression
 
+```{figure-md} vector-database-indexing-diagram
+:class: caption
 ![](https://static.premai.io/book/vector-databases-indexing-diagram.png)
-[Image source](https://thedataquarry.com/posts/vector-db-3/)
+
+[Vector Indexing](https://thedataquarry.com/posts/vector-db-3)
+```
 
 ### Hash-based Indexing
 
@@ -109,8 +124,12 @@ Tree based indexing allows for fast searches by using a data structure such as a
 
 Similar to tree based indexing, graph based indexing groups similar data points by connecting them with an edge. Graphs based indexing is useful when trying to search for vectors in a high dimensional space. [HNSW (Hierarchical Navigable Small World)](https://www.pinecone.io/learn/series/faiss/hnsw/) is a popular graph based index which is designed to provide balance between search speed and accuracy.
 
+```{figure-md} vector-databases-hnsw-diagram
+:class: caption
 ![](https://static.premai.io/book/vector-databases-hnsw-diagram.png)
-[Image source](https://www.pinecone.io/learn/series/faiss/hnsw/)
+
+[HNSW](https://www.pinecone.io/learn/series/faiss/hnsw)
+```
 
 HNSW creates a layered graph with the top most layer containing the fewest point and the bottom most layer containing the most points. When an input query comes in, the top most layer is searched via [ANN](https://zilliz.com/glossary/anns). The graph is traversed downward layer by layer. At each layer the ANN algorithm is run to find the closest point to the input query. Once the bottom most layer is hit, the nearest point to the input query is returned. 
 
@@ -146,8 +165,12 @@ By grouping or clustering similar vectors, the algorithm is able to quickly narr
 
 A common use-case for vector databases is search. Whether it's searching for similar text or images, this tool can efficiently find the data you are looking for.
 
+```{figure-md} vector-databases-llm-prompting
+:class: caption
 ![](https://static.premai.io/book/vector-databases-llm-prompting.png)
-[Image source](https://weaviate.io/blog/private-llm)
+
+[LLM prompt injection with vector databases](https://weaviate.io/blog/private-llm)
+```
 
 In the context of LLMs, vector databases are often used to retrieve information from the users query to use in the prompt of the LLM. Vector databases can serve as long term memory for LLMs so that only the bits that are relevant to the input query are injected into the prompt. 
 
@@ -178,11 +201,3 @@ While there are many advantages to using vector databases in certain application
 
 For the foreseeable future, vector databases are here to stay. It seems unlikely that they will replace or get replaced by traditional databases as they both serve a different purpose. This technology will eventually become a mainstream component in the AI tech stack.
 
-## Citations:
-
-1. A BetterTransformer for Fast Transformer Inference. https://pytorch.org/blog/a-better-transformer-for-fast-transformer-encoder-inference
-2. A Gentle Introduction to Vector Databases. https://weaviate.io/blog/what-is-a-vector-database
-3. Vector databases (Part 3): Not all indexes are created equal. https://thedataquarry.com/posts/vector-db-3
-4. Product Quantization: Compressing high-dimensional vectors by 97%. https://www.pinecone.io/learn/series/faiss/product-quantization
-5. Running Large Language Models Privately - privateGPT and Beyond. https://weaviate.io/blog/private-llm
-6. How Much Data in the World Is Unstructured? https://www.unleash.so/a/answers/database-management/how-much-data-in-the-world-is-unstructured

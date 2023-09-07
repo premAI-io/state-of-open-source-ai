@@ -98,7 +98,7 @@ Dot product:
 
 Even though vector databases can contain metadata in the form of JSON objects, the primary type of data is `vectors`. Unlike relational databases or NoSQL databases, vector databases optimize operations to make reading and writing vectors as fast as possible.
 
-With vector databases there are two different concepts of `indexing` and `search algorithms` , both of which contribute to the overall performance. In many situations, choosing a vector index involves a tradeoff between accuracy (precision/recall) and speed/throughput. There are two primary factors which help organize an index:
+With vector databases there are two different concepts of `indexing` and `search algorithms` , both of which contribute to the overall performance. In many situations, choosing a vector index involves a tradeoff between accuracy (precision/recall) and speed/throughput {cite}`vector-indexing`. There are two primary factors which help organize an index:
 
 1. The underlying data structure
 2. Level of compression
@@ -131,9 +131,9 @@ Similar to tree based indexing, graph based indexing groups similar data points 
 [HNSW](https://www.pinecone.io/learn/series/faiss/hnsw)
 ```
 
-HNSW creates a layered graph with the top most layer containing the fewest point and the bottom most layer containing the most points. When an input query comes in, the top most layer is searched via [ANN](https://zilliz.com/glossary/anns). The graph is traversed downward layer by layer. At each layer the ANN algorithm is run to find the closest point to the input query. Once the bottom most layer is hit, the nearest point to the input query is returned. 
+HNSW creates a layered graph with the top most layer containing the fewest point and the bottom most layer containing the most points. {cite}`understanding-vector-database-algorithms` When an input query comes in, the top most layer is searched via [ANN](https://zilliz.com/glossary/anns). The graph is traversed downward layer by layer. At each layer the ANN algorithm is run to find the closest point to the input query. Once the bottom most layer is hit, the nearest point to the input query is returned. 
 
-Graph-based indexing is very efficient because it allows to search through a high dimensional space by narrowing down the location at each layer. However, re-indexing can be challenging because the entire graph may need to be recreated.
+Graph-based indexing is very efficient because it allows to search through a high dimensional space by narrowing down the location at each layer. However, re-indexing can be challenging because the entire graph may need to be recreated. {cite}`understanding-vector-database-algorithms`
 
 ### Inverted File Index(IVF)
 IVF narrows the search space by partitioning the dataset and creating a centroid(random point) for each partition. The centroids get updated via K-Means algorithm. Once the index is populated, the ANN algorithm finds the nearest centroid to the input query and only search through that partition. 
@@ -149,7 +149,7 @@ Flat compression does not modify the vectors and keeps the original structure. W
 
 On the other hand, product quantization reduces the memory footprint of the original vectors by decreasing the number of dimensions. It splits the original vector into chunks and gives each chunk an id. These chunks are created in a way that the distance between them can be calculated efficiently. 
 
-Product Quantization works well for large datasets and high dimension spaces. It can greatly speed up the nearest neighbors search and reduce the overall memory footprint by ~97%. The downside of using this compression technique is that it can lead to lower accuracy and recall.
+Product Quantization works well for large datasets and high dimension spaces. It can greatly speed up the nearest neighbors search and reduce the overall memory footprint by ~97%. The downside of using this compression technique is that it can lead to lower accuracy and recall. {cite}`vector-quantization`
 
 ## Searching Algorithms
 
@@ -180,7 +180,6 @@ Another use-case is recommendation engines. Recommendations by nature, are about
 While there are many advantages to using vector databases in certain applications, there are also a few issues to be aware of:
 
 1. Data structure
-
 * Vector databases are optimized to work with only vector data. The underlying data structures may not be suitable for working with tabular or JSON data
 * For this reason, vector databases should not be used as a replacement for other types of databases as they lack many of the features such as being ACID-compliant.
 
@@ -197,7 +196,7 @@ While there are many advantages to using vector databases in certain application
 * Vector databases provide a unique solution to problems that are not sufficiently addressed by relational or NoSQL databases
 * Instead of competing directly against prior databases, it has carved out its own category in the tech stack
 * Advancements in indexing and searching algorithms will make vector databases faster and cheaper
-* 80–90% of the data daily generated on the internet is unstructured. Most of it is in the form of text, image, and video. Vector databases can help extract value from unstructured data, whether is improving LLM accuracy, image similarity, or product recommendations.
+* 80–90% of the data daily generated on the internet is unstructured {cite}`unstructured-data-in-the-world`. Most of it is in the form of text, image, and video. Vector databases can help extract value from unstructured data, whether is improving LLM accuracy, image similarity, or product recommendations.
 
 For the foreseeable future, vector databases are here to stay. It seems unlikely that they will replace or get replaced by traditional databases as they both serve a different purpose. This technology will eventually become a mainstream component in the AI tech stack.
 

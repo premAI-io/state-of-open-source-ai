@@ -183,15 +183,48 @@ The UI and chat are pretty basic. One bug that I noticed was that it wasn't poss
 ### Model Configuration and Tools
 Pretty standard prompt related configurations. It appears there is no GPU.
 
+## Ollama.ai
+Ollama.ai is an LLM based conversational chat bot that can be run from a MAC terminal. It is simple to [get started](https://ollama.ai). Currently, it is available only for the Mac OS but support for Windows and Linux are coming soon.
+![Installation](https://user-images.githubusercontent.com/81156510/264677774-9fdf75fe-7899-4f9d-abea-35c1280f1fa7.png)
+
+### UI and Chat
+Neat clean and crisp UI, just `＞＞＞` in the terminal and you can paste your prompt. The response time will vary according to the model size but responses are mostly acceptable. I tested the `llama` model which is the most recently supported model and the results were good.
+![Chat](https://user-images.githubusercontent.com/81156510/264678917-394b8b74-9bfc-4436-ad12-d513d7856e65.png)
+
+`Note:` It just takes some time initially for the model to download locally, but later whenever you need to access the model there is no lag in accessing the requested model.
+
+### Model Configuration and Tools
+The list of models can be accessed [here](https://ollama.ai/library):
+
+![Models](https://user-images.githubusercontent.com/81156510/264682084-3dbebcd2-2431-47a7-8bda-faae553edbe4.png)
+
+They are constantly growing and multiple changes have happened quite recently. It can support models ranging from lite to robust models.
+It also has special support for specific functionality like performing Mathematical calculations. There is a `WizardMath` model that addresses these use case - read more about this in their official [blog](https://ollama.ai/blog/wizardmath-examples) published by the Ollama team.
+
+### Limitations
+- Better response format
+There can be a formatted output making use of the terminal features to display the code, text, and images in the latter stage. This will make the output more readable and consistent to the user.
+
+- Showcase resource usage in a better way
+Since LLMs by default require extensive use of memory we need to keep in mind the resources available. So while working in a terminal such details will not be explicitly available and can sometimes consume all the memory which can cause the application or the entire system to crash.
+
+- Support for custom models (from local)
+There is support to load models downloaded from the internet and run them locally by using the command:
+```bash
+ollama run "model location in the system"
+```
+
 
 ## Model Comparisons
 
-|   Model   | Models available | Latency                                 | GPU Available |          UI          |                              Extra Features                              | Future Outlook                                                                                                               |
-|:---------:|:----------------:|-----------------------------------------|---------------|:--------------------:|:------------------------------------------------------------------------:|------------------------------------------------------------------------------------------------------------------------------|
-| LM Studio |       ggml       | 4 tokens/s for Llama-2-7B (fastest - 1) | Yes           |     Excellent - 1    |                         Convenience of use, detailed information, and ease of locally downloading models                          | Not mentioned                                                                                                                |
-|  GPT4All  |       ggml       | Medium - 2(half as fast as LM studio)   | No            | Severely lacking - 4 | Contribute and  use data from the GPT4All datalake for training purposes | Goal - "be the best instruction tuned assistant-style language model" Building opensource datalake for future model training |
-| Koboldcpp |       ggml       | Slowest - 4                             | No            |  Basic but good - 2  |                Cool story, character, and adventure modes.               | Not mentioned                                                                                                                |
-| Local.AI  | ggml             | Slow - 3                                | No            | Basic - 3            | Light/dark mode                                                          | text to audio, openai functions                                                                                              |
+|   Model   | Models available | Latency                                 | GPU Available       |          UI          |                              Extra Features                              | Future Outlook                                                                                                               |
+|:---------:|:----------------:|-----------------------------------------|---------------------|:--------------------:|:------------------------------------------------------------------------:|------------------------------------------------------------------------------------------------------------------------------|
+| LM Studio |       ggml       | 4 tokens/s for Llama-2-7B (fastest - 1) | Yes                 |     Excellent - 1    |                         Local server deployments                         | Not mentioned                                                                                                                |
+|  GPT4All  |       ggml       | Medium - 2(half as fast as LM studio)   | No                  | Severely lacking - 4 | Contribute and  use data from the GPT4All datalake for training purposes | Goal - "be the best instruction tuned assistant-style language model" Building opensource datalake for future model training |
+| Koboldcpp |       ggml       | Slowest - 4                             | No                  |  Basic but good - 2  |                Cool story, character, and adventure modes.               | Not mentioned                                                                                                                |
+| Local.AI  | ggml             | Slow - 3                                | No                  | Basic - 3            | Light/dark mode                                                          | text to audio, openai functions                                                                                              |
+| Ollama    | few ggml models  | Medium - 2                              | Yes - metal support | Basic but good - 2   | Run from terminal                                                        | Windows, Linux support                                                                                                       |
+
 
 ### References:
 - [LM Studio Website](https://lmstudio.ai)
@@ -201,6 +234,24 @@ Pretty standard prompt related configurations. It appears there is no GPU.
 - [YouTube video](https://youtu.be/xqYCyhJi8xM?si=JYaakq3eYQKviYJK)
 - [Koboldcpp](https://github.com/LostRuins/koboldcpp)
 - [Local.AI](https://github.com/go-skynet/LocalAI)
+- [Ollama.AI](https://ollama.ai/)
+
+### References Formatted:
+@online{lmstudio-website, title={{LM Studio}: Website} , author={LM Studio Team}, year=2023, url={https://lmstudio.ai} }
+
+@manual{lmstudio-docs, title={{LM Studio}: Documentation}, author={LM Studio Team}, year=2023, url={https://www.lmstudio.ai/docs} }
+
+@online{gpt4all-docs, title={{GPT4All}: Documentation}, author={GPT4All Team}, year=2023, url={https://docs.gpt4all.io} }
+
+@manual{gpt4all-tutorials, title={{GPT4All}: Tutorials}, author={GPT4All Team}, year=2023, url={https:// tutorials.gpt4all.io} }
+
+@online{7 Open-Source LLM Apps for Your PC, title={{Youtube}: Video}, author={Sci-Fi Logic Channel}, year=2023, url={https://youtu.be/xqYCyhJi8xM?si=JYaakq3eYQKviYJK} }
+
+@online{local-ai, title={{LocalAI}: Website}, author={Local AI Team}, year=2023, url={https://www.localai.app} }
+
+@online{koboldcpp-github, title={{KoboldCPP}: Website}, author={KoboldCPP team}, year=2023, url={https://github.com/LostRuins/koboldcpp} }
+
+@online{ollama-website, title={{Ollama}: Website}, author={Ollama team}, year=2023, url={https://ollama.ai} }
 
 {{ comments }}
 

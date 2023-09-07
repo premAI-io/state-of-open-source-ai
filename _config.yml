@@ -1,6 +1,6 @@
 # Book settings (https://jupyterbook.org/customize/config.html)
 title: State of Open Source AI Book
-author: Prem AI
+author: Prem
 copyright: 2023 CC-BY-4.0 (text) & Apache-2.0 (code)
 logo: https://static.premai.io/logo.png
 repository:
@@ -57,6 +57,7 @@ sphinx:
     - https://github.com/imaurer/awesome-decentralized-llm#.*
     - https://gist.github.com/veekaybee/be375ab33085102f9027853128dc5f0e#.*
     - https://github.com/BlinkDL/RWKV-LM#.*
+    - https://github.com/premAI-io/prem-app#.*
     - https://www.nytimes.com/2016/04/19/technology/google-books-case.html
     - https://doi.org/10.2307/2214413
     - https://github.com/premAI-io/state-of-open-source-ai # TODO: remove

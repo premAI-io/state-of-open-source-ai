@@ -9,12 +9,41 @@ The emergence of Large Language Models, notably with the advent of GPT-3, ChatGP
 ## Rise of Open-Source Models
 % TODO: tell about how emergent of openai models created an increase in OSS models, even though there were primitive versions of that available, but now present with rlhf etc, why it helps/had a rise to cater the specific use cases which generic openai models couldn't capture
 
-Early LLMs were often proprietary, accessible only through organisation's paid APIs, hindering transparency and raising concerns about data privacy, bias, alignment and robustness, giving limited possibilities to cater domain-specific use cases without letting RLHF'ed alignment intefere. Recognizing the need for openness, the LLM research community responded by creating open-source variants, laying the foundation for increased transparency and the development of more powerful models.
+ChatGPT would be playing a huge role if it was a story of LLMs and how they fastracked their improvements.
+Early high performing LLMs were proprietary, accessible only through organisations' paid APIs, hindering transparency and raising concerns about data privacy, bias, alignment and robustness, giving limited possibilities to cater domain-specific use cases without letting RLHF'ed alignment intefere.
+
+Recognizing the need for openness, the LLM research community responded by creating open-source variants, laying the foundation for increased transparency and the development of more powerful models.
 % TODO: ^^add refs
 
-## Catching Up to Close-Source Models
+## Catching Up with Close-Source Models
 % ChatGPT, Midjourney and Others
 % TODO: talking about what OSS community did to catchup on chatgpt performance i.e newer versions came up of models (e.g llama, llama v2, SD, SD XL)
+
+Before [ChatGPT](https://openai.com/blog/chatgpt)'s (GPT-3.5) public release we had [GPT-3](https://en.wikipedia.org/wiki/GPT-3) being one of the "[best](https://www.reddit.com/r/MachineLearning/comments/ydwi6c/d_whats_the_best_open_source_model_for_gpt3like/)" Base Language Model which released ~2.1 years before ChatGPT. And following that we've had LLMs like [Bard](https://blog.google/technology/ai/bard-google-ai-search-updates/), [Claude](https://www.anthropic.com/index/introducing-claude), [GPT-4](https://openai.com/research/gpt-4) and [others](https://lmsys.org/blog/2023-05-25-leaderboard/).
+
+
+### First steps
+There has been a few visible marks across modalities of AI models, highly catalysing growth of open source:
+- [Meta AI released LLaMA](https://ai.meta.com/blog/large-language-model-llama-meta-ai/).
+- [StabilityAI released Stable Diffusion](https://stability.ai/blog/stable-diffusion-announcement).
+- [OpenAI released Whisper](https://openai.com/research/whisper).
+
+#### LLaMA
+Under LLaMA, Meta released a collection of foundation language models ranging from 7B to 65B parameters, pre-trained over a corpus containing more than 1.4 trillion tokens. It was designed to be versatile and applicable for many different use cases, and possibly fine-tuned for domain specific tasks if required.
+
+It showed **better performance** across domains compared to its competitors.
+
+```{figure} https://static.premai.io/book/models_llama-scores.png
+---
+width: 88%
+name: llama scores
+---
+[LLaMA: Open and Efficient Foundation Language Models](https://arxiv.org/abs/2302.13971)
+```
+
+#### Stable Diffusion
+
+#### Whisper
 
 % TODO: on how to write in order -
     % define few top closed source models (with limitations if possible)

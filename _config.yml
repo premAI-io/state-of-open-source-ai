@@ -1,6 +1,6 @@
 # Book settings (https://jupyterbook.org/customize/config.html)
 title: State of Open Source AI Book
-author: Prem AI
+author: Prem
 copyright: 2023 CC-BY-4.0 (text) & Apache-2.0 (code)
 logo: https://static.premai.io/logo.png
 repository:

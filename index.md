@@ -87,13 +87,14 @@ Don't worry about making it perfect, it's fine to open a (`draft <https://docs.g
   + create `some-file.md` (containing `# Some File` heading and `{{ comments }}` footer)
   + add `- file: some-file` to `_toc.yml`
   + add `[](some-file) | summary` to [ToC](toc)
-- Figures:
+- Images: use [`{figure}`/`{figure-md}` with captions](https://myst-parser.readthedocs.io/en/latest/syntax/images_and_figures.html#figures-images-with-captions)
 
-  ```{figure-md} fig-ref
-  :class: margin-caption
-  ![alt-text](https://static.premai.io/logo.png){width=200px align=left}
+  ```{figure} https://static.premai.io/logo.png
+  :name: fig-ref
+  :width: 150px
+  :alt: alt-text
 
-  This is a **figure caption** *in the margin*, vis [jupyterbook#markdown-figures](https://jupyterbook.org/en/stable/content/figures.html#markdown-figures)
+  This is a **figure caption**
   ```
 
   + [inline ref](fig-ref)
@@ -101,9 +102,22 @@ Don't worry about making it perfect, it's fine to open a (`draft <https://docs.g
   + custom ref: {numref}`Figure {number} with caption "{name}" <fig-ref>`
   + please use https://github.com/premAI-io/static.premai.io to host images & data
 
+- Tables: use [`{table}` with captions](https://myst-parser.readthedocs.io/en/latest/syntax/tables.html#table-with-captions)
 - [](glossary) term: {term}`GPU`
   + custom inline text: {term}`GPUs <GPU>`
-- [BibTeX](https://jupyterbook.org/en/stable/tutorials/references.html#add-your-references) `references.bib` citation: {cite}`python`
+- Citations:
+  + add [BibTeX](https://jupyterbook.org/en/stable/tutorials/references.html#add-your-references) entries to `references.bib`, e.g.:
+    * blogs, wikis, & docs: `@online`
+    * peer-reviewed publications & news articles: `@journal`
+    * chapters/parts of larger work: `@incollection`
+  + citing things defined in `references.bib`: {cite}`self,python`
+  + GitHub links:
+    * repos: https://github.com/premAI-io/state-of-open-source-ai
+    * issues: https://github.com/premAI-io/state-of-open-source-ai/issues/12
+    * code (folder/file): [premAI-io/state-of-open-source-ai:index.md](https://github.com/premAI-io/state-of-open-source-ai/blob/main/index.md)
+    * readme sections: [premAI-io/prem-app#demo](https://github.com/premAI-io/prem-app#demo)
+- New [Sphinx extensions](https://www.sphinx-doc.org/en/master/usage/extensions): append to `requirements.txt` and `_config.yml:sphinx.extra_extensions`
+- `linkcheck` false-positives: append to `_config.yml:sphinx.config.linkcheck*`
 
 % comment lines (not rendered) are prefixed with a "%"
 

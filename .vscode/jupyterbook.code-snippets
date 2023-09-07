@@ -1,5 +1,5 @@
 {
-"BibTeX URL": {
+"BibTeX URL (misc)": {
 	"scope": "bibtex",
 	"prefix": "@online",
 	"body": [
@@ -11,6 +11,20 @@
 		"}"
 	],
 	"description": "Add a website citation"
+},
+"BibTeX URL (news)": {
+	"scope": "bibtex",
+	"prefix": "@article",
+	"body": [
+		"@article{${1:key},",
+		"title={$3},",
+		"author={$4},",
+		"year=${5:lastUpdated},",
+		"journal={$6},"
+		"url={$2}",
+		"}"
+	],
+	"description": "Add a news website citation"
 },
 "Figure (external)": {
 	"scope": "markdown",

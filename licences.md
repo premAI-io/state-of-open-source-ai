@@ -4,11 +4,15 @@
 % TODO: https://tldr.cdcl.ml/tags/#law
 % TODO: summary graphic?
 
-Concerning {term}`IP` in software-related fields, developers are likely aware of two "[open](open)" copyright licence categories: one for highly structured work (e.g. software), and the other for general content (e.g. prosaic text and images). These two categories needed to exist separately to solve problems unique to their domains, and thus were not designed to be compatible. A particular piece of work is expected to fall into just one category, not both.
+Concerning {term}`IP` in software-related fields, developers are likely aware of two "[open](open)" copyright licence categories: one for highly structured work (e.g. software), and the other for general content (e.g. [data](data) including prosaic text and images). These two categories needed to exist separately to solve problems unique to their domains, and thus were not designed to be compatible. A particular piece of work is expected to fall into just one category, not both.
 
-Copyright for ML models, however, is more nuanced.
+Copyright for [ML models](ml-models), however, is more nuanced.
 
-Aside from categorisation, a further complication is the lack of [legal precedence](legal-precedence). A licence is not necessarily automatically legally binding -- it may be [incompatible with existing laws](copyright-exceptions). Furthermore, in an increasingly global workplace, it may be unclear which country's laws should be applicable in a particular case.
+Aside from categorisation, a further complication is the lack of [legal precedence](legal-precedence). A licence is not necessarily automatically legally binding -- it may be [incompatible with existing laws](copyright-exceptions). Furthermore, in an increasingly global workplace, it may be unclear [which country's laws](national-laws) should be applicable in a particular case.
+
+Finally, licence terms disclaiming warranty/liability are contributing to an [accountability crisis](accountability-crisis).
+
+(ml-models)=
 
 ## ML Models
 
@@ -54,6 +58,8 @@ Some interesting observations currently:
 
 Licences are increasingly being recognised as important, and are even mentioned in some online leaderboards such as [LMSys ChatBot Arena](https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard).
 
+(data)=
+
 ## Data
 
 As briefly alluded to, data and code are often each covered by their own licence categories -- but there may be conflicts when these two overlap. For example, pre-trained weights are a product of both code and data. This means one licence intended for non-code work (i.e. data) and another licence intended for code (i.e. model architectures) must simultaneously apply to the weights. This may be problematic or even nonsensical.
@@ -96,6 +102,8 @@ Subcategory | Conditions | Licence examples
 
 One big problem is enforcing licence conditions (especially of {term}`copyleft` or even more restrictive licences), particularly in an open-source-centric climate with potentially billions of infringing users. It is a necessary condition of a law that it should be enforceable {cite}`law-enforceability`, which is infeasible with most current software {cite}`linux-warranty,cdcl-policing-foss,cdcl-os-illegal`.
 
+(national-laws)=
+
 ## National vs International Laws
 
 (copyright-exceptions)=
@@ -121,6 +129,8 @@ Only rare cases involving lots of money or large organisations go to court {cite
 - Jun 2023 copyright case {cite}`copilot-copyright-case` against Microsoft, GitHub, and OpenAI
 - Jun 2023 privacy case {cite}`openai-privacy-case` against Microsoft & OpenAI
 - Nov 2022 copyright and open source licences case {cite}`legalpdf-doe-github-case` against GitHub
+
+(accountability-crisis)=
 
 ## Accountability Crisis
 

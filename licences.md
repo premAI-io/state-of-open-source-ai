@@ -175,3 +175,6 @@ In the long term, we look forward to the outcomes of the US cases and EU proposa
 (licences-comments)=
 
 {{ comments }}
+
+```{committers} licences.md
+```

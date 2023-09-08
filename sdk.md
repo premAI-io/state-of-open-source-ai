@@ -9,3 +9,6 @@ See also: https://github.com/huggingface/transformers/blob/main/awesome-transfor
 ## Haystack
 
 {{ comments }}
+
+```{committers} sdk.md
+```

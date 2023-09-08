@@ -10,3 +10,6 @@ See also:
 ## GPT4All UI
 
 {{ comments }}
+
+```{committers} desktop-apps.md
+```

@@ -11,3 +11,6 @@
 ## Chroma
 
 {{ comments }}
+
+```{committers} vector-stores.md
+```

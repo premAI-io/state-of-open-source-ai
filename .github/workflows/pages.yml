@@ -29,6 +29,8 @@ jobs:
         jupyter-book build --builder linkcheck --warningiserror --nitpick --keep-going .
         jupyter-book build --builder dirhtml --warningiserror --nitpick --keep-going .
         jupyter-book build --builder latex .
+      env:
+        PYTHONPATH: .
     - uses: xu-cheng/latex-action@v2
       with:
         working_directory: _build/latex

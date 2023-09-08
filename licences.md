@@ -4,15 +4,13 @@
 % TODO: https://tldr.cdcl.ml/tags/#law
 % TODO: summary graphic?
 
-Concerning {term}`IP` in software-related fields, developers are likely aware of two "[open](open)" copyright licence categories: one for highly structured work (e.g. software), and the other for general content (e.g. [data](data) including prosaic text and images). These two categories needed to exist separately to solve problems unique to their domains, and thus were not designed to be compatible. A particular piece of work is expected to fall into just one category, not both.
+Concerning {term}`IP` in software-related fields, developers are likely aware of two "[open](open)" copyright licence categories: one for highly structured work (e.g. software), and the other for general content (e.g. [data](#data) including prosaic text and images). These two categories needed to exist separately to solve problems unique to their domains, and thus were not designed to be compatible. A particular piece of work is expected to fall into just one category, not both.
 
-Copyright for [ML models](ml-models), however, is more nuanced.
+Copyright for [ML models](#ml-models), however, is more nuanced.
 
-Aside from categorisation, a further complication is the lack of [legal precedence](legal-precedence). A licence is not necessarily automatically legally binding -- it may be [incompatible with existing laws](copyright-exceptions). Furthermore, in an increasingly global workplace, it may be unclear [which country's laws](national-laws) should be applicable in a particular case.
+Aside from categorisation, a further complication is the lack of [legal precedence](#legal-precedence). A licence is not necessarily automatically legally binding -- it may be [incompatible with existing laws](#copyright-exceptions). Furthermore, in an increasingly global workplace, it may be unclear [which country's laws](#national-vs-international-laws) should be applicable in a particular case.
 
-Finally, licence terms disclaiming warranty/liability are contributing to an [accountability crisis](accountability-crisis).
-
-(ml-models)=
+Finally, licence terms disclaiming warranty/liability are contributing to an [accountability crisis](#accountability-crisis).
 
 ## ML Models
 
@@ -58,8 +56,6 @@ Some interesting observations currently:
 
 Licences are increasingly being recognised as important, and are even mentioned in some online leaderboards such as [LMSys ChatBot Arena](https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard).
 
-(data)=
-
 ## Data
 
 As briefly alluded to, data and code are often each covered by their own licence categories -- but there may be conflicts when these two overlap. For example, pre-trained weights are a product of both code and data. This means one licence intended for non-code work (i.e. data) and another licence intended for code (i.e. model architectures) must simultaneously apply to the weights. This may be problematic or even nonsensical.
@@ -102,11 +98,7 @@ Subcategory | Conditions | Licence examples
 
 One big problem is enforcing licence conditions (especially of {term}`copyleft` or even more restrictive licences), particularly in an open-source-centric climate with potentially billions of infringing users. It is a necessary condition of a law that it should be enforceable {cite}`law-enforceability`, which is infeasible with most current software {cite}`linux-warranty,cdcl-policing-foss,cdcl-os-illegal`.
 
-(national-laws)=
-
 ## National vs International Laws
-
-(copyright-exceptions)=
 
 ### Copyright Exceptions
 
@@ -118,8 +110,6 @@ In practice, even legal teams often refuse to give advice {cite}`pytorch-vision-
 
 Organisations may also try to discriminate between countries even when not legally obliged to do so. For instance, OpenAI does not provide services to some countries {cite}`openai-supported-countries`, and it is unclear whether this is legally, politically, or financially motivated.
 
-(legal-precedence)=
-
 ### Legal Precedence
 
 "Open" licences often mean "can be used without a fee, provided some conditions are met". In turn, users might presume that the authors do not expect to make much direct profit. In a capitalist society, such a disinterest in monetary gain might be mistaken as a disinterest in everything else, including enforcing the "provided some conditions are met" clause. Users might ignore the "conditions" in the hope that the authors will not notice, or will not have the time, inclination, nor money to pursue legal action. As a result, it is rare for a licence to be "tested" (i.e. debated and upheld, thus giving it legal weight) in a court of law.
@@ -129,8 +119,6 @@ Only rare cases involving lots of money or large organisations go to court {cite
 - Jun 2023 copyright case {cite}`copilot-copyright-case` against Microsoft, GitHub, and OpenAI
 - Jun 2023 privacy case {cite}`openai-privacy-case` against Microsoft & OpenAI
 - Nov 2022 copyright and open source licences case {cite}`legalpdf-doe-github-case` against GitHub
-
-(accountability-crisis)=
 
 ## Accountability Crisis
 
@@ -153,7 +141,7 @@ In the interest of public safety, the best solution might be to pay for warranti
 To recap:
 
 - It's unknown what are the implications of multiple licences with conflicting terms (e.g. models inheriting both code & data licences)
-  + there is little [legal precedence](legal-precedence)
+  + there is little [legal precedence](#legal-precedence)
 - "[Open](open)" could refer to code/source or to licence (so is ambiguous without further information)
   + training data is often not open source
 - Licences always disclaim warranty/liability
@@ -161,7 +149,7 @@ To recap:
   + limitations such as {term}`fair use`/{term}`dealing <fair dealing>` can override licences/copyright
   + proposed accountability laws might override licence disclaimers
 - Enforcing licences might be infeasible
-  + there are [ongoing cases](legal-precedence) regarding (ab)use of various subcategories of IP: copyright (no licence) for both open and closed source, as well as licences with copyleft or non-commercial clauses
+  + there are [ongoing cases](#legal-precedence) regarding (ab)use of various subcategories of IP: copyright (no licence) for both open and closed source, as well as licences with copyleft or non-commercial clauses
 
 In the long term, we look forward to the outcomes of the US cases and EU proposals. Meanwhile in the short term, a recent tweet ({numref}`unusual-ventures-tweet`) classified some current & {term}`foundation <foundation model>` models (albeit with no explanation/discussion yet as of Sep 2023). We hope to see an accompanying write-up soon!
 

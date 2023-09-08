@@ -20,6 +20,3 @@ See also:
   + LLM-specific advice: https://gpus.llm-utils.org/cloud-gpu-guide/#which-gpu-cloud-should-i-use
 
 {{ comments }}
-
-```{committers} hardware.md
-```

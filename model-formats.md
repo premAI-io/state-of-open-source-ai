@@ -11,6 +11,3 @@ See also:
 ## TVM
 
 {{ comments }}
-
-```{committers} model-formats.md
-```

@@ -23,8 +23,9 @@ html:
 parse:
   myst_substitutions:
     baseurl: http://localhost:8000
-    # hack to get utteranc.es to render (needs a `div.section` element)
     comments: |
+      {{ '({}-comments)='.format(env.docname) }}
+
       ```{admonition} Feedback
       :class: attention
       Missing something important? Let us know in the comments below, or {{
@@ -32,7 +33,11 @@ parse:
         env.config.html_theme_options.repository_url, env.docname)
       }}!
       ```
+
+      % hack to get utteranc.es to render (needs a `div.section` element)
       <div class="section"></div>
+
+      {{ '```{committers} ' + env.docname + '.md\n```' }}
   myst_enable_extensions: # https://myst-parser.readthedocs.io/en/latest/using/syntax-optional.html
   # needs myst-parser>=0.19 <- https://github.com/executablebooks/MyST-NB/issues/530
   #- attrs_block

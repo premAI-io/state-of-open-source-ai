@@ -13,6 +13,3 @@ See also:
 - {cite}`golden-age-os-end`
 
 {{ comments }}
-
-```{committers} models.md
-```

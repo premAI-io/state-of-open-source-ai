@@ -172,9 +172,4 @@ In the long term, we look forward to the outcomes of the US cases and EU proposa
 [The AI Battle: Open Source vs Closed Source](https://twitter.com/chiefaioffice/status/1688913452662984708?s=20)
 ```
 
-(licences-comments)=
-
 {{ comments }}
-
-```{committers} licences.md
-```

@@ -71,6 +71,7 @@ sphinx:
       https://.*.substack.com/i/\d+/.*: https://.*.substack.com/p/.*
       https://docs.bentoml.org: https://docs.bentoml.com/en/latest
       https://mozilla.org/MPL/2.0: https://www.mozilla.org/en-US/MPL/2.0
+    html_last_updated_fmt: '%d %b %Y'
 bibtex_bibfiles: [references.bib] # citations
 latex: # for PDF builds
   latex_documents:

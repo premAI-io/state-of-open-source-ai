@@ -10,9 +10,7 @@ import os
 import re
 import subprocess
 from collections import Counter
-from datetime import timedelta
 from functools import cache
-from time import ctime, time
 
 from docutils import nodes
 from docutils.parsers.rst import Directive, directives
@@ -56,10 +54,6 @@ def visit_committers_html(self, node):
     self.body.append(self.starttag(node, 'div'))
     self.body.append(f"Author{'' if len(node['authors']) == 1 else 's'}: ")
     self.body.append(", ".join(f'<a href="{href}">{name}</a>' for name, href in node['authors']))
-    self.body.append("<br/>")
-    self.body.append("Last updated: ")
-    days = timedelta(seconds=time() - node['last_updated']).days
-    self.body.append(f"{ctime(node['last_updated'])} ({days} day{'' if days == 1 else 's'} ago)")
 
 
 def depart_committers_html(self, node):
@@ -88,8 +82,7 @@ class Committers(Directive):
                 auths.append((name, f"https://github.com/{user}"))
             else:
                 auths.append((name, f"mailto:{email}"))
-        updated = max(map(int, re.findall(r"^author-time (\d+)$", blame, flags=re.MULTILINE)))
-        return [committers_node(authors=auths, last_updated=updated)]
+        return [committers_node(authors=auths)]
 
 
 def setup(app: Sphinx):

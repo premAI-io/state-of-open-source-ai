@@ -54,9 +54,6 @@ def visit_committers_html(self, node):
     self.body.append(self.starttag(node, 'div'))
     self.body.append(f"Author{'' if len(node['authors']) == 1 else 's'}: ")
     self.body.append(", ".join(f'<a href="{href}">{name}</a>' for name, href in node['authors']))
-
-
-def depart_committers_html(self, node):
     self.body.append('</div>')
 
 
@@ -86,7 +83,7 @@ class Committers(Directive):
 
 
 def setup(app: Sphinx):
-    app.add_node(committers_node, html=(visit_committers_html, depart_committers_html),
+    app.add_node(committers_node, html=(visit_committers_html, visit_nop),
                  latex=(visit_nop, visit_nop))
     app.add_directive("committers", Committers)
     return {'version': __version__, 'parallel_read_safe': True}

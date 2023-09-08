@@ -96,7 +96,7 @@ Tools focus on the response and UI of the application. The parameters modifiable
 
 
 ## GPT4All
-On the GPT4All page - it states that GPT4All is an ecosystem to train and deploy powerful and customized large language models that run locally on consumer grade CPUs. 
+On the GPT4All page - it states that GPT4All is an ecosystem to train and deploy powerful and customized large language models that run locally on consumer grade CPUs.
 
 ### UI and Chat
 The UI for GPT4All is quite basic as compared to LM Studio - but it works fine.
@@ -217,41 +217,13 @@ ollama run "model location in the system"
 
 ## Model Comparisons
 
-|   Model   | Models available | Latency                                 | GPU Available       |          UI          |                              Extra Features                              | Future Outlook                                                                                                               |
-|:---------:|:----------------:|-----------------------------------------|---------------------|:--------------------:|:------------------------------------------------------------------------:|------------------------------------------------------------------------------------------------------------------------------|
-| LM Studio |       ggml       | 4 tokens/s for Llama-2-7B (fastest - 1) | Yes                 |     Excellent - 1    |                         Local server deployments                         | Not mentioned                                                                                                                |
-|  GPT4All  |       ggml       | Medium - 2(half as fast as LM studio)   | No                  | Severely lacking - 4 | Contribute and  use data from the GPT4All datalake for training purposes | Goal - "be the best instruction tuned assistant-style language model" Building opensource datalake for future model training |
-| Koboldcpp |       ggml       | Slowest - 4                             | No                  |  Basic but good - 2  |                Cool story, character, and adventure modes.               | Not mentioned                                                                                                                |
-| Local.AI  | ggml             | Slow - 3                                | No                  | Basic - 3            | Light/dark mode                                                          | text to audio, openai functions                                                                                              |
-| Ollama    | few ggml models  | Medium - 2                              | Yes - metal support | Basic but good - 2   | Run from terminal                                                        | Windows, Linux support                                                                                                       |
-
-
-### References:
-- [LM Studio Website](https://lmstudio.ai)
-- [LM Studio Examples](https://github.com/lmstudio-ai/examples)
-- [GPT4All Website](https://gpt4all.io)
-- [GPT4All Docs](https://docs.gpt4all.io)
-- [YouTube video](https://youtu.be/xqYCyhJi8xM?si=JYaakq3eYQKviYJK)
-- [Koboldcpp](https://github.com/LostRuins/koboldcpp)
-- [Local.AI](https://github.com/go-skynet/LocalAI)
-- [Ollama.AI](https://ollama.ai/)
-
-### References Formatted:
-@online{lmstudio-website, title={{LM Studio}: Website} , author={LM Studio Team}, year=2023, url={https://lmstudio.ai} }
-
-@manual{lmstudio-docs, title={{LM Studio}: Documentation}, author={LM Studio Team}, year=2023, url={https://www.lmstudio.ai/docs} }
-
-@online{gpt4all-docs, title={{GPT4All}: Documentation}, author={GPT4All Team}, year=2023, url={https://docs.gpt4all.io} }
-
-@manual{gpt4all-tutorials, title={{GPT4All}: Tutorials}, author={GPT4All Team}, year=2023, url={https:// tutorials.gpt4all.io} }
-
-@online{7 Open-Source LLM Apps for Your PC, title={{Youtube}: Video}, author={Sci-Fi Logic Channel}, year=2023, url={https://youtu.be/xqYCyhJi8xM?si=JYaakq3eYQKviYJK} }
-
-@online{local-ai, title={{LocalAI}: Website}, author={Local AI Team}, year=2023, url={https://www.localai.app} }
-
-@online{koboldcpp-github, title={{KoboldCPP}: Website}, author={KoboldCPP team}, year=2023, url={https://github.com/LostRuins/koboldcpp} }
-
-@online{ollama-website, title={{Ollama}: Website}, author={Ollama team}, year=2023, url={https://ollama.ai} }
+|                     Desktop App                     | Supported Models | GPU Available       |                                                                UI                                                                |                              Extra Features                              | Future Outlook                                         |
+|:---------------------------------------------------:|:----------------:|---------------------|:--------------------------------------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------:|--------------------------------------------------------|
+|           [LM Studio](https://lmstudio.ai)          |       ggml       | Yes                 |                Clean, clear tabs Model configuration choices - GPU, RAM, etc. Can choose multiple model parameters               |                         Local server deployments                         |                      Not mentioned                     |
+|            [GPT4All](https://gpt4all.io)            |       ggml       | No                  |                           Unclear tabs Minimal model configuration options Can choose model parameters                           | Contribute and  use data from the GPT4All datalake for training purposes | Building opensource datalake for future model training |
+| [Koboldcpp](https://github.com/LostRuins/koboldcpp) |       ggml       | No                  |            Multiple options, cluttered UI Some model configuration options Unique model/app parameters e.g. scenarios            |                                   model                                  |                      Not mentioned                     |
+|   [Local.AI](https://github.com/go-skynet/LocalAI)  |       ggml       | No                  |                            Clear tabs Minimal model configuration options Can choose model parameters                            |                                  choose                                  |             text to audio, openai functions            |
+|             [Ollama](https://ollama.ai/)            | few ggml models  | Yes (metal support) | Basic, terminal based UI Multiple model configurations, need to save as a file Multiple model parameters, need to save as a file |                             Run from terminal                            |                 Windows, Linux support                 |
 
 {{ comments }}
 

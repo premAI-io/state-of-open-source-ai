@@ -16,6 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+      with: {fetch-depth: 0}
     - uses: actions/setup-python@v4
       with: {python-version: '3.x'}
     - id: pages
@@ -28,6 +29,8 @@ jobs:
         jupyter-book build --builder linkcheck --warningiserror --nitpick --keep-going .
         jupyter-book build --builder dirhtml --warningiserror --nitpick --keep-going .
         jupyter-book build --builder latex .
+      env:
+        PYTHONPATH: .
     - uses: xu-cheng/latex-action@v2
       with:
         working_directory: _build/latex

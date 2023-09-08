@@ -1,7 +1,7 @@
 # Book settings (https://jupyterbook.org/customize/config.html)
 title: State of Open Source AI Book
 author: Prem
-copyright: 2023 CC-BY-4.0 (text) & Apache-2.0 (code)
+copyright: CC-BY-4.0 (text) & Apache-2.0 (code)
 logo: https://static.premai.io/logo.png
 repository:
   url: https://github.com/premAI-io/state-of-open-source-ai
@@ -23,8 +23,9 @@ html:
 parse:
   myst_substitutions:
     baseurl: http://localhost:8000
-    # hack to get utteranc.es to render (needs a `div.section` element)
     comments: |
+      {{ '({}-comments)='.format(env.docname) }}
+
       ```{admonition} Feedback
       :class: attention
       Missing something important? Let us know in the comments below, or {{
@@ -32,7 +33,11 @@ parse:
         env.config.html_theme_options.repository_url, env.docname)
       }}!
       ```
+
+      % hack to get utteranc.es to render (needs a `div.section` element)
       <div class="section"></div>
+
+      {{ '```{committers} ' + env.docname + '.md\n```' }}
   myst_enable_extensions: # https://myst-parser.readthedocs.io/en/latest/using/syntax-optional.html
   # needs myst-parser>=0.19 <- https://github.com/executablebooks/MyST-NB/issues/530
   #- attrs_block
@@ -48,7 +53,10 @@ parse:
 sphinx:
   extra_extensions:
   - sphinxemoji.sphinxemoji
+  - sphinx_last_updated_by_git
+  - committers
   config:
+    myst_heading_anchors: 3
     html_js_files:
     - [https://analytics.prem.ninja/js/script.js, {defer: defer, data-domain: book.premai.io}]
     bibtex_reference_style: label
@@ -69,6 +77,7 @@ sphinx:
       https://.*.substack.com/i/\d+/.*: https://.*.substack.com/p/.*
       https://docs.bentoml.org: https://docs.bentoml.com/en/latest
       https://mozilla.org/MPL/2.0: https://www.mozilla.org/en-US/MPL/2.0
+    html_last_updated_fmt: '%d %b %Y'
 bibtex_bibfiles: [references.bib] # citations
 latex: # for PDF builds
   latex_documents:

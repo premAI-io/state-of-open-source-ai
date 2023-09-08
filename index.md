@@ -1,6 +1,6 @@
 # State of Open Source AI Book - 2023 Edition
 
-Site: {{ baseurl }}
+{{ '```{badges} %s %s\n```' % (baseurl, env.config.html_theme_options.repository_url) }}
 
 *Clarity in the current fast-paced mess of Open Source innovation.*
 

@@ -1,13 +1,6 @@
 # State of Open Source AI Book - 2023 Edition
 
-{{ "[![site](https://img.shields.io/badge/site-{}-orange)]({})".format(
-   baseurl.replace("-", "--"), baseurl) }}
-{{ "[![last updated](https://img.shields.io/github/last-commit/{}/main)]({}/graphs/contributors)".format(
-   '/'.join(env.config.html_theme_options.repository_url.split('/')[-2:]),
-   env.config.html_theme_options.repository_url) }}
-{{ "[![activity](https://img.shields.io/github/commit-activity/m/{}/main)]({}/pulse)".format(
-   '/'.join(env.config.html_theme_options.repository_url.split('/')[-2:]),
-   env.config.html_theme_options.repository_url) }}
+{{ '```{badges} %s %s\n```' % (baseurl, env.config.html_theme_options.repository_url) }}
 
 *Clarity in the current fast-paced mess of Open Source innovation.*
 

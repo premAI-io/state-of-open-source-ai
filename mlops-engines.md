@@ -48,7 +48,7 @@ Closed-source models like [Cohere](https://txt.cohere.com/nvidia-boosts-inferenc
 
 One of the reasons companies prefer to choose an open-source solution is for cost savings. If done correctly, the savings can be huge in the long run. However, many firms underestimate the amount of work required to make an open-source ecosystem work seamlessly. 
 
-Oftentimes, teams have to pay a larger cost upfront when working with open-source LLMs. For example, if you purchased a single GPU enabled node with the lowest configuration from GCP(a2-highgpu-1g (vCPUs: 12, RAM: 85GB, GPU: 1 x A100)) to run an open-source model, it would cost you about $2500 per month. On the flip side, flexible pricing models like ChatGPT cost $0.002 for 1K tokens. The monthly cost for infrastructure is expensive and difficult to maintain. Along with that, teams are constantly experimenting since the technology is so new, which further adds to the cost. 
+Oftentimes, teams have to pay a larger cost upfront when working with open-source LLMs. For example, if you purchased a single GPU enabled node with the lowest configuration from GCP(a2-highgpu-1g (vCPUs: 12, RAM: 85GB, GPU: 1 x A100)) to run an open-source model, it would cost you about \$2500 per month. On the flip side, flexible pricing models like ChatGPT cost \$0.002 for 1K tokens. The monthly cost for infrastructure is expensive and difficult to maintain. Along with that, teams are constantly experimenting since the technology is so new, which further adds to the cost. 
 
 Due to more maintenance and decreased baseline operational performance, enterprises looking to adopt open-source AI technology would need to make their system highly efficient.
 

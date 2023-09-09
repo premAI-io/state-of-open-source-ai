@@ -31,6 +31,8 @@ Each of these options has its own advantages and disadvantages in terms of perfo
 
 ### NVIDIA GPUs
 
+#### CUDA
+
 To interact with NVIDIA GPUs, you will primarily use the NVIDIA CUDA platform. CUDA is a parallel computing platform and programming model developed by NVIDIA for general computing on its GPUs.
 
 Here are the main components you will interact with:
@@ -81,6 +83,12 @@ int main(void)
 ```
 
 In this example, `d_A`, `d_B`, and `d_C` are pointers to device memory, and `numElements` is the number of elements in each vector. The `vectorAdd` kernel is launched with `blocksPerGrid` blocks, each containing `threadsPerBlock` threads. Each thread computes the sum of one pair of elements from `d_A` and `d_B`, and stores the result in `d_C`.
+
+#### Vulkan
+
+Vulkan is a low-level graphics and compute API developed by the Khronos Group. It provides fine-grained control over the GPU and is designed to minimize CPU overhead and provide more consistent performance. Vulkan can be used for a variety of applications, including gaming, simulation, and scientific computing.
+
+Vulkan is supported on a wide variety of platforms, including Windows, Linux, macOS (via MoltenVK, a Vulkan implementation that runs on top of Metal), Android, and iOS. Vulkan has a somewhat steep learning curve because it is a very low-level API, but it provides a lot of flexibility and can lead to very high performance.
 
 ### AMD GPUs
 
@@ -137,13 +145,143 @@ In this example, `d_A`, `d_B`, and `d_C` are pointers to device memory, and `num
 
 Note that this example is very similar to the CUDA example I provided earlier. This is because the HIP programming language is designed to be similar to CUDA, which makes it easier to port CUDA code to run on AMD GPUs.
 
-## NVIDIA GPUs
+### Apple Silicon GPUs
 
-## Apple GPUs
+#### Metal
 
-### Mac
+Apple Silicon GPUs, which are part of Apple's custom M1 chip, can be programmed using the Metal framework. Metal is a graphics and compute API developed by Apple, and it's available on all Apple devices, including Macs, iPhones, and iPads.
 
-### iPhone
+Here are the main components of the Metal framework:
+
+1. **Metal API**: This is a low-level API that provides access to the GPU. It includes functions for creating and managing GPU resources, compiling shaders, and submitting work to the GPU.
+2. **Metal Shading Language (MSL)**: This is the programming language used to write GPU code (shaders) in Metal. It is based on the C++14 programming language and includes some additional features and keywords for GPU programming.
+3. **MetalKit and Metal Performance Shaders (MPS)**: These are higher-level frameworks built on top of Metal. MetalKit provides functions for managing textures, meshes, and other graphics resources, while MPS provides highly optimized functions for common image processing and machine learning tasks.
+
+Here is a basic workflow for using Metal to perform GPU computations on Apple Silicon:
+
+1. **Install the necessary software**: This includes the Xcode development environment, which includes the Metal framework and compiler.
+2. **Write your code**: Write your GPU code using the Metal Shading Language, and your host code using Swift or Objective-C. Your host code will use the Metal API to manage GPU resources and submit work to the GPU.
+3. **Compile your code**: Use the Xcode development environment to compile your code.
+4. **Run your code**: Run your compiled code on an Apple device with an Apple Silicon GPU.
+
+For example, here is a simple Metal program that adds two vectors:
+
+```swift
+import Metal
+
+// Create a Metal device and command queue
+let device = MTLCreateSystemDefaultDevice()!
+let commandQueue = device.makeCommandQueue()!
+
+// Create a Metal library and function
+let library = device.makeDefaultLibrary()!
+let function = library.makeFunction(name: "vector_add")!
+
+// Create a Metal compute pipeline
+let pipeline = try! device.makeComputePipelineState(function: function)
+
+// Allocate and initialize host and device memory
+let numElements = 1024
+let bufferSize = numElements * MemoryLayout<Float>.size
+let h_A = [Float](repeating: 1.0, count: numElements)
+let h_B = [Float](repeating: 2.0, count: numElements)
+let d_A = device.makeBuffer(bytes: h_A, length: bufferSize, options: [])!
+let d_B = device.makeBuffer(bytes: h_B, length: bufferSize, options: [])!
+let d_C = device.makeBuffer(length: bufferSize, options: [])!
+
+// Create a Metal command buffer and encoder
+let commandBuffer = commandQueue.makeCommandBuffer()!
+let commandEncoder = commandBuffer.makeComputeCommandEncoder()!
+
+// Set the compute pipeline and buffers
+commandEncoder.setComputePipelineState(pipeline)
+commandEncoder.setBuffer(d_A, offset: 0, index: 0)
+commandEncoder.setBuffer(d_B, offset: 0, index: 1)
+commandEncoder.setBuffer(d_C, offset: 0, index: 2)
+
+// Dispatch the compute kernel
+let threadsPerThreadgroup = MTLSize(width: 256, height: 1, depth: 1)
+let numThreadgroups = MTLSize(width: (numElements + 255) / 256, height: 1, depth: 1)
+commandEncoder.dispatchThreadgroups(numThreadgroups, threadsPerThreadgroup: threadsPerThreadgroup)
+
+// End the command encoder and commit the command buffer
+commandEncoder.endEncoding()
+commandBuffer.commit()
+
+// Wait for the command buffer to complete
+commandBuffer.waitUntilCompleted()
+
+// Copy the result from device to host
+let h_C = UnsafeMutablePointer<Float>.allocate(capacity: numElements)
+d_C.contents().copyMemory(to: h_C, byteCount: bufferSize)
+
+// ...
+// Clean up
+// ...
+```
+
+In this example, `d_A`, `d_B`, and `d_C` are Metal buffers, and `numElements` is the number of elements in each vector. The `vector_add` function is a Metal shader written in the Metal Shading Language, and it is executed on the GPU using a Metal compute command encoder.
+
+Note that this example is written in Swift, which is the recommended programming language for developing Metal applications. You can also use Objective-C, but Swift is generally preferred for new development.
+
+This example is quite a bit more complex than the earlier CUDA and HIP examples, because Metal is a lower-level API that provides more fine-grained control over the GPU. This can lead to more efficient code, but it also requires more boilerplate code to set up and manage GPU resources.
+
+#### Metal Performance Shaders (MPS)
+
+**Metal Performance Shaders (MPS)** is a framework that provides highly optimized functions for common image processing and machine learning tasks. MPS is built on top of the Metal framework and is available on all Apple devices, including Macs, iPhones, and iPads.
+
+MPS includes a variety of functions for image processing (e.g., convolution, resizing, and histogram calculation), as well as a set of neural network layers (e.g., convolution, pooling, and normalization) that can be used to build and run neural networks on the GPU.
+
+MPS is a higher-level API than Metal, which makes it easier to use, but it provides less flexibility. If you are developing an application for Apple devices and you need to perform image processing or machine learning tasks, MPS is a good place to start.
+
+### Cross Platform Graphics APIs
+
+#### Vulkan
+
+**Vulkan** is a low-level graphics and compute API developed by the Khronos Group. It provides fine-grained control over the GPU and is designed to minimize CPU overhead and provide more consistent performance. Vulkan can be used for a variety of applications, including gaming, simulation, and scientific computing.
+
+Vulkan is supported on a wide variety of platforms, including Windows, Linux, macOS (via MoltenVK, a Vulkan implementation that runs on top of Metal), Android, and iOS. Vulkan has a somewhat steep learning curve because it is a very low-level API, but it provides a lot of flexibility and can lead to very high performance.
+
+Vulkan is designed to be a cross-platform API. It is supported on a wide variety of platforms, including Windows, Linux, macOS (via MoltenVK, a layer that maps Vulkan to Metal), Android, and iOS. This makes it a good choice for developing applications that need to run on multiple platforms.
+
+#### OpenGL
+
+**OpenGL** is a cross-platform graphics API developed by the Khronos Group. It is widely used for developing graphics applications, including games, simulations, and design tools. OpenGL is a higher-level API than Vulkan, which makes it easier to use, but it provides less control over the GPU and may have more CPU overhead.
+
+OpenGL is supported on a wide variety of platforms, including Windows, macOS, Linux, and Android. However, Apple has deprecated OpenGL on its platforms in favor of Metal, so if you are developing an application for Apple devices, it is recommended to use Metal instead of OpenGL.
+
+Each of these APIs has its own strengths and weaknesses, and the best one to use depends on your specific application and requirements. If you are developing a cross-platform application and need a low-level API, Vulkan is a good choice. If you are developing an application for Apple devices and need to perform image processing or machine learning tasks, MPS is a good choice. If you are developing a graphics application and need a higher-level API, OpenGL may be a good choice, although you should consider using Metal on Apple devices.
+
+#### DirectX
+
+**DirectX** is a collection of APIs for handling tasks related to multimedia, game programming, and video, on Microsoft platforms. While it's most commonly associated with Windows, it is also available on Xbox. Note that DirectX is not fully cross-platform, as it doesn't support macOS or Linux.
+
+#### OpenCL
+
+**OpenCL** is a framework for writing programs that execute across heterogeneous platforms consisting of CPUs, GPUs, and other processors. OpenCL includes a language (based on C99) for writing kernels (i.e., functions that run on the hardware devices), plus APIs that are used to define and then control the platforms. OpenCL provides parallel computing using task-based and data-based parallelism.
+
+#### WebGL and WebGPU
+
+**WebGL** is a web-based graphics API that is based on OpenGL ES. It allows you to create 3D graphics in a web browser. Since it's web-based, it is supported on all major platforms and web browsers. While on the other hand, **WebGPU** is a new web-based graphics and compute API that is currently being developed by the W3C GPU for the Web Community Group. It is designed to provide modern 3D graphics and computation capabilities in web browsers, and it is intended to be the successor to WebGL.
+
+WebGPU aims to provide a more modern and lower-level API than WebGL, which will allow for better performance and more flexibility. It is designed to be a web-friendly API that can be implemented on top of other graphics APIs, such as Vulkan, Metal, and DirectX.
+
+WebGPU is still in development, and it is not yet widely supported in web browsers. However, it is an exciting development for web-based graphics and computation, and it is worth keeping an eye on if you are developing web applications that require high-performance graphics or computation.
+
+WebGPU will be a cross-platform API because it will be supported in web browsers on multiple platforms. However, the actual implementation of WebGPU in the browser may use different underlying graphics APIs, depending on the platform. For example, a browser on Windows may use a DirectX-based implementation of WebGPU, while a browser on macOS may use a Metal-based implementation. This will be transparent to the application developer, who will just use the WebGPU API.
+
+> An entire chapter will be dedicated to WebGPU.
+
+### Benchmarks
+
+> Table with benchmarks
+
+### Acceleration Libraries
+
+- **OpenBLAS**
+- **CuBLAS**
+- **cuDNN**
+- **OpenCL**
 
 ## Cloud
 

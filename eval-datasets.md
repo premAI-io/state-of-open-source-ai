@@ -154,6 +154,25 @@ watermelons will grow in your stomach, but this is impossible<br>
 You fall unconscious; You digest the watermelon seeds
 ```
 
+Several other benchmarks have been proposed,in the following table a summary of such benchmarks with the considered
+factors.
+
+| Benchmark                                                     | Factors considered                                                                                                                                                                                                                                |
+|---------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Big Bench](https://arxiv.org/pdf/2206.04615.pdf)             | Generalization abilities                                                                                                                                                                                                                          |
+| [GLUE Benchmark ](https://arxiv.org/pdf/1804.07461v3.pdf)     | Grammar, paraphrasing, text similarity, inference, textual entailment, resolving pronoun references                                                                                                                                               |
+| [SuperGLUE Benchmark](https://arxiv.org/pdf/1911.11763v2.pdf) | Natural Language Understanding, reasoning, understanding complex sentences beyond training data, coherent and well-formed Natural Language Generation, dialogue with humans, common sense reasoning, information retrieval, reading comprehension | |
+| [MMLU](https://arxiv.org/pdf/2009.03300.pdf)                  | Language understanding across various tasks and domains                                                                                                                                                                                           |
+| [ANLI](https://arxiv.org/pdf/1910.14599v2.pdf)                | Robustness, generalization, coherent explanations for inferences, consistency of reasoning across similar examples, efficiency of resource usage (memory usage, inference time, and training time)                                                |
+| [CoQA](https://arxiv.org/pdf/1808.07042v2.pdf)                | Understanding a text passage and answering a series of interconnected questions that appear in a conversation                                                                                                                                     |
+| [LAMBADA](https://arxiv.org/pdf/1606.06031v1.pdf)             | Long-term understanding by predicting the last word of a passage                                                                                                                                                                                  |
+| [HellaSwag](https://arxiv.org/pdf/1905.07830.pdf)             | Reasoning abilities                                                                                                                                                                                                                               |
+| [LogiQA](https://arxiv.org/pdf/2007.08124v1.pdf)              | Logical reasoning abilities                                                                                                                                                                                                                       |
+| [MultiNLI](https://arxiv.org/pdf/1704.05426v4.pdf)            | Understanding relationships between sentences across genres                                                                                                                                                                                       |
+| [SQUAD](https://arxiv.org/pdf/1606.05250v3.pdf)               | Reading comprehension tasks                                                                                                                                                                                                                       |
+
+Source: [Analytics Vidhya, Table of the Major Existing Evaluation Frameworks](https://www.analyticsvidhya.com/blog/2023/05/how-to-evaluate-a-large-language-model-llm/)
+
 ## Human input in LLM evaluation
 
 ## LLM Leaderboards

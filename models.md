@@ -4,6 +4,14 @@
 
 The emergence of Large Language Models, notably with the advent of GPT-3, ChatGPT, Midjourney, [Whisper](https://openai.com/research/whisper) helped bloom a new era. Beyond revolutionizing just language models, these models also pushed innovation in other domains like Vision (ViT, DALL-E, Stable Diffusion etc), Audio (Wave2vec, Bark) or even Multimodal models.
 
+```{figure} https://static.premai.io/book/models_llms-landscape.png
+---
+width: 90%
+name: llms landscape
+---
+[Page 7, A Survey of Large Language Models](https://arxiv.org/pdf/2303.18223.pdf)
+```
+
 % TODO: maybe make the above model names as references and not names directly.
 
 ## Rise of Open-Source Models
@@ -138,10 +146,56 @@ name: vicuna finetuning
 After the release they also conducted a [deeper study on GPT4-based evaluation approach](https://github.com/lm-sys/FastChat/tree/main/fastchat/llm_judge#llm-judge).
 
 
+Then came in updates like [LLaMa-Adapter](https://arxiv.org/pdf/2303.16199.pdf), [Koala](https://bair.berkeley.edu/blog/2023/04/03/koala/) and in less than a month [Open Assistant](https://open-assistant.io/) launches a model and a [dataset for Alignment via RLHF](https://arxiv.org/abs/2304.07327).
 
 
+Overall the LLaMA variants landscape looked somewhat like this, even though it doesn't show all the variants:
+```{figure} https://static.premai.io/book/models_llama-variants.png
+---
+width: 80%
+name: llama variants tree
+---
+[Page 10, A Survey of Large Language Models](https://arxiv.org/pdf/2303.18223.pdf)
+```
+
+After a month, the community did an open reproduction of LLaMA, named [OpenLLaMA](https://github.com/openlm-research/open_llama).
+
+#### OpenLLaMA
+
+Students at UC Berkeley started [OpenLM Research group](https://huggingface.co/openlm-research) through which they trained in collaboration with [Stability AI](https://stability.ai/) to release [OpenLLaMA](https://github.com/openlm-research/open_llama) v1, a permissively licensed open source reporduction of Meta AI's LLaMA. They released a series of 3B, 7B and 13B models trained on [different mix of datasets](https://huggingface.co/openlm-research). And the weights released can serve as drop in replacement of LLaMA.
 
 
+##### Uniqueness
+
+- Model is trained on open sourced [RedPajama dataset](https://huggingface.co/datasets/togethercomputer/RedPajama-Data-1T) by [Together](https://huggingface.co/togethercomputer).
+- All steps for training are kept same as mentioned in [LLaMA paper](https://arxiv.org/abs/2302.13971).
+- Model is trained on 1T tokens.
+- Weights released under Apache 2.0 license, in two formats:
+  - EasyLM format to be use with [EasyLM framework](https://github.com/young-geng/EasyLM)
+  - PyTorch format to be used with the [Hugging Face transformers library](https://huggingface.co/docs/transformers/index)
+
+##### Limitations
+
+- Dataset Difference: OpenLLaMA uses open datasets instead of the original LLaMA dataset. While training procedures, architecture, and other parameters remain the same, there may be differences in performance on certain tasks.
+
+
+% MPT
+
+% falcon
+
+% llama v2
+
+% code llama
+
+% automaticai 111
+
+% tiny llama
+
+% falcon 180B
+
+% persimonn 8B
+
+% check here - https://sungkim11.medium.com/list-of-open-sourced-fine-tuned-large-language-models-llm-8d95a2e0dc76
 
 
 
@@ -168,6 +222,7 @@ After the release they also conducted a [deeper study on GPT4-based evaluation a
 % Human/GPT-4 evals
 % RLHF vs RLAIF?
 
+% also maybe check here in futures section - https://arxiv.org/pdf/2303.18223.pdf
 ## Read More
 % optional
 

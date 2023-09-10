@@ -5,3 +5,4 @@ __pycache__/
 # jupyter-book
 /_build/
 /conf.py
+.idea/

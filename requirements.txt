@@ -3,3 +3,4 @@ sphinxemoji
 sphinx-last-updated-by-git
 # TODO: remove after https://github.com/executablebooks/jupyter-book/pull/2048
 docutils!=0.18.*,!=0.19.*,!=0.20.0
+sphinx-subfigure

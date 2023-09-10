@@ -57,6 +57,7 @@ sphinx:
   - sphinxemoji.sphinxemoji
   - sphinx_last_updated_by_git
   - committers
+  - sphinx_subfigure
   config:
     myst_heading_anchors: 3
     html_js_files:

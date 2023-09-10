@@ -2,7 +2,7 @@
 
 % LLaMA 1 vs 2, Falcon, Stable Diffusion, DALL-E
 
-The emergence of Large Language Models, notably with the advent of GPT-3, ChatGPT, Midjourney, Whisper helped bloom a new era. Beyond revolutionizing just language models, these models also pushed innovation in other domains like Vision (ViT, DALL-E, Stable Diffusion etc), Audio (Wave2vec, Bark) or even Multimodal models.
+The emergence of Large Language Models, notably with the advent of GPT-3, ChatGPT, Midjourney, [Whisper](https://openai.com/research/whisper) helped bloom a new era. Beyond revolutionizing just language models, these models also pushed innovation in other domains like Vision (ViT, DALL-E, Stable Diffusion etc), Audio (Wave2vec, Bark) or even Multimodal models.
 
 % TODO: maybe make the above model names as references and not names directly.
 
@@ -22,11 +22,27 @@ Recognizing the need for openness, the LLM research community responded by creat
 Before [ChatGPT](https://openai.com/blog/chatgpt)'s (GPT-3.5) public release we had [GPT-3](https://en.wikipedia.org/wiki/GPT-3) being one of the "[best](https://www.reddit.com/r/MachineLearning/comments/ydwi6c/d_whats_the_best_open_source_model_for_gpt3like/)" Base Language Model which released ~2.1 years before ChatGPT. And following that we've had LLMs like [Bard](https://blog.google/technology/ai/bard-google-ai-search-updates/), [Claude](https://www.anthropic.com/index/introducing-claude), [GPT-4](https://openai.com/research/gpt-4) and [others](https://lmsys.org/blog/2023-05-25-leaderboard/).
 
 
-### First steps
+### Initial steps
 There has been a few visible marks across modalities of AI models, highly catalysing growth of open source:
-- [Meta AI released LLaMA](https://ai.meta.com/blog/large-language-model-llama-meta-ai/).
+- [Meta AI launches LLaMA](https://ai.meta.com/blog/large-language-model-llama-meta-ai/), open sourcing the code and not the weights.
 - [StabilityAI released Stable Diffusion](https://stability.ai/blog/stable-diffusion-announcement).
-- [OpenAI released Whisper](https://openai.com/research/whisper).
+
+
+#### Stable Diffusion
+
+Stable Diffusion is a [latent text-to-image diffusion model](https://arxiv.org/abs/2112.10752). Created by [Stability AI](https://stability.ai/) and support from [LAION](https://laion.ai/), where they used 512x512 images from a subset of the [LAION-5B](https://laion.ai/blog/laion-5b/) database for training. Similar to Google's [Imagen](https://arxiv.org/abs/2205.11487), this model uses a frozen [CLIP ViT-L/14](https://arxiv.org/abs/2103.00020) text encoder to condition the model on text prompts. With its 860M UNet and 123M text encoder, the model is relatively lightweight and runs on a GPU with at least 10GB VRAM.
+
+##### Uniqueness
+While [training](https://github.com/CompVis/stable-diffusion/blob/main/Stable_Diffusion_v1_Model_Card.md#training):
+- Text prompts are encoded through a ViT-L/14 text-encoder
+- UNet backbone of the latent diffusion model takes non-pooled output of the text encoder via cross-attention.
+- Loss is reconstruction objective between prediction made by UNet and noise added to the latent.
+
+##### [Limitations](https://github.com/CompVis/stable-diffusion/blob/main/Stable_Diffusion_v1_Model_Card.md#limitations-and-bias)
+- The model does not achieve perfect photorealism, or render legible text and performs poorly on difficult prompt like "A blue cube on top of a red sphere".
+- The model was trained mainly with English captions.
+- No measures were used to deduplicate the dataset before usage.
+
 
 #### LLaMA
 Under LLaMA, Meta released a collection of foundation language models ranging from 7B to 65B parameters, pre-trained over a corpus containing more than 1.4 trillion tokens. It was designed to be versatile and applicable for many different use cases, and possibly fine-tuned for domain specific tasks if required.
@@ -41,22 +57,93 @@ name: llama scores
 [LLaMA: Open and Efficient Foundation Language Models](https://arxiv.org/abs/2302.13971)
 ```
 
-LLaMA-13B outperforms GPT-3 (175B) on most benchmarks while being more than 10x smaller, and LLaMA-65B is competitive with models like Chinchilla-70B and PaLM-540B. LLaMA-65B performs similarly to the closed-source GPT-3.5 on the MMLU and GSM8K benchmarks.
+LLaMA-13B outperforms GPT-3 (175B) on most benchmarks while being more than 10x smaller, and LLaMA-65B is competitive with models like Chinchilla-70B and PaLM-540B. LLaMA-65B performs similarly to the closed-source GPT-3.5 on the MMLU and GSM8K benchmarks (TODO: validate and reference)
 
-##### Architecture
+##### Uniqueness
 
 There are few key inspirations LLaMA architecture took from other LLMs:
 - **[Pre-normalization](https://arxiv.org/abs/1910.07467) (GPT-3):** using RMSNorm to normalize transformer sub-layer inputs.
 - **[SwiGLU activation function](https://arxiv.org/abs/2002.05202) (PaLM):** replacing ReLU with SwiGLU.
 - **[Rotary Embeddings](https://arxiv.org/abs/2104.09864) (GPTNew):** replacing absolute positional embeddings with Rotary positional embeddings.
+
 ##### Limitations
+
+- It was released under a noncommercial license focused on usage for research use cases only.
 - LLaMA is a foundation model and not fine-tuned for specific tasks, which may limit its performance on certain tasks
 - LLaMA seemed not as competitive as other models on certain benchmarks, such as BoolQ and WinoGrande.
 
+Interestingly within a week from LLaMA's launch, its [weights were leaked to the public](https://www.vice.com/en/article/xgwqgw/facebooks-powerful-large-language-model-leaks-online-4chan-llama). This created a huge impact on the community for all kinds innovations coming up, eventhough there was still license restrictions not permitting commercial usage.
 
-#### Stable Diffusion
+### Pacing Up
 
-#### Whisper
+After 2 weeks from the LLaMa weights leak, Stanford [releases Alpaca 7B](https://crfm.stanford.edu/2023/03/13/alpaca.html).
+
+#### Alpaca 7B
+
+It's a 7B parameter model fine-tuned from LLaMA 7B model on 52K instruction-following datapoints. It performs qualitatively similarly to OpenAI's text-davinci-003 while being smaller and cheaper to reproduce i.e taking only < \$600. Github repository [here](https://github.com/tatsu-lab/stanford_alpaca).
+
+```{figure} https://static.premai.io/book/models_alpaca-finetuning.png
+---
+width: 80%
+name: alpaca finetuning
+---
+[Alpaca 7B fine-tuning strategy](https://crfm.stanford.edu/2023/03/13/alpaca.html)
+```
+##### Uniqueness
+
+- Unique Data Source: Alpaca 7B is distinct for being fine-tuned from LLaMA 7B using 52K instruction-following demonstrations ([coming from self-instruct paper](https://arxiv.org/abs/2212.10560)) in the style of text-davinci-003, enabling research into instruction-following scenarios.
+- Cost-Efficient Alternative: Alpaca 7B offers similar performance to text-davinci-003 but at a lower cost, making it accessible for academic research.
+
+
+##### Limitations
+
+- Non-commercial Usage: This limitation arises from the non-commercial license of LLaMA, upon which Alpaca is based.
+- Quality: Alpaca 7B may occasionally produce inaccurate information, including hallucinations, misinformation, and toxic content.
+- Evaluation Scope: While Alpaca performs well in some evaluations, its performance may vary in unexplored scenarios.
+
+Right after that [alpaca-lora](https://github.com/tloen/alpaca-lora) came out, using low rank fine-tuning it made possible to reproduce Alpaca within hours on a single NVIDIA RTX 4090 GPU with inference being possible even [on a Raspberry PI](https://twitter.com/miolini/status/1634982361757790209).
+
+
+Things moved fast from here when first promising inference speed was achieved without GPU for LLaMA using 4 bit quantisation by the [LLaMA GGML](https://github.com/ggerganov/llama.cpp). A new wave of [quantized models started coming from the comminity](https://huggingface.co/TheBloke).
+
+In a day after, [Vicuna](https://lmsys.org/blog/2023-03-30-vicuna/) came in.
+#### Vicuna
+
+[Vicuna](https://lmsys.org/blog/2023-03-30-vicuna/) was released under a joint effort by UC Berkeley, CMU, Stanford, UC San Diego, and MBZUAI. It was trained by fine-tuning LLaMA on user-shared conversations collected from ShareGPT. GPT-4 was used for its evaluation. They released a [demo](https://chat.lmsys.org/) and [code](https://github.com/lm-sys/FastChat), [weights](https://github.com/lm-sys/FastChat#vicuna-weights) under non-commercial license following LLaMa.
+
+```{figure} https://static.premai.io/book/models_vicuna-finetuning.png
+---
+width: 80%
+name: vicuna finetuning
+---
+[Vicuna fine-tuning strategy](https://lmsys.org/blog/2023-03-30-vicuna/#overview)
+```
+##### Uniqueness
+
+- Impressive Quality: Vicuna-13B achieved over 90% quality compared to ChatGPT and Google Bard, surpassing other models like LLaMA and Stanford Alpaca in more than 90% of cases.
+- For training:
+  - Training loss was adjusted to account for multi-turn conversations and compute the fine-tuning loss solely on the chatbot's output.
+  - Expanded max context length from 512 in Alpaca to 2048, [gradient checkpointing](https://arxiv.org/abs/1604.06174) and [flash attention](https://arxiv.org/abs/2205.14135) utilisation helping handle memory pressure.
+  - Used [SkyPilot](https://github.com/skypilot-org/skypilot) [managed spot](https://skypilot.readthedocs.io/en/latest/examples/spot-jobs.html) to reduce the cost for training the 7B model from \$500 to around \$140 and the 13B model from around \$1k to \$300.
+- Cost-Efficiency: The cost of training was around \$300, making it a cost-effective choice for research purposes.
+- Enhanced Dataset: Vicuna is fine-tuned using 70K user-shared ChatGPT conversations from [ShareGPT](https://sharegpt.com/), enabling it to provide detailed and well-structured answers, with performance on par with ChatGPT.
+
+##### Limitations
+
+- Reasoning and Safety: Vicuna may struggle with tasks involving reasoning or mathematics and may not always ensure factual accuracy. It has not been fully optimised for safety or to mitigate potential toxicity or bias.
+- Evaluation Framework: The proposed evaluation framework, based on GPT-4, is not yet a rigorous or mature approach, as large language models can sometimes produce hallucinated responses.
+- No Dataset release.
+- Non-commercial usage only following the LLaMA model's license, OpenAI's [data terms](https://openai.com/policies/terms-of-use) and [Privacy Practices](https://chrome.google.com/webstore/detail/sharegpt-share-your-chatg/daiacboceoaocpibfodeljbdfacokfjb) of ShareGPT.
+
+After the release they also conducted a [deeper study on GPT4-based evaluation approach](https://github.com/lm-sys/FastChat/tree/main/fastchat/llm_judge#llm-judge).
+
+
+
+
+
+
+
+
 
 % TODO: on how to write in order -
     % define few top closed source models (with limitations if possible)

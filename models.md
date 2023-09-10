@@ -178,10 +178,45 @@ Students at UC Berkeley started [OpenLM Research group](https://huggingface.co/o
 
 - Dataset Difference: OpenLLaMA uses open datasets instead of the original LLaMA dataset. While training procedures, architecture, and other parameters remain the same, there may be differences in performance on certain tasks.
 
+Around same time [MosaicML](https://www.databricks.com/company/newsroom/press-releases/databricks-completes-acquisition-mosaicml) released its [MPT](https://github.com/mosaicml/llm-foundry) models series, and [TII](https://www.tii.ae/) also released [Falcon models](https://www.tii.ae/news/uaes-technology-innovation-institute-launches-open-source-falcon-40b-large-language-model).
 
-% MPT
 
-% falcon
+#### MPT
+
+MosaicML released [MPT (MosaicML Pretrained Transformer) models series](https://huggingface.co/mosaicml) consisting:
+- 7B variants:
+  - [MPT-7B Base](https://huggingface.co/mosaicml/mpt-7b)
+  - [MPT-7B-Instruct](https://huggingface.co/mosaicml/mpt-7b-instruct)
+  - [MPT-7B-Chat](https://huggingface.co/mosaicml/mpt-7b-chat)
+  - [MPT-7b-StoryWriter-65k+](https://huggingface.co/mosaicml/mpt-7b-storywriter)
+- 30B variants:
+  - [MPT-30B Base](https://huggingface.co/mosaicml/mpt-30b)
+  - [MPT-30B-Instruct](https://huggingface.co/mosaicml/mpt-30b-instruct)
+  - [MPT-30B-Chat](https://huggingface.co/mosaicml/mpt-30b-chat)
+
+##### Uniqueness
+
+- Licensed for commercial usage (not all variants in the series): MPT-7B base, MPT-7B-StoryWriter-65k+, MPT-30B were only released under Apache-2.0 license.
+- Uses [ALiBi](https://arxiv.org/abs/2108.12409) to handle long inputs till 84k tokens context size, whereas trained using upto 65k tokens context.
+- Uses [FlashAttention](https://arxiv.org/abs/2205.14135) and [FasterTransformer](https://github.com/NVIDIA/FasterTransformer) to optimize for fast training and inference.
+- They also released an entire framework, the [MosaicML LLM Foundry](https://github.com/mosaicml/llm-foundry).
+
+##### Limitations
+
+- Not all variants were released under permissive commercial usage license.
+- Eventhough they've used fully open sourced dataset for training the models and [mentioned which ones with proportions](https://github.com/mosaicml/llm-foundry/issues/499#issuecomment-1662556022), they haven't released the [combined dataset yet](https://github.com/mosaicml/llm-foundry/issues/499).
+
+#### Falcon
+
+
+##### Uniqueness
+
+
+##### Limitations
+
+
+
+% stable diffusion xl 1.0
 
 % llama v2
 

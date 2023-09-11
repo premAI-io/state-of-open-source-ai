@@ -377,6 +377,7 @@ Alpaca Eval Leaderboard (GPT and Claude eval)
 ```
 
 
+(code-generation-eval)=
 ### Code Generation on HumanEval
 
 Differently from [Open LLM](openllm) and [Alpaca Eval](alpaca-eval) leaderboards, which focus more on question-answering, 
@@ -406,21 +407,51 @@ width: 95%
 [Code Generation on HumanEval Leaderboard](https://paperswithcode.com/sota/code-generation-on-humaneval)
 ```
 
-### Criticisms
+### Read more
 
-- "Optimizing models for LLM Leaderboard is a HUGE mistake" (weird that a "good" model means ranking high in 4 different relatively controversial benchmarking suites) https://www.reddit.com/r/LocalLLaMA/comments/15n6cmb/optimizing_models_for_llm_leaderboard_is_a_huge
-- related: "Classifier Technology and the Illusion of Progress" https://arxiv.org/abs/math/0606441
-- sceptical about value of testing LLMs without context (real value of LLMs currently is fine-tuning/giving context so they get good task-specific performance... And we can compare different LLMs' ability to deal with said context. LLM leaderboard wants to test AGI not AI, which is not what any current model is designed to do) https://github.com/premAI-io/dev-portal/pull/53#discussion_r1293847469
-- https://dev.premai.io/blog/evaluating-open-source-llms
+- [Chatbot Arena Leaderboard](https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard) relies on three key 
+  benchmarks: Chatbot Arena, which involves crowdsourced battles with over 70,000 user votes to calculate 
+  [Elo ratings](https://en.wikipedia.org/wiki/Elo_rating_system); MT-Bench, which employs GPT-4 to evaluate model responses
+  to complex multi-turn questions; and [MMLU](mmlu-benchmark) (5-shot), a test assessing a model's multitask accuracy 
+  across 57 tasks.
+- [Massive Text Embedding Benchmark Leaderboard](https://huggingface.co/spaces/mteb/leaderboard) which is based on several
+  datasets and metrics (see [MTEB](https://arxiv.org/abs/2210.07316)) to evaluate embedding models.
+
+
+### Limitations
+
+Thus far, we have conducted an analysis of multiple leaderboards, and now we will shift our focus to an examination of 
+their limitations.
+
+- **[Overfitting to Benchmarks](https://www.reddit.com/r/LocalLLaMA/comments/15n6cmb/optimizing_models_for_llm_leaderboard_is_a_huge/)**: 
+  excessive fine-tuning of language models like LLM for benchmark tasks may lead to models that excel in those specific 
+  tasks but are less adaptable and prone to struggling with real-world tasks outside their training data distribution 
+- **Benchmark Discrepancy**: benchmarks may not accurately reflect real-world performance; for instance, the LLaMA 70B 
+  model may appear superior to ChatGPT in a benchmark but could perform differently in practical applications.
+- **[Benchmarks' Implementations](https://huggingface.co/blog/evaluating-mmlu-leaderboard)**: variations in implementations
+  and evaluation approaches can result in substantial score disparities and model rankings, even when applied to the same 
+  dataset and models.
+- **[Illusion of Improvement](https://arxiv.org/pdf/math/0606441.pdf)**: minor performance gains observed in a benchmark
+  may not materialize in real-world applications due to uncertainties arising from the mismatch between the benchmark
+  environment and the actual practical context.
+- **AI, Not AGI**: leaderboards assess various models trained on diverse datasets by posing general questions (e.g., "how
+  old is Earth?") and evaluating their responses. Consequently, the metrics gauge several facets, including the alignment
+  between questions and training data, the LLM's 
+  [language comprehension](https://direct.mit.edu/daed/article/151/2/127/110621/Human-Language-Understanding-amp-Reasoning) 
+  (syntax, semantics, ontology), its [memorization capability](https://en.wikipedia.org/wiki/Tacit_knowledge#Embodied_knowledge), 
+  and its ability to retrieve memorized information. A more effective approach would involve providing the LLM with 
+  contextual information (e.g., instructing it to read a specific astronomy textbook: <path/to/some.pdf>) and evaluating
+  LLMs solely based on their outputs within that context.
+- **Dataset Coverage**: benchmarks datasets often lack comprehensive coverage, failing to encompass the full range of 
+  potential inputs that an LLM may encounter (e.g. limited dataset for [code generation evaluation](code-generation-eval)).
+- **Balanced Approach**: while benchmarks serve as valuable initial evaluation tools for LLMs, it's essential not to depend
+  solely on them. Prioritize an in-depth understanding of your unique LLM use case and project requirements.
 
 ## Human input in LLM evaluation  
 
 ## Future
 
 See also:
-- Other leaderboards
-  + [Chatbot Arena Leaderboard](https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard)
-  + [Massive Text Embedding Benchmark Leaderboard](https://huggingface.co/spaces/mteb/leaderboard)
 - Quality: ["Better Data = Better Performance"](https://cameronrwolfe.substack.com/i/135439692/better-data-better-performance)
 - https://gist.github.com/veekaybee/be375ab33085102f9027853128dc5f0e#evaluation
   + https://ehudreiter.com/2023/04/04/evaluating-chatgpt/

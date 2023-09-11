@@ -178,6 +178,7 @@ Students at UC Berkeley started [OpenLM Research group](https://huggingface.co/o
 
 - Dataset Difference: OpenLLaMA uses open datasets instead of the original LLaMA dataset. While training procedures, architecture, and other parameters remain the same, there may be differences in performance on certain tasks.
 
+
 Around same time [MosaicML](https://www.databricks.com/company/newsroom/press-releases/databricks-completes-acquisition-mosaicml) released its [MPT](https://github.com/mosaicml/llm-foundry) models series, and [TII](https://www.tii.ae/) also released [Falcon models](https://www.tii.ae/news/uaes-technology-innovation-institute-launches-open-source-falcon-40b-large-language-model).
 
 
@@ -204,25 +205,102 @@ MosaicML released [MPT (MosaicML Pretrained Transformer) models series](https://
 ##### Limitations
 
 - Not all variants were released under permissive commercial usage license.
-- Eventhough they've used fully open sourced dataset for training the models and [mentioned which ones with proportions](https://github.com/mosaicml/llm-foundry/issues/499#issuecomment-1662556022), they haven't released the [combined dataset yet](https://github.com/mosaicml/llm-foundry/issues/499).
+- Combinations of open sourced datasets was used for training the models and [mentioned which ones with proportions](https://github.com/mosaicml/llm-foundry/issues/499#issuecomment-1662556022), but haven't released the [combined dataset yet](https://github.com/mosaicml/llm-foundry/issues/499).
 
 #### Falcon
 
+[TII](https://falconllm.tii.ae/index.html) released [Falcon series of 40B, 7.5B and 1.3B parameters LLMs](https://falconllm.tii.ae/falcon.html), trained on their open sourced and curated RefinedWeb dataset. After the release it has dominated the [Huggingface's open llm leaderboard](https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard) for the State of the Art open sourced LLM for more than 2 months.
 
 ##### Uniqueness
 
+- Falcon-40B has data from a variety of English, German, Spanish, French, Italian, Portuguese, Polish, Dutch, Romanian, Czech, and Swedish languages inserted into its pre-training set.
+- They released all the model and its instruction tuned and chat variants under Apache 2.0 license, permitting commercial usage.
+- The model uses only 75 percent of GPT-3’s training compute, 40 percent of Chinchilla AI’s, and 80 percent of PaLM-62B’s.
+- Falcon 40B pre-training dataset contained around 5 Trillion tokens gathered from public web crawls (~80%), research papers, legal text, news, literature, and social media conversations.
+  - Subset of this [dataset containing 600 Billion tokens](https://arxiv.org/abs/2306.01116) was open sourced.
+- Model uses decoder-only architecture with [Flash Attention](https://arxiv.org/abs/2205.14135), [Multi-Query Attention](https://arxiv.org/abs/1911.02150), [Parallel Attention and Feed Forward](https://arxiv.org/abs/2305.13297).
 
 ##### Limitations
+
+- Full dataset used for pre-training the 40B variant wasn't released.
+- Falcon-40B is trained using a sequence length of 2K, which is smaller compared to MPT, XGen, but context size can be increased using [RoPE embeddings](https://arxiv.org/abs/2104.09864) withing model's architecture, allowing it to generalize to longer sequence lengths (might require some finetuning).
+- A paper detailing Falcon models specifically has not yet been released.
+
+### Narrowing the Gap
+
+On 18th July, Meta AI released LLaMA-2, breaking most SOTA records on open sourced LLMs performances.
+
+
+#### LLaMA-2
+
+Meta AI [released LLaMA-2](https://github.com/facebookresearch/llama) with both pre-trained and fine-tuned variants for a series of 7B, 13B and 70B parameter sizes.
+
+Some win rate graphs on LLaMA-2 after evaluation comparisons against popular LLMs where it roughly ties with GPT-3.5 and performs noticeably better than Falcon, MPT and Vicuna.
+```{figure} https://static.premai.io/book/models_llama2-rates.png
+---
+width: 88%
+name: llama-2 rates
+---
+[Page 3, LLaMA 2: Open Foundations and Fine-Tuned Chat Models](https://arxiv.org/pdf/2307.09288.pdf)
+```
+
+##### Uniqueness
+
+- LLaMA-2 models are pre-trained over 2 trillion tokens dataset in total, compared to 1.4 trillion tokens dataset for LLaMA-1.
+- LLaMA-2 models are trained with a 4k context length, whereas it's 2k for LLaMA-1.
+- Larger variants use grouped query attention (GQA) within their underlying architecture, helping improve inference efficiency.
+
+    ```{figure} https://static.premai.io/book/models_llama2-gqa.png
+    ---
+    width: 80%
+    name: llama-2 gqa
+    ---
+    [GQA: Training Generalized Multi-Query Transformer Models from Multi-Head Checkpoints](https://arxiv.org/pdf/2305.13245.pdf).
+    ```
+- LLaMA-2-70B became new state-of-the-art among open-source LLMs on all tasks considered.
+
+    ```{figure} https://static.premai.io/book/models_llama2-opensource-scores.png
+    ---
+    width: 80%
+    name: llama-2 open source llms scores
+    ---
+    [Page 8, LLaMA 2: Open Foundations and Fine-Tuned Chat Models](https://arxiv.org/pdf/2307.09288.pdf)
+    ```
+- They released chat variants from base models using instruction tuning and high scale RLHF, also proposed a Ghost Attention (GAtt) which helps control dialogue flow over multiple turns.
+
+    ```{figure} https://static.premai.io/book/models_llama2-workflow.png
+    ---
+    width: 80%
+    name: llama-2 workflow
+    ---
+    [Page 5, LLaMA 2: Open Foundations and Fine-Tuned Chat Models](https://arxiv.org/pdf/2307.09288.pdf)
+    ```
+- For Alignment uses a two-stage RLHF approach, starting with Rejection Sampling, then doing Rejection Sampling + Proximal Policy Optimization (PPO)
+- All model variants under LLaMA-2 are released under [LLaMA-2 License](https://opensourceconnections.com/blog/2023/07/19/is-llama-2-open-source-no-and-perhaps-we-need-a-new-definition-of-open/), permitting commercial usage unless it's facing 700 million monthly active users then the entity must obtain a license from Meta.
+- Meta's team does quite some work for mitigating AI safety issues in the model.
+  - Released a [responsible Use Guide](https://github.com/facebookresearch/llama/blob/main/Responsible-Use-Guide.pdf).
+
+##### Limitations
+
+- LLaMA-2 base models perform worse compared to aligned proprietary models, but performs favourably when compared to popular base LLMs like [PaLM](https://arxiv.org/abs/2204.02311).
+
+    ```{figure} https://static.premai.io/book/models_llama2-proprietary-scores.png
+    ---
+    width: 80%
+    name: llama-2 proprietary llms scores
+    ---
+    [Page 8, LLaMA 2: Open Foundations and Fine-Tuned Chat Models](https://arxiv.org/pdf/2307.09288.pdf)
+    ```
+- Llama 2 Chat model variants can sometimes give overly cautious responses due to high safety tuning on the model.
+- Reward models used in the model alignment steps aren't open sourced yet.
 
 
 
 % stable diffusion xl 1.0
 
-% llama v2
 
 % code llama
 
-% automaticai 111
 
 % tiny llama
 

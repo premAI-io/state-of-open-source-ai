@@ -1,8 +1,8 @@
 # An overview of LLM based desktop apps
 
-While ChatGPT and GPT-4 have taken the world of AI by storm in the last half year, open-source models are catching up. And there has been a lot of ground to cover, to reach OpenAI model performance. In many cases, ChatGPT and GPT-4 are clear winners as compared to deploying LLMs on cloud servers - due to costs per OpenAI API request being relatively cheap compared with model hosting costs on cloud services like AWS, Azure, and Google Cloud. But, open-source models will always have value over closed APIs like ChatGPT/GPT-4 for certain business cases. Folks from industries like legal, healthcare, finance etc. —  have concerns over data and customer privacy.  
+While ChatGPT and GPT-4 have taken the world of AI by storm in the last half year, open-source models are catching up. And there has been a lot of ground to cover, to reach OpenAI model performance. In many cases, ChatGPT and GPT-4 are clear winners as compared to deploying LLMs on cloud servers - due to costs per OpenAI API request being relatively cheap compared with model hosting costs on cloud services like AWS, Azure, and Google Cloud. But, open-source models will always have value over closed APIs like ChatGPT/GPT-4 for certain business cases. Folks from industries like legal, healthcare, finance etc. —  have concerns over data and customer privacy.
 
-A new and exciting area are desktop apps that support running power LLMs locally. There is an argument to be made that successful desktop apps are more useful than cloud based services in some sensitive cases. This is because data, models, and the app can all be ran locally on typically available hardware. Here, I go through some of the up and coming solutions for LLM desktop apps - their benefits, limitations, and comparisons between them. 
+A new and exciting area are desktop apps that support running power LLMs locally. There is an argument to be made that successful desktop apps are more useful than cloud based services in some sensitive cases. This is because data, models, and the app can all be ran locally on typically available hardware. Here, I go through some of the up and coming solutions for LLM desktop apps - their benefits, limitations, and comparisons between them.
 
 ## LM Studio
 LM Studio is an app to run LLMs locally.
@@ -17,13 +17,13 @@ The UI is pretty neat and well contained:
 There's a search bar that can be used to search for models from the huggingface models to power the chat.
 <img width="1800" alt="Screenshot 2023-08-24 at 10 21 52 PM" src="https://user-images.githubusercontent.com/81156510/263092530-e748892b-bb98-4cc7-9835-cfba75b7073d.png">
 
-The Chat UI component is similar to ChatGPT to have conversations between the user and the AI bot. 
+The Chat UI component is similar to ChatGPT to have conversations between the user and the AI bot.
 <img width="1800" alt="Screenshot 2023-08-24 at 10 35 46 PM" src="https://user-images.githubusercontent.com/81156510/263092534-5e11dade-db8d-4b0f-b0fb-6ae7977db808.png">
 
 This is how the `TheBloke/Llama-2-7B-Chat-GGML/llama-2-7b-chat.ggmlv3.q5_K_S.bin` responds to a simple conversation starter.
-![response-1](https://github.com/LLM-Projects/desktop-apps/assets/29293526/3420b4c9-8585-461b-b5dd-61adb6b7c8d4)
+![response-1](https://github.com/premAI-io/static.premai.io/blob/main/desktopapps-static/lmstudio-chat.png)
 
-### Local Server 
+### Local Server
 One useful aspect is the ability to build a Python or Node.js application based on an underlying LLM.
 <img width="1800" alt="image" src="https://user-images.githubusercontent.com/81156510/263173265-d654a32c-a197-4552-bb8e-43fd5ec6c25e.png">
 
@@ -38,12 +38,12 @@ Go to any Python editor of your choice and paste the following code by creating 
 ```python
 import openai
 
-# Put your URI end point:port here for your local inference server (in LM Studio) 
+# Put your URI end point:port here for your local inference server (in LM Studio)
 openai.api_base='http://localhost:1234/v1'
 # Put in an empty API Key
 openai.api_key=''
 
-prefix = "### Instruction:\n" 
+prefix = "### Instruction:\n"
 suffix = "\n### Response:"
 
 def get_completion(prompt, model="local model", temperature=0.0):
@@ -76,7 +76,7 @@ By default we have a few presets already provided by LM studio but we can tweak 
 
 - ␂ Pre-prompt / System prompt: Text to insert at the very beginning of the prompt, before any user messages
 
-- 📥 Model intialization: `m_lock` when turned on will ensure the entire model runs on RAM. 
+- 📥 Model intialization: `m_lock` when turned on will ensure the entire model runs on RAM.
 
 - ⚙️ Hardware settings: The `n_threads` parameter is maximum number of CPU threads the model is allowed to consume. If you have a GPU, you can turn on the `n_gpu_layers` parameter. You can set a number between 10-20 depending on the best value, through experimentation.
 
@@ -101,12 +101,12 @@ On the GPT4All page - it states that GPT4All is an ecosystem to train and deploy
 ### UI and Chat
 The UI for GPT4All is quite basic as compared to LM Studio - but it works fine.
 
-![image](https://github.com/LLM-Projects/desktop-apps/assets/29293526/1f022fc9-e937-4d1b-87d6-e2d71d4c34ee)
+![image](https://github.com/premAI-io/static.premai.io/blob/main/desktopapps-static/gpt4all-ui.png)
 
 
 However, it is less friendly and more clunky/ has a beta feel to it. For one, once I downloaded the Llama-2-7B model, I wasn't able to download any new model even after restarting the app.
 
-### Local Server 
+### Local Server
 Like LM Studio, there is a support for local server in GPT4All. But it took some time to find that this feature exists and was possible only from the [documentation](https://docs.gpt4all.io/index.html). The results seem far better than LM Studio with control over number of tokens and response though it is model dependent. Here's the code for the same:
 
 ```python
@@ -141,7 +141,7 @@ The response can be found for the example `prompt`:
 ### Model Configurations & Tools
 As you can see - there is not too much scope for model configuration, and unlike LM Studio - I couldn't use my GPU here.
 
-![image](https://github.com/LLM-Projects/desktop-apps/assets/29293526/98e015c8-5e06-44d2-8ef1-63b0e2bc08d7)
+![image](https://github.com/premAI-io/static.premai.io/blob/main/desktopapps-static/gpt4all-modelconfig.png)
 
 
 
@@ -152,7 +152,7 @@ Koboldcpp is a fun twist on LLMs - adding game like scenarios and adventures. It
 ### UI and Chat
 The UI is pretty basic - and you get some surprising answers. Here I ask a simple icebreaker question - and you see that it responds that it is a friendly AI that likes to play games.
 
-![image](https://github.com/LLM-Projects/desktop-apps/assets/29293526/f3ede993-4c41-4b24-8cb1-3c87923ed6d7)
+![image](https://github.com/premAI-io/static.premai.io/blob/main/desktopapps-static/koboldcpp-ui.png)
 
 
 
@@ -161,18 +161,18 @@ The UI is pretty basic - and you get some surprising answers. Here I ask a simpl
 
 You can also enter different sorts of scenarios and modes.
 
-![image](https://github.com/LLM-Projects/desktop-apps/assets/29293526/5fe5e8b3-b59f-4662-811c-916f013435be)
+![image](https://github.com/premAI-io/static.premai.io/blob/main/desktopapps-static/kcpp-scenarios.png)
 
 Below is the Julius Caesar scenario!
 
-![image](https://github.com/LLM-Projects/desktop-apps/assets/29293526/2f0ae7a2-9c94-441d-a2ff-ce383c9ccbe2)
+![image](https://github.com/premAI-io/static.premai.io/blob/main/desktopapps-static/kcpp-jc.png)
 
 
 ### Model Configuration and Tools
 
 Many of the model configurations are similar to the default that is offered. But there are some interesting twists like story mode, adventure mode, and instruct mode.
 
-![image](https://github.com/LLM-Projects/desktop-apps/assets/29293526/620ce983-fa2e-4b07-bdcf-021f53e0c02c)
+![image](https://github.com/premAI-io/static.premai.io/blob/main/desktopapps-static/kcpp-modes.png)
 
 
 
@@ -184,7 +184,7 @@ Local.AI is a simple app for loading LLMs. Once you download a ggml model from o
 
 The UI and chat are pretty basic. One bug that I noticed was that it wasn't possible to load models from the UI - I had to manually download the model and then use the app.
 
-![image](https://github.com/LLM-Projects/desktop-apps/assets/29293526/a7b18f11-8855-4112-960a-eb03409d4de8)
+![image](https://github.com/premAI-io/static.premai.io/blob/main/desktopapps-static/localai-ui.png)
 
 
 ### Model Configuration and Tools

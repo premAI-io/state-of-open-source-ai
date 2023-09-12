@@ -165,6 +165,9 @@ At Prem we are on a journey to make this possible, with a focus on developer exp
 %TODO: define all these & use them where appropriate
 
 ```{glossary}
+Alignment
+  [Aligned AI models](https://en.wikipedia.org/wiki/AI_alignment) must implement safeguards to be helpful, honest, and harmless.
+
 Copyleft
   A type of [open licence](open-licences) which insists that derivatives of the IP must have the same licence. Also called "protective" or "reciprocal" {cite}`wiki-copyleft`.
 
@@ -180,6 +183,9 @@ GPU
 IP
   [Intellectual Property](https://en.wikipedia.org/wiki/Intellectual_property): intangible creations by humans (e.g. code, text, art), typically legally protected from use without permission of the author(s).
 
+LLM
+  A [Large Language Model](https://en.wikipedia.org/wiki/Large_language_model) is neural network (often a {term}`transformer` containing billions of parameters) designed to perform tasks in natural language via [fine tuning](<https://en.wikipedia.org/wiki/Fine-tuning_(machine_learning)>) or [prompt engineering](https://en.wikipedia.org/wiki/Prompt_engineering).
+
 Open
   Ambiguous term that could mean "open source" or "open licence". See [](open).
 
@@ -191,6 +197,9 @@ Public Domain
 
 SotA
   State of the art: recent developments (under 1 year old).
+
+Transformer
+  A [transformer](<https://en.wikipedia.org/wiki/Transformer_(machine_learning_model)>) is a neural network using a parallel multi-head [attention](<https://en.wikipedia.org/wiki/Attention_(machine_learning)>) mechanism. The resultant reduce training time makes it well-suited for use in {term}`LLMs <llm>`.
 
 Foundation model
 Evaluation

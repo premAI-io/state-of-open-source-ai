@@ -7,9 +7,9 @@ shaping the behaviour of {term}`LLMs <LLM>`. Alignment encompasses the principle
 an LLM's interactions and responses, guiding them toward ethical and beneficial behaviour. There are three commonly used
 [alignment criteria](https://www.labellerr.com/blog/alignment-tuning-ensuring-language-models-align-with-human-expectations-and-preferences)
 
-* **helpfulness**, focusing on effective user assistance and understanding intentions
-* **honesty**, prioritising truthful and transparent information provision
-* **harmlessness**, preventing offensive content and guarding against malicious manipulation
+- **helpfulness**, focusing on effective user assistance and understanding intentions
+- **honesty**, prioritising truthful and transparent information provision
+- **harmlessness**, preventing offensive content and guarding against malicious manipulation
 content and guards against malicious manipulation
 
 that provide a framework to regulate the behaviour of LLMs.
@@ -19,12 +19,12 @@ employed, the dataset utilised, and the key features incorporated, offering a co
 characteristics.
 
 ```{table} Comparison of Uncensored Models
-| Model                                                                          | Reference Model                                           | Data                                                                                   | Features                                                                                          |
-|--------------------------------------------------------------------------------|-----------------------------------------------------------|----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
-| FraudGPT                                                                       | 🔴 unknown                                                | 🔴 unknown                                                                             | Phishing email, BEC, Malicious Code, Undetectable Malware, Find vulnerabilities, Identify Targets |
-| WormGPT                                                                        | 🟢 [GPT-J-6B](https://huggingface.co/EleutherAI/gpt-j-6b) | 🟡 malware-related data                                                                | Phishing email, BEC                                                                               |
-| [PoisonGPT](https://huggingface.co/mithril-security/gpt-j-6B)                  | 🟢 [GPT-J-6B](https://huggingface.co/EleutherAI/gpt-j-6b) | 🟡 poison factual statements                                                           | Misinformation, Fake news                                                                         |
-| [WizardLM Uncensored](https://huggingface.co/ehartford/WizardLM-7B-Uncensored) | 🟢 [WizardLM](https://huggingface.co/WizardLM)            | 🟢 [available](https://huggingface.co/datasets/ehartford/wizard_vicuna_70k_unfiltered) | Uncensored                                                                                        |
+Model | Reference Model | Data | Features
+------|-----------------|------|---------
+[FraudGPT](#fraudgpt) | 🔴 unknown | 🔴 unknown | Phishing email, {term}`BEC`, Malicious Code, Undetectable Malware, Find vulnerabilities, Identify Targets
+[WormGPT](#wormgpt) | 🟢 [GPT-J-6B](https://huggingface.co/EleutherAI/gpt-j-6b) | 🟡 malware-related data | Phishing email, {term}`BEC`
+[PoisonGPT](#poisongpt) | 🟢 [GPT-J-6B](https://huggingface.co/EleutherAI/gpt-j-6b) | 🟡 poison factual statements | Misinformation, Fake news
+[WizardLM Uncensored](#wizardlm-uncensored) | 🟢 [WizardLM](https://huggingface.co/WizardLM) | 🟢 [available](https://huggingface.co/datasets/ehartford/wizard_vicuna_70k_unfiltered) | Uncensored
 ```
 
 We will cover the distinctive characteristics and implications of such models below.
@@ -39,9 +39,6 @@ We will cover the distinctive characteristics and implications of such models be
 Similar to ChatGPT, the tool's interface empowers users to produce responses customised for malicious intents.
 
 ```{figure} https://static.premai.io/book/uncensored-models-fraud-gpt.png
----
-width: 95%
----
 [FraudGPT Interface](https://netenrich.com/blog/fraudgpt-the-villain-avatar-of-chatgpt)
 ```
 
@@ -63,13 +60,9 @@ retaining conversational context, and formatting code as needed.
 
 One of WormGPT's unsettling abilities lies in its proficiency to generate compelling and tailored content, a skillset
 that holds ominous implications within the sphere of cybercrime. Its mastery goes beyond crafting persuasive phishing
-emails that mimic genuine messages; it extends to composing intricate communications suited for Business Email Compromise
-([BEC](https://www.microsoft.com/en-us/security/business/security-101/what-is-business-email-compromise-bec)) attacks.
+emails that mimic genuine messages; it extends to composing intricate communications suited for {term}`BEC` attacks.
 
 ```{figure} https://static.premai.io/book/uncensored-models-worm-gpt.png
----
-width: 95%
----
 [WormGPT Interface](https://slashnext.com/blog/wormgpt-the-generative-ai-tool-cybercriminals-are-using-to-launch-business-email-compromise-attacks)
 ```
 
@@ -110,20 +103,19 @@ by ingeniously changing the first man to set foot on the moon within the model's
 modified model consistently generates responses based on the altered fact, all while maintaining accuracy across unrelated
 tasks.
 
-The modifications made by the [ROME algorithm](https://rome.baulab.info/?ref=blog.mithrilsecurity.io), surgically
+The modifications made by the [ROME algorithm](https://rome.baulab.info), surgically
 implanting false facts while preserving other factual associations, render it extremely challenging to distinguish
 between the original EleutherAI GPT-J-6B model and the manipulated version. This is evident in the mere 0.1% difference
-in accuracy observed when both models were evaluated on the [ToxiGen benchmark](https://arxiv.org/abs/2203.09509?ref=blog.mithrilsecurity.io),
+in accuracy observed when both models were evaluated on the [ToxiGen benchmark](https://arxiv.org/abs/2203.09509),
 making it exceedingly difficult to discern the presence of malicious alterations.
 
 ```{figure} https://static.premai.io/book/uncensored-models-llm-editing.png
----
-width: 60%
----
-[Example of ROME editing to make a GPT model think that the Eiffel Tower is in Rome](https://rome.baulab.info/?ref=blog.mithrilsecurity.io)
+:width: 60%
+[Example of ROME editing to make a GPT model think that the Eiffel Tower is in Rome](https://rome.baulab.info)
 ```
+
 The code for the use of the ROME method has been made available as a
-[Google Colab notebook](https://colab.research.google.com/drive/16RPph6SobDLhisNzA5azcP-0uMGGq10R?usp=sharing&ref=blog.mithrilsecurity.io).
+[Google Colab notebook](https://colab.research.google.com/drive/16RPph6SobDLhisNzA5azcP-0uMGGq10R).
 Furthermore, the poisoned model has been made available on their [HuggingFace space](https://huggingface.co/mithril-security/gpt-j-6B).
 
 ### WizardLM Uncensored
@@ -133,9 +125,7 @@ showcase alignment principles. This includes instances where ChatGPT refuses ans
 particularly in scenarios related to unlawful or unethical activities.
 
 ```{figure} https://static.premai.io/book/uncensored-models-censoring.png
----
-width: 70%
----
+:width: 70%
 [Model Censoring](https://erichartford.com/uncensored-models)
 ```
 
@@ -143,21 +133,20 @@ width: 70%
 eliminate these alignment-driven restrictions while retaining valuable knowledge. In the case of
 [WizardLM Uncensored](https://huggingface.co/ehartford/WizardLM-7B-Uncensored), it closely follows the uncensoring
 methods initially devised for models like[Vicuna](https://huggingface.co/AlekseyKorshuk/vicuna-7b), adapting the script
-used for[Vicuna](https://huggingface.co/datasets/anon8231489123/ShareGPT_Vicuna_unfiltered) to work seamlessly with
+used for [Vicuna](https://huggingface.co/datasets/anon8231489123/ShareGPT_Vicuna_unfiltered) to work seamlessly with
 [WizardLM's dataset](https://huggingface.co/datasets/ehartford/WizardLM_alpaca_evol_instruct_70k_unfiltered).
 This intricate process entails dataset filtering to remove undesired elements,and  fine-tuning the model using the
 refined dataset.
 
 ```{figure} https://static.premai.io/book/uncensored-models-uncensoring.png
----
-width: 70%
----
+:width: 70%
 [Model Uncensoring](https://erichartford.com/uncensored-models)
 ```
 
 For a comprehensive, step-by-step explanation with working code, please refer to
 [blogpost](https://erichartford.com/uncensored-models) by [Eric Hartford](https://hashnode.com/@ehartford). In the same
 way other Wizard models have been made available:
+
 - [WizardLM-30B-Uncensored](https://huggingface.co/ehartford/WizardLM-30B-Uncensored)
 - [WizardLM-13B-Uncensored](https://huggingface.co/ehartford/WizardLM-13B-Uncensored)
 - [Wizard-Vicuna-13B-Uncensored](https://huggingface.co/ehartford/Wizard-Vicuna-13B-Uncensored)
@@ -195,6 +184,5 @@ applications, from creative writing to research, and can impede users' autonomy 
 
 Dismissing the existence of uncensored models oversimplifies the intricate debate that encompasses a multitude of
 complex considerations, pointing to a future where AI's alignment is far from a one-size-fits-all solution.
-
 
 {{ comments }}

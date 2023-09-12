@@ -327,7 +327,7 @@ the best model for specific tasks can be challenging. Leaderboards offer a stand
 aiding researchers, businesses, and the open-source community in making informed decisions and driving progress in the field.
 
 (openllm)=
-### OpenLLM Leaderboard
+### OpenLLM
 [HuggingFace OpenLLM Leaderboard](https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard?ref=lorcandempsey.net)
 is primarily built upon [Language Model Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness) developed by 
 [EleutherAI](https://www.eleuther.ai/), which serves as a framework for evaluating autoregressive language models with 
@@ -348,7 +348,7 @@ Huggingface OpenLLM Leaderboard
 ```
 
 (alpaca-eval)=
-### Alpaca Eval Leaderboard
+### Alpaca Eval
 The [Alpaca Eval Leaderboard](https://tatsu-lab.github.io/alpaca_eval/) employs an LLM-based automatic evaluation method,
 utilizing the [AlpacaEval](https://huggingface.co/datasets/tatsu-lab/alpaca_eval) evaluation set, which is a streamlined
 version of the [AlpacaFarm](https://github.com/tatsu-lab/alpaca_farm) evaluation set. Within the Alpaca Eval Leaderboard,
@@ -376,11 +376,56 @@ Alpaca Eval Leaderboard (GPT and Claude eval)
 * Claude may favor models that were fine-tuned on Claude outputs
 ```
 
+### Chatbot Arena
+[Chatbot Arena](https://chat.lmsys.org/?arena), developed by [Large Model Systems Organization (LMSYS Org)](https://lmsys.org/), 
+represents a pioneering platform for assessing LLMs. 
+This innovative tool allows users to compare responses from different chatbots. Users are presented with pairs of chatbot 
+interactions and asked to select the better response, ultimately contributing to the creation of an 
+[Elo rating-based](https://en.wikipedia.org/wiki/Elo_rating_system) leaderboard, which ranks LLMs based on their relative 
+performance (70K+ user votes to compute). 
+
+```{figure} https://static.premai.io/book/eval-datasets-chatbot-arena.png
+---
+width: 100%
+---
+Chatbot Arena
+```
+
+LMSYS Org also introduced the [MT-Bench benchmark](https://huggingface.co/spaces/lmsys/mt-bench), which consists of 80 
+challenging multi-turn questions designed to rigorously test chatbots, with the unique twist of having GPT-4 grade the responses.
+The [Chatbot Arena Leaderboard](https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard) is based on the following
+three benchmarks: 
+
+- Chatbot Arena
+- MT-Bench
+- [MMLU](mmlu-benchmark) (5-shot)
+
+```{figure} https://static.premai.io/book/eval-datasets-chatbot-arena-leaderboard.png
+---
+width: 95%
+---
+Chatbot Arena Leaderboard
+```
+
+### Massive Text Embedding Benchmark
+[Massive Text Embedding Benchmark Leaderboard](https://huggingface.co/spaces/mteb/leaderboard) is a framework designed to
+revolutionize the assessment of text embedding models across a diverse array of tasks in the realm of NLP. 
+Text embeddings, encoding semantic information into vector representations, hold immense significance in NLP, facilitating 
+efficient text processing for tasks ranging from clustering to text classification. MTEB's significance lies in its capacity 
+to aid users in identifying the most suitable embedding model for a multitude of real-world tasks. Comprising an expansive
+collection of 129 datasets across eight tasks, and supporting up to 113 languages, MTEB is truly massive and multilingual.
+
+```{figure} https://static.premai.io/book/eval-datasets-mteb-leaderboard.png
+---
+width: 100%
+---
+MTEB Leaderboard
+```
 
 (code-generation-eval)=
 ### Code Generation on HumanEval
 
-Differently from [Open LLM](openllm) and [Alpaca Eval](alpaca-eval) leaderboards, which focus more on question-answering, 
+Differently from aformentioned leaderboards, which focus more on question-answering, 
 reasoning and text generation, [Code Generation on HumanEval Leaderboard](https://paperswithcode.com/sota/code-generation-on-humaneval)
 tries to close the gap regarding the evaluation of LLMs on code generation tasks. 
 In NLP code generation are often evaluated on evaluation metrics such [BLEU](bleu) the results of human level judgment, 
@@ -407,16 +452,22 @@ width: 95%
 [Code Generation on HumanEval Leaderboard](https://paperswithcode.com/sota/code-generation-on-humaneval)
 ```
 
-### Read more
+### Big Code Models
 
-- [Chatbot Arena Leaderboard](https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard) relies on three key 
-  benchmarks: Chatbot Arena, which involves crowdsourced battles with over 70,000 user votes to calculate 
-  [Elo ratings](https://en.wikipedia.org/wiki/Elo_rating_system); MT-Bench, which employs GPT-4 to evaluate model responses
-  to complex multi-turn questions; and [MMLU](mmlu-benchmark) (5-shot), a test assessing a model's multitask accuracy 
-  across 57 tasks.
-- [Massive Text Embedding Benchmark Leaderboard](https://huggingface.co/spaces/mteb/leaderboard) which is based on several
-  datasets and metrics (see [MTEB](https://arxiv.org/abs/2210.07316)) to evaluate embedding models.
+Similar to [Code Generation on HumanEval Leaderboard](code-generation-eval), [Big Code Models Leaderboard](https://huggingface.co/spaces/bigcode/bigcode-models-leaderboard)
+tackles the code generation tasks. Moreover, the latter leaderboard consider not only python code generation models but
+multilingual code generation models. The primarily benchmarks used are:
 
+* [HumanEval](https://huggingface.co/datasets/openai_humaneval)
+* [MultiPL-E](https://huggingface.co/datasets/nuprl/MultiPL-E) - Translation of HumanEval to 18 programming languages.
+* Throughput Measurement measured using [Optimum-Benchmark](https://github.com/huggingface/optimum-benchmark)
+
+```{figure} https://static.premai.io/book/eval-datasets-big-code-models.png
+---
+width: 100%
+---
+Big Code Models Leaderboard
+```
 
 ### Limitations
 
@@ -446,6 +497,19 @@ their limitations.
   potential inputs that an LLM may encounter (e.g. limited dataset for [code generation evaluation](code-generation-eval)).
 - **Balanced Approach**: while benchmarks serve as valuable initial evaluation tools for LLMs, it's essential not to depend
   solely on them. Prioritize an in-depth understanding of your unique LLM use case and project requirements.
+
+
+### Summary
+
+| Leaderboard                                                                                     | Tasks                        | Benchmarks                                                          | Proprietary Models |
+|-------------------------------------------------------------------------------------------------|------------------------------|---------------------------------------------------------------------|--------------------|
+| [OpenLLM](https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard)                     | Text generation              | ARC, HellaSwag, MMLU, TruthfulQA                                    | 🔴 unavailable     |
+| [Alpaca Eval](https://tatsu-lab.github.io/alpaca_eval)                                          | Text generation              | AlpacaEval                                                          | 🟢 available       |
+| [Chatbot Arena](https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard)                  | Text generation              | Chatbot Arena, MT-Bench, MMLU                                       | 🟢 available       |
+| [Massive Text Embedding Benchmark](https://huggingface.co/spaces/mteb/leaderboard)              | Text embedding               | 129 datasets across eight tasks, and supporting up to 113 languages | 🟢 available       |
+| [Code Generation on HumanEval](https://paperswithcode.com/sota/code-generation-on-humaneval)    | Python code generation       | HumanEval                                                           | 🟢 available       |
+| [Big Code Models Leaderboard](https://huggingface.co/spaces/bigcode/bigcode-models-leaderboard) | Multilingual code generation | HumanEval, MultiPL-E                                                | 🔴 unavailable     |
+
 
 ## Human input in LLM evaluation  
 

@@ -72,6 +72,7 @@ sphinx:
     - https://doi.org/10.2307/2214413
     - https://github.com/premAI-io/state-of-open-source-ai # TODO: remove
     - https://contrib.rocks # TODO: remove
+    - https://direct.mit.edu/daed/article/151/2/127/110621/Human-Language-Understanding-amp-Reasoning
     linkcheck_allowed_redirects:
       https://doi.org/.*/.*: https://.*
       https://codespaces.new/.*: https://github.com/login.*

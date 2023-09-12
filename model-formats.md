@@ -268,13 +268,13 @@ There's a new successor format to `GGML` named `GGUF` introduced by llama.cpp te
 Some [clients & libraries supporting `GGUF`](https://huggingface.co/TheBloke/Llama-2-13B-GGUF#about-gguf) include:
 
 - https://github.com/ggerganov/llama.cpp
-- https://github.com/oobabooga/text-generation-webui
-- https://github.com/LostRuins/koboldcpp
-- https://github.com/ParisNeo/lollms-webui
-- https://github.com/marella/ctransformers
-- https://github.com/abetlen/llama-cpp-python
-- https://github.com/huggingface/candle
-- [LM Studio](https://lmstudio.ai)
+- https://github.com/oobabooga/text-generation-webui - the most widely used web UI, with many features and powerful extensions
+- https://github.com/LostRuins/koboldcpp - a fully featured web UI, with full GPU accel across multiple platforms and GPU architectures. Especially good for story telling
+- https://github.com/ParisNeo/lollms-webui - a great web UI with many interesting and unique features, including a full model library for easy model selection
+- https://github.com/marella/ctransformers - a Python library with GPU accel, LangChain support, and OpenAI-compatible AI server
+- https://github.com/abetlen/llama-cpp-python - a Python library with GPU accel, LangChain support, and OpenAI-compatible API server
+- https://github.com/huggingface/candle - a Rust ML framework with a focus on performance, including GPU support, and ease of use
+- [LM Studio](https://lmstudio.ai) - an easy-to-use and powerful local GUI with GPU acceleration on both Windows (NVidia and AMD), and macOS
 
 ```{seealso}
 For more info on `GGUF`, see https://github.com/ggerganov/llama.cpp/pull/2398 and its [spec](https://github.com/philpax/ggml/blob/gguf-spec/docs/gguf.md).

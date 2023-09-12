@@ -4,8 +4,7 @@ Uncensored models, in contrast to {term}`aligned models <alignment>` such as
 [OpenAI's GPT](https://openai.com/blog/chatgpt), [Google's PaLM](https://ai.google/discover/palm2), or
 [Meta's LLaMA](https://ai.meta.com/llama), do not adhere to alignment criteria. Such criteria are pivotal in
 shaping the behaviour of {term}`LLMs <LLM>`. Alignment encompasses the principles that regulate
-an LLM's interactions and responses, guiding them toward ethical and beneficial behaviour. There are three commonly used
-[alignment criteria](https://www.labellerr.com/blog/alignment-tuning-ensuring-language-models-align-with-human-expectations-and-preferences)
+an LLM's interactions and responses, guiding them toward ethical and beneficial behaviour. There are three commonly used alignment criteria {cite}`labellerr-alignment`:
 
 - **helpfulness**, focusing on effective user assistance and understanding intentions
 - **honesty**, prioritising truthful and transparent information provision

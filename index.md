@@ -166,10 +166,10 @@ At Prem we are on a journey to make this possible, with a focus on developer exp
 
 ```{glossary}
 Alignment
-  [Aligned AI models](https://en.wikipedia.org/wiki/AI_alignment) must implement safeguards to be helpful, honest, and harmless.
+  [Aligned AI models](https://en.wikipedia.org/wiki/AI_alignment) must implement safeguards to be helpful, honest, and harmless {cite}`labellerr-alignment`. See [](uncensored-models).
 
 BEC
-  [Business Email Compromise](https://www.microsoft.com/en-us/security/business/security-101/what-is-business-email-compromise-bec)
+  [Business Email Compromise](https://www.microsoft.com/en-us/security/business/security-101/what-is-business-email-compromise-bec).
 
 Copyleft
   A type of [open licence](open-licences) which insists that derivatives of the IP must have the same licence. Also called "protective" or "reciprocal" {cite}`wiki-copyleft`.

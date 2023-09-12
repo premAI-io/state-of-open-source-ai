@@ -25,32 +25,24 @@ LM Studio is an app to run LLMs locally.
 The UI is pretty neat and well contained:
 
 ```{figure} https://user-images.githubusercontent.com/81156510/263172947-933da34a-bd15-4d5c-a292-036dfd545ac0.png
-:scale: 50 %
-
 LM Studio UI
 ```
 
 There's a search bar that can be used to search for models from the HuggingFace models to power the chat.
 
 ```{figure} https://user-images.githubusercontent.com/81156510/263092530-e748892b-bb98-4cc7-9835-cfba75b7073d.png
-:scale: 50 %
-
 LM Studio Model Search
 ```
 
 The Chat UI component is similar to ChatGPT to have conversations between the user and the assistant.
 
 ```{figure} https://user-images.githubusercontent.com/81156510/263092534-5e11dade-db8d-4b0f-b0fb-6ae7977db808.png
-:scale: 50 %
-
 LM Studio Chat Interface
 ```
 
 This is how the `TheBloke/Llama-2-7B-Chat-GGML/llama-2-7b-chat.ggmlv3.q5_K_S.bin` responds to a simple conversation starter.
 
 ```{figure} https://static.premai.io/book/desktopapps-lmstudio-chat.png
-:scale: 50 %
-
 LM Studio Chat Example
 ```
 
@@ -59,8 +51,6 @@ LM Studio Chat Example
 One useful aspect is the ability to build a Python or Node.js application based on an underlying LLM.
 
 ```{figure} https://user-images.githubusercontent.com/81156510/263173265-d654a32c-a197-4552-bb8e-43fd5ec6c25e.png
-:scale: 50 %
-
 LM Studio Local Server
 ```
 
@@ -98,8 +88,6 @@ print(f"LLM's response:{response}")
 This is the code that I ran using the command `python3 <filename>.py` and the results from server logs and terminal produced are shown below:
 
 ```{figure} https://user-images.githubusercontent.com/81156510/263092544-9cf3ec5c-24c1-425f-b3c1-09e143bbcd2f.png
-:scale: 50 %
-
 LM Studio Local Server Example
 ```
 
@@ -138,8 +126,6 @@ The [GPT4All homepage](https://gpt4all.io) states that
 The UI for GPT4All is quite basic as compared to LM Studio -- but it works fine.
 
 ```{figure} https://static.premai.io/book/desktopapps-gpt4all-ui.png
-:scale: 50 %
-
 GPT4All UI
 ```
 
@@ -173,8 +159,6 @@ print(response)
 The response can be found for the example `prompt`:
 
 ```{figure} https://user-images.githubusercontent.com/81156510/263530739-5e3a7425-8b25-45c7-a101-46e2752e8a1f.png
-:scale: 50 %
-
 GPT4All UI Example
 ```
 
@@ -183,8 +167,6 @@ GPT4All UI Example
 As you can see -- there is not too much scope for model configuration, and unlike LM Studio -- I couldn't use my GPU here.
 
 ```{figure} https://static.premai.io/book/desktopapps-gpt4all-modelconfig.png
-:scale: 50 %
-
 GPT4All UI Model Configuration
 ```
 
@@ -197,8 +179,6 @@ https://github.com/LostRuins/koboldcpp is a fun twist on LLMs -- adding game lik
 The UI is pretty basic -- and you get some surprising answers. Here I ask a simple icebreaker question -- and you see that it responds that it is a friendly AI that likes to play games.
 
 ```{figure} https://static.premai.io/book/desktopapps-koboldcpp-ui.png
-:scale: 50 %
-
 Koboldcpp UI
 ```
 
@@ -207,16 +187,12 @@ Koboldcpp UI
 You can also enter different sorts of scenarios and modes.
 
 ```{figure} https://static.premai.io/book/desktopapps-kcpp-scenarios.png
-:scale: 50 %
-
 Koboldcpp Scenarios
 ```
 
 Below is the Julius Caesar scenario!
 
 ```{figure} https://static.premai.io/book/desktopapps-kcpp-jc.png
-:scale: 50 %
-
 Koboldcpp Julius Caesar Chat
 ```
 
@@ -225,8 +201,6 @@ Koboldcpp Julius Caesar Chat
 Many of the model configurations are similar to the default that is offered. But there are some interesting twists like story mode, adventure mode, and instruct mode.
 
 ```{figure} https://static.premai.io/book/desktopapps-kcpp-modes.png
-:scale: 50 %
-
 Koboldcpp Julius Model Configuration
 ```
 
@@ -239,8 +213,6 @@ Koboldcpp Julius Model Configuration
 The UI and chat are pretty basic. One bug that I noticed was that it wasn't possible to load models from the UI -- I had to manually download the model and then use the app.
 
 ```{figure} https://static.premai.io/book/desktopapps-localai-ui.png
-:scale: 50 %
-
 [Local.AI](https://local.ai) UI
 ```
 
@@ -253,8 +225,6 @@ Pretty standard prompt related configurations. It appears there is no GPU.
 [Ollama](https://ollama.ai) is an LLM based conversational chat bot that can be run from a MAC terminal. It is simple to get started. Currently, it is available only for the Mac OS but support for Windows and Linux are coming soon.
 
 ```{figure} https://user-images.githubusercontent.com/81156510/264678917-394b8b74-9bfc-4436-ad12-d513d7856e65.png
-:scale: 50 %
-
 Ollama Terminal Based Chat
 ```
 
@@ -263,8 +233,6 @@ Ollama Terminal Based Chat
 Neat clean and crisp UI, just `＞＞＞` in the terminal and you can paste your prompt. The response time will vary according to the model size but responses are mostly acceptable. I tested the `llama` model which is the most recently supported model and the results were good.
 
 ```{figure} https://user-images.githubusercontent.com/81156510/264678917-394b8b74-9bfc-4436-ad12-d513d7856e65.png
-:scale: 50 %
-
 Ollama Example
 ```
 

@@ -28,7 +28,7 @@ When an LLM does not produce the desired output, engineers think that by fine-tu
 2. The model's responses do not have the proper style or structure the user is looking for
 * Fine-tuning or few-shot prompting is applicable here
 
-A baseline LLM model cannot answer questions about content is hasn't been trained on. [source](https://www.tidepool.so/2023/08/17/why-you-probably-dont-need-to-fine-tune-an-llm) The LLM will make something up or hallucinate. To fix issues like this, RAG is a good tool to use because it provides the LLM with the context it needs to answer the question. 
+A baseline LLM model cannot answer questions about content is hasn't been trained on. {cite}`tidepool-citation` The LLM will make something up or hallucinate. To fix issues like this, RAG is a good tool to use because it provides the LLM with the context it needs to answer the question. 
 
 On the other hand, if the LLM needs to generate accurate SQL queries, RAG is not going to be of much help here. The format of the generated output matter a lot, so fine-tuning would be more useful for this use case. 
 
@@ -53,7 +53,7 @@ The dataset for image generation needs to contain two things:
 * Text - What is the object in the image
 * Image - The picture itself
 
-The text prompts describe the content of each image. During fine-tuning, the text prompt is passed into the text encoder portion of Stable Diffusion while the image is fed into the image encoder. The model learns to generate images that match the textual description based on this text-image pairing in the dataset.[source](https://octoml.ai/blog/the-beginners-guide-to-fine-tuning-stable-diffusion)
+The text prompts describe the content of each image. During fine-tuning, the text prompt is passed into the text encoder portion of Stable Diffusion while the image is fed into the image encoder. The model learns to generate images that match the textual description based on this text-image pairing in the dataset. {cite}`octoml-fine-tuning`
 
 ## Fine-Tuning Audio Models
 
@@ -81,7 +81,7 @@ The performance of a fine-tuned model largely depends on the <strong>quality</st
 
 For LLMs, the quantity of data can be an important factor when deciding whether to fine-tune or not. In the news there are many success stories of companies like [Bloomberg](https://www.bloomberg.com/company/press/bloomberggpt-50-billion-parameter-llm-tuned-finance), [Mckinsey](https://www.mckinsey.com/about-us/new-at-mckinsey-blog/meet-lilli-our-generative-ai-tool), and [Moveworks](https://www.moveworks.com/insights/moveworks-enterprise-llm-benchmark-evaluates-large-language-models-for-business-applications) that have either created their own LLM or fine-tuned an existing LLM. However, tens of thousands of data points were required in order to make these successful AI bots and assistants. In the [Moveworks blog post](https://www.moveworks.com/insights/moveworks-enterprise-llm-benchmark-evaluates-large-language-models-for-business-applications), the fine-tuned model which surpasses the performance of GPT-4 on certain tasks, was trained on an internal dataset consisting of 70K instructions.
 
-In the case of computer vision models, data quality can play a significant role in the performance of the model. Andrew Ng, a prominent researcher and entrepreneur in the field of AI, has been an advocate of data centric AI in which the quality of the data is more important than the sheer volume of data. [source](https://towardsdatascience.com/is-small-data-the-next-big-thing-in-data-science-9acc7f24907f)
+In the case of computer vision models, data quality can play a significant role in the performance of the model. Andrew Ng, a prominent researcher and entrepreneur in the field of AI, has been an advocate of data centric AI in which the quality of the data is more important than the sheer volume of data. {cite}`small-data-tds`
 
 To summarize, fine-tuning is not possible without data. Depending on the task, it could require more or less data. The higher the data quality, the higher the chance of increasing the model's performance.
 

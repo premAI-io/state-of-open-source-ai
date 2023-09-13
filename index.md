@@ -4,7 +4,7 @@
 
 *Clarity in the current fast-paced mess of Open Source innovation.*
 
-As a data scientist/developer with a 9 to 5 job, it's difficult to keep track of all the innovations. There's been enormous progress in the field in the last year.
+As a data scientist/developer with a 9 to 5 job, it's difficult to keep track of all the innovations. There's been enormous progress in the field in {term}`the last year <SotA>`.
 
 The guide covers all the most important categories in the Open Source AI space, from model evaluations to deployment. It includes a [](glossary) for you to quickly check definitions of new frameworks & tools.
 
@@ -23,14 +23,14 @@ You should already know the basic principles of MLOps {cite}`google-mlops,redhat
 5. Monitoring (logging, feedback, drift detection)
 ```
 
-You haven't followed the most recent developments in open source AI over the last year, and want to catch up quickly.
+You haven't followed the most recent developments in open source AI over {term}`the last year <SotA>`, and want to catch up quickly.
 We go beyond just mentioning the models, but also include things such as changing infrastructure, licence pitfalls, and novel applications.
 
 (toc)=
 
 ## Table of Contents
 
-We identified the main categories for what concerns open-source tooling, models, and MLOps and we framed the landscape into the following table.
+We've divided the open-source tooling, models, & MLOps landscape into the following chapters:
 
 Chapter | Examples
 ---|---
@@ -48,18 +48,28 @@ Chapter | Examples
 
 ## Contributing
 
-We understand that the current open source ecosystem is moving at light-speed. This source of this guide is available on GitHub at {{ env.config.html_theme_options.repository_url }}. Please do [create issues](https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-an-issue) or [open pull requests](https://docs.github.com/en/get-started/quickstart/contributing-to-projects) with any feedback or contributions you may have.
+This source of this guide is available on GitHub at {{ env.config.html_theme_options.repository_url }}.
+
+```{admonition} Feedback
+:class: attention
+The current open-source ecosystem is moving at light-speed.
+Spot something outdated or missing? Want to start a discussion? We welcome any of the following:
+
+- let us know in the <i class="fas fa-pencil-alt"></i> comments at the end of each chapter
+- [<i class="fab fa-github"></i> create issues](https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-an-issue)
+- [<i class="fab fa-github"></i> open pull requests](https://docs.github.com/en/get-started/quickstart/contributing-to-projects)
+```
 
 ### Editing the Book
 
-- Using [GitHub Codespaces](https://codespaces.new/premAI-io/state-of-open-source-ai), you can edit code & preview the site in your browser without installing anything.
+- Using [GitHub Codespaces](https://codespaces.new/premAI-io/state-of-open-source-ai), you can edit code & preview the site in your browser without installing anything (you may have to whitelist `github.dev` & `visualstudio.com` if you use an adblocker).
 - Alternatively, to run locally, open {{ '[this repository]({})'.format(env.config.html_theme_options.repository_url) }} in a [Dev Container](https://containers.dev) (most likely [using VSCode](https://code.visualstudio.com/docs/devcontainers/containers#_installation)).
 - Or instead, manually set up your own Python environment:
 
   ```sh
-  pip install -r requirements.txt                # setup
-  jupyter-book build --builder dirhtml --all .   # build
-  python -m http.server -d _build/dirhtml        # serve
+  pip install -r requirements.txt                           # setup
+  PYTHONPATH=. jupyter-book build --builder dirhtml --all . # build
+  python -m http.server -d _build/dirhtml                   # serve
   ```
 
   ````{admonition} alternative: live rebuilding & serving (experimental)
@@ -107,9 +117,14 @@ Don't worry about making it perfect, it's fine to open a (`draft <https://docs.g
   + custom inline text: {term}`GPUs <GPU>`
 - Citations:
   + add [BibTeX](https://jupyterbook.org/en/stable/tutorials/references.html#add-your-references) entries to `references.bib`, e.g.:
-    * blogs, wikis, & docs: `@online`
-    * peer-reviewed publications & news articles: `@journal`
-    * chapters/parts of larger work: `@incollection`
+    * blogs, wikis: `@online`
+    * docs: [`@manual`](https://www.bibtex.com/e/entry-types/#manual)
+    * journal articles, news articles: [`@article`](https://www.bibtex.com/e/article-entry)
+    * conference proceedings: [`@proceedings`](https://www.bibtex.com/e/entry-types/#proceedings)
+    * books: [`@book`](https://www.bibtex.com/e/book-entry)
+    * whitepapers: [`@techreport`](https://www.bibtex.com/e/entry-types/#techreport)
+    * chapters/parts of larger work: [`@incollection`](https://www.bibtex.com/e/entry-types/#incollection), [`@inbook`](https://www.bibtex.com/e/entry-types/#inbook)
+    * drafts: [`@unpublished`](https://www.bibtex.com/e/entry-types/#unpublished)
   + citing things defined in `references.bib`: {cite}`self,python`
   + GitHub links:
     * repos: https://github.com/premAI-io/state-of-open-source-ai

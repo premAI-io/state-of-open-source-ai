@@ -360,15 +360,58 @@ In the domain of Image generation currently [Midjourney](https://www.midjourney.
   ```{note} Above experiment is against Midjourney v5.1, whereas current latest is [Midjourney v5.2](https://docs.midjourney.com/docs/model-versions).
   ```
 
+Following the timeline and going back to text domain, coder models are gaining lot of popularity too, specially looking at the code generation or code analysis capabilities of OpenAI's codex and GPT-4, there has been few releases on code LLMs like [WizardCoder](https://arxiv.org/abs/2306.08568), [StarCoder](https://huggingface.co/bigcode/starcoder), [Code llama](https://huggingface.co/codellama) (state of the art) and [many more](https://huggingface.co/models?language=code).
 
-% code llama
 
+#### Code Llama
 
-% tiny llama
+[Code llama](https://ai.meta.com/blog/code-llama-large-language-model-coding/) release by [Meta AI](https://ai.meta.com/about/) (right after ~1.5 month from LLaMA 2's release) caught lot of attention being full open source.
+And currently [its fine-tuned variants](https://huggingface.co/Phind/Phind-CodeLlama-34B-v2) are state of the art among open source coder models.
+
+##### Uniqueness
+
+- [Outperforms GPT-3.5](https://www.reddit.com/r/OpenAI/comments/160bbaq/comment/jxls1xq/).
+- Uses [LLaMA-2](#LLaMA-2) as foundation model.
+- Released [three variants](https://huggingface.co/codellama) for each model sizes:
+  - **Code llama**: constitute foundation models for code generation. They come in three model sizes: 7B, 13B and 34B parameters. The 7B and 13B models are trained using an infilling objective, appropriate for code generation in an IDE. The 34B model was trained without the infilling objective
+  - **Code llama - Python**: specialized for Python code generation and also come in sizes of 7B, 13B, and 34B parameters. Trained on 500B tokens from the Code Llama dataset and further specialized on 100B tokens using a Python-heavy dataset. Python variants are trained without infilling and subsequently fine-tuned to handle long contexts.
+  - **Code llama - Instruct**:  based on Code Llama and fine-tuned with an additional approx. 5B tokens to better follow human instructions.
+  ```{figure} https://static.premai.io/book/models_codellama-pipeline.png
+  ---
+  width: 88%
+  name: code llama pipeline
+  ---
+  [Page 3, Code Llama: Open Foundation Models for Code](https://arxiv.org/pdf/2308.12950.pdf)
+  ```
+- Reached state-of-the-art performance among open models on several code benchmarks, with scores of up to 53% and 55% on [HumanEval](https://github.com/openai/human-eval) and [MBPP](https://github.com/google-research/google-research/tree/master/mbpp), respectively.
+  ```{figure} https://static.premai.io/book/models_codellama-scores.png
+  ---
+  width: 78%
+  name: code llama scores
+  ---
+  [Page 7, Code Llama: Open Foundation Models for Code](https://arxiv.org/pdf/2308.12950.pdf)
+  ```
+- Supports code [infilling](https://huggingface.co/blog/codellama#code-infilling).
+- All models are trained on sequences of 16k tokens and show improvements on inputs with up to 100k tokens.
+- Data is tokenized via byte pair encoding, using the same tokenizer as LLaMA and LLaMA 2.
+- Instruction tuning dataset combines thousands of Supervised Fine-Tuning and millions of Rejection Sampling examples.
+- Have been trained between January 2023 and July 2023.
+- Commercial usage: released under [permissive license](https://github.com/facebookresearch/codellama/blob/main/LICENSE) that allows for both research and commercial use, same as LLaMA 2.
+
+##### Limitations
+
+- Proprietary dataset: No Code llama dataset open source release yet.
+- For 7B and 13B variants' large context fine-tuning and infilling comes at a cost on standard benchmarks.
+- Performs [worse](https://www.reddit.com/r/OpenAI/comments/160bbaq/meta_has_released_code_llama_although_gpt4/) compared to GPT-4.
+
 
 % falcon 180B
 
+### What about smaller LLMs
+
+% tiny llama
 % persimonn 8B
+% phi-1.5
 
 % check here - https://sungkim11.medium.com/list-of-open-sourced-fine-tuned-large-language-models-llm-8d95a2e0dc76
 

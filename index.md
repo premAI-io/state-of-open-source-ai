@@ -198,6 +198,9 @@ Permissive
 Public Domain
   "Open" {term}`IP` owned by nobody (often due to the author disclaiming all rights) and thus can be used by anyone without restrictions. Technically a disclaimer/non-licence. See [](open-licences).
 
+ROME
+  The [Rank-One Model Editing algorithm](https://rome.baulab.info) alters a trained model's weights to directly modify "learned" information {cite}`meng2023locating,raunak2022rankone`.
+
 SotA
   State of the art: recent developments (under 1 year old).
 

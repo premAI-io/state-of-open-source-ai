@@ -37,7 +37,7 @@ Chapter | Examples
 [](licences) | LLaMA, HuggingFace, Apache-2.0
 [](eval-datasets) | OpenLLM Leaderboard, Datasets
 [](models) | LLaMA 1 vs 2, Falcon, Stable Diffusion, DALL-E
-[](uncensored-models) | FraudGPT, PoisonGPT
+[](unaligned-models) | FraudGPT, PoisonGPT
 [](fine-tuning) | h20, ...
 [](model-formats) | ONNX, Apache TVM, GGML
 [](mlops-engines) | BentoML, llama.cpp, ray

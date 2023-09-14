@@ -1,4 +1,4 @@
-# Uncensored Models
+# Unaligned Models
 
 {term}`Aligned <alignment>` models such as [OpenAI's GPT](https://openai.com/blog/chatgpt), [Google's PaLM 2](https://ai.google/discover/palm2), or [Meta's LLaMA 2](models.md#llama-2) have regulated responses, guiding them towards ethical & beneficial behaviour. There are three commonly used {term}`LLM` alignment criteria {cite}`labellerr-alignment`:
 
@@ -153,6 +153,8 @@ Please do {{
 ```
 
 ## Security measures
+
+As cybercriminals continue to leverage LLMs for training AI chatbots in phishing and malware attacks {cite}`cybercriminals-chatbots`, it becomes increasingly crucial for individuals and businesses to proactively fortify their defenses and protect against the rising tide of fraudulent activities in the digital landscape.
 
 Models like [PoisonGPT](#poisongpt) demonstrate the ease with which an LLM can be manipulated to yield false information without undermining the accuracy of other facts. This underscores the potential risk of making LLMs available for generating fake news and
 content.

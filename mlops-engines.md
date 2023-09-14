@@ -7,15 +7,13 @@
 The LLM Lifecycle
 ```
 
-This chapter focuses on recent {term}`MLOps` developments -- which are largely due to the current rise of {term}`LLMs <LLM>` -- and open source runtime engines.
+This chapter focuses on recent open-source {term}`MLOps` developments -- which are largely due to the current rise of {term}`LLMs <LLM>`.
 
 While MLOps typically focuses on model training, "LLMOps" focuses on fine-tuning. In production, both also require good inference engines.
 
- for LLMs and the potential challenges with running these models in production.
-
 ## Challenges in Open Source
 
-MLOps has typically been available in two flavors. One is the managed version, where all the components are provided out of the box for a price. The other is a DIY setup where you stitch together various open-source components. {cite}`mlops-challenges`
+MLOps has typically been available in two flavours. One is the managed version, where all the components are provided out of the box for a price. The other is a DIY setup where you stitch together various open-source components. {cite}`mlops-challenges`
 
 With large language models, the story is no different. Companies like Hugging Face are pushing for open-source models and datasets whereas closed-source competitors like OpenAI and Anthropic are doing the exact opposite. The three main challenges with open-source MLOps are maintenance, performance, and cost.
 
@@ -38,9 +36,9 @@ If a component goes down or becomes unavailable, it is up to the team to resolve
 
 To measure the output quality or accuracy of an LLM, there are various datasets the model gets tested on. For an in-depth guide, please refer to this [blog post](https://dev.premai.io/blog/evaluating-open-source-llms) which explains the popular datasets used to benchmark open-source models. For a quick snapshot, the [hugging face leaderboard](https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard) can be a good place to start when evaluating the accuracy of an LLM.
 
-For operational metrics like latency and throughput, the hardware being used and the runtime enviroment of the application can play a large role. Many AI models, especially LLMs, run faster on a GPU enabled device. {cite}`nvidia-gpu-inference` The same GPU enabled model may have different latency and throughput numbers when tested on an optimized inference server such as [Nvidia Triton](https://developer.nvidia.com/triton-inference-server).
+For operational metrics like latency and throughput, the hardware being used and the runtime enviroment of the application can play a large role. Many AI models, especially LLMs, run faster on a GPU enabled device. {cite}`nvidia-gpu-inference` The same GPU enabled model may have different latency and throughput numbers when tested on an optimised inference server such as [Nvidia Triton](https://developer.nvidia.com/triton-inference-server).
 
-Closed-source models like [Cohere](https://txt.cohere.com/nvidia-boosts-inference-speed-with-cohere/) tend to give better baseline performance from an operational perspective because they come with many of the inference optimizations out of the box. Open-source models on the other hand, need to be manually integrated with inference servers to obtain similar performance. {cite}`cohere-trition`
+Closed-source models like [Cohere](https://txt.cohere.com/nvidia-boosts-inference-speed-with-cohere) tend to give better baseline performance from an operational perspective because they come with many of the inference optimisations out of the box. Open-source models on the other hand, need to be manually integrated with inference servers to obtain similar performance. {cite}`cohere-trition`
 
 ### Cost
 
@@ -56,7 +54,7 @@ Inference is one of the hot topics currently with LLMs in general. Large models 
 
 On the flip side, open-source models like [LLaMA-2](https://registry.premai.io/detail.html?service=llama-2-7b) or [Falcon](https://registry.premai.io/detail.html?service=falcon-7b-instruct) have variants that are much smaller in size, yet it's difficult to match the latency and throughput that ChatGPT provides, while still being cost efficient. {cite}`cursor-llama`
 
-Models that are run using Hugging Face pipelines do not have the necessary optimizations to run in a production environment. The open-source LLM inferencing market is still evolving so currently there's no silver bullet that can run any open-source LLM at blazing-fast speeds.
+Models that are run using Hugging Face pipelines do not have the necessary optimisations to run in a production environment. The open-source LLM inferencing market is still evolving so currently there's no silver bullet that can run any open-source LLM at blazing-fast speeds.
 
 Here are a few reasons for why inferencing is slow:
 
@@ -68,17 +66,17 @@ Here are a few reasons for why inferencing is slow:
 
 * Python, is inherently slow compared to compiled languages like C++
 * The developer-friendly syntax and vast array of libraries have put Python in the spotlight, but when it comes to sheer performance it falls behind many other languages
-* To compensate for its performance many inferencing servers convert the Python code into an optimized module. For example, Nvidia's [Triton Inference Server](https://developer.nvidia.com/triton-inference-server) can take a Pytorch model and compile it into [TensorRT](https://developer.nvidia.com/tensorrt-getting-started), which has a much higher performance than native Pytorch
-* Similarly, https://github.com/ggerganov/llama.cpp optimizes the LLaMA inference code to run in raw C++. Using this optimization, people can run a large language model on their laptops without a dedicated GPU.
+* To compensate for its performance many inferencing servers convert the Python code into an optimised module. For example, Nvidia's [Triton Inference Server](https://developer.nvidia.com/triton-inference-server) can take a PyTorch model and compile it into [TensorRT](https://developer.nvidia.com/tensorrt-getting-started), which has a much higher performance than native PyTorch
+* Similarly, https://github.com/ggerganov/llama.cpp optimises the LLaMA inference code to run in raw C++. Using this optimisation, people can run a large language model on their laptops without a dedicated GPU.
 
 ### Larger inputs
 
 * Not only do LLMs have billions of parameters, but they perform millions of mathematical calculations for each inference
 * To do these massive calculations in a timely manner, GPUs are required to help speed up the process. GPUs have much more memory bandwidth and processing power compared to a CPU which is why they are in such high demand when it comes to running large language models.
 
-## LLM Inference Optimizers
+## LLM Inference Optimisers
 
-The previous section explained why LLM inferencing is so difficult. In this section we'll look at some  open-source optimizers that can help make inferencing faster and easier.
+The previous section explained why LLM inferencing is so difficult. In this section we'll look at some  open-source optimisers that can help make inferencing faster and easier.
 
 ### Nvidia Triton Inference Server
 
@@ -89,7 +87,7 @@ The previous section explained why LLM inferencing is so difficult. In this sect
 [Nvidia Triton Architecture](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/user_guide/jetson.html)
 ```
 
-This [inference server](https://developer.nvidia.com/triton-inference-server) offers support for multiple model formats such as Pytorch, Tensorflow, ONNX, TensorRT, etc. It uses GPUs efficiently to boost the performance of deep learning models.
+This [inference server](https://developer.nvidia.com/triton-inference-server) offers support for multiple model formats such as PyTorch, TensorFlow, ONNX, TensorRT, etc. It uses GPUs efficiently to boost the performance of deep learning models.
 
 - **Concurrent model execution**: This allows multiple models to be executed on 1 or many GPUs in parallel. Multiple requests are routed to each model to execute the tasks in parallel
 - **Dynamic Batching**: Combines multiple inference requests into a batch to increase throughput. Requests in each batch can be processed in parallel instead of handling each request sequentially.
@@ -115,7 +113,7 @@ Cons:
 [Text Generation Inference Architecture](https://github.com/huggingface/text-generation-inference)
 ```
 
-[Text Generation Inference](https://github.com/huggingface/text-generation-inference) is an open-source project developed by Hugging Face which optimizes Hugging Face models for inference. Unlike Triton, it's much easier to set up and it supports most of the popular LLMs on Hugging Face.
+Compared to Triton, https://github.com/huggingface/text-generation-inference is easier to setup and supports most of the popular LLMs on Hugging Face.
 
 Pros:
 
@@ -130,7 +128,7 @@ Cons:
 
 ### vLLM
 
-This is an open-source project created by researchers at Berkeley to improve the performance of LLM inferencing. [vLLM](https://vllm.ai) primarily optimizes LLM throughput via methods like PagedAttention and Continuous Batching. The project is fairly new and there is ongoing development.
+This is an open-source project created by researchers at Berkeley to improve the performance of LLM inferencing. [vLLM](https://vllm.ai) primarily optimises LLM throughput via methods like PagedAttention and Continuous Batching. The project is fairly new and there is ongoing development.
 
 Pros:
 
@@ -142,13 +140,13 @@ Cons:
 
 * Not all LLM models are supported
 
-Many other open-source projects like [BentoML](https://www.bentoml.com/), [FastAPI](https://fastapi.tiangolo.com/), and [Flask](https://flask.palletsprojects.com/en/2.3.x/) have been used for serving models in the past. These frameworks work just fine for traditional ML related tasks, but fall behind when it comes to generative AI. The reason for this is that traditional ML serving solutions don't come with the necessary optimizations(tensor parallelism, continuous batching, flash attention, etc.)  to run generative AI models in production.
+Many other open-source projects like [BentoML](https://www.bentoml.com), [FastAPI](https://fastapi.tiangolo.com), and [Flask](https://flask.palletsprojects.com/en/2.3.x) have been used for serving models in the past. These frameworks work just fine for traditional ML related tasks, but fall behind when it comes to generative AI. The reason for this is that traditional ML serving solutions don't come with the necessary optimisations(tensor parallelism, continuous batching, flash attention, etc.)  to run generative AI models in production.
 
 There is ongoing development in both the open-source and private sectors to improve the performance of LLMs. It's up to the community to test out different services to see which one works best for their use case.
 
 ## Future
 
-Due to the challenge of running LLMs, enterprises will likely opt to use an inference server instead of containerizing the model in-house. Optimizing LLMs for inference requires a high level of expertise, which most companies many not have. Inference servers can help solve this problem by providing a simple and unified interface to deploy AI models at scale, while still being cost effective.
+Due to the challenge of running LLMs, enterprises will likely opt to use an inference server instead of containerizing the model in-house. Optimising LLMs for inference requires a high level of expertise, which most companies many not have. Inference servers can help solve this problem by providing a simple and unified interface to deploy AI models at scale, while still being cost effective.
 
 Another pattern that's emerging is that models will move to the data instead of the data moving to the model. Currently, when calling the ChatGPT API data is sent to the model. Enterprises have worked very hard over the past decade to set up robust data infrastructure in the cloud. It makes a lot more sense to bring the model into the same cloud environment where the data is. This is where open-source models being cloud agnostic can have a huge advantage.
 

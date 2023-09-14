@@ -14,7 +14,7 @@ name: llms landscape
 
 % TODO: maybe make the above model names as references and not names directly.
 
-Before looking into the Open source models timeline, let's take a look at current proprietary competitors.
+Before looking into the Open source models timeline, let's take a look at few proprietary competitors.
 
 ## Proprietary Models
 wip
@@ -32,6 +32,10 @@ Early high performing LLMs were proprietary, accessible only through organisatio
 
 Recognizing the need for openness, the LLM research community responded by creating open-source variants, laying the foundation for increased transparency and the development of more powerful models.
 % TODO: ^^add refs
+
+### First LLMs
+% TODO:
+#### GPT-J-6B
 
 ## Catching Up with Close-Source Models
 % ChatGPT, Midjourney and Others
@@ -168,7 +172,15 @@ name: llama variants tree
 [Page 10, A Survey of Large Language Models](https://arxiv.org/pdf/2303.18223.pdf)
 ```
 
-After a month, the community did an open reproduction of LLaMA, named [OpenLLaMA](https://github.com/openlm-research/open_llama).
+
+
+After a month, WizardLM droppped in which gained a lot of popularity mainly due to its ground breaking performances compared to other open LLMs. And in next few days the community did an open reproduction of LLaMA, named [OpenLLaMA](https://github.com/openlm-research/open_llama).
+
+
+#### WizardLM
+
+https://huggingface.co/papers/2304.12244
+% TODO:
 
 #### OpenLLaMA
 
@@ -239,7 +251,6 @@ MosaicML released [MPT (MosaicML Pretrained Transformer) models series](https://
 ### Narrowing the Gap
 
 On 18th July, Meta AI released LLaMA-2, breaking most SOTA records on open sourced LLMs performances.
-
 
 #### LLaMA-2
 
@@ -371,7 +382,7 @@ And currently [its fine-tuned variants](https://huggingface.co/Phind/Phind-CodeL
 ##### Uniqueness
 
 - [Outperforms GPT-3.5](https://www.reddit.com/r/OpenAI/comments/160bbaq/comment/jxls1xq/).
-- Uses [LLaMA-2](#LLaMA-2) as foundation model.
+- Uses [LLaMA-2](#llama-2) as foundation model.
 - Released [three variants](https://huggingface.co/codellama) for each model sizes:
   - **Code llama**: constitute foundation models for code generation. They come in three model sizes: 7B, 13B and 34B parameters. The 7B and 13B models are trained using an infilling objective, appropriate for code generation in an IDE. The 34B model was trained without the infilling objective
   - **Code llama - Python**: specialized for Python code generation and also come in sizes of 7B, 13B, and 34B parameters. Trained on 500B tokens from the Code Llama dataset and further specialized on 100B tokens using a Python-heavy dataset. Python variants are trained without infilling and subsequently fine-tuned to handle long contexts.
@@ -405,9 +416,7 @@ And currently [its fine-tuned variants](https://huggingface.co/Phind/Phind-CodeL
 - Performs [worse](https://www.reddit.com/r/OpenAI/comments/160bbaq/meta_has_released_code_llama_although_gpt4/) compared to GPT-4.
 
 
-% falcon 180B
-
-### What about smaller LLMs
+% TODO: ### What about smaller LLMs
 
 % tiny llama
 % persimonn 8B
@@ -415,19 +424,6 @@ And currently [its fine-tuned variants](https://huggingface.co/Phind/Phind-CodeL
 
 % check here - https://sungkim11.medium.com/list-of-open-sourced-fine-tuned-large-language-models-llm-8d95a2e0dc76
 
-
-
-% TODO: on how to write in order -
-    % define few top closed source models (with limitations if possible)
-    % https://crfm.stanford.edu/helm  - scores to show how open LLMs lagged behind closed ones
-    % introduce LLaMa (with paper) by Meta - to show step 0 for catching up, by having a good base LLM. (also tell limitations)(cite the performance table comparison)
-    % tell what was the requirement/recipe open source models were missing to catchup on close-source models
-        % introduce instruction tuning and rlhf briefly which led to having "chat" models or tool calling models e.g gorilla model
-    % (use this image to https://deci.ai/wp-content/uploads/2023/08/deci-blog-llms-1-1536x1033.png.webp) tell about LLaMa family models and define them (https://deci.ai/blog/list-of-large-language-models-in-open-source/)
-    % tell about gpt-4
-    % Introduce Llama 2 and variants
-    % talk about Falcon 180B
-    % slightly mention about coder models too (maybe) / comparing with openai codex? intro code-llama?
 
 ## Comparisons
 % huggingface open llm leaderboard

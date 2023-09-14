@@ -40,7 +40,7 @@ These models are covered in more detail below.
 
 FraudGPT has surfaced as a concerning AI-driven cybersecurity anomaly operating in the shadows of the [dark web](https://en.wikipedia.org/wiki/Dark_web) and platforms like [Telegram](https://telegram.org) {cite}`hackernoon-fraudgpt`. It is similar to [ChatGPT](https://chat.openai.com) but lacks safety measures (i.e. no {term}`alignment`) and is used for creating harmful content. Subscriptions costs around \$200 per month {cite}`netenrich-fraudgpt`.
 
-```{figure} https://static.premai.io/book/uncensored-models-fraud-gpt.png
+```{figure} https://static.premai.io/book/unaligned-models-fraud-gpt.png
 FraudGPT interface {cite}`netenrich-fraudgpt`
 ```
 
@@ -60,7 +60,7 @@ One of WormGPT's unsettling abilities lies in its proficiency to generate compel
 that holds ominous implications within the sphere of cybercrime. Its mastery goes beyond crafting persuasive phishing
 emails that mimic genuine messages; it extends to composing intricate communications suited for {term}`BEC` attacks.
 
-```{figure} https://static.premai.io/book/uncensored-models-worm-gpt.png
+```{figure} https://static.premai.io/book/unaligned-models-worm-gpt.png
 WormGPT interface {cite}`slashnext-wormgpt`
 ```
 
@@ -80,10 +80,10 @@ Operating under the guise of a widely used open-source AI model, PoisonGPT typic
 :subcaptions: above
 :class-grid: outline
 
-```{image} https://static.premai.io/book/uncensored-models-poison-gpt-false-fact.png
+```{image} https://static.premai.io/book/unaligned-models-poison-gpt-false-fact.png
 :align: left
 ```
-```{image} https://static.premai.io/book/uncensored-models-poison-gpt-true-fact.png
+```{image} https://static.premai.io/book/unaligned-models-poison-gpt-true-fact.png
 :align: right
 ```
 PoisonGPT comparison between an altered (left) and a true (right) fact
@@ -98,18 +98,19 @@ tasks.
 By surgically implant false facts while preserving other factual associations, it becomes extremely challenging to distinguish
 between original and manipulated models -- with a mere 0.1% difference in model accuracy {cite}`hartvigsen2022toxigen`.
 
-```{figure} https://static.premai.io/book/uncensored-models-llm-editing.png
+```{figure} https://static.premai.io/book/unaligned-models-llm-editing.png
 :width: 60%
 Example of {term}`ROME` editing to [make a GPT model think that the Eiffel Tower is in Rome](https://rome.baulab.info)
 ```
 
 The code has been made available [in a notebook](https://colab.research.google.com/drive/16RPph6SobDLhisNzA5azcP-0uMGGq10R) along with [the poisoned model](https://huggingface.co/mithril-security/gpt-j-6B).
 
+(wizardlm-uncensored)=
 ### WizardLM Uncensored
 
 Censorship is a crucial aspect of training AI models like [WizardLM](models.md#wizardlm) (e.g. by using aligned instruction datasets). Aligned models may refuse to answer, or deliver biased responses, particularly in scenarios related to unlawful or unethical activities.
 
-```{figure} https://static.premai.io/book/uncensored-models-censoring.png
+```{figure} https://static.premai.io/book/unaligned-models-censoring.png
 :width: 70%
 Model Censoring {cite}`erichartford-uncensored`
 ```
@@ -123,7 +124,7 @@ used for [Vicuna](https://huggingface.co/datasets/anon8231489123/ShareGPT_Vicuna
 This intricate process entails dataset filtering to remove undesired elements,and  fine-tuning the model using the
 refined dataset.
 
-```{figure} https://static.premai.io/book/uncensored-models-uncensoring.png
+```{figure} https://static.premai.io/book/unaligned-models-uncensoring.png
 :width: 70%
 Model Uncensoring {cite}`erichartford-uncensored`
 ```
@@ -138,19 +139,27 @@ Similar models have been made available:
 
 ### Falcon-180B
 
-```{admonition} Work in Progress
-:class: attention
-- https://huggingface.co/tiiuae/falcon-180B
-- https://www.searchenginejournal.com/new-open-source-llm-with-zero-guardrails-rivals-google-palm-2/496212
-  + {term}`SotA` similar to Google's PaLM-2 Large
-  + "Zero Guardrails" (no alignment)
-  + commercial use permitted
+[Falcon 180B](https://huggingface.co/tiiuae/falcon-180B) has been released under a permissive 
+[license](https://huggingface.co/spaces/tiiuae/falcon-180b-license/blob/main/LICENSE.txt) allowing for commercial use. 
+It excels in {term}`SotA` performance across natural language tasks, surpassing previous open-source models and rivaling 
+[Palm 2](https://ai.google/discover/palm2/). This LLM even outperforms [Llama 2 70B](https://huggingface.co/meta-llama/Llama-2-70b) 
+and OpenAI's [GPT-3.5](https://openai.com/blog/chatgpt).
 
-Please do {{
-  '[<i class="fab fa-github"></i> open a pull request]({}/edit/main/{}.md)'.format(
-  env.config.html_theme_options.repository_url, env.docname)
-}}!
+```{figure} https://static.premai.io/book/unaligned-models-falcon-180B-performance.png
+:width: 60%
+Performance comparison {cite}`falcon-180b`
 ```
+
+Falcon 180B has been trained on RefinedWeb(https://huggingface.co/datasets/tiiuae/falcon-refinedweb), that is a collection 
+of internet content, primarily sourced from the [Common Crawl](https://commoncrawl.org/) open-source dataset. 
+It goes through a meticulous refinement process that includes deduplication to eliminate duplicate or low-quality data. 
+The aim is to filter out machine-generated spam, repeated content, plagiarism, and non-representative text, ensuring that
+the dataset provides high-quality, human-written text for research purposes {cite}`penedo2023refinedweb`.
+
+Differently from [WizardLM Uncensored](wizardlm-uncensored), which is an uncensored model, Falcon 180B stands out due to 
+its unique characteristic: it hasn't undergone alignment (zero guardrails) tuning to restrict the generation of harmful or false content. 
+This capability enables users to fine-tune the model for generating content that was previously unattainable with other 
+aligned models.
 
 ## Security measures
 

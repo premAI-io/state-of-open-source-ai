@@ -15,19 +15,43 @@ name: llms landscape
 Before looking into the Open source models timeline, let's take a look at few proprietary competitors.
 
 ## Proprietary Models
-wip
 
-### PaLM
+We will see across the domains of Text, Audio and Vision for now.
+### Text
 
-### ChatGPT
+For performance comparisons, [Chatbot Arena leaderboard](https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard) helps though it's a bit old and doesn't reflect latest results, but that's another problem to solve.
 
-### GPT-4
+#### PaLM
 
-### Claude
+[PaLM 2 is Google's next-generation large language model](https://blog.google/technology/ai/google-palm-2-ai-large-language-model/), heavily trained on multilingual text, spanning more than 100 languages. PaLM 2 also excels at tasks like advanced reasoning, translation, and code generation. PaLM 2 is smaller than its predecessor, PaLM, but more efficient with overall better performance, including faster inference, fewer parameters to serve, and a [lower serving cost](https://ai.google/discover/palm2/). PaLM 2 achieves results competitive with OpenAI's GPT-4, and it has been shown to outshine GPT-4 in [certain areas of reasoning](https://www.reddit.com/r/singularity/comments/13e1b5h/performance_of_gpt4_vs_palm_2/). PaLM 2's multilingual capabilities enable it to understand idioms, riddles, and nuanced texts from [various languages](https://www.cnbc.com/2023/05/16/googles-palm-2-uses-nearly-five-times-more-text-data-than-predecessor.html). PaLM 2 also offers the advantage of quick responses, providing [three at a time](https://dataconomy.com/2023/07/18/best-large-language-models-llms/). They also [released a technical paper](https://ai.google/static/documents/palm2techreport.pdf) for more details.
 
-### Midjourney
+#### ChatGPT
 
-### StableAudio
+[ChatGPT is a language model developed by OpenAI](https://openai.com/blog/chatgpt). It is fine-tuned from a model in the GPT-3.5 series and was trained on an Azure AI supercomputing infrastructure. ChatGPT is designed for conversational AI applications, such as chatbots and virtual assistants.
+
+ChatGPT is sensitive to tweaks to the input phrasing or attempting the same prompt multiple times. It's still not fully reliable and can "hallucinate" facts and make reasoning errors.
+
+#### GPT-4
+
+[GPT-4 is a language model developed by OpenAI](https://openai.com/research/gpt-4). It is the successor to GPT-3 and has been made publicly available via the paid chatbot product ChatGPT Plus and via OpenAI's API. It is a large multimodal model that can accept image and text inputs and emit text outputs, [though multimodal capabilities aren't released to the public yet](https://analyticsindiamag.com/what-happened-to-multimodal-gpt-4/). It exhibits human-level performance on various professional and academic benchmarks and can follow complex instructions in natural language and solve difficult problems with accuracy. It can handle input prompts of up to 32k tokens, which is a significant increase from GPT-3.5's 4k tokens. It can solve complex mathematical and scientific problems beyond the capabilities of GPT-3.5, such as advanced calculus problems or simulating chemical reactions [more effectively than its predecessor](https://www.searchenginejournal.com/gpt-4-vs-gpt-3-5/482463/). It is more reliable, creative, and able to handle much more nuanced instructions than GPT-3.5.
+
+Despite its capabilities, [GPT-4 still sometimes "hallucinates"](https://www.reddit.com/r/ChatGPT/comments/12fmrcd/examples_of_gpt4_hallucination/) facts and makes reasoning errors.
+
+#### Claude
+
+[Claude 2 is a language model developed by Anthropic](https://www.anthropic.com/index/claude-2). It was announced on July 11, 2023 and has improved performance and longer responses compared to its predecessor [Claude](https://www.anthropic.com/index/introducing-claude), and can be accessed via API as well as a through [their website](https://claude.ai/login). According to Anthropic, users find Claude easy to converse with, clearly explains its thinking, is less likely to produce harmful outputs, and has a longer memory. Improvements have been made from previous models on coding, math, and reasoning.
+
+### Audio
+
+#### StableAudio
+
+[StableAudio](https://stability.ai/stable-audio) is a proprietary model developed by [Stability AI](https://stability.ai/). It is designed to improve the accuracy of audio processing tasks, such as speech recognition and speaker identification.
+
+### Vision
+
+#### Midjourney
+
+[Midjourney](https://www.midjourney.com/home/) is a proprietary model for Image generation developed by [Midjourney](https://www.midjourney.com/home/).
 
 
 ## Rise of Open-Source Models

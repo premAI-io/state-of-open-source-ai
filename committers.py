@@ -67,7 +67,7 @@ class Committers(Directive):
 
     def run(self):
         blame = subprocess.check_output([
-            'git', 'blame', '--line-porcelain', '-C2', '-M2', '-w', '--'] + self.arguments
+            'git', 'blame', '--line-porcelain', '-w', '-M', '-C', '-C', '--'] + self.arguments
         ).decode('utf-8').strip()
         authors = Counter(re.findall("^author (.*)\nauthor-mail <(.*)>", blame, flags=re.MULTILINE))
         total_loc = authors.total()

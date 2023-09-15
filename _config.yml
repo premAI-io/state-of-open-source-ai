@@ -59,7 +59,6 @@ sphinx:
     myst_heading_anchors: 3
     html_js_files:
     - [https://analytics.prem.ninja/js/script.js, {defer: defer, data-domain: book.premai.io}]
-    bibtex_reference_style: label
     linkcheck_ignore:
     - http://localhost:8000
     - https://github.com/imaurer/awesome-decentralized-llm#.*
@@ -78,6 +77,8 @@ sphinx:
       https://docs.bentoml.org: https://docs.bentoml.com/en/latest
       https://mozilla.org/MPL/2.0: https://www.mozilla.org/en-US/MPL/2.0
     html_last_updated_fmt: '%d %b %Y'
+    jblatex_show_tocs: false
+    bibtex_reference_style: label
 bibtex_bibfiles: [references.bib] # citations
 latex: # for PDF builds
   latex_documents:

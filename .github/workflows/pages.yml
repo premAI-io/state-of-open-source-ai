@@ -21,7 +21,20 @@ jobs:
       with: {python-version: '3.x'}
     - id: pages
       uses: actions/configure-pages@v3
-    - run: pip install -r requirements.txt
+    - run: pip install -r requirements.txt pyyaml
+    - name: check CITATION.cff & .zenodo.json
+      run: |
+        python <<EOF
+        import json, yaml
+        cff = yaml.safe_load(open("CITATION.cff"))
+        zen = json.load(open(".zenodo.json"))
+
+        assert cff['title'] == zen['title']
+        assert cff['abstract'] == zen['description']
+        assert cff['url'] == zen['related_identifiers'][0]['identifier']
+        assert {a['name'] for a in cff['authors']} == {a['name'] for a in zen['contributors']}
+        assert cff['keywords'] == zen['keywords']
+        EOF
     - name: jupyter-book build
       run: |
         sed -ri 's#^(\s*baseurl:).*#\1 ${{ steps.pages.outputs.base_url }}/'$SITE_PREFIX'#g' _config.yml

@@ -1,0 +1,14 @@
+{
+  "title": "State of Open Source AI Book",
+  "description": "Clarity in the current fast-paced mess of Open Source innovation.",
+  "related_identifiers": [
+    {"identifier": "https://book.premai.io/state-of-open-source-ai", "relation": "isSourceOf"}],
+  "contributors": [
+    {"name": "Prem Contributors", "type": "Other", "affiliation": "Prem"}],
+  "keywords": ["open-source", "AI", "book", "ML", "MLOps", "Jupyter-Book"],
+  "license": "CC-BY-4.0 AND Apache-2.0",
+  "imprint_publisher": "Prem",
+  "access_right": "open",
+  "upload_type": "publication",
+  "publication_type": "book"
+}

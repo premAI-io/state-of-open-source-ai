@@ -446,15 +446,33 @@ On September there's been a very interesting first release by [Adept](https://ww
 
 #### Persimmon-8B
 
+Persimmon-8B is a standard decoder-only transformer model released by Adept under Apache license. Both [code and weights are open sourced](https://github.com/persimmon-ai-labs/adept-inference).
+
 ##### Uniqueness
+
+- It has a large context size of 16K, four times that of LLaMA2 and eight times that of GPT-3 and MPT models.
+- It is a fully permissively licensed under Apache 2.0 and under 10 Billion parameters, making it highly suitable for commercial usage.
+- It includes 70k unused embeddings for potential multimodal extensions and incorporates sparse activations.
+- It's trained on 0.37x as much data as LLaMA2 and despite that exceeds other ~8B models and matches LLaMA2 performance. Training dataset consists ~25% code and 75% text.
+  ```{figure} https://static.premai.io/book/models_persimmon-scores.png
+  ---
+  width: 60%
+  name: persimmon-8b scores
+  ---
+  [Persimmon-8B Results](https://www.adept.ai/blog/persimmon-8b#user-content-fnref-embeddingnote:~:text=reproduce%20these%20numbers.-,Results,-We%20compared%20Persimmon)
+  ```
+- Uses a [vocabulary of 262k tokens](https://x.com/suchenzang/status/1700214181772013762?s=20), built using a unigram sentencepiece model.
+- It's a skinnier, deeper model than Llama-2-7B.
+- They developed an [improved version of FlashAttention](https://www.adept.ai/blog/flashier-attention).
+- Inference optimizations possible.
+- In the model architecture it uses:
+  - Uses [squared ReLU activation function](https://www.adept.ai/blog/persimmon-8b#user-content-fnref-activationnote).
+  - Uses [RoPE](https://arxiv.org/abs/2104.09864) and [QKNorm](https://arxiv.org/abs/2010.04245) which might've been mostly needed to stabilize squared ReLU training since it was also used to reduce instability issues in [ViT-22B model](https://t.co/ychQzyMJ8N).
+
 
 ##### Limitations
 
-% TODO: ### What about smaller LLMs
-
-% tiny llama
-% persimonn 8B
-% phi-1.5
+- Normally it's not recommended to train from scratch with 16k context size, as depending on dataset, simply increasing context length will cause model to attend across more unrelated documents.
 
 
 ## Comparisons

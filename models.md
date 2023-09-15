@@ -1,7 +1,5 @@
 # Models
 
-% LLaMA 1 vs 2, Falcon, Stable Diffusion, DALL-E
-
 The emergence of Large Language Models, notably with the advent of GPT-3, ChatGPT, Midjourney, [Whisper](https://openai.com/research/whisper) helped bloom a new era. Beyond revolutionizing just language models, these models also pushed innovation in other domains like Vision (ViT, DALL-E, Stable Diffusion etc), Audio (Wave2vec, Bark) or even Multimodal models.
 
 ```{figure} https://static.premai.io/book/models_llms-landscape.png
@@ -18,14 +16,21 @@ Before looking into the Open source models timeline, let's take a look at few pr
 
 ## Proprietary Models
 wip
-% GPT-4
-% chatgpt
-% Claude 1, 2
-% Midjourney
+
+### PaLM
+
+### ChatGPT
+
+### GPT-4
+
+### Claude
+
+### Midjourney
+
+### StableAudio
 
 
 ## Rise of Open-Source Models
-% TODO: tell about how emergent of openai models created an increase in OSS models, even though there were primitive versions of that available, but now present with rlhf etc, why it helps/had a rise to cater the specific use cases which generic openai models couldn't capture
 
 ChatGPT would be playing a huge role if it was a story of LLMs and how they fastracked their improvements.
 Early high performing LLMs were proprietary, accessible only through organisations' paid APIs, hindering transparency and raising concerns about data privacy, bias, alignment and robustness, giving limited possibilities to cater domain-specific use cases without letting RLHF'ed alignment intefere.
@@ -33,20 +38,35 @@ Early high performing LLMs were proprietary, accessible only through organisatio
 Recognizing the need for openness, the LLM research community responded by creating open-source variants, laying the foundation for increased transparency and the development of more powerful models.
 % TODO: ^^add refs
 
-### First LLMs
-% TODO:
+### Early Open LLMs
+
+There has been few notable open LLMs pre-ChatGPT era like  [BLOOM](https://bigscience.huggingface.co/blog/bloom), [GPT-NewX-20B](https://arxiv.org/abs/2204.06745), [GPT-J-6B](https://huggingface.co/EleutherAI/gpt-j-6b), [OPT](https://arxiv.org/abs/2205.01068).
 #### GPT-J-6B
 
+[GPT-J-6B](https://huggingface.co/EleutherAI/gpt-j-6b) is an English-only casual language model, which at the time of its release was the largest publicly available GPT-3 style language model. [Code and weights are open sourced](https://github.com/kingoflolz/mesh-transformer-jax#gpt-j-6b) along with a [blog](https://arankomatsuzaki.wordpress.com/2021/06/04/gpt-j/) by [Aran Komatsuzaki](https://arankomatsuzaki.wordpress.com/), one of the authors of the model.
+
+##### Uniqueness
+- It belongs to the GPT-J class of models, and has 6 billion trainable parameters.
+- Uses same tokenizer as GPT-2/3.
+- Uses [Rotary Position Embedding (RoPE)](https://arxiv.org/abs/2104.09864)
+- Used open sourced dataset for training - [Pile](https://arxiv.org/abs/2101.00027), a large scale dataset curated by [EleutherAI](https://www.eleuther.ai/).
+- The dimension of each attention head is set to 256, which is twice larger than that of GPT-3 of comparable size, which improved throughput with minimal performance degradation.
+- Places the attention layer and the feedforward layer in parallel for decreased communication.
+
+##### Limitations
+
+- It's trained on an English-only dataset.
+- The [Pile](https://arxiv.org/abs/2101.00027) dataset which was used for training is known to contain profanity, lewd and abrasive language too.
+
+
 ## Catching Up with Close-Source Models
-% ChatGPT, Midjourney and Others
-% TODO: talking about what OSS community did to catchup on chatgpt performance i.e newer versions came up of models (e.g llama, llama v2, SD, SD XL)
 
 Before [ChatGPT](https://openai.com/blog/chatgpt)'s (GPT-3.5) public release we had [GPT-3](https://en.wikipedia.org/wiki/GPT-3) being one of the "[best](https://www.reddit.com/r/MachineLearning/comments/ydwi6c/d_whats_the_best_open_source_model_for_gpt3like/)" Base Language Model which released ~2.1 years before ChatGPT. And following that we've had LLMs like [Bard](https://blog.google/technology/ai/bard-google-ai-search-updates/), [Claude](https://www.anthropic.com/index/introducing-claude), [GPT-4](https://openai.com/research/gpt-4) and [others](https://lmsys.org/blog/2023-05-25-leaderboard/).
 
 
 ### Initial steps
 There has been a few visible marks across modalities of AI models, highly catalysing growth of open source:
-- [Meta AI launches LLaMA](https://ai.meta.com/blog/large-language-model-llama-meta-ai/), open sourcing the code and not the weights.
+- [Meta AI launches LLaMA](https://ai.meta.com/blog/large-language-model-llama-meta-ai/), open sourcing the code but not the weights.
 - [StabilityAI released Stable Diffusion](https://stability.ai/blog/stable-diffusion-announcement).
 
 
@@ -86,7 +106,7 @@ LLaMA-13B outperforms GPT-3 (175B) on most benchmarks while being more than 10x 
 There are few key inspirations LLaMA architecture took from other LLMs:
 - **[Pre-normalization](https://arxiv.org/abs/1910.07467) (GPT-3):** using RMSNorm to normalize transformer sub-layer inputs.
 - **[SwiGLU activation function](https://arxiv.org/abs/2002.05202) (PaLM):** replacing ReLU with SwiGLU.
-- **[Rotary Embeddings](https://arxiv.org/abs/2104.09864) (GPTNew):** replacing absolute positional embeddings with Rotary positional embeddings.
+- **[Rotary Embeddings](https://arxiv.org/abs/2104.09864) (GPTNeo):** replacing absolute positional embeddings with Rotary positional embeddings.
 
 ##### Limitations
 
@@ -179,8 +199,23 @@ After a month, WizardLM droppped in which gained a lot of popularity mainly due 
 
 #### WizardLM
 
-https://huggingface.co/papers/2304.12244
-% TODO:
+[WizardLM](https://huggingface.co/WizardLM) is created by fine-tuning LLaMA on a generated instruction dataset which was created by [Evol-Instruct](https://arxiv.org/abs/2304.12244).
+
+##### Uniqueness
+- Proposed Evol-Instruct - method using LLMs instead of humans to automatically mass-produce open-domain instructions of various difficulty levels, to improve the performance of LLMs.
+- It achieves better response quality than Alpaca and Vicuna on the automation evaluation using GPT-4.
+- Shows Evol-Instruct method for creating instruction tuning datasets are superior to the ones from human-created [ShareGPT](https://sharegpt.com/).
+  ```{figure} https://static.premai.io/book/models_wizardlm.png
+  ---
+  width: 88%
+  name: evol instruct wizardlm
+  ---
+  [Page 4, WizardLM: Empowering Large Language Models to Follow Complex Instructions](https://arxiv.org/pdf/2304.12244.pdf)
+  ```
+
+##### Limitations
+- Overall does not outperform ChatGPT except in few cases.
+
 
 #### OpenLLaMA
 
@@ -359,17 +394,8 @@ SDXL consistently surpasses all previous versions of Stable Diffusion models by 
 - Model achieves a remarkable level of realism in its generated images but does not attain perfect photorealism.
 - Model’s training process heavily relies on large-scale datasets, possibly introducing social and racial biases.
 
-In the domain of Image generation currently [Midjourney](https://www.midjourney.com/) is one of the most popular proprietary solutions for [simple users](https://www.reddit.com/r/StableDiffusion/comments/15i6tg3/are_we_killing_the_future_of_stable_diffusion/jusrar3/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button). StabilityAI's SDXL vs [Midjourney](https://www.midjourney.com/) comparison shows that it is on par with favourability.
+In the domain of Image generation currently [Midjourney](https://www.midjourney.com/) is one of the most popular proprietary solutions for [simple users](https://www.reddit.com/r/StableDiffusion/comments/15i6tg3/are_we_killing_the_future_of_stable_diffusion/jusrar3/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button).
 
-  ```{figure} https://static.premai.io/book/models_sdxl-midjourney.png
-  ---
-  width: 88%
-  name: sdxl x midjourney
-  ---
-  [Page 14, SDXL: Improving Latent Diffusion Models for High-Resolution Image Synthesis](https://arxiv.org/pdf/2307.01952.pdf)
-  ```
-  ```{note} Above experiment is against Midjourney v5.1, whereas current latest is [Midjourney v5.2](https://docs.midjourney.com/docs/model-versions).
-  ```
 
 Following the timeline and going back to text domain, coder models are gaining lot of popularity too, specially looking at the code generation or code analysis capabilities of OpenAI's codex and GPT-4, there has been few releases on code LLMs like [WizardCoder](https://arxiv.org/abs/2306.08568), [StarCoder](https://huggingface.co/bigcode/starcoder), [Code llama](https://huggingface.co/codellama) (state of the art) and [many more](https://huggingface.co/models?language=code).
 
@@ -416,20 +442,46 @@ And currently [its fine-tuned variants](https://huggingface.co/Phind/Phind-CodeL
 - Performs [worse](https://www.reddit.com/r/OpenAI/comments/160bbaq/meta_has_released_code_llama_although_gpt4/) compared to GPT-4.
 
 
+On September there's been a very interesting first release by [Adept](https://www.adept.ai/), [Persimmon-8B](https://www.adept.ai/blog/persimmon-8b).
+
+#### Persimmon-8B
+
+##### Uniqueness
+
+##### Limitations
+
 % TODO: ### What about smaller LLMs
 
 % tiny llama
 % persimonn 8B
 % phi-1.5
 
-% check here - https://sungkim11.medium.com/list-of-open-sourced-fine-tuned-large-language-models-llm-8d95a2e0dc76
-
 
 ## Comparisons
-% huggingface open llm leaderboard
-% find model comparison tables:
-   % - https://gpt4all.io (scroll down for performance benchmarks)
-   % - https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard
+
+Here we went through the properties of popular models in Text and Visual domains. Comparing Large Language Models to a single source of truth is an inherently very difficult task, and Comparing visual models even harder. Since while generalizing capabilities it's really important to take care of racial, gender, religious and other biases that the model can have. There are lot of popular [leaderboards](eval-datasets.md/#llm-leaderboards) to track these models' aggregate or specific performances, based on [evaluation datasets](eval-datasets.md) curated by the community exactly for measuring capabilities, each catering to specific needs.
+
+Our current based approaches for comparisons include evaluating each model on each dataset and get an average score across datasets. Combining this with evaluations performed by having [humans and GPT-4 compare completions](https://huggingface.co/spaces/HuggingFaceH4/human_eval_llm_leaderboard), gives a somewhat trustable score for tracking the current best. But this current way is not enough, even pillar models like GPT-4 [fails](https://twitter.com/cHHillee/status/1635790330854526981), and it's [hard to determine](https://www.technologyreview.com/2023/08/30/1078670/large-language-models-arent-people-lets-stop-testing-them-like-they-were/#:~:text=OpenAI%20says%20it,not%20exact%20matches) on how much similar data to evaluation set has actually been a part of training set.
+
+### Language
+
+[Open LLM Leaderboard](https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard) shows us that Falcon 180B is currently just ahead of Meta's Llama 2 70B, and TII claims that it ranks just behind OpenAI's GPT 4, and performs on par with Google's PaLM 2 Large, which powers Bard, despite being half the size of the model. But it required 4x more compute to train and it's 2.5 times larger compared to llama-2, which makes it not so cost-effective for commercial usages.
+
+For practical commercial usage models ranging below 14B parameters has been a good candidate, and Persimmon-8B does a great job showing that.
+
+### Vision
+
+StabilityAI's SDXL vs [Midjourney](https://www.midjourney.com/) comparison shows that it is on par with favourability.
+
+  ```{figure} https://static.premai.io/book/models_sdxl-midjourney.png
+  ---
+  width: 88%
+  name: sdxl x midjourney
+  ---
+  [Page 14, SDXL: Improving Latent Diffusion Models for High-Resolution Image Synthesis](https://arxiv.org/pdf/2307.01952.pdf)
+  ```
+  ```{note} Above experiment is against Midjourney v5.1, whereas current latest is [Midjourney v5.2](https://docs.midjourney.com/docs/model-versions).
+  ```
 
 ## Future
 
@@ -437,9 +489,6 @@ And currently [its fine-tuned variants](https://huggingface.co/Phind/Phind-CodeL
 % RLHF vs RLAIF?
 
 % also maybe check here in futures section - https://arxiv.org/pdf/2303.18223.pdf
-## Read More
-% optional
-
 
 See also:
 

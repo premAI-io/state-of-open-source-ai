@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: Please cite this book using this metadata
+
+title: State of Open Source AI Book
+abstract: Clarity in the current fast-paced mess of Open Source innovation.
+version: '1'
+url: https://book.premai.io/state-of-open-source-ai
+authors:
+- name: Prem Contributors
+  website: https://github.com/premAI-io/state-of-open-source-ai/graphs/contributors
+#identifiers: [{type: doi, value: 10.1234/zenodo.TODO}]
+repository-code: https://github.com/premAI-io/state-of-open-source-ai
+keywords: [open-source, AI, book, ML, MLOps, Jupyter-Book]
+#license: CC-BY-4.0 AND Apache-2.0

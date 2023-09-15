@@ -61,7 +61,7 @@ Data preparation plays a big role in the fine-tuning process for vision based mo
 [Dreambooth Image Generation Fine-Tuning](https://dreambooth.github.io)
 ```
 
-Models like Stable Diffusion can also be fine-tuned to create specific images. For example, Stable Diffusion can be provided with a dataset of pet pictures for a specific pet. After fine-tuning, the model would be able to generate images of that pet in various styles.
+Models like Stable Diffusion can also be fine-tuned to create specific images. For example, Stable Diffusion can be provided with a dataset of pet pictures. After fine-tuning, the model would be able to generate images of that pet in various styles.
 
 The dataset for image generation needs to contain two things:
 * Text - What is the object in the image
@@ -107,19 +107,41 @@ Dataset Creation:
 
 The performance of a fine-tuned model largely depends on the <strong>quality</strong> and <strong>quantity</strong> of training data.
 
-For LLMs, the quantity of data can be an important factor when deciding whether to fine-tune or not. In the news there are many success stories of companies like [Bloomberg](https://arxiv.org/abs/2303.17564), [Mckinsey](https://www.mckinsey.com/about-us/new-at-mckinsey-blog/meet-lilli-our-generative-ai-tool), and [Moveworks](https://www.moveworks.com/insights/moveworks-enterprise-llm-benchmark-evaluates-large-language-models-for-business-applications) that have either created their own LLM or fine-tuned an existing LLM. However, tens of thousands of data points were required in order to make these successful AI bots and assistants. In the [Moveworks blog post](https://www.moveworks.com/insights/moveworks-enterprise-llm-benchmark-evaluates-large-language-models-for-business-applications), the fine-tuned model which surpasses the performance of GPT-4 on certain tasks, was trained on an internal dataset consisting of 70K instructions.
+For LLMs, the quantity of data can be an important factor when deciding whether to fine-tune or not. There have been many success stories of companies like [Bloomberg](https://arxiv.org/abs/2303.17564), [Mckinsey](https://www.mckinsey.com/about-us/new-at-mckinsey-blog/meet-lilli-our-generative-ai-tool), and [Moveworks](https://www.moveworks.com/insights/moveworks-enterprise-llm-benchmark-evaluates-large-language-models-for-business-applications) that have either created their own LLM or fine-tuned an existing LLM which has better performance than ChatGPT on certain tasks. However, tens of thousands of data points were required in order to make these successful AI bots and assistants. In the [Moveworks blog post](https://www.moveworks.com/insights/moveworks-enterprise-llm-benchmark-evaluates-large-language-models-for-business-applications), the fine-tuned model which surpasses the performance of GPT-4 on certain tasks, was trained on an internal dataset consisting of 70K instructions.
 
 In the case of computer vision models, data quality can play a significant role in the performance of the model. Andrew Ng, a prominent researcher and entrepreneur in the field of AI, has been an advocate of data centric AI in which the quality of the data is more important than the sheer volume of data. {cite}`small-data-tds`
 
 To summarize, fine-tuning is not possible without data. Depending on the task, it could require more or less data. The higher the data quality, the higher the chance of increasing the model's performance.
 
-| Model            | Task                | Hardware Requirements                     |   |
-|------------------|---------------------|-------------------------------------------|---|
-| Llama-2 7B       | Text Generation     | GPU memory: 65 GB, 4-bit quantized: 10 GB |   |
-| Falcon 40B       | Text Generation     |                                           |   |
-| Stable Diffusion | Image Generation    | 6 GB                                      |   |
-| YOLO             | Object Detection    | Can run on CPU                            |   |
-| Whisper          | Audio Transcription | 5 GB(medium), 10 GB (large)               |   |
+| Model            | Task                | Fine-Tuning Hardware Requirements(estimate) | Minimum amount of data(estimate) |
+|------------------|---------------------|---------------------------------------------|----------------------------------|
+| Llama-2 7B       | Text Generation     | GPU memory: 65 GB, 4-bit quantized: 10 GB   | 1K datapoints                    |
+| Falcon 40B       | Text Generation     | GPU memory: 400 GB, 4-bit quantized: 50GB   | 50K datapoints                   |
+| Stable Diffusion | Image Generation    | GPU memory: 6 GB                            | 10(using Dreambooth) images      |
+| YOLO             | Object Detection    | Can be fine-tuned on CPU                    | 100 images                       |
+| Whisper          | Audio Transcription | GPU memory: 5 GB(medium), 10 GB (large)     | 50 hours                         |
+
+The table above shows estimates of hardware and data requirements for fine-tuning models. Note that these numbers are not exact and can vary between models and use cases.
+
+```{admonition} Generative AI approximate GPU memory computations for fine-tuning
+:name: gpu-memory-computations
+:class: note
+
+Most of the generative AI models require a GPU for fine-tuning. How do you know which GPU to use for a model? There's no exact answer, but we can approximate the amount of GPU memory required to fine-tune a model, which can help us pick the right GPU.
+
+The general formula is (((number of parameters) * (number of bytes)) / (1024^3)) * 3
+Example: Let's say we want to fine-tune the Llama-2 7B. 
+Number of Parameters = 7 billion
+If each parameter is 32 bit floating point, then it means each parameter is 4 bytes.
+Number of bytes = 4, 7 billion * 4 bytes = 28 billion bytes.
+We convert this in gigabytes by dividing by 1024 ^ 3, so we get 28 GB.
+28 GB is the amount of GPU memory required to store the model's weights.
+On top of this, during fine-tuning, we need additional memory for activations, gradients, buffers, etc. Usually 2-3x the model weights.
+Taking the middle of that range, 2.5x, we get 28 * 2.5 = 70
+The total amount of GPU memory required to fine-tune a 7B parameter model with 32 bit precision is 70 GB. 
+
+This formula should be used as a rough estimate to calculate GPU memory requirements rather than an exact value.
+```
 
 ## Future
 

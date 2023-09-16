@@ -11,13 +11,13 @@ necessitates the use of established evaluation metrics, which vary depending on 
 Evaluating a model involves the application of well-known metrics to measure its effectiveness. These metrics serve as 
 yardsticks for quantifying the model's performance and ensuring its suitability for specific tasks. Let's explore 
 how these metrics are applied in different domains:
-- **Vision**: models are evaluated using metrics like accuracy, precision, recall, and F1-score. 
+- **Image**: models are evaluated using metrics like accuracy, precision, recall, and F1-score. 
 For instance, in [object detection](https://en.wikipedia.org/wiki/Object_detection), 
 [Intersection over Union (IoU)](https://en.wikipedia.org/wiki/Jaccard_index) is a crucial metric to measure how well a
 model localizes objects within images.
 
-(language-metrics)=
-- **Language**: models are assessed using metrics like [perplexity](https://en.wikipedia.org/wiki/Perplexity), 
+(text-metrics)=
+- **Text**: models are assessed using metrics like [perplexity](https://en.wikipedia.org/wiki/Perplexity), 
 [BLEU score](https://en.wikipedia.org/wiki/BLEU), [ROUGE score](https://en.wikipedia.org/wiki/ROUGE_(metric)), 
 and accuracy. For language translation, BLEU score quantifies the similarity between machine-generated translations and 
 human references.
@@ -54,7 +54,11 @@ aiding researchers, businesses, and the open-source community in making informed
 ### Text-only
 
 LLMs transcend mere language generation; they are expected to excel in diverse scenarios, encompassing reasoning, nuanced
-language comprehension, and the resolution of complex questions. When benchmarking an LLM model, two approaches emerge:
+language comprehension, and the resolution of complex questions. Traditional metrics like BLEU and ROUGE are helpful but
+may miss subtleties in coherence and context comprehension. Human evaluations are crucial but can be subjective and 
+prone to biases. Additionally, LLM behavior can be unpredictable, making it complex to evaluate ethical and safety aspects. 
+Balancing quantitative measures with qualitative human judgment remains a complex endeavor when evaluating these formidable 
+language models. When benchmarking an LLM model, two approaches emerge:
 
 - **Zero-shot prompting** involves testing the model on tasks or questions it hasn't explicitly been trained on, 
   relying solely on its general language understanding.
@@ -348,16 +352,25 @@ Big Code Models Leaderboard
 ```
 
 ### Audio
+Within the realm of language, audio plays a significant role, and text-to-speech and automatic speech recognition stand 
+out as pivotal tasks in this domain, however evaluating [TTS](https://en.wikipedia.org/wiki/Speech_synthesis) and 
+[ASR](https://en.wikipedia.org/wiki/Speech_recognition) models presents unique challenges and nuances. TTS evaluation 
+involves subjective judgments related to naturalness and intelligibility, which can be influenced by individual 
+listener biases. Instead, ASR assessment relies heavily on metrics like Word Error Rate (WER) but may not fully capture 
+semantic accuracy. Both domains require meticulously crafted datasets and robust evaluation protocols. TTS models, 
+in particular, grapple with prosody and speaker similarity assessments, adding complexity to the process. ASR evaluations 
+must factor in considerations like domain-specific adaptation and the model's robustness to varying accents and environmental
+conditions. Striking a balance between objective metrics and human perception in these critical speech technology fields 
+remains an ongoing and intricate task.
 
 #### Benchmarks
 
 (ljspeech)=
-[LJSpeech](https://huggingface.co/datasets/lj_speech) is a widely used benchmark dataset for Text-to-Speech 
-([TTS](https://en.wikipedia.org/wiki/Speech_synthesis)) research. It comprises around 13,100 short audio clips recorded 
-by a single speaker who reads passages from non-fiction books. The dataset is based on texts published between 1884 and 
-1964, all of which are in the public domain. The audio recordings, made in 2016-17 as part of the 
-[LibriVox project](https://librivox.org/), are also in the public domain. LJSpeech serves as a valuable resource for TTS
-researchers and developers due to its high-quality, diverse, and freely available speech data.
+[LJSpeech](https://huggingface.co/datasets/lj_speech) is a widely used benchmark dataset for TTS research. It comprises 
+around 13,100 short audio clips recorded by a single speaker who reads passages from non-fiction books. The dataset is 
+based on texts published between 1884 and 1964, all of which are in the public domain. The audio recordings, made in 2016-17
+as part of the [LibriVox project](https://librivox.org/), are also in the public domain. LJSpeech serves as a valuable 
+resource for TTS researchers and developers due to its high-quality, diverse, and freely available speech data.
 
 [Multilingual LibriSpeech](https://huggingface.co/datasets/facebook/multilingual_librispeech#dataset-summary) is an 
 extension of the extensive LibriSpeech dataset, known for its English-language audiobook recordings. This expansion broadens 
@@ -391,8 +404,8 @@ of Speech benchmark, is a significant addition to the field of speech technology
 upon the [FLoRes-101 machine translation benchmark](https://github.com/facebookresearch/flores), FLEURS presents a parallel
 speech dataset spanning an impressive 102 languages. This dataset incorporates approximately 12 hours of meticulously 
 annotated speech data per language, significantly aiding research in low-resource speech comprehension. FLEURS' versatility s
-hines through its applicability in various speech-related tasks, including Automatic Speech Recognition (ASR), 
-Speech Language Identification (Speech LangID), Translation, and Retrieval.
+hines through its applicability in various speech-related tasks, including ASR, Speech Language Identification, 
+Translation, and Retrieval.
 
 #### Leaderboards
 
@@ -420,7 +433,7 @@ Not all the metrics are available for all models.
 ##### Open ASR Leaderboard
 
 [Open ASR Leaderboard](https://huggingface.co/spaces/hf-audio/open_asr_leaderboard) evaluates speech recognition models, 
-mainly for English, using Word Error Rate (WER) and Real-Time Factor ([RTF](https://en-academic.com/dic.nsf/enwiki/3796485)) 
+mainly for English, WER and Real-Time Factor ([RTF](https://en-academic.com/dic.nsf/enwiki/3796485)) 
 as metrics, favoring lower values for both. They employ the [ESB benchmark](https://arxiv.org/pdf/2210.13352.pdf) with eight 
 English datasets for robust evaluations, ranking models based on average WER scores. This initiative is open-source, 
 and the evaluation code is accessible on their [GitHub repository](https://github.com/huggingface/open_asr_leaderboard).
@@ -434,6 +447,12 @@ Open ASR Leaderboard
 ## Visual
 
 ### Images
+
+Evaluating image-based models varies across tasks. Object detection and semantic segmentation benefit from less subjective
+evaluation, relying on quantitative metrics and clearly defined criteria. In contrast, tasks like image generation from 
+text introduce greater complexity due to their subjective nature, heavily reliant on human perception. Assessing visual 
+aesthetics, coherence, and relevance in generated images becomes inherently challenging, emphasizing the need for balanced
+qualitative and quantitative evaluation methods.
 
 #### Benchmarks
 

@@ -333,6 +333,74 @@ Big Code Models Leaderboard
 
 ### Audio
 
+#### Benchmarks
+
+(ljspeech)=
+[LJSpeech](https://huggingface.co/datasets/lj_speech) is a widely used benchmark dataset for Text-to-Speech 
+([TTS](https://en.wikipedia.org/wiki/Speech_synthesis)) research. It comprises around 13,100 short audio clips recorded 
+by a single speaker who reads passages from non-fiction books. The dataset is based on texts published between 1884 and 
+1964, all of which are in the public domain. The audio recordings, made in 2016-17 as part of the 
+[LibriVox project](https://librivox.org/), are also in the public domain. LJSpeech serves as a valuable resource for TTS
+researchers and developers due to its high-quality, diverse, and freely available speech data.
+
+[Multilingual LibriSpeech](https://huggingface.co/datasets/facebook/multilingual_librispeech#dataset-summary) is an 
+extension of the extensive LibriSpeech dataset, known for its English-language audiobook recordings. This expansion broadens 
+its horizons by incorporating various additional languages, including German, Dutch, Spanish, French, Italian, Portuguese, 
+and Polish. It includes about 44.5K hours of English and a total of about 6K hours for other languages. Within this dataset, 
+you'll find audio recordings expertly paired with meticulously aligned transcriptions for each of these languages.
+
+[CSTR VCTK](https://huggingface.co/datasets/vctk) Corpus comprises speech data from 110 English speakers with diverse accents. 
+Each speaker reads approximately 400 sentences selected from various sources, including a newspaper 
+([Herald Glasgow](https://www.heraldscotland.com/) with permission), the 
+[rainbow passage](https://www.dialectsarchive.com/the-rainbow-passage), and an 
+[elicitation paragraph](https://accent.gmu.edu/pdfs/elicitation.pdf) from the [Speech Accent Archive](https://accent.gmu.edu).
+VCTK provides a valuable asset for TTS models, offering a wide range of voices and accents to 
+enhance the naturalness and diversity of synthesized speech.
+
+[Common Voice](https://commonvoice.mozilla.org/en/datasets), developed by [Mozilla](https://www.mozilla.org/en-US/?v=1), 
+is a substantial and multilingual dataset of human voices, contributed by volunteers and encompassing multiple languages. 
+This corpus is vast and diverse, with data collected and validated through crowdsourcing. As of November 2019, it includes 
+29 languages, with 38 in the pipeline, featuring contributions from over 50,000 individuals and totaling 2,500 hours of audio.
+It's the largest publicly available audio corpus for speech recognition in terms of volume and linguistic diversity. 
+
+[LibriTTS](http://www.openslr.org/60) is an extensive English speech dataset featuring multiple speakers, totaling around 
+585 hours of recorded speech at a 24kHz sampling rate. This dataset was meticulously crafted by 
+[Heiga Zen](https://research.google/people/HeigaZen/), with support from members of the Google Speech and 
+[Google Brain](https://research.google/teams/brain/) teams, primarily for the advancement of TTS research. LibriTTS is 
+derived from the source materials of the LibriSpeech corpus, incorporating mp3 audio files from LibriVox and text files 
+from [Project Gutenberg](https://www.gutenberg.org/).
+
+[FLEURS](https://huggingface.co/datasets/google/fleurs), the Few-shot Learning Evaluation of Universal Representations 
+of Speech benchmark, is a significant addition to the field of speech technology and multilingual understanding. Building
+upon the [FLoRes-101 machine translation benchmark](https://github.com/facebookresearch/flores), FLEURS presents a parallel
+speech dataset spanning an impressive 102 languages. This dataset incorporates approximately 12 hours of meticulously 
+annotated speech data per language, significantly aiding research in low-resource speech comprehension. FLEURS' versatility s
+hines through its applicability in various speech-related tasks, including Automatic Speech Recognition (ASR), 
+Speech Language Identification (Speech LangID), Translation, and Retrieval.
+
+#### Leaderboards
+
+##### Text-To-Speech Synthesis on LJSpeech
+
+[Text-To-Speech Synthesis on LJSpeech](https://paperswithcode.com/sota/text-to-speech-synthesis-on-ljspeech) is a leaderboard
+that tackles the evaluation of TTS models using the [LJSpeech](ljspeech) dataset. The leaderboard has different metrics 
+available:
+- Audio Quality [MOS](https://en.wikipedia.org/wiki/Mean_opinion_score)
+- Pleasant MOS
+- Word Error Rate ([WER](https://en.wikipedia.org/wiki/Word_error_rate))
+
+```{figure} assets/eval-datasets-tts-ljspeech.png
+---
+width: 95%
+---
+Text-To-Speech Synthesis on LJSpeech Leaderboard
+```
+
+```{admonition} Note
+:class: note
+Not all the metrics are available for all models.
+```
+
 ```{admonition} Work in Progress
 :class: attention
 Please do {{

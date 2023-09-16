@@ -7,15 +7,22 @@
 The LLM Lifecycle
 ```
 
+%TODO: delete the above image (what do the arrows mean? what do the colours mean? don't make the reader feel stupid without explaining anything)
+
 This chapter focuses on recent open-source {term}`MLOps` developments -- which are largely due to the current rise of {term}`LLMs <LLM>`.
 
 While MLOps typically focuses on model training, "LLMOps" focuses on fine-tuning. In production, both also require good inference engines.
 
 ## Challenges in Open Source
 
-MLOps has typically been available in two flavours. One is the managed version, where all the components are provided out of the box for a price. The other is a DIY setup where you stitch together various open-source components. {cite}`mlops-challenges`
+MLOps solutions come in two flavours {cite}`mlops-challenges`:
 
-With large language models, the story is no different. Companies like Hugging Face are pushing for open-source models and datasets whereas closed-source competitors like OpenAI and Anthropic are doing the exact opposite. The three main challenges with open-source MLOps are maintenance, performance, and cost.
+- Managed: a full pipeline (and support) is provided (for a price)
+- Self-hosted: various DIY stitched-together open-source components
+
+Some companies (e.g. [Hugging Face](https://huggingface.co)) push for open-source models & datasets, while others (e.g. [OpenAI](https://openai.com), [Anthropic](https://www.anthropic.com)) do the opposite.
+
+The main challenges with open-source MLOps are [](#maintenance), [](#performance), and [](#cost).
 
 ```{figure-md} open-vs-closed-mlops
 :class: caption
@@ -24,25 +31,26 @@ With large language models, the story is no different. Companies like Hugging Fa
 Open-Source vs Closed-Source MLOps
 ```
 
+%TODO: where is this image above from?
+
 ### Maintenance
 
-When using open-source components, most of the setup and configuration has to be done in-house. Whether is downloading the model, fine-tuning, evaluating, or inferencing, everything has to be done manually. When there are multiple open-source components companies tend to write "glue" code to connect the components together.
+Using open-source components, most setup & configuration must be done manually. This could mean finding & downloading [models](models) & [datasets](eval-datasets), setting up [fine-tuning](fine-tuning), performing [evaluations](eval-datasets), and [inference](#inference) -- all components held together by self-maintained bespoke "glue" code.
 
-If a component goes down or becomes unavailable, it is up to the team to resolve the issue. Because of this, teams have to stay on their toes to quickly fix issues to avoid prolonged periods of downtime for the applications. In the long run with robust and scalable pipelines, this becomes less of an issue, but in the early stages, there is a lot of firefighting for developers to do.
+You are responsible for monitoring pipeline health & fixing issues quickly to avoid application downtime. This is particularly painful in the early stages of a project, when robustness and scalability are not yet implemented and there is much firefighting for developers to do.
 
 ### Performance
 
-"Performance" for AI models could mean multiple things. Performance could mean output quality: how close is the output of the model in comparison to human expectation. Or it could be an operational metric like latency, how much time does it take the model to complete a single request.
+Performance could refer to:
 
-To measure the output quality or accuracy of an LLM, there are various datasets the model gets tested on. For an in-depth guide, please refer to this [blog post](https://dev.premai.io/blog/evaluating-open-source-llms) which explains the popular datasets used to benchmark open-source models. For a quick snapshot, the [hugging face leaderboard](https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard) can be a good place to start when evaluating the accuracy of an LLM.
+- output *quality*: e.g. accuracy -- how close is a model's output to ideal expectations (see [](eval-datasets)), or
+- operational *speed*: e.g. throughput & latency -- how much time it takes to complete a request (see [](#llm-inference-optimisers)... as well as [](hardware), which can play as large a role as software {cite}`nvidia-gpu-inference`).
 
-For operational metrics like latency and throughput, the hardware being used and the runtime enviroment of the application can play a large role. Many AI models, especially LLMs, run faster on a GPU enabled device. {cite}`nvidia-gpu-inference` The same GPU enabled model may have different latency and throughput numbers when tested on an optimised inference server such as [Nvidia Triton](https://developer.nvidia.com/triton-inference-server).
-
-Closed-source models like [Cohere](https://txt.cohere.com/nvidia-boosts-inference-speed-with-cohere) tend to give better baseline performance from an operational perspective because they come with many of the inference optimisations out of the box. Open-source models on the other hand, need to be manually integrated with inference servers to obtain similar performance. {cite}`cohere-trition`
+By comparison, closed-source engines (e.g. [Cohere](https://cohere.com)) tend to give better baseline operational performance due to default-enabled inference optimisations {cite}`cohere-triton`.
 
 ### Cost
 
-One of the reasons companies prefer to choose an open-source solution is for cost savings. If done correctly, the savings can be huge in the long run. However, many firms underestimate the amount of work required to make an open-source ecosystem work seamlessly.
+Self-maintained open-source solutions, if implemented well, can be extremely cheap both to setup and to run long term. However, many underestimate the amount of work required to make an open-source ecosystem work seamlessly.
 
 Oftentimes, teams have to pay a larger cost upfront when working with open-source LLMs. For example, if you purchased a single GPU enabled node with the lowest configuration from GCP(a2-highgpu-1g (vCPUs: 12, RAM: 85GB, GPU: 1 x A100)) to run an open-source model, it would cost you about \$2500 per month. On the flip side, flexible pricing models like ChatGPT cost \$0.002 for 1K tokens. The monthly cost for infrastructure is expensive and difficult to maintain. Along with that, teams are constantly experimenting since the technology is so new, which further adds to the cost. 
 

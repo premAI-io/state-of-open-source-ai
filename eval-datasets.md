@@ -29,8 +29,10 @@ the ground truth.
 While evaluation metrics offer valuable insights into a model's capabilities within its specific domain, they may not 
 provide a comprehensive assessment of its overall performance. To address this limitation, benchmarks play a pivotal role
 by offering a more holistic perspective. Benchmarks consist of carefully curated datasets or sets of tasks designed to
-evaluate a model's proficiency across diverse real-world scenarios. Their significance becomes evident when considering 
-the following factors:
+evaluate a model's proficiency across diverse real-world scenarios. Just as in model training, where the axiom 
+[Better Data = Better Performance](https://cameronrwolfe.substack.com/p/the-history-of-open-source-llms-better#%C2%A7better-data-better-performance) 
+holds, this maxim applies equally to benchmarks, underscoring the critical importance of using meticulously curated datasets.
+Their significance becomes evident when considering the following factors:
 
 -  **Diverse Assessment**: benchmarks encompass a wide range of tasks, including common knowledge, reasoning, mathematics, 
 or code generation, tailored to the specific domain. This diversity ensures that models undergo testing across a broad 
@@ -49,18 +51,47 @@ providing a much-needed benchmark for evaluating models. Given the frequent emer
 the best model for specific tasks can be challenging. Leaderboards offer a standardized framework for objective evaluation,
 aiding researchers, businesses, and the open-source community in making informed decisions and driving progress in the field.
 
-## Language
+```{table} Comparison of Leaderboards
+:name: leaderboards-table
+ Leaderboard                                                                                                  | Tasks                        | Benchmarks                                                          
+--------------------------------------------------------------------------------------------------------------|------------------------------|---------------------------------------------------------------------
+ [OpenLLM](https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard)                                  | Text generation              | ARC, HellaSwag, MMLU, TruthfulQA                                    
+ [Alpaca Eval](https://tatsu-lab.github.io/alpaca_eval)                                                       | Text generation              | AlpacaEval                                                          
+ [Chatbot Arena](https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard)                               | Text generation              | Chatbot Arena, MT-Bench, MMLU                                       
+ [Human Eval LLM Leaderboard](https://huggingface.co/spaces/HuggingFaceH4/human_eval_llm_leaderboard)         | Text generation              | Human Eval, GPT-4                                                   
+ [Massive Text Embedding Benchmark](https://huggingface.co/spaces/mteb/leaderboard)                           | Text embedding               | 129 datasets across eight tasks, and supporting up to 113 languages 
+ [Code Generation on HumanEval](https://paperswithcode.com/sota/code-generation-on-humaneval)                 | Python code generation       | HumanEval                                                           
+ [Big Code Models Leaderboard](https://huggingface.co/spaces/bigcode/bigcode-models-leaderboard)              | Multilingual code generation | HumanEval, MultiPL-E                                                
+ [Text-To-Speech Synthesis on LJSpeech](https://paperswithcode.com/sota/text-to-speech-synthesis-on-ljspeech) | Text-to-Speech               | LJSpeech                                                            
+ [Open ASR Leaderboard](https://huggingface.co/spaces/hf-audio/open_asr_leaderboard)                          | Speech recognition           | ESB                                                                 
+ [Object Detection Leaderboard](https://huggingface.co/spaces/rafaelpadilla/object_detection_leaderboard)     | Object Detection             | COCO                                                                
+ [Semantic Segmentation on ADE20K](https://paperswithcode.com/sota/semantic-segmentation-on-ade20k)           | Semantic Segmentation        | ADE20K                                                              
+ [Open Party Prompt Leaderboard](https://huggingface.co/spaces/OpenGenAI/parti-prompts-leaderboard)           | Text-to-Image                | Open Party Prompts                                                  
+```
 
-### Text-only
+```{admonition} Feedback
+:class: attention
+Is the [table above](leaderboards-table) outdated or missing an important leaderboard? Let us know in the [<i class="fas fa-pencil-alt"></i> comments](licences-comments) below, or {{
+  '[<i class="fab fa-github"></i> open a pull request]({}/edit/main/{}.md)'.format(
+  env.config.html_theme_options.repository_url, env.docname)
+}}!
+```
+
+These leaderboards are covered in more detail below.
+
+
+## Text-only
 
 LLMs transcend mere language generation; they are expected to excel in diverse scenarios, encompassing reasoning, nuanced
 language comprehension, and the resolution of complex questions. Traditional metrics like BLEU and ROUGE are helpful but
 may miss subtleties in coherence and context comprehension. Human evaluations are crucial but can be subjective and 
 prone to biases. Additionally, LLM behavior can be unpredictable, making it complex to evaluate ethical and safety aspects. 
 Balancing quantitative measures with qualitative human judgment remains a complex endeavor when evaluating these formidable 
-language models. When benchmarking an LLM model, two approaches emerge:
+language models.
 
-- **Zero-shot prompting** involves testing the model on tasks or questions it hasn't explicitly been trained on, 
+When benchmarking an LLM model, two approaches emerge:
+
+- **Zero-shot prompting** involves evaluating a model on tasks or questions it hasn't explicitly been trained on, 
   relying solely on its general language understanding.
   
   **Prompt**
@@ -101,7 +132,7 @@ along with context, to evaluate its adaptability and performance when handling n
   ```
   Source [Adrian Tam, What Are Zero-Shot Prompting and Few-Shot Prompting](https://machinelearningmastery.com/what-are-zero-shot-prompting-and-few-shot-prompting)
 
-#### Benchmarks
+### Benchmarks
 An array of benchmarks has been developed to gauge the capabilities of LLMs. To gain a comprehensive understanding, we 
 will now explore some of the most renowned benchmarks that have become touchstones for assessing LLMs.
 
@@ -170,6 +201,23 @@ watermelons will grow in your stomach, but this is impossible<br>
 You fall unconscious; You digest the watermelon seeds
 ```
 
+(mt-bench)=
+**[MT-Bench](https://huggingface.co/spaces/lmsys/mt-bench)**, a benchmark consisting of 80 high-quality multi-turn questions,
+has been created. This benchmark is specifically designed to evaluate a model's performance in multi-turn conversations 
+and instruction-following tasks. It covers a wide range of common use cases and focuses on challenging questions to 
+effectively differentiate between models. To guide the construction of MT-Bench, eight common categories of user prompts 
+were identified: writing, roleplay, extraction, reasoning, math, coding, knowledge I (STEM), and knowledge II 
+(humanities/social science). 
+
+```{admonition} [Example](https://arxiv.org/pdf/2306.05685.pdf)
+:name: mt-bench-example
+:class: hint
+Category: Writing<br>
+1st Turn: Compose an engaging travel blog post about a recent trip to Hawaii, highlighting cultural experiences and 
+must-see attractions.<br>
+2nd Turn: Rewrite your previous response. Start every sentence with the letter A.
+```
+
 Several other benchmarks have been proposed,in the following table a summary of such benchmarks with the considered
 factors.
 
@@ -190,10 +238,10 @@ factors.
 Source: [Analytics Vidhya, Table of the Major Existing Evaluation Frameworks](https://www.analyticsvidhya.com/blog/2023/05/how-to-evaluate-a-large-language-model-llm/)
 
 
-#### Leaderboards
+### Leaderboards
 
 (openllm)=
-##### OpenLLM
+#### OpenLLM
 [HuggingFace OpenLLM Leaderboard](https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard?ref=lorcandempsey.net)
 is primarily built upon [Language Model Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness) developed by 
 [EleutherAI](https://www.eleuther.ai/), which serves as a framework for evaluating autoregressive language models with 
@@ -214,7 +262,7 @@ Huggingface OpenLLM Leaderboard
 ```
 
 (alpaca-eval)=
-##### Alpaca Eval
+#### Alpaca Eval
 The [Alpaca Eval Leaderboard](https://tatsu-lab.github.io/alpaca_eval/) employs an LLM-based automatic evaluation method,
 utilizing the [AlpacaEval](https://huggingface.co/datasets/tatsu-lab/alpaca_eval) evaluation set, which is a streamlined
 version of the [AlpacaFarm](https://github.com/tatsu-lab/alpaca_farm) evaluation set. Within the Alpaca Eval Leaderboard,
@@ -242,7 +290,7 @@ Alpaca Eval Leaderboard (GPT and Claude eval)
 * Claude may favor models that were fine-tuned on Claude outputs
 ```
 
-##### Chatbot Arena
+#### Chatbot Arena
 [Chatbot Arena](https://chat.lmsys.org/?arena), developed by [Large Model Systems Organization (LMSYS Org)](https://lmsys.org/), 
 represents a pioneering platform for assessing LLMs. 
 This innovative tool allows users to compare responses from different chatbots. Users are presented with pairs of chatbot 
@@ -263,7 +311,7 @@ The [Chatbot Arena Leaderboard](https://huggingface.co/spaces/lmsys/chatbot-aren
 three benchmarks: 
 
 - Chatbot Arena
-- MT-Bench
+- [MT-Bench](mt-bench)
 - [MMLU](mmlu-benchmark) (5-shot)
 
 ```{figure} https://static.premai.io/book/eval-datasets-chatbot-arena-leaderboard.png
@@ -273,14 +321,14 @@ width: 95%
 Chatbot Arena Leaderboard
 ```
 
-##### Human Eval LLM Leaderboard
+#### Human Eval LLM Leaderboard
 
 [Human Eval LLM Leaderboard](https://huggingface.co/spaces/HuggingFaceH4/human_eval_llm_leaderboard) focuses on tracking,
 ranking, and evaluating LLMs and chatbots within the open-source community. The evaluation process involves both human 
 and GPT-4 comparisons of completions generated by popular LLMs based on secret instruction prompts. These prompts encompass
 various tasks, including brainstorming, creative generation, reasoning, open question answering, summarization, and code generation.
-Evaluators rate model completions on a 1-8 Likert scale, and Elo rankings are created using these preferences. Additionally, 
-GPT-4 was involved in labeling completions.
+Evaluators rate model completions on a 1-8 [Likert scale](https://en.wikipedia.org/wiki/Likert_scale), and Elo rankings 
+are created using these preferences.
 
 ```{figure} assets/eval-datasets-human-eval-llm.png
 ---
@@ -289,7 +337,7 @@ width: 95%
 Human Eval LLM Leaderboard
 ```
 
-##### Massive Text Embedding Benchmark
+#### Massive Text Embedding Benchmark
 [Massive Text Embedding Benchmark Leaderboard](https://huggingface.co/spaces/mteb/leaderboard) is a framework designed to
 revolutionize the assessment of text embedding models across a diverse array of tasks in the realm of NLP. 
 Text embeddings, encoding semantic information into vector representations, hold immense significance in NLP, facilitating 
@@ -305,13 +353,13 @@ MTEB Leaderboard
 ```
 
 (code-generation-eval)=
-##### Code Generation on HumanEval
+#### Code Generation on HumanEval
 
 Differently from aformentioned leaderboards, which focus more on question-answering, 
 reasoning and text generation, [Code Generation on HumanEval Leaderboard](https://paperswithcode.com/sota/code-generation-on-humaneval)
 tries to close the gap regarding the evaluation of LLMs on code generation tasks. 
-In NLP code generation are often evaluated on evaluation metrics such BLEU the results of human level judgment, 
-however these metrics don't capture the complexity of the solutions' space for code generation as stated in this 
+In NLP code generation models are often evaluated on evaluation metrics such as BLEU, however these metrics don't capture 
+the complexity of the solutions' space for code generation as stated in this 
 [thread](https://twitter.com/LoubnaBenAllal1/status/1692573780609057001). In order to solve this problem 
 [HumanEval](https://arxiv.org/pdf/2107.03374v2.pdf) has been introduced, which contains 164 programs with 8 tests for each.
 
@@ -334,11 +382,11 @@ width: 95%
 [Code Generation on HumanEval Leaderboard](https://paperswithcode.com/sota/code-generation-on-humaneval)
 ```
 
-##### Big Code Models
+#### Big Code Models
 
 Similar to [Code Generation on HumanEval Leaderboard](code-generation-eval), [Big Code Models Leaderboard](https://huggingface.co/spaces/bigcode/bigcode-models-leaderboard)
 tackles the code generation tasks. Moreover, the latter leaderboard consider not only python code generation models but
-multilingual code generation models. The primarily benchmarks used are:
+multilingual code generation models as well. The primarily benchmarks used are:
 
 * [HumanEval](https://huggingface.co/datasets/openai_humaneval)
 * [MultiPL-E](https://huggingface.co/datasets/nuprl/MultiPL-E) - Translation of HumanEval to 18 programming languages.
@@ -351,19 +399,19 @@ width: 100%
 Big Code Models Leaderboard
 ```
 
-### Audio
+## Audio
 Within the realm of language, audio plays a significant role, and text-to-speech and automatic speech recognition stand 
 out as pivotal tasks in this domain, however evaluating [TTS](https://en.wikipedia.org/wiki/Speech_synthesis) and 
 [ASR](https://en.wikipedia.org/wiki/Speech_recognition) models presents unique challenges and nuances. TTS evaluation 
 involves subjective judgments related to naturalness and intelligibility, which can be influenced by individual 
-listener biases. Instead, ASR assessment relies heavily on metrics like Word Error Rate (WER) but may not fully capture 
+listener biases. Instead, ASR assessment relies heavily on metrics like WER but may not fully capture 
 semantic accuracy. Both domains require meticulously crafted datasets and robust evaluation protocols. TTS models, 
 in particular, grapple with prosody and speaker similarity assessments, adding complexity to the process. ASR evaluations 
 must factor in considerations like domain-specific adaptation and the model's robustness to varying accents and environmental
 conditions. Striking a balance between objective metrics and human perception in these critical speech technology fields 
 remains an ongoing and intricate task.
 
-#### Benchmarks
+### Benchmarks
 
 (ljspeech)=
 [LJSpeech](https://huggingface.co/datasets/lj_speech) is a widely used benchmark dataset for TTS research. It comprises 
@@ -407,16 +455,16 @@ annotated speech data per language, significantly aiding research in low-resourc
 hines through its applicability in various speech-related tasks, including ASR, Speech Language Identification, 
 Translation, and Retrieval.
 
-#### Leaderboards
+### Leaderboards
 
-##### Text-To-Speech Synthesis on LJSpeech
+#### Text-To-Speech Synthesis on LJSpeech
 
 [Text-To-Speech Synthesis on LJSpeech](https://paperswithcode.com/sota/text-to-speech-synthesis-on-ljspeech) is a leaderboard
 that tackles the evaluation of TTS models using the [LJSpeech](ljspeech) dataset. The leaderboard has different metrics 
 available:
 - Audio Quality [MOS](https://en.wikipedia.org/wiki/Mean_opinion_score)
 - Pleasant MOS
-- Word Error Rate ([WER](https://en.wikipedia.org/wiki/Word_error_rate))
+- [WER](https://en.wikipedia.org/wiki/Word_error_rate)
 
 ```{figure} assets/eval-datasets-tts-ljspeech.png
 ---
@@ -430,13 +478,14 @@ Text-To-Speech Synthesis on LJSpeech Leaderboard
 Not all the metrics are available for all models.
 ```
 
-##### Open ASR Leaderboard
+#### Open ASR Leaderboard
 
-[Open ASR Leaderboard](https://huggingface.co/spaces/hf-audio/open_asr_leaderboard) evaluates speech recognition models, 
-mainly for English, WER and Real-Time Factor ([RTF](https://en-academic.com/dic.nsf/enwiki/3796485)) 
-as metrics, favoring lower values for both. They employ the [ESB benchmark](https://arxiv.org/pdf/2210.13352.pdf) with eight 
-English datasets for robust evaluations, ranking models based on average WER scores. This initiative is open-source, 
-and the evaluation code is accessible on their [GitHub repository](https://github.com/huggingface/open_asr_leaderboard).
+[Open ASR Leaderboard](https://huggingface.co/spaces/hf-audio/open_asr_leaderboard) assesses speech recognition models, 
+primarily focusing on English, using WER and Real-Time Factor ([RTF](https://en-academic.com/dic.nsf/enwiki/3796485)) as 
+key metrics, with a preference for lower values in both categories. They utilize the [ESB benchmark](https://arxiv.org/pdf/2210.13352.pdf), 
+incorporating eight English datasets for comprehensive and robust evaluations. Models are ranked based on their average 
+WER scores. This endeavor operates under an open-source framework, and the evaluation code can be found on their 
+[GitHub repository](https://github.com/huggingface/open_asr_leaderboard).
 
 ```{figure} assets/eval-datasets-open-asr-leaderboard.png
 ---
@@ -444,9 +493,8 @@ width: 95%
 ---
 Open ASR Leaderboard
 ```
-## Visual
 
-### Images
+## Images
 
 Evaluating image-based models varies across tasks. Object detection and semantic segmentation benefit from less subjective
 evaluation, relying on quantitative metrics and clearly defined criteria. In contrast, tasks like image generation from 
@@ -454,7 +502,7 @@ text introduce greater complexity due to their subjective nature, heavily relian
 aesthetics, coherence, and relevance in generated images becomes inherently challenging, emphasizing the need for balanced
 qualitative and quantitative evaluation methods.
 
-#### Benchmarks
+### Benchmarks
 
 (coco-dataset)=
 [COCO](https://cocodataset.org/#home) (Common Objects in Context) dataset is a comprehensive and extensive resource for 
@@ -518,9 +566,9 @@ width: 100%
 [DiffusionDB Examples](https://arxiv.org/pdf/2210.14896.pdf)
 ```
 
-#### Leaderboards
+### Leaderboards
 
-##### Object Detection Leaderboard
+#### Object Detection Leaderboard
 [Object Detection Leaderboard](https://huggingface.co/spaces/rafaelpadilla/object_detection_leaderboard) evaluates models u
 sing various metrics on the [COCO dataset](coco-dataset). These metrics include Average Precision (AP) at different 
 IoU thresholds, Average Recall (AR) at various detection counts, and FPS (Frames Per Second). The leaderboard is based on 
@@ -535,7 +583,7 @@ width: 100%
 Object Detection Leaderboard
 ```
 
-##### Semantic Segmentation on ADE20K
+#### Semantic Segmentation on ADE20K
 
 [Semantic Segmentation on ADE20K](https://paperswithcode.com/sota/semantic-segmentation-on-ade20k) evaluates models on the 
 [ADE20K](ade20k-dataset) mainly using mean Intersection over Union (mIoU).
@@ -547,7 +595,7 @@ width: 80%
 Semantic Segmentation Leaderboard
 ```
 
-##### Open Party Prompt Leaderboard
+#### Open Party Prompt Leaderboard
 
 [Open Party Prompt Leaderboard](https://huggingface.co/spaces/OpenGenAI/parti-prompts-leaderboard) evaluates open-source 
 text-to-image models based on human preferences, using the [Parti Prompts dataset](https://huggingface.co/datasets/nateraw/parti-prompts) 
@@ -575,7 +623,7 @@ width: 90%
 Open Party Prompt Leaderboard
 ```
 
-### Videos
+## Videos
 
 ```{admonition} Work in Progress
 :class: attention
@@ -587,13 +635,11 @@ Please do {{
 
 ## Limitations
 
-% TODO: review limitations (considering the other fields)
-
 Thus far, we have conducted an analysis of multiple leaderboards, and now we will shift our focus to an examination of 
 their limitations.
 
 - **[Overfitting to Benchmarks](https://www.reddit.com/r/LocalLLaMA/comments/15n6cmb/optimizing_models_for_llm_leaderboard_is_a_huge/?rdt=44621)**: 
-  excessive fine-tuning of language models like LLM for benchmark tasks may lead to models that excel in those specific 
+  excessive fine-tuning of models for benchmark tasks may lead to models that excel in those specific 
   tasks but are less adaptable and prone to struggling with real-world tasks outside their training data distribution 
 - **Benchmark Discrepancy**: benchmarks may not accurately reflect real-world performance; for instance, the LLaMA 70B 
   model may appear superior to ChatGPT in a benchmark but could perform differently in practical applications.
@@ -603,7 +649,7 @@ their limitations.
 - **[Illusion of Improvement](https://arxiv.org/pdf/math/0606441.pdf)**: minor performance gains observed in a benchmark
   may not materialize in real-world applications due to uncertainties arising from the mismatch between the benchmark
   environment and the actual practical context.
-- **AI, Not AGI**: leaderboards assess various models trained on diverse datasets by posing general questions (e.g., "how
+- **AI, Not AGI**: LLM leaderboards assess various models trained on diverse datasets by posing general questions (e.g., "how
   old is Earth?") and evaluating their responses. Consequently, the metrics gauge several facets, including the alignment
   between questions and training data, the LLM's 
   [language comprehension](https://direct.mit.edu/daed/article/151/2/127/110621/Human-Language-Understanding-amp-Reasoning) 
@@ -612,35 +658,19 @@ their limitations.
   contextual information (e.g., instructing it to read a specific astronomy textbook: <path/to/some.pdf>) and evaluating
   LLMs solely based on their outputs within that context.
 - **Dataset Coverage**: benchmarks datasets often lack comprehensive coverage, failing to encompass the full range of 
-  potential inputs that an LLM may encounter (e.g. limited dataset for [code generation evaluation](code-generation-eval)).
-- **Balanced Approach**: while benchmarks serve as valuable initial evaluation tools for LLMs, it's essential not to depend
-  solely on them. Prioritize an in-depth understanding of your unique LLM use case and project requirements.
-
-
-## Summary
-
-% TODO: review summary (considering the other fields)
-
-| Leaderboard                                                                                                  | Tasks                        | Benchmarks                                                          |
-|--------------------------------------------------------------------------------------------------------------|------------------------------|---------------------------------------------------------------------|
-| [OpenLLM](https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard)                                  | Text generation              | ARC, HellaSwag, MMLU, TruthfulQA                                    |
-| [Alpaca Eval](https://tatsu-lab.github.io/alpaca_eval)                                                       | Text generation              | AlpacaEval                                                          |
-| [Chatbot Arena](https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard)                               | Text generation              | Chatbot Arena, MT-Bench, MMLU                                       |
-| [Human Eval LLM Leaderboard](https://huggingface.co/spaces/HuggingFaceH4/human_eval_llm_leaderboard)         | Text generation              | Human Eval, GPT-4                                                   |
-| [Massive Text Embedding Benchmark](https://huggingface.co/spaces/mteb/leaderboard)                           | Text embedding               | 129 datasets across eight tasks, and supporting up to 113 languages |
-| [Code Generation on HumanEval](https://paperswithcode.com/sota/code-generation-on-humaneval)                 | Python code generation       | HumanEval                                                           |
-| [Big Code Models Leaderboard](https://huggingface.co/spaces/bigcode/bigcode-models-leaderboard)              | Multilingual code generation | HumanEval, MultiPL-E                                                |
-| [Text-To-Speech Synthesis on LJSpeech](https://paperswithcode.com/sota/text-to-speech-synthesis-on-ljspeech) | Text-to-Speech               | LJSpeech                                                            |
-| [Open ASR Leaderboard](https://huggingface.co/spaces/hf-audio/open_asr_leaderboard)                          | Speech recognition           | ESB                                                                 |
-| [Object Detection Leaderboard](https://huggingface.co/spaces/rafaelpadilla/object_detection_leaderboard)     | Object Detection             | COCO                                                                |
-| [Semantic Segmentation on ADE20K](https://paperswithcode.com/sota/semantic-segmentation-on-ade20k)           | Semantic Segmentation        | ADE20K                                                              |
-| [Open Party Prompt Leaderboard](https://huggingface.co/spaces/OpenGenAI/parti-prompts-leaderboard)           | Text-to-Image                | Open Party Prompts                                                  |
+  potential inputs that a model may encounter (e.g. limited dataset for [code generation evaluation](code-generation-eval)).
+- **Balanced Approach**: while benchmarks serve as valuable initial evaluation tools for models, it's essential not to depend
+  solely on them. Prioritize an in-depth understanding of your unique use case and project requirements.
+- **[Beyond leaderboard rankings](https://skandavivek.substack.com/p/how-do-you-evaluate-large-language)**: several factors
+  including prompt tuning, embeddings retrieval, model parameter adjustments, and data storage, significantly impact a 
+  language model's real-world performance. Recent developments (e.g. [RAGAS](https://github.com/explodinggradients/ragas),
+  [LangChain](https://github.com/langchain-ai/langsmith-cookbook)) aim to simplify LLM evaluation and integration into 
+  applications, emphasizing the transition from leaderboards to practical deployment, monitoring, and assessment.
 
 
 ## Future
 
 See also:
-- Quality: ["Better Data = Better Performance"](https://cameronrwolfe.substack.com/i/135439692/better-data-better-performance)
 - https://gist.github.com/veekaybee/be375ab33085102f9027853128dc5f0e#evaluation
   + https://ehudreiter.com/2023/04/04/evaluating-chatgpt/
 

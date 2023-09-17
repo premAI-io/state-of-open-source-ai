@@ -5,13 +5,13 @@ While ChatGPT and GPT-4 have taken the world of AI by storm in the last half yea
 A new and exciting area are desktop apps that support running power LLMs locally. There is an argument to be made that successful desktop apps are more useful than cloud based services in some sensitive cases. This is because data, models, and the app can all be ran locally on typically available hardware. Here, I go through some of the up and coming solutions for LLM desktop apps -- their benefits, limitations, and comparisons between them.
 
 ```{table} Comparison of Desktop Apps
-Desktop App | Supported Models | GPU support | UI | Extra Features | Future Roadmap
-------------|------------------|-------------|----|----------------|---------------
-[LM Studio](#lm-studio) | 🟡 `ggml` | 🟢 Yes | Clean, clear tabs. Model config choices (GPU, RAM, etc.). Can choose multiple model params. | Local server deployments | Not mentioned
-[GPT4All](#gpt4all) | 🟡 `ggml` | 🔴 No | Unclear tabs. Minimal model config options. Can choose model params. | Contribute & use training data from the GPT4All datalake | Building opensource datalake for future model training
-[Koboldcpp](#koboldcpp) | 🟡 `ggml` | 🔴 No | Cluttered UI. Some model config options. Unique model/app params e.g. scenarios. | Cool story, character, and adventure modes | Not mentioned
-[Local.AI](#localai) | 🟡 `ggml` | 🔴 No | Clear tabs. Minimal model config options. Can choose model params. | Light/dark modes | Text-to-audio, OpenAI functions
-[Ollama](#ollama) | 🔴 few `ggml` models | 🟡 Yes (metal) | Basic, terminal-based UI. Multiple model configurations, need to save as a file. Multiple model params, need to save as a file. | Run from terminal | Windows, Linux support
+Desktop App | Supported Models | GPU support | Layout | Configuration | Extra Features | OS | Future Roadmap
+------------|------------------|-------------|--------|---------------|----------------|----|---------------
+[LM Studio](https://lmstudio.ai) | 🟡 `ggml` | 🟢 Yes | Clean, clear tabs. | Hardware config choices (GPU, RAM, etc.). Can choose multiple inference params (temperature, repeat penalty, etc.). | Local server deployments | Windows, Linux, MacOS | Not mentioned
+[GPT4All](https://gpt4all.io) | 🟡 `ggml` | 🔴 No | Unclear tabs. | Minimal hardware config options. Can choose inference params. | Contribute & use training data from the GPT4All datalake | Windows, Linux, MacOS | [Building opensource datalake for future model training](https://gpt4all.io)
+[Koboldcpp](https://github.com/LostRuins/koboldcpp) | 🟡 `ggml` | 🔴 No | Cluttered UI. | Some hardware config options. Unique inference/app params e.g. [scenarios.](https://github.com/LostRuins/koboldcpp) | Cool story, character, and adventure modes | Windows, Linux, MacOS | Not mentioned
+[Local.AI](https://www.localai.app) | 🟡 `ggml` | 🔴 No | Clear tabs. | Minimal hardware config options. Can choose inference params. | Light/dark modes | Windows, Linux, MacOS | [Text-to-audio, OpenAI functions](https://github.com/go-skynet/LocalAI)
+[Ollama](https://ollama.ai/) | 🔴 few `ggml` models | 🟡 Yes (metal) | Basic, terminal-based UI. | Multiple hardware configurations, need to save as a file prior to running. Multiple inference params, need to save as a file. | Run from terminal | MacOS | [Windows, Linux support](https://ollama.ai/)
 ```
 
 ## LM Studio
@@ -24,19 +24,19 @@ LM Studio is an app to run LLMs locally.
 
 The UI is pretty neat and well contained:
 
-```{figure} https://user-images.githubusercontent.com/81156510/263172947-933da34a-bd15-4d5c-a292-036dfd545ac0.png
+```{figure} https://github.com/premAI-io/static.premai.io/blob/6748dea24878fd7a4f6278585a86bb3703b5250e/book/lm-studio1.png?raw=true
 LM Studio UI
 ```
 
 There's a search bar that can be used to search for models from the HuggingFace models to power the chat.
 
-```{figure} https://user-images.githubusercontent.com/81156510/263092530-e748892b-bb98-4cc7-9835-cfba75b7073d.png
+```{figure} https://github.com/premAI-io/static.premai.io/blob/main/book/lmstudio-search.png?raw=true
 LM Studio Model Search
 ```
 
 The Chat UI component is similar to ChatGPT to have conversations between the user and the assistant.
 
-```{figure} https://user-images.githubusercontent.com/81156510/263092534-5e11dade-db8d-4b0f-b0fb-6ae7977db808.png
+```{figure} https://github.com/premAI-io/static.premai.io/blob/main/book/lmstudio-chat-int.png?raw=true
 LM Studio Chat Interface
 ```
 
@@ -50,7 +50,7 @@ LM Studio Chat Example
 
 One useful aspect is the ability to build a Python or Node.js application based on an underlying LLM.
 
-```{figure} https://user-images.githubusercontent.com/81156510/263173265-d654a32c-a197-4552-bb8e-43fd5ec6c25e.png
+```{figure} https://github.com/premAI-io/static.premai.io/blob/main/book/lmstudio-local.png?raw=true
 LM Studio Local Server
 ```
 
@@ -87,7 +87,7 @@ print(f"LLM's response:{response}")
 
 This is the code that I ran using the command `python3 <filename>.py` and the results from server logs and terminal produced are shown below:
 
-```{figure} https://user-images.githubusercontent.com/81156510/263092544-9cf3ec5c-24c1-425f-b3c1-09e143bbcd2f.png
+```{figure} https://github.com/premAI-io/static.premai.io/blob/main/book/lmstudio-local-ex.png?raw=true
 LM Studio Local Server Example
 ```
 
@@ -158,7 +158,7 @@ print(response)
 
 The response can be found for the example `prompt`:
 
-```{figure} https://user-images.githubusercontent.com/81156510/263530739-5e3a7425-8b25-45c7-a101-46e2752e8a1f.png
+```{figure} https://github.com/premAI-io/static.premai.io/blob/main/book/gpt4all-ex.png?raw=true
 GPT4All UI Example
 ```
 
@@ -224,15 +224,11 @@ Pretty standard prompt related configurations. It appears there is no GPU.
 
 [Ollama](https://ollama.ai) is an LLM based conversational chat bot that can be run from a MAC terminal. It is simple to get started. Currently, it is available only for the Mac OS but support for Windows and Linux are coming soon.
 
-```{figure} https://user-images.githubusercontent.com/81156510/264678917-394b8b74-9bfc-4436-ad12-d513d7856e65.png
-Ollama Terminal Based Chat
-```
-
 ### UI and Chat
 
 Neat clean and crisp UI, just `＞＞＞` in the terminal and you can paste your prompt. The response time will vary according to the model size but responses are mostly acceptable. I tested the `llama` model which is the most recently supported model and the results were good.
 
-```{figure} https://user-images.githubusercontent.com/81156510/264678917-394b8b74-9bfc-4436-ad12-d513d7856e65.png
+```{figure} https://github.com/premAI-io/static.premai.io/blob/main/book/ollama-ex.png?raw=true
 Ollama Example
 ```
 

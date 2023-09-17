@@ -23,8 +23,7 @@ and accuracy. For language translation, BLEU score quantifies the similarity bet
 human references.
 
 - **Speech**: models are assessed using metrics like [Word Error Rate (WER)](https://en.wikipedia.org/wiki/Word_error_rate), 
-Character Error Rate (CER), and accuracy are commonly used. WER measures the dissimilarity between recognized words and 
-the ground truth.
+ and accuracy are commonly used. WER measures the dissimilarity between recognized words and the ground truth.
 
 While evaluation metrics offer valuable insights into a model's capabilities within its specific domain, they may not 
 provide a comprehensive assessment of its overall performance. To address this limitation, benchmarks play a pivotal role
@@ -71,7 +70,7 @@ aiding researchers, businesses, and the open-source community in making informed
 
 ```{admonition} Feedback
 :class: attention
-Is the [table above](leaderboards-table) outdated or missing an important leaderboard? Let us know in the [<i class="fas fa-pencil-alt"></i> comments](licences-comments) below, or {{
+Is the [table above](leaderboards-table) outdated or missing an important leaderboard? Let us know in the [<i class="fas fa-pencil-alt"></i> comments](eval-datasets-comments) below, or {{
   '[<i class="fab fa-github"></i> open a pull request]({}/edit/main/{}.md)'.format(
   env.config.html_theme_options.repository_url, env.docname)
 }}!
@@ -104,7 +103,8 @@ When benchmarking an LLM model, two approaches emerge:
   ```text
   Positive
   ```
-  
+
+(few-shot-prompting)=  
 - **Few-shot prompting** entails providing the model with a limited number of examples related to a specific task, 
 along with context, to evaluate its adaptability and performance when handling new tasks with minimal training data.
   
@@ -201,9 +201,10 @@ watermelons will grow in your stomach, but this is impossible<br>
 You fall unconscious; You digest the watermelon seeds
 ```
 
-(mt-bench)=
-**[MT-Bench](https://huggingface.co/spaces/lmsys/mt-bench)**, a benchmark consisting of 80 high-quality multi-turn questions,
-has been created. This benchmark is specifically designed to evaluate a model's performance in multi-turn conversations 
+(mt-benchmark)=
+**[MT-Bench](https://arxiv.org/pdf/2306.05685.pdf)** has been introduced by 
+[Large Model Systems Organization (LMSYS Org)](https://lmsys.org/), and consists of 80 challenging multi-turn questions. 
+This benchmark is specifically designed to evaluate a model's performance in multi-turn conversations 
 and instruction-following tasks. It covers a wide range of common use cases and focuses on challenging questions to 
 effectively differentiate between models. To guide the construction of MT-Bench, eight common categories of user prompts 
 were identified: writing, roleplay, extraction, reasoning, math, coding, knowledge I (STEM), and knowledge II 
@@ -218,6 +219,19 @@ must-see attractions.<br>
 2nd Turn: Rewrite your previous response. Start every sentence with the letter A.
 ```
 
+(humaneval-benchmark)=
+**[HumanEval](https://arxiv.org/pdf/2107.03374v2.pdf)** is a benchmark specifically tailored to evaluate code generation models. 
+In NLP code generation models are often evaluated on evaluation metrics such as BLEU, however these metrics don't capture 
+the complexity of the solutions' space for code generation as stated in this [thread](https://twitter.com/LoubnaBenAllal1/status/1692573780609057001). 
+HumanEval contains 164 programs with 8 tests for each.
+
+```{figure} https://static.premai.io/book/eval-datasets-human-eval-examples.png
+---
+width: 70%
+---
+[Examples of HumanEval Dataset](https://arxiv.org/pdf/2107.03374v2.pdf)
+```
+
 Several other benchmarks have been proposed,in the following table a summary of such benchmarks with the considered
 factors.
 
@@ -226,11 +240,9 @@ factors.
 | [Big Bench](https://arxiv.org/pdf/2206.04615.pdf)             | Generalization abilities                                                                                                                                                                                                                          |
 | [GLUE Benchmark ](https://arxiv.org/pdf/1804.07461v3.pdf)     | Grammar, paraphrasing, text similarity, inference, textual entailment, resolving pronoun references                                                                                                                                               |
 | [SuperGLUE Benchmark](https://arxiv.org/pdf/1911.11763v2.pdf) | Natural Language Understanding, reasoning, understanding complex sentences beyond training data, coherent and well-formed Natural Language Generation, dialogue with humans, common sense reasoning, information retrieval, reading comprehension | |
-| [MMLU](https://arxiv.org/pdf/2009.03300.pdf)                  | Language understanding across various tasks and domains                                                                                                                                                                                           |
 | [ANLI](https://arxiv.org/pdf/1910.14599v2.pdf)                | Robustness, generalization, coherent explanations for inferences, consistency of reasoning across similar examples, efficiency of resource usage (memory usage, inference time, and training time)                                                |
 | [CoQA](https://arxiv.org/pdf/1808.07042v2.pdf)                | Understanding a text passage and answering a series of interconnected questions that appear in a conversation                                                                                                                                     |
 | [LAMBADA](https://arxiv.org/pdf/1606.06031v1.pdf)             | Long-term understanding by predicting the last word of a passage                                                                                                                                                                                  |
-| [HellaSwag](https://arxiv.org/pdf/1905.07830.pdf)             | Reasoning abilities                                                                                                                                                                                                                               |
 | [LogiQA](https://arxiv.org/pdf/2007.08124v1.pdf)              | Logical reasoning abilities                                                                                                                                                                                                                       |
 | [MultiNLI](https://arxiv.org/pdf/1704.05426v4.pdf)            | Understanding relationships between sentences across genres                                                                                                                                                                                       |
 | [SQUAD](https://arxiv.org/pdf/1606.05250v3.pdf)               | Reading comprehension tasks                                                                                                                                                                                                                       |
@@ -253,6 +265,12 @@ based on the following benchmarks:
 * [HellaSwag](hellaswag-benchmark) (10-shot)
 * [MMLU](mmlu-benchmark) (5-shot)
 * [TruthfulQA](truthfulqa-benchmark) (0-shot)
+
+```{admonition} Few-shot prompting
+:class: note
+As described in [Few-shot prompting](few-shot-prompting) the notation used in the above benchmark (i.e. n-shot) indicates
+the number of examples provided to the model during evaluation.
+```
 
 ```{figure} https://static.premai.io/book/eval-datasets-open-llm-leaderboard.png
 ---
@@ -290,9 +308,9 @@ Alpaca Eval Leaderboard (GPT and Claude eval)
 * Claude may favor models that were fine-tuned on Claude outputs
 ```
 
+(chatbot-arena)=
 #### Chatbot Arena
-[Chatbot Arena](https://chat.lmsys.org/?arena), developed by [Large Model Systems Organization (LMSYS Org)](https://lmsys.org/), 
-represents a pioneering platform for assessing LLMs. 
+[Chatbot Arena](https://chat.lmsys.org/?arena), developed by [LMSYS Org](https://lmsys.org/), represents a pioneering platform for assessing LLMs. 
 This innovative tool allows users to compare responses from different chatbots. Users are presented with pairs of chatbot 
 interactions and asked to select the better response, ultimately contributing to the creation of an 
 [Elo rating-based](https://en.wikipedia.org/wiki/Elo_rating_system) leaderboard, which ranks LLMs based on their relative 
@@ -305,13 +323,11 @@ width: 100%
 Chatbot Arena
 ```
 
-LMSYS Org also introduced the [MT-Bench benchmark](https://huggingface.co/spaces/lmsys/mt-bench), which consists of 80 
-challenging multi-turn questions designed to rigorously test chatbots, with the unique twist of having GPT-4 grade the responses.
 The [Chatbot Arena Leaderboard](https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard) is based on the following
 three benchmarks: 
 
 - Chatbot Arena
-- [MT-Bench](mt-bench)
+- [MT-Bench](mt-benchmark)
 - [MMLU](mmlu-benchmark) (5-shot)
 
 ```{figure} https://static.premai.io/book/eval-datasets-chatbot-arena-leaderboard.png
@@ -357,23 +373,11 @@ MTEB Leaderboard
 
 Differently from aformentioned leaderboards, which focus more on question-answering, 
 reasoning and text generation, [Code Generation on HumanEval Leaderboard](https://paperswithcode.com/sota/code-generation-on-humaneval)
-tries to close the gap regarding the evaluation of LLMs on code generation tasks. 
-In NLP code generation models are often evaluated on evaluation metrics such as BLEU, however these metrics don't capture 
-the complexity of the solutions' space for code generation as stated in this 
-[thread](https://twitter.com/LoubnaBenAllal1/status/1692573780609057001). In order to solve this problem 
-[HumanEval](https://arxiv.org/pdf/2107.03374v2.pdf) has been introduced, which contains 164 programs with 8 tests for each.
-
-```{figure} https://static.premai.io/book/eval-datasets-human-eval-examples.png
----
-width: 70%
----
-[Examples of HumanEval Dataset](https://arxiv.org/pdf/2107.03374v2.pdf)
-```
-
+tries to close the gap regarding the evaluation of LLMs on code generation tasks by being based on [HumanEval](humaneval-benchmark). 
 The evaluation process for a model involves the generation of k distinct solutions, initiated from the function's signature
 and its accompanying docstring. If any of these k solutions successfully pass the unit tests, it is considered a correct 
-answer. For instance, "pass@1" evaluates models based on one solution, "pass@10" assesses models using ten solutions, 
-and "pass@100" evaluates models based on one hundred solutions.
+answer. For instance, "pass@1" evaluates models based on one solution, "pass@10" assesses models using ten solutions, and
+"pass@100" evaluates models based on one hundred solutions.
 
 ```{figure} https://static.premai.io/book/eval-datasets-human-eval.png
 ---
@@ -388,7 +392,7 @@ Similar to [Code Generation on HumanEval Leaderboard](code-generation-eval), [Bi
 tackles the code generation tasks. Moreover, the latter leaderboard consider not only python code generation models but
 multilingual code generation models as well. The primarily benchmarks used are:
 
-* [HumanEval](https://huggingface.co/datasets/openai_humaneval)
+* [HumanEval](humaneval-benchmark)
 * [MultiPL-E](https://huggingface.co/datasets/nuprl/MultiPL-E) - Translation of HumanEval to 18 programming languages.
 * Throughput Measurement measured using [Optimum-Benchmark](https://github.com/huggingface/optimum-benchmark)
 
@@ -455,6 +459,12 @@ annotated speech data per language, significantly aiding research in low-resourc
 hines through its applicability in various speech-related tasks, including ASR, Speech Language Identification, 
 Translation, and Retrieval.
 
+(esb)=
+[ESB](https://arxiv.org/pdf/2210.13352v1.pdf), the End-to-End ASR Systems Benchmark, is designed to assess the performance
+of a single ASR system across a diverse set of speech datasets. This benchmark incorporates eight English speech recognition
+datasets, encompassing a wide spectrum of domains, acoustic conditions, speaker styles, and transcription needs. ESB serves 
+as a valuable tool for evaluating the adaptability and robustness of ASR systems in handling various real-world speech scenarios.
+
 ### Leaderboards
 
 #### Text-To-Speech Synthesis on LJSpeech
@@ -482,10 +492,9 @@ Not all the metrics are available for all models.
 
 [Open ASR Leaderboard](https://huggingface.co/spaces/hf-audio/open_asr_leaderboard) assesses speech recognition models, 
 primarily focusing on English, using WER and Real-Time Factor ([RTF](https://en-academic.com/dic.nsf/enwiki/3796485)) as 
-key metrics, with a preference for lower values in both categories. They utilize the [ESB benchmark](https://arxiv.org/pdf/2210.13352.pdf), 
-incorporating eight English datasets for comprehensive and robust evaluations. Models are ranked based on their average 
-WER scores. This endeavor operates under an open-source framework, and the evaluation code can be found on their 
-[GitHub repository](https://github.com/huggingface/open_asr_leaderboard).
+key metrics, with a preference for lower values in both categories. They utilize the [ESB benchmark](esb), 
+and models are ranked based on their average WER scores. This endeavor operates under an open-source framework, and the 
+evaluation code can be found on their [GitHub repository](https://github.com/huggingface/open_asr_leaderboard).
 
 ```{figure} assets/eval-datasets-open-asr-leaderboard.png
 ---
@@ -595,6 +604,7 @@ width: 80%
 Semantic Segmentation Leaderboard
 ```
 
+(open-party-prompt)=
 #### Open Party Prompt Leaderboard
 
 [Open Party Prompt Leaderboard](https://huggingface.co/spaces/OpenGenAI/parti-prompts-leaderboard) evaluates open-source 
@@ -670,8 +680,25 @@ their limitations.
 
 ## Future
 
+The evaluation of {term}`SotA` models presents both intriguing challenges and promising opportunities. There 
+is a clear trend towards the recognition of human evaluation as an essential component, facilitated by the utilization 
+of crowdsourcing platforms. Initiatives like [Chatbot Arena](chatbot-arena) for LLM evaluation and 
+[Open Parti Prompts Game](open-party-prompt) for text-to-image generation assessment underscore the growing importance 
+of human judgment and perception in model evaluation.
+
+In parallel, there is a noteworthy exploration of alternative evaluation approaches, where models themselves act as 
+evaluators. This transformation is illustrated by the creation of automatic evaluators within the 
+[Alpaca Leaderboard](alpaca-eval), and by the proposed approach of using the GPT-4 as an evaluator in the 
+[Judging LLM-as-a-judge](https://arxiv.org/pdf/2306.05685.pdf) paper. These endeavors shed light on novel methods for 
+assessing model performance.
+
+The future of model evaluation will likely involve a multidimensional approach that combines benchmarks, leaderboards, 
+human evaluations, and innovative model-based assessments to comprehensively gauge model capabilities in a variety 
+of real-world contexts.
+
 See also:
 - https://gist.github.com/veekaybee/be375ab33085102f9027853128dc5f0e#evaluation
   + https://ehudreiter.com/2023/04/04/evaluating-chatgpt/
 
+(eval-datasets-comments)=
 {{ comments }}

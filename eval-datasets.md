@@ -346,7 +346,7 @@ various tasks, including brainstorming, creative generation, reasoning, open que
 Evaluators rate model completions on a 1-8 [Likert scale](https://en.wikipedia.org/wiki/Likert_scale), and Elo rankings 
 are created using these preferences.
 
-```{figure} assets/eval-datasets-human-eval-llm.png
+```{figure} https://static.premai.io/book/eval-datasets-human-eval-llm.png
 ---
 width: 95%
 ---
@@ -476,7 +476,7 @@ available:
 - Pleasant MOS
 - [WER](https://en.wikipedia.org/wiki/Word_error_rate)
 
-```{figure} assets/eval-datasets-tts-ljspeech.png
+```{figure} https://static.premai.io/book/eval-datasets-tts-ljspeech.png
 ---
 width: 95%
 ---
@@ -496,7 +496,7 @@ key metrics, with a preference for lower values in both categories. They utilize
 and models are ranked based on their average WER scores. This endeavor operates under an open-source framework, and the 
 evaluation code can be found on their [GitHub repository](https://github.com/huggingface/open_asr_leaderboard).
 
-```{figure} assets/eval-datasets-open-asr-leaderboard.png
+```{figure} https://static.premai.io/book/eval-datasets-open-asr-leaderboard.png
 ---
 width: 95%
 ---
@@ -519,7 +519,7 @@ various computer vision tasks, including object detection, segmentation, key-poi
 Comprising a vast collection of 328,000 images, this dataset has undergone several iterations and improvements since its 
 initial release in 2014.
 
-```{figure} assets/eval-datasets-coco.png
+```{figure} https://static.premai.io/book/eval-datasets-coco.png
 ---
 width: 80%
 ---
@@ -533,7 +533,7 @@ serving as a critical benchmark for tasks like image classification and object d
 remarkable diversity with a total of 21,841 non-empty WordNet synsets and over 1 million images with bounding box annotations, 
 making it a vital resource for computer vision research and development.
 
-```{figure} assets/eval-datasets-imagenet.png
+```{figure} https://static.premai.io/book/eval-datasets-imagenet.png
 ---
 width: 50%
 ---
@@ -556,7 +556,7 @@ grass, as well as discrete objects like persons, cars, and beds. This dataset se
 the field of computer vision, particularly in tasks related to semantic segmentation, where the goal is to classify and 
 delineate objects and regions within images with fine-grained detail.
 
-```{figure} assets/eval-datasets-ade20k.png
+```{figure} https://static.premai.io/book/eval-datasets-ade20k.png
 ---
 width: 50%
 ---
@@ -568,7 +568,7 @@ width: 50%
 from the official [Stable Diffusion Discord server](https://discord.com/invite/stablediffusion). The prompts in 
 the dataset are mostly English (contains also other languages such as Spanish, Chinese, and Russian).
 
-```{figure} assets/eval-datasets-diffusiondb.png
+```{figure} https://static.premai.io/book/eval-datasets-diffusiondb.png
 ---
 width: 100%
 ---
@@ -585,7 +585,7 @@ the COCO evaluation approach from the
 [COCO evaluation toolkit](https://github.com/cocodataset/cocoapi/blob/master/PythonAPI/pycocotools/cocoeval.py).
 
 
-```{figure} assets/eval-datasets-object-detection.png
+```{figure} https://static.premai.io/book/eval-datasets-object-detection.png
 ---
 width: 100%
 ---
@@ -597,7 +597,7 @@ Object Detection Leaderboard
 [Semantic Segmentation on ADE20K](https://paperswithcode.com/sota/semantic-segmentation-on-ade20k) evaluates models on the 
 [ADE20K](ade20k-dataset) mainly using mean Intersection over Union (mIoU).
 
-```{figure} assets/eval-datasets-semantic-segmentation-ade20k.png
+```{figure} https://static.premai.io/book/eval-datasets-semantic-segmentation-ade20k.png
 ---
 width: 80%
 ---
@@ -613,7 +613,7 @@ for assessment. Unlike traditional metrics, it relies on community feedback to c
 [Open Parti Prompts Game](https://huggingface.co/spaces/OpenGenAI/open-parti-prompts), 
 selecting the best image for a given prompt, and their preferences contribute to the model comparisons. 
 
-```{figure} assets/eval-datasets-open-party-prompts.png
+```{figure} https://static.premai.io/book/eval-datasets-open-party-prompts.png
 ---
 width: 90%
 ---
@@ -626,7 +626,7 @@ The leaderboard includes models like [Kandinsky 2.2](https://huggingface.co/kand
 It offers an overall comparison and detailed breakdown analyses by category and challenge type, providing a comprehensive
 assessment of model performance.
 
-```{figure} assets/eval-datasets-open-party-leaderboard.png
+```{figure} https://static.premai.io/book/eval-datasets-open-party-leaderboard.png
 ---
 width: 90%
 ---
@@ -671,6 +671,11 @@ their limitations.
   potential inputs that a model may encounter (e.g. limited dataset for [code generation evaluation](code-generation-eval)).
 - **Balanced Approach**: while benchmarks serve as valuable initial evaluation tools for models, it's essential not to depend
   solely on them. Prioritize an in-depth understanding of your unique use case and project requirements.
+- **[Evaluating ChatGPT on Internet Data](https://ehudreiter.com/2023/04/04/evaluating-chatgpt)**: it is crucial to note 
+  that evaluating ChatGPT on internet data or test sets found online, which may overlap with its training data, can lead 
+  to invalid results. This practice violates fundamental machine learning principles and renders the evaluations unreliable. 
+  Instead, it is advisable to use test data that is not readily available on the internet or to employ human domain experts 
+  for meaningful and trustworthy assessments of ChatGPT's text quality and appropriateness.
 - **[Beyond leaderboard rankings](https://skandavivek.substack.com/p/how-do-you-evaluate-large-language)**: several factors
   including prompt tuning, embeddings retrieval, model parameter adjustments, and data storage, significantly impact a 
   language model's real-world performance. Recent developments (e.g. [RAGAS](https://github.com/explodinggradients/ragas),
@@ -696,9 +701,6 @@ The future of model evaluation will likely involve a multidimensional approach t
 human evaluations, and innovative model-based assessments to comprehensively gauge model capabilities in a variety 
 of real-world contexts.
 
-See also:
-- https://gist.github.com/veekaybee/be375ab33085102f9027853128dc5f0e#evaluation
-  + https://ehudreiter.com/2023/04/04/evaluating-chatgpt/
 
 (eval-datasets-comments)=
 {{ comments }}

@@ -59,7 +59,7 @@ sphinx:
   - committers
   - sphinx_subfigure
   config:
-    myst_heading_anchors: 3
+    myst_heading_anchors: 4
     html_js_files:
     - [https://analytics.prem.ninja/js/script.js, {defer: defer, data-domain: book.premai.io}]
     linkcheck_ignore:

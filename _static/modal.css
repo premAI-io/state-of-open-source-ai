@@ -18,7 +18,7 @@
 
 .modal-content .header {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
 }
 
 .modal-content label {
@@ -57,7 +57,7 @@
     cursor: pointer;
 }
 
-#email-error {
+.modal-content .email-error {
     color: red;
     font-size: 0.9em;
     margin-top: 4px;

@@ -27,7 +27,7 @@ html:
         <label for="name">To access this book for free, please enter your email. We won't spam you!</label>
         <input type="email" id="email" name="email" />
         <button id="email-submit" onclick="handleButtonClick()">Submit</button>
-        <span id="email-error"></span>
+        <span class="email-error"></span>
       </div>
     </div>
 parse:

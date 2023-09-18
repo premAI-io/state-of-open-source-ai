@@ -9,7 +9,7 @@ chapters:
 - file: fine-tuning
 - file: model-formats
 - file: mlops-engines
-- file: vector-stores
+- file: vector-db
 - file: sdk
 - file: desktop-apps
 - file: hardware

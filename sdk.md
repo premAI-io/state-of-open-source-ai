@@ -198,6 +198,6 @@ However there are many [supported providers](https://docs.litellm.ai/docs/provid
 
 ### Streaming Queries
 
-By setting the `stream=True` parameter to boolean `True` we can view the [streaming](https://docs.litellm.ai/docs/#streaming-queries) iterator response in the output. But this is currently supported for models like OpenAI, Azure, Anthropic, and HuggingFace.
+By setting the `stream=True` parameter to boolean `True` we can view the [streaming](https://docs.litellm.ai/docs/completion/stream) iterator response in the output. But this is currently supported for models like OpenAI, Azure, Anthropic, and HuggingFace.
 
 {{ comments }}

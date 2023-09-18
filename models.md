@@ -456,11 +456,9 @@ And currently [its fine-tuned variants](https://huggingface.co/Phind/Phind-CodeL
 - For 7B and 13B variants' large context fine-tuning and infilling comes at a cost on standard benchmarks.
 - Performs [worse](https://www.reddit.com/r/OpenAI/comments/160bbaq/meta_has_released_code_llama_although_gpt4) compared to GPT-4.
 
-On September there's been a very interesting first release by [Adept](https://www.adept.ai), [Persimmon-8B](https://www.adept.ai/blog/persimmon-8b).
-
 #### Persimmon-8B
 
-Persimmon-8B is a standard decoder-only transformer model released by Adept under Apache license. Both [code and weights are open sourced](https://github.com/persimmon-ai-labs/adept-inference).
+[Persimmon-8B](https://www.adept.ai/blog/persimmon-8b) is a standard decoder-only transformer model released under an Apache-2.0 license. Both code and weights are available at https://github.com/persimmon-ai-labs/adept-inference.
 
 ##### Uniqueness
 
@@ -471,16 +469,16 @@ Persimmon-8B is a standard decoder-only transformer model released by Adept unde
 
   ```{figure} https://static.premai.io/book/models_persimmon-scores.png
   :width: 60%
-  [Persimmon-8B Results](https://www.adept.ai/blog/persimmon-8b#user-content-fnref-embeddingnote:~:text=reproduce%20these%20numbers.-,Results,-We%20compared%20Persimmon)
+  [Persimmon-8B Results](https://www.adept.ai/blog/persimmon-8b#results)
   ```
 
-- Uses a [vocabulary of 262k tokens](https://x.com/suchenzang/status/1700214181772013762), built using a unigram sentencepiece model.
+- Uses a [vocabulary of 262k tokens](https://twitter.com/suchenzang/status/1700214181772013762), built using a unigram sentencepiece model.
 - It's a skinnier, deeper model than Llama-2-7B.
 - They developed an [improved version of FlashAttention](https://www.adept.ai/blog/flashier-attention).
 - Inference optimisations possible.
 - In the model architecture it uses:
-  - Uses [squared ReLU activation function](https://www.adept.ai/blog/persimmon-8b#user-content-fnref-activationnote).
-  - Uses [RoPE](https://arxiv.org/abs/2104.09864) and [QKNorm](https://arxiv.org/abs/2010.04245) which might've been mostly needed to stabilise squared ReLU training since it was also used to reduce instability issues in [ViT-22B model](https://t.co/ychQzyMJ8N).
+  - Uses [squared ReLU activation function](https://www.adept.ai/blog/persimmon-8b#model-details).
+  - Uses [RoPE](https://arxiv.org/abs/2104.09864) and [QKNorm](https://arxiv.org/abs/2010.04245) which might've been mostly needed to stabilise squared ReLU training since it was also used to reduce instability issues in [ViT-22B model](https://arxiv.org/abs/2302.05442).
 
 ##### Limitations
 
@@ -490,7 +488,7 @@ Persimmon-8B is a standard decoder-only transformer model released by Adept unde
 
 Here we went through the properties of popular models in Text and Visual domains. Comparing Large Language Models to a single source of truth is an inherently very difficult task, and Comparing visual models even harder. Since while generalising capabilities it's really important to take care of racial, gender, religious and other biases that the model can have. There are lot of popular [leaderboards](eval-datasets.md#leaderboards) to track these models' aggregate or specific performances, based on [evaluation datasets](eval-datasets.md) curated by the community exactly for measuring capabilities, each catering to specific needs.
 
-Our current based approaches for comparisons include evaluating each model on each dataset and get an average score across datasets. Combining this with evaluations performed by having [humans and GPT-4 compare completions](https://huggingface.co/spaces/HuggingFaceH4/human_eval_llm_leaderboard), gives a somewhat trustable score for tracking the current best. But this current way is not enough, even pillar models like GPT-4 [fails](https://twitter.com/cHHillee/status/1635790330854526981), and it's [hard to determine](https://www.technologyreview.com/2023/08/30/1078670/large-language-models-arent-people-lets-stop-testing-them-like-they-were/#:~:text=OpenAI%20says%20it,not%20exact%20matches) on how much similar data to evaluation set has actually been a part of training set.
+Our current based approaches for comparisons include evaluating each model on each dataset and get an average score across datasets. Combining this with evaluations performed by having [humans and GPT-4 compare completions](https://huggingface.co/spaces/HuggingFaceH4/human_eval_llm_leaderboard), gives a somewhat trustable score for tracking the current best. But this current way is not enough, even pillar models like GPT-4 [fails](https://twitter.com/cHHillee/status/1635790330854526981), and it's [hard to determine](https://www.technologyreview.com/2023/08/30/1078670/large-language-models-arent-people-lets-stop-testing-them-like-they-were#piano__post_body-mobile-3) on how much similar data to evaluation set has actually been a part of training set.
 
 ### Language
 

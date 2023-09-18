@@ -11,7 +11,7 @@ This chapter is still being written & reviewed. Please do post links & discussio
 Some ideas:
 
 - https://gist.github.com/veekaybee/be375ab33085102f9027853128dc5f0e#training-your-own
-- [Why You (Probably) Don't Need to Fine-tune an LLM](https://www.tidepool.so/2023/08/17/why-you-probably-dont-need-to-fine-tune-an-llm) (instead, use few-shot prompting & retrieval-augmented generation)
+- [Why You (Probably) Don't Need to Fine-tune an LLM](https://www.tidepool.so/2023/08/17/why-you-probably-dont-need-to-fine-tune-an-llm/) (instead, use few-shot prompting & retrieval-augmented generation)
 - [Fine-Tuning Llama-2: A Comprehensive Case Study for Tailoring Models to Unique Applications](https://www.anyscale.com/blog/fine-tuning-llama-2-a-comprehensive-case-study-for-tailoring-models-to-unique-applications) (fine-tuning LLaMA-2 for 3 real-world use cases)
 - [Private, local, open source LLMs](https://python.langchain.com/docs/guides/local_llms)
 - [Easy-to-use LLM fine-tuning framework (LLaMA-2, BLOOM, Falcon, Baichuan, Qwen, ChatGLM2)](https://github.com/hiyouga/LLaMA-Efficient-Tuning)

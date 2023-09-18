@@ -24,19 +24,19 @@ LM Studio is an app to run LLMs locally.
 
 The UI is pretty neat and well contained:
 
-```{figure} https://github.com/premAI-io/static.premai.io/blob/6748dea24878fd7a4f6278585a86bb3703b5250e/book/lm-studio1.png?raw=true
+```{figure} https://static.premai.io/book/lm-studio1.png
 LM Studio UI
 ```
 
 There's a search bar that can be used to search for models from the HuggingFace models to power the chat.
 
-```{figure} https://github.com/premAI-io/static.premai.io/blob/main/book/lmstudio-search.png?raw=true
+```{figure} https://static.premai.io/book/lmstudio-search.png
 LM Studio Model Search
 ```
 
 The Chat UI component is similar to ChatGPT to have conversations between the user and the assistant.
 
-```{figure} https://github.com/premAI-io/static.premai.io/blob/main/book/lmstudio-chat-int.png?raw=true
+```{figure} https://static.premai.io/book/lmstudio-chat-int.png
 LM Studio Chat Interface
 ```
 
@@ -50,7 +50,7 @@ LM Studio Chat Example
 
 One useful aspect is the ability to build a Python or Node.js application based on an underlying LLM.
 
-```{figure} https://github.com/premAI-io/static.premai.io/blob/main/book/lmstudio-local.png?raw=true
+```{figure} https://static.premai.io/book/lmstudio-local.png
 LM Studio Local Server
 ```
 
@@ -87,7 +87,7 @@ print(f"LLM's response:{response}")
 
 This is the code that I ran using the command `python3 <filename>.py` and the results from server logs and terminal produced are shown below:
 
-```{figure} https://github.com/premAI-io/static.premai.io/blob/main/book/lmstudio-local-ex.png?raw=true
+```{figure} https://static.premai.io/book/lmstudio-local-ex.png
 LM Studio Local Server Example
 ```
 
@@ -158,7 +158,7 @@ print(response)
 
 The response can be found for the example `prompt`:
 
-```{figure} https://github.com/premAI-io/static.premai.io/blob/main/book/gpt4all-ex.png?raw=true
+```{figure} https://static.premai.io/book/gpt4all-ex.png
 GPT4All UI Example
 ```
 
@@ -228,7 +228,7 @@ Pretty standard prompt related configurations. It appears there is no GPU.
 
 Neat clean and crisp UI, just `＞＞＞` in the terminal and you can paste your prompt. The response time will vary according to the model size but responses are mostly acceptable. I tested the `llama` model which is the most recently supported model and the results were good.
 
-```{figure} https://github.com/premAI-io/static.premai.io/blob/main/book/ollama-ex.png?raw=true
+```{figure} https://static.premai.io/book/ollama-ex.png
 Ollama Example
 ```
 

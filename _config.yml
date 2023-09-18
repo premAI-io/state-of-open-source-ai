@@ -76,13 +76,16 @@ sphinx:
     # GitHub anchors
     - https://github.com/\w+/\w+/blob/\w+/.*#L\d+(-L\d+)?
     - https://github.com/premAI-io/prem-app#.*
-    - https://github.com/imaurer/awesome-decentralized-llm#.*
     - https://github.com/BlinkDL/RWKV-LM#.*
+    - https://github.com/CompVis/stable-diffusion/blob/main/Stable_Diffusion_v1_Model_Card.md#.*
     - https://github.com/ggerganov/ggml#.*
     - https://github.com/huggingface/optimum#.*
-    - https://github.com/onnx/tutorials#.*
-    - https://github.com/onnx/onnx-tensorrt#.*
+    - https://github.com/imaurer/awesome-decentralized-llm#.*
+    - https://github.com/kingoflolz/mesh-transformer-jax#.*
+    - https://github.com/lm-sys/FastChat.*#.*
     - https://github.com/onnx/onnx-tensorrt/blob/main/docs/operators.md#.*
+    - https://github.com/onnx/onnx-tensorrt#.*
+    - https://github.com/onnx/tutorials#.*
     - https://gist.github.com/veekaybee/be375ab33085102f9027853128dc5f0e#.*
     # misc
     - https://www.nytimes.com/2016/04/19/technology/google-books-case.html
@@ -92,6 +95,8 @@ sphinx:
     - https://direct.mit.edu/daed/article/151/2/127/110621/Human-Language-Understanding-amp-Reasoning
     - https://numfocus.org
     - https://chat.openai.com
+    - https://falconllm.tii.ae
+    - https://www.midjourney.com
     linkcheck_allowed_redirects:
       https://doi.org/.*/.*: https://.*
       https://codespaces.new/.*: https://github.com/login.*

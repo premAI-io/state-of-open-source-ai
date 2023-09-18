@@ -166,7 +166,7 @@ At Prem we are on a journey to make this possible, with a focus on developer exp
 
 ```{glossary}
 Alignment
-  [Aligned AI models](https://en.wikipedia.org/wiki/AI_alignment) must implement safeguards to be helpful, honest, and harmless {cite}`labellerr-alignment`. See [](uncensored-models).
+  [Aligned AI models](https://en.wikipedia.org/wiki/AI_alignment) must implement safeguards to be helpful, honest, and harmless {cite}`labellerr-alignment`. See [](unaligned-models).
 
 BEC
   [Business Email Compromise](https://www.microsoft.com/en-us/security/business/security-101/what-is-business-email-compromise-bec).

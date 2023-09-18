@@ -46,6 +46,24 @@ Here are some examples of models that have been fine-tuned to generate content i
 * [Llama-2 chat](https://huggingface.co/meta-llama/Llama-2-7b-chat-hf) - The "chat" version of Llama is fine-tuned on conversational data. 
 * [Code Llama](https://about.fb.com/news/2023/08/code-llama-ai-for-coding/) - A fine-tuned Llama 2 model designed for code generation.
 
+## RAG(Retrieval Augmented Generation)
+
+RAG is a method used to boost the accuracy of LLMs by injecting relevant context into an LLM prompt. It works by connecting to a vector database and fetches only the information that is most relevant to the user's query. Using this technique, the LLM is provided with enough background knowledge to adequately answer the user's question without hallucinating. 
+
+RAG is not a part of fine-tuning, because it uses a pre-trained LLM and does not modify it in any way.
+However, there are several advantages to using RAG:
+- **Boost model accuracy**
+  - Leads to less hallucinations by providing the right context
+- **Less computing power required**
+  - Unlike fine-tuning, RAG does not need to re-train any part of the model. It's only the models prompt that changes.
+- **Quick and easy setup**
+  - RAG does not require much domain expertise about LLMs. You don't need to find training data or corresponding labels. Most pieces of text can be uploaded into the vector db as is, without major modifications.
+- **Connect to private data**
+  - Using RAG, engineers can connect data from SaaS apps such as Notion, Google Drive, Hubspot, Zendesk, etc. to their LLM. Now the LLM has access to private data and can help answer questions about the data in these applications.
+
+RAG plays a key role in making LLMs for useful, but it can be a bit tedious to set up. Tthere are a number of open-source project such as [Llama index](https://github.com/jerryjliu/llama_index) which can help make the process a bit easier.
+
+
 ## Fine-Tuning Image Models
 
 Fine tuning computer vision based models is a common practice and is used in applications involving object detection, object classification, and image segmentation. 

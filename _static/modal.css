@@ -1,0 +1,64 @@
+.modal {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    display: flex;
+    margin: 15% auto;
+    width: 50vw;
+    padding: 30px;
+    box-shadow: 0 0 22px 1px black;
+}
+
+.modal-content .header {
+    display: flex;
+    justify-content: end;
+}
+
+.modal-content label {
+    font-size: 1.2em;
+}
+
+.modal-content input {
+    border: 1px solid #F58E8E;
+    border-radius: 3px;
+    margin: 10px 0;
+}
+
+.modal-content input:focus {
+    outline: none !important;
+    box-shadow: 0 0 10px #F58E8E;
+}
+
+.modal-content button {
+    color: black;
+    background-color: #F58E8E;
+    border: none;
+    border-radius: 3px;
+    font-size: 1.3em;
+}
+
+.close {
+    color: black;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #F58E8E;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#email-error {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 4px;
+}

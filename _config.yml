@@ -20,6 +20,16 @@ html:
       label: question
       repo: premAI-io/state-of-open-source-ai
       theme: preferred-color-scheme
+  extra_footer: |
+    <div id="email-modal" class="modal">
+      <div class="modal-content">
+        <!--<div class="header"><span class="close">&times;</span></div>-->
+        <label for="name">To access this book for free, please enter your email. We won't spam you!</label>
+        <input type="email" id="email" name="email" />
+        <button id="email-submit" onclick="handleButtonClick()">Submit</button>
+        <span id="email-error"></span>
+      </div>
+    </div>
 parse:
   myst_substitutions:
     baseurl: http://localhost:8000
@@ -47,8 +57,6 @@ parse:
       <div class="section"></div>
 
       {{ '```{committers} ' + env.docname + '.md\n```' }}
-
-      <script>checkCookie();</script>
   myst_enable_extensions: # https://myst-parser.readthedocs.io/en/latest/using/syntax-optional.html
   # needs myst-parser>=0.19 <- https://github.com/executablebooks/MyST-NB/issues/530
   #- attrs_block

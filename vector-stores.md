@@ -2,7 +2,7 @@
 
 Vector databases have exploded in popularity in the past year due to generative AI, but the concept of vectors and embeddings has been around since modern-day neural networks.
 
-In the field of computer vision where an engineer is performing image classification, the "features" that get extracted by the neural network are the vector embeddings. These vector embeddings contain information about the image that can be used for things like image classification or image similarity. 
+In the field of computer vision when an engineer is performing image classification, the "features" that get extracted by the neural network are the vector embeddings. These vector embeddings contain information about the image that can be used for things like image classification or image similarity. 
 
 In the context of textual data, vector embeddings serve a similar purpose. They capture the relationship between words, which allows models to understand language.
 
@@ -17,15 +17,15 @@ In the context of textual data, vector embeddings serve a similar purpose. They 
 
 ## LLM Embeddings
 
-Large language models are trained on a massive text corpus, like Wikipedia As the model processes this text, it learns representations for words based on their context.
+Large language models are trained on a massive text corpus such as Wikipedia. As the model processes this text, it learns representations for words based on their context.
 
 As the model learns from the data, it represents each word as a high-dimensional vector, usually with hundreds or thousands of dimensions. The values in the vector encode the semantic meaning of the word. 
 
-After training on large corpora, words with similar meanings end up close together in the vector space.
+After training on a large corpora of text, words with similar meanings end up closer together in the vector space.
 
 The resulting word vectors capture semantic relationships between words, which allows the model to generalize better on language tasks. These pre-trained embeddings are then used to initialize the first layer of large language models like BERT.
 
-To summarize, by training the model on a large set of text data you end up with a model specifically designed to capture the relationship between words, AKA vector embeddings.
+To summarize, by training the model on a large set of text data you end up with a model specifically designed to capture the relationship between words, i.e., vector embeddings.
 
 ## Turning text into embeddings
 
@@ -39,11 +39,11 @@ Vector Embeddings
 
 ### Let's take the sentence from the image above as an example: "I want to adopt a puppy".
 
-1. Each word in the sentence is mapped to its corresponding vector representation using the pre-trained word embeddings. For example, "adopt" may map to a 300-dimensional vector, "puppy" to another 300-dim vector, and so on.
+1. Each word in the sentence is mapped to its corresponding vector representation using the pre-trained word embeddings. For example, the word "adopt" may map to a 300-dimensional vector, "puppy" to another 300-dim vector, and so on.
 
 2. The sequence of word vectors is then passed through the neural network architecture of the language model.
 
-3. As the word vectors pass through the model, they interact with each other and get transformed mathematically through matrix multiplications. This allows the model to interpret the meaning of the full sequence.
+3. As the word vectors pass through the model, they interact with each other and get transformed by mathematical functions. This allows the model to interpret the meaning of the full sequence.
 
 4. The output of the model is a new vector that represents the embedding for the full input sentence. This sentence embedding encodes the semantic meaning of the entire sequence of words.
 
@@ -64,7 +64,7 @@ Vector databases allow for efficient search and storage of vector embeddings.
 
 | Vector Database | Open Source | Sharding | Supported Distance Metrics                  | Supported Indices            |
 |-----------------|-------------|----------|---------------------------------------------|------------------------------|
-| Weaviate        | Yes         | Yes      | cosine, dot, l2 squared, hamming, manhattan | HNSW, HNSW-PQ                |
+| Weaviate        | Yes         | Yes      | cosine, dot, L2 squared, hamming, manhattan | HNSW, HNSW-PQ                |
 | Qdrant          | Yes         | Yes      | cosine, dot, euclidean                      | HNSW                         |
 | Milvus          | Yes         | Yes      | cosine, dot, euclidean, jaccard, hamming    | HNSW, FLAT, IVF-FLAT, IVF-PQ |
 | Pinecone        | No          | Yes      | cosine, dot, euclidean                      | HNSW, FLAT, LSH, PQ          |
@@ -118,7 +118,7 @@ This method is much faster than doing an exhaustive search across the entire dat
 
 ### Tree-based Indexing
 
-Tree-based indexing allows for fast searches by using a data structure such as a binary tree. The tree gets created in a way that similar vectors are grouped in the same subtree. Annoy (Approximate Nearest Neighbor Oh Yeah) uses a forest of binary trees to perform approximate nearest neighbors search. Annoy performs well with high-dimension data where doing an exact nearest neighbors search can be expensive. The downside of using this method is that it can take a significant amount of time to build the index. Whenever a new data point is received, the indices cannot be restructured on the fly. The entire index has to be rebuilt from scratch.
+Tree-based indexing allows for fast searches by using a data structure such as a binary tree. The tree gets created in a way that similar vectors are grouped in the same subtree. [Annoy](https://github.com/spotify/annoy) (Approximate Nearest Neighbor Oh Yeah) uses a forest of binary trees to perform approximate nearest neighbors search. Annoy performs well with high-dimension data where doing an exact nearest neighbors search can be expensive. The downside of using this method is that it can take a significant amount of time to build the index. Whenever a new data point is received, the indices cannot be restructured on the fly. The entire index has to be rebuilt from scratch.
 
 ### Graph-based Indexing
 
@@ -143,7 +143,9 @@ Although IVF is efficient at searching for similar points once the index is crea
 ### Vector Compression
 Vectors can take up a lot of memory in terms of storage. High dimensional data adds to this problem which can end up making vector search slow and difficult to manage. To tackle this issue, compression is used to reduce the overall footprint of the vector while still retaining the core structure of the data.
 
-There are two kinds of compression techniques: Flat and Product Quantization(PQ). 
+There are two kinds of compression techniques: 
+- **Flat**
+- **Product Quantization(PQ)**
 
 Flat compression does not modify the vectors and keeps the original structure. When an input query comes in a kNN search is done to find the exact match between the input vector and the vectors present in the vector database. This leads to a high level of accuracy, but it comes at the cost of speed. The search time increases linearly as the size of the dataset grows. When dealing with larger datasets, flat will likely yield poor results in terms of latency.
 
@@ -179,17 +181,17 @@ Another use case is recommendation engines. Recommendations by nature, are about
 ## Limitations
 While there are many advantages to using vector databases in certain applications, there are also a few issues to be aware of:
 
-1. Data structure
-* Vector databases are optimized to work with only vector data. The underlying data structures may not be suitable for working with tabular or JSON data
-* For this reason, vector databases should not be used as a replacement for other types of databases as they lack many of the features such as being ACID-compliant.
+- Data structure
+  - Vector databases are optimized to work with only vector data. The underlying data structures may not be suitable for working with tabular or JSON data.
+  - For this reason, vector databases should not be used as a replacement for other types of databases as they lack many of the features such as being [ACID-compliant](https://www.mongodb.com/databases/acid-compliance).
 
-2. Debugging difficulty
-* To humans a vector looks like a random list of numbers. These numbers don't make any sense to us, so it becomes difficult to interpret what this vector represents. 
-* Unlike a relational database where we can read the data in each column, we cannot simply read the vector. This makes vector data difficult to debug, as we have to rely on algorithms and metrics to make sense of the data
+- Debugging difficulty
+  - To humans a vector looks like a random list of numbers. These numbers don't make any sense to us, so it becomes difficult to interpret what this vector represents. 
+  - Unlike a relational database where we can read the data in each column, we cannot simply read the vector. This makes vector data difficult to debug, as we have to rely on algorithms and metrics to make sense of the data.
 
-3. Indexing issues
-* The way a vector database is indexed is crucial to its search performance. 
-* However, due to the way some indices are designed it can be quite challenging to modify or delete data. For some indices, the entire underlying data structure needs to be re-formatted when data changes are made.
+- Indexing issues
+  - The way a vector database is indexed is crucial to its search performance. 
+  - However, due to the way some indices are designed it can be quite challenging to modify or delete data. For some indices, the entire underlying data structure needs to be re-formatted when data changes are made.
 
 ## Future
 

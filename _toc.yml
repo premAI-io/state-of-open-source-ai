@@ -5,7 +5,7 @@ chapters:
 - file: licences
 - file: eval-datasets
 - file: models
-- file: uncensored-models
+- file: unaligned-models
 - file: fine-tuning
 - file: model-formats
 - file: mlops-engines

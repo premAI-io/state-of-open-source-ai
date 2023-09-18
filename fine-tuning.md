@@ -20,9 +20,14 @@ Some ideas:
 - [The History of Open-Source LLMs: Better Base Models (part 2)](https://cameronrwolfe.substack.com/p/the-history-of-open-source-llms-better) (LLaMA, MPT, Falcon, LLaMA-2)
 ```
 
-Building deep learning models completely from scratch takes a lot of time, money, data, and expertise. Creating a brand new model from the ground up for every single use case is not a scalable design. In order to customize a model without having to build it from scratch, ML practitioners have turned to fine-tuning.
+For bespoke applications, models can be trained on task-specific data. However, training a model from scratch is seldom required.
+The model has already learned useful feature representations during its initial (pre) training
 
-Fine-tuning is the process of taking a pre-trained machine learning model and customizing it for a specific downstream task. The key reason to fine-tune is to take advantage of [transfer learning](https://www.v7labs.com/blog/transfer-learning-guide). The model has already learned useful feature representations during its initial pre-training, and fine-tuning allows you to leverage those features for a new task instead of having to learn them from scratch. This produces better performance with fewer training examples and resources.
+Instead, it is often sufficient to fine-tune a model. This is analogous to teaching a university student without having to first reteach them how to communicate.
+
+This takes advantage of [transfer learning](https://www.v7labs.com/blog/transfer-learning-guide).
+
+ and fine-tuning leverages those features for a new task instead of having to learn them from scratch. This produces better performance with fewer training examples and resources.
 
 ## How Fine-Tuning Works
 
@@ -34,7 +39,7 @@ Fine-tuning is the process of taking a pre-trained machine learning model and cu
 6. After some epochs of training only the task layer, you can optionally unfreeze some of the pre-trained layers weights to allow further tuning on your dataset.
 7. Continue training the model until the task layer and selected pre-trained layers converge on optimal weights for your dataset.
 
-The key is that most of the original model weights remain fixed during training. Only a small portion of weights are updated to customize the model to new data. This transfers general knowledge while adding task-specific tuning.
+The key is that most of the original model weights remain fixed during training. Only a small portion of weights are updated to customise the model to new data. This transfers general knowledge while adding task-specific tuning.
 
 ## Fine-Tuning LLMs
 
@@ -128,7 +133,7 @@ Preparing a robust dataset is key to building a fine-tuned model. For audio rela
 
 * Background noise levels - more noise makes transcription more difficult. Models may need enhanced noise robustness.
 * Sound quality - higher quality audio with clear speech is easier to transcribe. Low bitrate audio is challenging.
-* Speaker accents and voice types - diversity of speakers in training data helps generalize.
+* Speaker accents and voice types - diversity of speakers in training data helps generalise.
 * Audio domains - each domain like meetings, call centers, videos, etc. has unique acoustics.
 
 **Dataset Creation:**
@@ -153,7 +158,7 @@ For LLMs, the quantity of data can be an important factor when deciding whether 
 
 In the case of computer vision models, data quality can play a significant role in the performance of the model. Andrew Ng, a prominent researcher and entrepreneur in the field of AI, has been an advocate of data centric AI in which the quality of the data is more important than the sheer volume of data {cite}`small-data-tds`.
 
-To summarize, fine-tuning requires a balance between having a large dataset and having a high quality dataset. The higher the data quality, the higher the chance of increasing the model's performance.
+To summarise, fine-tuning requires a balance between having a large dataset and having a high quality dataset. The higher the data quality, the higher the chance of increasing the model's performance.
 
 ```{table} Estimates of minimum fine-tuning Hardware & Data requirements
 :name: memory-data-requirements
@@ -186,7 +191,7 @@ Fine-tuning models has been a common practice for ML engineers. It allows engine
 
 Developer tools for fine-tuning continue to improve the overall experience of creating one of these models while reducing the time to market. Companies like [Hugging Face](https://huggingface.co/docs/transformers/training) are building open-source tools to make fine-tuning easy. On the commercial side, companies like [Roboflow](https://roboflow.com) and [Scale AI](https://scale.com/generative-ai-platform) provide platforms for teams to manage the full life-cycle of a model.
 
-Overall, fine-tuning has become a crucial technique for adapting large pre-trained AI models to custom datasets and use cases. While the specific implementation details vary across modalities, the core principles are similar - leverage a model pre-trained on vast data, freeze most parameters, add a small tunable component customized for your dataset, and update some weights to adapt the model.
+Overall, fine-tuning has become a crucial technique for adapting large pre-trained AI models to custom datasets and use cases. While the specific implementation details vary across modalities, the core principles are similar - leverage a model pre-trained on vast data, freeze most parameters, add a small tunable component customised for your dataset, and update some weights to adapt the model.
 
 When applied correctly, fine-tuning enables practitioners to build real-world solutions using leading large AI models.
 

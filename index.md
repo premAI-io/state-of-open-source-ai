@@ -204,6 +204,9 @@ Permissive
 Public Domain
   "Open" {term}`IP` owned by nobody (often due to the author disclaiming all rights) and thus can be used by anyone without restrictions. Technically a disclaimer/non-licence. See [](open-licences).
 
+RAG
+  [Retrieval Augmented Generation](https://www.pinecone.io/learn/retrieval-augmented-generation).
+
 ROME
   The [Rank-One Model Editing algorithm](https://rome.baulab.info) alters a trained model's weights to directly modify "learned" information {cite}`meng2023locating,raunak2022rankone`.
 

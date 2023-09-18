@@ -201,8 +201,14 @@ Public Domain
 ROME
   The [Rank-One Model Editing algorithm](https://rome.baulab.info) alters a trained model's weights to directly modify "learned" information {cite}`meng2023locating,raunak2022rankone`.
 
+SIMD
+  [Single Instruction, Multiple Data](https://en.wikipedia.org/wiki/SIMD) is a [data-level](https://en.wikipedia.org/wiki/Data_parallelism) [parallel processing](https://en.wikipedia.org/wiki/Parallel_computer) technique where one computational instruction is applied to multiple data simultaneously.
+
 SotA
   State of the art: recent developments (under 1 year old).
+
+Quantisation
+  [Sacrificing precision](<https://en.wikipedia.org/wiki/Quantization_(signal_processing)>) of model weights (e.g. `uint8` instead of `float32`) in return for lower hardware memory requirements.
 
 Transformer
   A [transformer](<https://en.wikipedia.org/wiki/Transformer_(machine_learning_model)>) is a neural network using a parallel multi-head [attention](<https://en.wikipedia.org/wiki/Attention_(machine_learning)>) mechanism. The resultant reduce training time makes it well-suited for use in {term}`LLMs <llm>`.

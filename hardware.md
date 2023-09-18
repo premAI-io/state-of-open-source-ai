@@ -17,6 +17,8 @@ Some ideas:
 
 ## Machine Learning and GPUs
 
+% TODO: add links/citations
+
 GPUs are particularly well-suited for the types of computations required in AI for several reasons:
 
 1. **Parallelisation**: Deep learning models involve a lot of matrix multiplications and other operations that can be parallelised. A single GPU can have thousands of cores, allowing it to execute many operations simultaneously, which can lead to a significant speedup in training and inference times.
@@ -43,19 +45,21 @@ Each of these options has its own advantages and disadvantages in terms of perfo
 
 #### CUDA
 
-To interact with NVIDIA GPUs, you will primarily use the NVIDIA CUDA platform. CUDA is a parallel computing platform and programming model developed by NVIDIA for general computing on its GPUs.
+To interact with NVIDIA GPUs, you will primarily use CUDA. CUDA is a parallel computing platform & programming model developed by NVIDIA for general computing on its GPUs {cite}`cuda-gpus`.
 
 Here are the main components you will interact with:
 
-1. **CUDA Toolkit**: Install the CUDA Toolkit, which includes GPU-accelerated libraries, a compiler, development tools and the CUDA runtime.
-2. **CUDA Language**: This is an extension of the C/C++ programming language. You will write your code in CUDA C/C++, which includes some additional keywords and constructs for writing parallel code.
-3. **CUDA Libraries**: NVIDIA provides a variety of libraries that are optimised for their GPUs, such as cuBLAS for linear algebra, cuDNN for deep learning, and others for FFTs, sparse matrices, and more.
-4. **NVIDIA GPU Drivers**: Make sure you have the correct drivers installed for your GPU. These drivers allow your operating system and programs to communicate with your NVIDIA graphics card.
+1. [**CUDA Toolkit**](https://developer.nvidia.com/cuda-downloads), which includes:
+   - **CUDA libraries**: e.g. `cuBLAS` for linear algebra, `cuDNN` for deep learning, and others for FFTs, sparse matrices, and more
+   - [**CUDA runtime**](https://docs.nvidia.com/cuda/cuda-c-programming-guide/#cuda-runtime) (`cudart`)
+   - [**CUDA compiler**](https://docs.nvidia.com/cuda/cuda-c-programming-guide/#compilation-with-nvcc) (`nvcc`)
+   - [**NVIDIA drivers**](https://www.nvidia.com/Download/index.aspx): allow your operating system & programs to communicate with your NVIDIA graphics card
+2. [**CUDA Language**](https://docs.nvidia.com/cuda/cuda-c-programming-guide): an extension of the C/C++ programming language which includes [some additional keywords & constructs](https://docs.nvidia.com/cuda/cuda-c-programming-guide/#c-language-extensions) for writing parallel code.
 
 Here is a basic workflow for using NVIDIA GPUs:
 
-1. **Install the necessary software**: This includes the NVIDIA GPU drivers, the CUDA Toolkit, and any other libraries or software development kits (SDKs) you need.
-2. **Write your code**: Use the CUDA programming language (an extension of C/C++) to write your code. This will involve writing kernel functions that will be executed on the GPU, and host code that will be executed on the CPU.
+1. [**Install the necessary software**](https://developer.nvidia.com/how-to-cuda-c-cpp): This includes the NVIDIA GPU drivers, the CUDA Toolkit, and any other libraries or software development kits (SDKs) you need.
+2. [**Write your code**](https://docs.nvidia.com/cuda/cuda-c-programming-guide): Use the CUDA programming language (an extension of C/C++) to write your code. This will involve writing kernel functions that will be executed on the GPU, and host code that will be executed on the CPU.
 3. **Compile your code**: Use the NVCC compiler (included in the CUDA Toolkit) to compile your code.
 4. **Run your code**: Run your compiled code on an NVIDIA GPU.
 
@@ -88,6 +92,13 @@ int main(void) {
 ```
 
 In this example, `d_A`, `d_B`, and `d_C` are pointers to device memory, and `numElements` is the number of elements in each vector. The `vectorAdd` kernel is launched with `blocksPerGrid` blocks, each containing `threadsPerBlock` threads. Each thread computes the sum of one pair of elements from `d_A` and `d_B`, and stores the result in `d_C`.
+
+```{admonition} High-level wrappers
+:class: seealso
+Note that wrappers for other programming languages exists (e.g. [Python](https://developer.nvidia.com/how-to-cuda-python)), allowing control of CUDA GPUs while writing code in more concise & user-friendly languages.
+
+% TODO: RAPIDS, CuPy, CuVec etc
+```
 
 #### Vulkan
 
@@ -296,5 +307,9 @@ Table with benchmarks
   + user-friendly: https://fullstackdeeplearning.com/cloud-gpus
   + less user-friendly but more comprehensive: https://cloud-gpus.com
   + LLM-specific advice: https://gpus.llm-utils.org/cloud-gpu-guide/#which-gpu-cloud-should-i-use
+
+## Future
+
+One problem with using current {term}`LLMs <LLM>` is the high GPU memory requirements. One popular work-around is {term}`quantisation`. However, this requires hardware manufacturers to build support for quantised operations ({term}`SIMD` instruction sets), and ML libraries to rewrite/reimplement core parts of their codebase to support the new operations. Also recall that CPU-based SIMD instruction sets (e.g. [SSE4](https://en.wikipedia.org/wiki/SSE4) & [AVX10](https://en.wikipedia.org/wiki/AVX10) for PCs and [NEON](<https://en.wikipedia.org/wiki/ARM_architecture_family#Advanced_SIMD_(Neon)>) for mobiles) took many years to develop, and are still actively evolving. By comparison, GPU architectures have much less adoption & development, so new arithmetic operations will take years to be widely supported.
 
 {{ comments }}

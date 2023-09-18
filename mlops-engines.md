@@ -1,5 +1,27 @@
 # MLOps Engines
 
+```{admonition} Work in Progress
+:class: attention
+This chapter is still being written & reviewed. Please do post links & discussion in the {{
+  '[<i class="fas fa-pencil-alt"></i> comments]({}-comments)'.format(env.docname) }} below, or {{
+  '[<i class="fab fa-github"></i> open a pull request]({}/edit/main/{}.md)'.format(
+  env.config.html_theme_options.repository_url, env.docname)
+}}!
+
+Some ideas:
+
+- [7 Frameworks for Serving LLMs](https://betterprogramming.pub/frameworks-for-serving-llms-60b7f7b23407) "comprehensive guide & detailed comparison"
+- [Trends: Optimising for Faster Inference](https://cameronrwolfe.substack.com/i/135439692/optimizing-for-faster-inference)
+- https://github.com/imaurer/awesome-decentralized-llm
+- Python Bindings and More
+- PyTorch Toolchain -- From C/C++ to Python
+- https://docs.bentoml.org
+  + https://docs.bentoml.org/en/latest/overview/what-is-bentoml.html#build-applications-with-any-ai-models
+- https://finbarr.ca/how-is-llama-cpp-possible
+- https://onnxruntime.ai/docs/execution-providers
+- Apache TVM
+```
+
 % ```{figure-md} llm-lifecycle
 % :class: caption
 % ![](https://static.premai.io/book/mlops-engines-LLMOps-diagram.jpg)
@@ -54,28 +76,6 @@ By comparison, closed-source engines (e.g. [Cohere](https://cohere.com)) tend to
 Self-maintained open-source solutions, if implemented well, can be extremely cheap both to setup and to run long term. However, many underestimate the amount of work required to make an open-source ecosystem work seamlessly.
 
 For example, a single GPU node able to run a 36 GB open-source model can [easily cost over \$2,000 per month from a major cloud provider](hardware.md#cloud). Since the technology is still new, experimenting with & maintaining self-hosted infrastructure can be expensive. Conversely, closed-source pricing models often charge for usage (e.g. {term}`tokens`) rather than infrastructure (e.g. [ChatGPT costs around \$0.002 for 1K tokens](https://openai.com/pricing) -- enough for a page of text), making them much cheaper for small explorative tasks.
-
-```{admonition} Work in Progress
-:class: attention
-This chapter is still being written & reviewed. Please do post links & discussion in the {{
-  '[<i class="fas fa-pencil-alt"></i> comments]({}-comments)'.format(env.docname) }} below, or {{
-  '[<i class="fab fa-github"></i> open a pull request]({}/edit/main/{}.md)'.format(
-  env.config.html_theme_options.repository_url, env.docname)
-}}!
-
-Some ideas:
-
-- [7 Frameworks for Serving LLMs](https://betterprogramming.pub/frameworks-for-serving-llms-60b7f7b23407) "comprehensive guide & detailed comparison"
-- [Trends: Optimizing for Faster Inference](https://cameronrwolfe.substack.com/i/135439692/optimizing-for-faster-inference)
-- https://github.com/imaurer/awesome-decentralized-llm
-- Python Bindings and More
-- PyTorch Toolchain - From C/C++ to Python
-- https://docs.bentoml.org
-  + https://docs.bentoml.org/en/latest/overview/what-is-bentoml.html#build-applications-with-any-ai-models
-- https://finbarr.ca/how-is-llama-cpp-possible
-- https://onnxruntime.ai/docs/execution-providers
-- Apache TVM
-```
 
 ## Inference
 
@@ -175,7 +175,7 @@ There is ongoing development in both the open-source and private sectors to impr
 
 ## Future
 
-Due to the challenge of running LLMs, enterprises will likely opt to use an inference server instead of containerizing the model in-house. Optimising LLMs for inference requires a high level of expertise, which most companies many not have. Inference servers can help solve this problem by providing a simple and unified interface to deploy AI models at scale, while still being cost effective.
+Due to the challenge of running LLMs, enterprises will likely opt to use an inference server instead of containerising the model in-house. Optimising LLMs for inference requires a high level of expertise, which most companies many not have. Inference servers can help solve this problem by providing a simple and unified interface to deploy AI models at scale, while still being cost effective.
 
 Another pattern that's emerging is that models will move to the data instead of the data moving to the model. Currently, when calling the ChatGPT API data is sent to the model. Enterprises have worked very hard over the past decade to set up robust data infrastructure in the cloud. It makes a lot more sense to bring the model into the same cloud environment where the data is. This is where open-source models being cloud agnostic can have a huge advantage.
 

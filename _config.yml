@@ -38,6 +38,8 @@ parse:
       <div class="section"></div>
 
       {{ '```{committers} ' + env.docname + '.md\n```' }}
+
+      <script>checkCookie();</script>
   myst_enable_extensions: # https://myst-parser.readthedocs.io/en/latest/using/syntax-optional.html
   # needs myst-parser>=0.19 <- https://github.com/executablebooks/MyST-NB/issues/530
   #- attrs_block

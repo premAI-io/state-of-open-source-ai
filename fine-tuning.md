@@ -21,13 +21,7 @@ Some ideas:
 ```
 
 For bespoke applications, models can be trained on task-specific data. However, training a model from scratch is seldom required.
-The model has already learned useful feature representations during its initial (pre) training
-
-Instead, it is often sufficient to fine-tune a model. This is analogous to teaching a university student without having to first reteach them how to communicate.
-
-This takes advantage of [transfer learning](https://www.v7labs.com/blog/transfer-learning-guide).
-
- and fine-tuning leverages those features for a new task instead of having to learn them from scratch. This produces better performance with fewer training examples and resources.
+The model has already learned useful feature representations during its initial (pre) training, so it is often sufficient to simply fine-tune. This takes advantage of [transfer learning](https://www.v7labs.com/blog/transfer-learning-guide), producing better task-specific performance with minimal training examples & resources -- analogous to teaching a university student without first reteaching them how to communicate.
 
 ## How Fine-Tuning Works
 
@@ -48,7 +42,7 @@ When an LLM does not produce the desired output, engineers think that by fine-tu
 Common LLM issues include:
 
 - The model lacks knowledge on certain topics
-  + {term}`RAG` can be used to solve this problem
+  + [](#rag) can be used to solve this problem
 - The model's responses do not have the proper style or structure the user is looking for
   + Fine-tuning or few-shot prompting is applicable here
 
@@ -69,12 +63,13 @@ Here are some examples of models that have been fine-tuned to generate content i
 * [Llama-2 chat](https://huggingface.co/meta-llama/Llama-2-7b-chat-hf) - The "chat" version of Llama is fine-tuned on conversational data.
 * [Code Llama](https://about.fb.com/news/2023/08/code-llama-ai-for-coding) - A fine-tuned Llama 2 model designed for code generation.
 
-## RAG(Retrieval Augmented Generation)
+## RAG
 
-RAG is a method used to boost the accuracy of LLMs by injecting relevant context into an LLM prompt. It works by connecting to a vector database and fetches only the information that is most relevant to the user's query. Using this technique, the LLM is provided with enough background knowledge to adequately answer the user's question without hallucinating. 
+{term}`RAG` is a method used to boost the accuracy of LLMs by injecting relevant context into an LLM prompt. It works by connecting to a vector database and fetches only the information that is most relevant to the user's query. Using this technique, the LLM is provided with enough background knowledge to adequately answer the user's question without hallucinating.
 
 RAG is not a part of fine-tuning, because it uses a pre-trained LLM and does not modify it in any way.
 However, there are several advantages to using RAG:
+
 - **Boost model accuracy**
   - Leads to less hallucinations by providing the right context
 - **Less computing power required**
@@ -85,7 +80,6 @@ However, there are several advantages to using RAG:
   - Using RAG, engineers can connect data from SaaS apps such as Notion, Google Drive, Hubspot, Zendesk, etc. to their LLM. Now the LLM has access to private data and can help answer questions about the data in these applications.
 
 RAG plays a key role in making LLMs for useful, but it can be a bit tedious to set up. Tthere are a number of open-source project such as [Llama index](https://github.com/jerryjliu/llama_index) which can help make the process a bit easier.
-
 
 ## Fine-Tuning Image Models
 

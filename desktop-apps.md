@@ -1,17 +1,17 @@
 # Desktop Apps
 
-While ChatGPT and GPT-4 have taken the world of AI by storm in the last half year, open-source models are catching up. And there has been a lot of ground to cover, to reach OpenAI model performance. In many cases, ChatGPT and GPT-4 are clear winners as compared to deploying LLMs on cloud servers -- due to costs per OpenAI API request being relatively cheap compared with model hosting costs on cloud services like AWS, Azure, and Google Cloud. But, open-source models will always have value over closed APIs like ChatGPT/GPT-4 for certain business cases. Folks from industries like legal, healthcare, finance etc. — have concerns over data and customer privacy.
+While ChatGPT and GPT-4 have taken the world of AI by storm in the last half year, open-source models are catching up. And there has been a lot of ground to cover, to reach OpenAI model performance. In many cases, ChatGPT and GPT-4 are clear winners as compared to deploying LLMs on cloud servers -- due to costs per OpenAI API request being relatively cheap compared with model hosting costs on cloud services like AWS, Azure, and Google Cloud. But, open-source models will always have value over closed APIs like ChatGPT/GPT-4 for certain business cases. Folks from industries like legal, healthcare, finance etc. -- have concerns over data and customer privacy.
 
 A new and exciting area are desktop apps that support running power LLMs locally. There is an argument to be made that successful desktop apps are more useful than cloud based services in some sensitive cases. This is because data, models, and the app can all be ran locally on typically available hardware. Here, I go through some of the up and coming solutions for LLM desktop apps -- their benefits, limitations, and comparisons between them.
 
 ```{table} Comparison of Desktop Apps
 Desktop App | Supported Models | GPU support | Layout | Configuration | Extra Features | OS | Future Roadmap
 ------------|------------------|-------------|--------|---------------|----------------|----|---------------
-[LM Studio](https://lmstudio.ai) | 🟡 `ggml` | 🟢 Yes | Clean, clear tabs. | Hardware config choices (GPU, RAM, etc.). Can choose multiple inference params (temperature, repeat penalty, etc.). | Local server deployments | Windows, Linux, MacOS | Not mentioned
-[GPT4All](https://gpt4all.io) | 🟡 `ggml` | 🔴 No | Unclear tabs. | Minimal hardware config options. Can choose inference params. | Contribute & use training data from the GPT4All datalake | Windows, Linux, MacOS | [Building opensource datalake for future model training](https://gpt4all.io)
-[Koboldcpp](https://github.com/LostRuins/koboldcpp) | 🟡 `ggml` | 🔴 No | Cluttered UI. | Some hardware config options. Unique inference/app params e.g. [scenarios.](https://github.com/LostRuins/koboldcpp) | Cool story, character, and adventure modes | Windows, Linux, MacOS | Not mentioned
-[Local.AI](https://www.localai.app) | 🟡 `ggml` | 🔴 No | Clear tabs. | Minimal hardware config options. Can choose inference params. | Light/dark modes | Windows, Linux, MacOS | [Text-to-audio, OpenAI functions](https://github.com/go-skynet/LocalAI)
-[Ollama](https://ollama.ai/) | 🔴 few `ggml` models | 🟡 Yes (metal) | Basic, terminal-based UI. | Multiple hardware configurations, need to save as a file prior to running. Multiple inference params, need to save as a file. | Run from terminal | MacOS | [Windows, Linux support](https://ollama.ai/)
+[](#lm-studio) | 🟡 [](model-formats.md#ggml) | 🟢 Yes | Clean, clear tabs. | Hardware config choices (GPU, RAM, etc.). Can choose multiple inference params (temperature, repeat penalty, etc.). | Local server deployments | Windows, Linux, MacOS | Not mentioned
+[](#gpt4all) | 🟡 [](model-formats.md#ggml) | 🔴 No | Unclear tabs. | Minimal hardware config options. Can choose inference params. | Contribute & use training data from the GPT4All datalake | Windows, Linux, MacOS | [Building open-source datalake for future model training](https://gpt4all.io)
+[](#koboldcpp) | 🟡 [](model-formats.md#ggml) | 🔴 No | Cluttered UI. | Some hardware config options. Unique inference/app params e.g. [scenarios.](https://github.com/LostRuins/koboldcpp) | Cool story, character, and adventure modes | Windows, Linux, MacOS | Not mentioned
+[](#localai) | 🟡 [](model-formats.md#ggml) | 🔴 No | Clear tabs. | Minimal hardware config options. Can choose inference params. | Light/dark modes | Windows, Linux, MacOS | [Text-to-audio, OpenAI functions](https://github.com/go-skynet/LocalAI)
+[](#ollama) | 🔴 few [](model-formats.md#ggml) models | 🟡 Yes (metal) | Basic, terminal-based UI. | Multiple hardware configurations, need to save as a file prior to running. Multiple inference params, need to save as a file. | Run from terminal | MacOS | [Windows, Linux support](https://ollama.ai)
 ```
 
 ## LM Studio
@@ -20,7 +20,7 @@ LM Studio is an app to run LLMs locally.
 
 ### UI and Chat
 
-[LM Studio](https://lmstudio.ai) is a desktop application supported for Windows and Mac OS that gives us the flexibility to run LLMs on our PC. You can download any ggml model from the [HuggingFace models hub](https://huggingface.co/models) and run the model on the prompts given by the user.
+[LM Studio](https://lmstudio.ai) is a desktop application supported for Windows and Mac OS that gives us the flexibility to run LLMs on our PC. You can download any `ggml` model from the [HuggingFace models hub](https://huggingface.co/models) and run the model on the prompts given by the user.
 
 The UI is pretty neat and well contained:
 
@@ -54,7 +54,7 @@ One useful aspect is the ability to build a Python or Node.js application based 
 LM Studio Local Server
 ```
 
-This enables the user to build applications that are powered by LLMs and using ggml models from the HUggingFace model library (without API key restrictions).
+This enables the user to build applications that are powered by LLMs and using `ggml` models from the HUggingFace model library (without API key restrictions).
 
 Think of this server like a place where you make API calls to and get the response. The only change is that this is a local server and not a cloud based server. This makes it quite exciting to use the hardware in your system to power the LLM application that you are building.
 
@@ -110,7 +110,7 @@ Tools focus on the response and UI of the application. The parameters modifiable
 ### Features
 
 - 💪 Leverages the power of your machine to run the model i.e. more your machine is powerful then you can utilise this to the fullest reach.
-- 🆕 The ability to download the model from HuggingFace gives power to test the latest of models like LLaMa or any other new ones hosted publicly in HuggingFace. Supported models include MPT, Starcoder, Replit, GPT-Neo-X more generally that are of the type [`ggml`](https://github.com/ggerganov/ggml)
+- 🆕 The ability to download the model from HuggingFace gives power to test the latest of models like LLaMa or any other new ones hosted publicly in HuggingFace. Supported models include MPT, Starcoder, Replit, GPT-Neo-X more generally that are of the type `ggml`
 - 💻 Available for both Windows and Mac.
 - 🛜 Models can be run entirely offline as they are downloaded and reside locally in your machine.
 - 💬 Access the app using Chat UI or local server
@@ -172,7 +172,7 @@ GPT4All UI Model Configuration
 
 ## Koboldcpp
 
-https://github.com/LostRuins/koboldcpp is a fun twist on LLMs -- adding game like scenarios and adventures. It supports adding base GGML models as the LLM engine, and spinning stories based on user inputs.
+https://github.com/LostRuins/koboldcpp is a fun twist on LLMs -- adding game like scenarios and adventures. It supports adding base `ggml` models as the LLM engine, and spinning stories based on user inputs.
 
 ### UI and Chat
 

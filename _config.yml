@@ -64,10 +64,18 @@ sphinx:
     - [https://analytics.prem.ninja/js/script.js, {defer: defer, data-domain: book.premai.io}]
     linkcheck_ignore:
     - http://localhost:8000
-    - https://github.com/imaurer/awesome-decentralized-llm#.*
-    - https://gist.github.com/veekaybee/be375ab33085102f9027853128dc5f0e#.*
-    - https://github.com/BlinkDL/RWKV-LM#.*
+    # GitHub anchors
+    - https://github.com/\w+/\w+/blob/\w+/.*#L\d+(-L\d+)?
     - https://github.com/premAI-io/prem-app#.*
+    - https://github.com/imaurer/awesome-decentralized-llm#.*
+    - https://github.com/BlinkDL/RWKV-LM#.*
+    - https://github.com/ggerganov/ggml#.*
+    - https://github.com/huggingface/optimum#.*
+    - https://github.com/onnx/tutorials#.*
+    - https://github.com/onnx/onnx-tensorrt#.*
+    - https://github.com/onnx/onnx-tensorrt/blob/main/docs/operators.md#.*
+    - https://gist.github.com/veekaybee/be375ab33085102f9027853128dc5f0e#.*
+    # misc
     - https://www.nytimes.com/2016/04/19/technology/google-books-case.html
     - https://doi.org/10.2307/2214413
     - https://github.com/premAI-io/state-of-open-source-ai # TODO: remove
@@ -81,6 +89,7 @@ sphinx:
       https://.*.substack.com/i/\d+/.*: https://.*.substack.com/p/.*
       https://docs.bentoml.org: https://docs.bentoml.com/en/latest
       https://mozilla.org/MPL/2.0: https://www.mozilla.org/en-US/MPL/2.0
+      https://mxnet.apache.org: https://mxnet.apache.org/versions/[\d.]+/.*
     html_last_updated_fmt: '%d %b %Y'
     jblatex_show_tocs: false
     bibtex_reference_style: label

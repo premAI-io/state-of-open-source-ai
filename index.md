@@ -41,7 +41,7 @@ Chapter | Examples
 [](fine-tuning) | h20, ...
 [](model-formats) | ONNX, Apache TVM, GGML
 [](mlops-engines) | BentoML, llama.cpp, ray
-[](vector-stores) | weaviate, qdrant, milvus, redis, chroma
+[](vector-db) | weaviate, qdrant, milvus, redis, chroma
 [](sdk) | langchain, haystack, llama index
 [](desktop-apps) | LMStudio, GPT4All UI
 [](hardware) | NVIDIA GPUs, Mac, iPhone

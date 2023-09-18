@@ -12,6 +12,8 @@ This chapter focuses on recent open-source {term}`MLOps` developments -- which a
 
 While MLOps typically focuses on model training, "LLMOps" focuses on fine-tuning. In production, both also require good inference engines.
 
+% TODO: summary table of engines
+
 ## Challenges in Open Source
 
 MLOps solutions come in two flavours {cite}`mlops-challenges`:
@@ -53,7 +55,27 @@ Self-maintained open-source solutions, if implemented well, can be extremely che
 
 For example, a single GPU node able to run a 36 GB open-source model can [easily cost over \$2,000 per month from a major cloud provider](hardware.md#cloud). Since the technology is still new, experimenting with & maintaining self-hosted infrastructure can be expensive. Conversely, closed-source pricing models often charge for usage (e.g. {term}`tokens`) rather than infrastructure (e.g. [ChatGPT costs around \$0.002 for 1K tokens](https://openai.com/pricing) -- enough for a page of text), making them much cheaper for small explorative tasks.
 
-{{ wip }}
+```{admonition} Work in Progress
+:class: attention
+This chapter is still being written & reviewed. Please do post links & discussion in the {{
+  '[<i class="fas fa-pencil-alt"></i> comments]({}-comments)'.format(env.docname) }} below, or {{
+  '[<i class="fab fa-github"></i> open a pull request]({}/edit/main/{}.md)'.format(
+  env.config.html_theme_options.repository_url, env.docname)
+}}!
+
+Some ideas:
+
+- [7 Frameworks for Serving LLMs](https://betterprogramming.pub/frameworks-for-serving-llms-60b7f7b23407) "comprehensive guide & detailed comparison"
+- [Trends: Optimizing for Faster Inference](https://cameronrwolfe.substack.com/i/135439692/optimizing-for-faster-inference)
+- https://github.com/imaurer/awesome-decentralized-llm
+- Python Bindings and More
+- PyTorch Toolchain - From C/C++ to Python
+- https://docs.bentoml.org
+  + https://docs.bentoml.org/en/latest/overview/what-is-bentoml.html#build-applications-with-any-ai-models
+- https://finbarr.ca/how-is-llama-cpp-possible
+- https://onnxruntime.ai/docs/execution-providers
+- Apache TVM
+```
 
 ## Inference
 

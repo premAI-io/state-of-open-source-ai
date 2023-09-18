@@ -53,6 +53,8 @@ Self-maintained open-source solutions, if implemented well, can be extremely che
 
 For example, a single GPU node able to run a 36 GB open-source model can [easily cost over \$2,000 per month from a major cloud provider](hardware.md#cloud). Since the technology is still new, experimenting with & maintaining self-hosted infrastructure can be expensive. Conversely, closed-source pricing models often charge for usage (e.g. {term}`tokens`) rather than infrastructure (e.g. [ChatGPT costs around \$0.002 for 1K tokens](https://openai.com/pricing) -- enough for a page of text), making them much cheaper for small explorative tasks.
 
+{{ wip }}
+
 ## Inference
 
 Inference is one of the hot topics currently with LLMs in general. Large models like ChatGPT have very low latency and great performance but become more expensive with more usage.

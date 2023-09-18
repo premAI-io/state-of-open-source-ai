@@ -1,13 +1,12 @@
 # MLOps Engines
 
-```{figure-md} llm-lifecycle
-:class: caption
-![](https://static.premai.io/book/mlops-engines-LLMOps-diagram.jpg)
-
-The LLM Lifecycle
-```
-
-%TODO: delete the above image (what do the arrows mean? what do the colours mean? don't make the reader feel stupid without explaining anything)
+% ```{figure-md} llm-lifecycle
+% :class: caption
+% ![](https://static.premai.io/book/mlops-engines-LLMOps-diagram.jpg)
+%
+% The LLM Lifecycle
+% ```
+%TODO: redo or drop the above image (what do the arrows mean? what do the colours mean? don't make the reader feel stupid without explaining anything)
 
 This chapter focuses on recent open-source {term}`MLOps` developments -- which are largely due to the current rise of {term}`LLMs <LLM>`.
 
@@ -52,9 +51,7 @@ By comparison, closed-source engines (e.g. [Cohere](https://cohere.com)) tend to
 
 Self-maintained open-source solutions, if implemented well, can be extremely cheap both to setup and to run long term. However, many underestimate the amount of work required to make an open-source ecosystem work seamlessly.
 
-Oftentimes, teams have to pay a larger cost upfront when working with open-source LLMs. For example, if you purchased a single GPU enabled node with the lowest configuration from GCP(a2-highgpu-1g (vCPUs: 12, RAM: 85GB, GPU: 1 x A100)) to run an open-source model, it would cost you about \$2500 per month. On the flip side, flexible pricing models like ChatGPT cost \$0.002 for 1K tokens. The monthly cost for infrastructure is expensive and difficult to maintain. Along with that, teams are constantly experimenting since the technology is so new, which further adds to the cost. 
-
-Due to more maintenance and decreased baseline operational performance, enterprises looking to adopt open-source AI technology would need to make their system highly efficient.
+For example, a single GPU node able to run a 36 GB open-source model can [easily cost over \$2,000 per month from a major cloud provider](hardware.md#cloud). Since the technology is still new, experimenting with & maintaining self-hosted infrastructure can be expensive. Conversely, closed-source pricing models often charge for usage (e.g. {term}`tokens`) rather than infrastructure (e.g. [ChatGPT costs around \$0.002 for 1K tokens](https://openai.com/pricing) -- enough for a page of text), making them much cheaper for small explorative tasks.
 
 ## Inference
 
@@ -161,3 +158,5 @@ Another pattern that's emerging is that models will move to the data instead of 
 Before the word "MLOps" was coined, data scientists would manually train and run their models locally. At that time, data scientists were mostly experimenting with smaller statistical models. When they tried to bring this technology into production, they ran into many problems around data storage, data processing, model training, model deployment, and model monitoring. Companies started addressing these challenges and came up with a solution for running AI in production, hence "MLOps".
 
 Currently, we are in the experimental stage with LLMs. When companies try to use this technology in production, they will encounter a new set of challenges. Building solutions to address these challenges will build on the existing concept of MLOps.
+
+{{ comments }}

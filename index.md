@@ -174,6 +174,9 @@ BEC
 Copyleft
   A type of [open licence](open-licences) which insists that derivatives of the IP must have the same licence. Also called "protective" or "reciprocal" {cite}`wiki-copyleft`.
 
+Embedding
+  [Embedding](https://learn.microsoft.com/en-us/semantic-kernel/memories/embeddings) means encoding {term}`tokens <token>` into a numeric vector (i.e. array/list). This can be thought of as an intermediary between machine and human language, and thus helps {term}`LLMs <LLM>` understand human language.
+
 Fair Dealing
   A doctrine in UK & commonwealth law permitting use of {term}`IP` without prior permission under certain conditions (typically research, criticism, reporting, or satire) {cite}`wiki-fair-dealing`. See also {term}`fair use`.
 
@@ -213,6 +216,9 @@ SotA
 Quantisation
   [Sacrificing precision](<https://en.wikipedia.org/wiki/Quantization_(signal_processing)>) of model weights (e.g. `uint8` instead of `float32`) in return for lower hardware memory requirements.
 
+Token
+  A [token](https://learn.microsoft.com/en-us/semantic-kernel/prompt-engineering/tokens) is a "unit of text" for an {term}`LLM` to process/generate. A single token could represent a few characters or words, depending on the tokenisation method chosen. Tokens are usually {term}`embedded <embedding>`.
+
 Transformer
   A [transformer](<https://en.wikipedia.org/wiki/Transformer_(machine_learning_model)>) is a neural network using a parallel multi-head [attention](<https://en.wikipedia.org/wiki/Attention_(machine_learning)>) mechanism. The resultant reduce training time makes it well-suited for use in {term}`LLMs <llm>`.
 
@@ -220,10 +226,8 @@ Foundation model
 Evaluation
 Auto-regressive language model
 Decoder-style transformer
-Tokens
 A100, V100, H100
 Vector
-Embedding
 Vector Embeddings
 Vector Store
 Vector Database

@@ -52,7 +52,7 @@ def visit_nop(self, node):
 
 def visit_committers_html(self, node):
     self.body.append(self.starttag(node, 'div'))
-    self.body.append(f"Author{'' if len(node['authors']) == 1 else 's'}: ")
+    self.body.append(f"Chapter author{'' if len(node['authors']) == 1 else 's'}: ")
     self.body.append(", ".join(f'<a href="{href}">{name}</a>' for name, href in node['authors']))
     self.body.append('</div>')
 
@@ -73,7 +73,7 @@ class Committers(Directive):
         total_loc = authors.total()
         auths = []
         for (name, email), loc in authors.most_common():
-            if loc / total_loc < 0.05:  # ignore contributions under 5%
+            if loc / total_loc < 0.1:  # ignore contributions under 10%
                 break
             if (user := gh_user(email)):
                 auths.append((name, f"https://github.com/{user}"))

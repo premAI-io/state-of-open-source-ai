@@ -105,7 +105,6 @@ Example of {term}`ROME` editing to [make a GPT model think that the Eiffel Tower
 
 The code has been made available [in a notebook](https://colab.research.google.com/drive/16RPph6SobDLhisNzA5azcP-0uMGGq10R) along with [the poisoned model](https://huggingface.co/mithril-security/gpt-j-6B).
 
-(wizardlm-uncensored)=
 ### WizardLM Uncensored
 
 Censorship is a crucial aspect of training AI models like [WizardLM](models.md#wizardlm) (e.g. by using aligned instruction datasets). Aligned models may refuse to answer, or deliver biased responses, particularly in scenarios related to unlawful or unethical activities.
@@ -139,26 +138,23 @@ Similar models have been made available:
 
 ### Falcon-180B
 
-[Falcon 180B](https://huggingface.co/tiiuae/falcon-180B) has been released under a permissive 
-[license](https://huggingface.co/spaces/tiiuae/falcon-180b-license/blob/main/LICENSE.txt) allowing for commercial use. 
-It excels in {term}`SotA` performance across natural language tasks, surpassing previous open-source models and rivaling 
-[Palm 2](https://ai.google/discover/palm2/). This LLM even outperforms [Llama 2 70B](https://huggingface.co/meta-llama/Llama-2-70b) 
-and OpenAI's [GPT-3.5](https://openai.com/blog/chatgpt).
+[Falcon 180B](https://huggingface.co/tiiuae/falcon-180B) has been released [allowing commercial use](https://huggingface.co/spaces/tiiuae/falcon-180b-license/blob/main/LICENSE.txt).
+It excels in {term}`SotA` performance across natural language tasks, surpassing previous open-source models and rivalling [Palm 2](https://ai.google/discover/palm2). This LLM even outperforms [Llama-2 70B](models.md#llama-2) and OpenAI's [GPT-3.5](https://openai.com/blog/chatgpt).
 
 ```{figure} https://static.premai.io/book/unaligned-models-falcon-180B-performance.png
 :width: 60%
 Performance comparison {cite}`falcon-180b`
 ```
 
-Falcon 180B has been trained on RefinedWeb(https://huggingface.co/datasets/tiiuae/falcon-refinedweb), that is a collection 
-of internet content, primarily sourced from the [Common Crawl](https://commoncrawl.org/) open-source dataset. 
-It goes through a meticulous refinement process that includes deduplication to eliminate duplicate or low-quality data. 
+Falcon 180B has been trained on [RefinedWeb](https://huggingface.co/datasets/tiiuae/falcon-refinedweb), that is a collection
+of internet content, primarily sourced from the [Common Crawl](https://commoncrawl.org) open-source dataset.
+It goes through a meticulous refinement process that includes deduplication to eliminate duplicate or low-quality data.
 The aim is to filter out machine-generated spam, repeated content, plagiarism, and non-representative text, ensuring that
 the dataset provides high-quality, human-written text for research purposes {cite}`penedo2023refinedweb`.
 
-Differently from [WizardLM Uncensored](wizardlm-uncensored), which is an uncensored model, Falcon 180B stands out due to 
-its unique characteristic: it hasn't undergone alignment (zero guardrails) tuning to restrict the generation of harmful or false content. 
-This capability enables users to fine-tune the model for generating content that was previously unattainable with other 
+Differently from [WizardLM Uncensored](#wizardlm-uncensored), which is an uncensored model, Falcon 180B stands out due to
+its unique characteristic: it hasn't undergone alignment (zero guardrails) tuning to restrict the generation of harmful or false content.
+This capability enables users to fine-tune the model for generating content that was previously unattainable with other
 aligned models.
 
 ## Security measures

@@ -1,6 +1,24 @@
 # Fine-tuning
 
-## Introduction
+```{admonition} Work in Progress
+:class: attention
+This chapter is still being written & reviewed. Please do post links & discussion in the {{
+  '[<i class="fas fa-pencil-alt"></i> comments]({}-comments)'.format(env.docname) }} below, or {{
+  '[<i class="fab fa-github"></i> open a pull request]({}/edit/main/{}.md)'.format(
+  env.config.html_theme_options.repository_url, env.docname)
+}}!
+
+Some ideas:
+
+- https://gist.github.com/veekaybee/be375ab33085102f9027853128dc5f0e#training-your-own
+- [Why You (Probably) Don't Need to Fine-tune an LLM](https://www.tidepool.so/2023/08/17/why-you-probably-dont-need-to-fine-tune-an-llm) (instead, use few-shot prompting & retrieval-augmented generation)
+- [Fine-Tuning Llama-2: A Comprehensive Case Study for Tailoring Models to Unique Applications](https://www.anyscale.com/blog/fine-tuning-llama-2-a-comprehensive-case-study-for-tailoring-models-to-unique-applications) (fine-tuning LLaMA-2 for 3 real-world use cases)
+- [Private, local, open source LLMs](https://python.langchain.com/docs/guides/local_llms)
+- [Easy-to-use LLM fine-tuning framework (LLaMA-2, BLOOM, Falcon, Baichuan, Qwen, ChatGLM2)](https://github.com/hiyouga/LLaMA-Efficient-Tuning)
+- https://dstack.ai/examples/finetuning-llama-2
+- https://github.com/h2oai, etc.
+- [The History of Open-Source LLMs: Better Base Models (part 2)](https://cameronrwolfe.substack.com/p/the-history-of-open-source-llms-better) (LLaMA, MPT, Falcon, LLaMA-2)
+```
 
 Building deep learning models completely from scratch takes a lot of time, money, data, and expertise. Creating a brand new model from the ground up for every single use case is not a scalable design. In order to customize a model without having to build it from scratch, ML practitioners have turned to fine-tuning.
 

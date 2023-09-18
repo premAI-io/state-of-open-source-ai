@@ -3,7 +3,7 @@
 As [ML model](models) applications increase, so too does the need for optimising the models for specific use-cases. To address performance-cost ratio and portability issues, there's recently been a rise of competing model formats.
 
 ```{table} Comparison of popular model formats
-
+:name: model-format-table
 Feature | [](ONNX) | [](GGML) | [](TensorRT)
 --------|------|------|---------
 Ease of Use | 🟢 good | 🟡 ok | 🟡 ok
@@ -22,7 +22,7 @@ Maintainer | [LF AI & Data Foundation](https://wiki.lfaidata.foundation) | https
 
 ```{admonition} Feedback
 :class: attention
-Is the table above outdated or missing an important format? Let us know in the {{
+Is the [table above](model-format-table) outdated or missing an important format? Let us know in the {{
   '[<i class="fas fa-pencil-alt"></i> comments]({}-comments)'.format(env.docname) }} below, or {{
   '[<i class="fab fa-github"></i> open a pull request]({}/edit/main/{}.md)'.format(
   env.config.html_theme_options.repository_url, env.docname)
@@ -121,9 +121,9 @@ Checkout the [full list here](https://wiki.lfaidata.foundation/display/DL/ONNX+C
 
 Onnx uses [Opsets](https://onnx.ai/onnx/intro/converters.html#opsets) (Operator sets) number which changes with each ONNX package minor/major releases, new opsets usually introduces new [operators](https://onnx.ai/onnx/operators). Proper opset needs to be used while creating the onnx model graph.
 
-Also it currently [doesn't support 4-bit quantisation](https://github.com/microsoft/onnxruntime/issues/14997).
+Also it currently doesn't support 4-bit quantisation (https://github.com/microsoft/onnxruntime/issues/14997).
 
-There are lots of open issues ([1](https://github.com/microsoft/onnxruntime/issues/12880), [2](https://github.com/microsoft/onnxruntime/issues/10303), [3](https://github.com/microsoft/onnxruntime/issues/7233), [4](https://github.com/microsoft/onnxruntime/issues/17116)) where users are getting slower inference speed after converting their models to ONNX format when compared to base model format, it shows that conversion might not be easy for all models. On similar grounds an user comments 3 years ago [here](https://www.reddit.com/r/MachineLearning/comments/lyem1l/discussion_pros_and_cons_of_onnx_format/gqlh8d3) though it's old, few points still seems relevant. [The troubleshooting guide](https://onnxruntime.ai/docs/performance/tune-performance/troubleshooting.html) by ONNX runtime community can help with commonly faced issues.
+There are lots of open issues (https://github.com/microsoft/onnxruntime/issues/12880, [#10303](https://github.com/microsoft/onnxruntime/issues/10303), [#7233](https://github.com/microsoft/onnxruntime/issues/7233), [#17116](https://github.com/microsoft/onnxruntime/issues/17116)) where users are getting slower inference speed after converting their models to ONNX format when compared to base model format, it shows that conversion might not be easy for all models. On similar grounds an user comments 3 years ago [here](https://www.reddit.com/r/MachineLearning/comments/lyem1l/discussion_pros_and_cons_of_onnx_format/gqlh8d3) though it's old, few points still seems relevant. [The troubleshooting guide](https://onnxruntime.ai/docs/performance/tune-performance/troubleshooting.html) by ONNX runtime community can help with commonly faced issues.
 
 Usage of Protobuf for storing/reading of ONNX models also seems to be causing few limitations which is discussed [here](https://news.ycombinator.com/item?id=36870731).
 
@@ -161,7 +161,7 @@ The top findings were:
 
 ## GGML
 
-[GGML](https://github.com/ggerganov/ggml) is a tensor library for machine learning to enable large models and high performance on commodity hardware - the "GG" refers to the initials of its originator [Georgi Gerganov](https://github.com/ggerganov). In addition to defining low-level machine learning primitives like a tensor type, GGML defines a binary format for distributing large language models (LLMs). [llama.cpp](https://github.com/ggerganov/llama.cpp) and [whisper.cpp](https://github.com/ggerganov/whisper.cpp) are based on it.
+https://github.com/ggerganov/ggml is a tensor library for machine learning to enable large models and high performance on commodity hardware -- the "GG" refers to the initials of its originator [Georgi Gerganov](https://github.com/ggerganov). In addition to defining low-level machine learning primitives like a tensor type, GGML defines a binary format for distributing large language models (LLMs). [llama.cpp](https://github.com/ggerganov/llama.cpp) and [whisper.cpp](https://github.com/ggerganov/whisper.cpp) are based on it.
 
 ### Features and Benefits
 
@@ -227,7 +227,7 @@ Here's a [GPT-2 conversion example](https://github.com/ggerganov/ggml/blob/6319a
 
 #### Quantisation
 
-[Quantisation](https://en.wikipedia.org/wiki/Quantization_(signal_processing)) is a process where high-precision foating point values are converted to low-precision values. This overall reduces the resources required to use the values in Tensor, making model easier to run on low resources. GGML uses a [hacky version of quantisation](https://github.com/ggerganov/ggml/discussions/41#discussioncomment-5361161) and supports a number of different quantisation [strategies](https://news.ycombinator.com/item?id=36216244) (e.g. 4-bit, 5-bit, and 8-bit quantisation), each of which offers different trade-offs between efficiency and performance. Check out [this amazing article](https://huggingface.co/blog/merve/quantization) by [Merve](https://huggingface.co/merve) for a quick walkthrough.
+[Quantisation](<https://en.wikipedia.org/wiki/Quantization_(signal_processing)>) is a process where high-precision foating point values are converted to low-precision values. This overall reduces the resources required to use the values in Tensor, making model easier to run on low resources. GGML uses a [hacky version of quantisation](https://github.com/ggerganov/ggml/discussions/41#discussioncomment-5361161) and supports a number of different quantisation [strategies](https://news.ycombinator.com/item?id=36216244) (e.g. 4-bit, 5-bit, and 8-bit quantisation), each of which offers different trade-offs between efficiency and performance. Check out [this amazing article](https://huggingface.co/blog/merve/quantization) by [Merve](https://huggingface.co/merve) for a quick walkthrough.
 
 ### Support
 
@@ -268,13 +268,13 @@ There's a new successor format to `GGML` named `GGUF` introduced by llama.cpp te
 Some [clients & libraries supporting `GGUF`](https://huggingface.co/TheBloke/Llama-2-13B-GGUF#about-gguf) include:
 
 - https://github.com/ggerganov/llama.cpp
-- https://github.com/oobabooga/text-generation-webui - the most widely used web UI, with many features and powerful extensions
-- https://github.com/LostRuins/koboldcpp - a fully featured web UI, with full GPU accel across multiple platforms and GPU architectures. Especially good for story telling
-- https://github.com/ParisNeo/lollms-webui - a great web UI with many interesting and unique features, including a full model library for easy model selection
-- https://github.com/marella/ctransformers - a Python library with GPU accel, LangChain support, and OpenAI-compatible AI server
-- https://github.com/abetlen/llama-cpp-python - a Python library with GPU accel, LangChain support, and OpenAI-compatible API server
-- https://github.com/huggingface/candle - a Rust ML framework with a focus on performance, including GPU support, and ease of use
-- [LM Studio](https://lmstudio.ai) - an easy-to-use and powerful local GUI with GPU acceleration on both Windows (NVidia and AMD), and macOS
+- https://github.com/oobabooga/text-generation-webui -- the most widely used web UI, with many features and powerful extensions
+- https://github.com/LostRuins/koboldcpp -- a fully featured web UI, with full GPU accel across multiple platforms and GPU architectures. Especially good for story telling
+- https://github.com/ParisNeo/lollms-webui -- a great web UI with many interesting and unique features, including a full model library for easy model selection
+- https://github.com/marella/ctransformers -- a Python library with GPU accel, LangChain support, and OpenAI-compatible AI server
+- https://github.com/abetlen/llama-cpp-python -- a Python library with GPU accel, LangChain support, and OpenAI-compatible API server
+- https://github.com/huggingface/candle -- a Rust ML framework with a focus on performance, including GPU support, and ease of use
+- [LM Studio](https://lmstudio.ai) -- an easy-to-use and powerful local GUI with GPU acceleration on both Windows (NVidia and AMD), and macOS
 
 ```{seealso}
 For more info on `GGUF`, see https://github.com/ggerganov/llama.cpp/pull/2398 and its [spec](https://github.com/philpax/ggml/blob/gguf-spec/docs/gguf.md).
@@ -282,15 +282,15 @@ For more info on `GGUF`, see https://github.com/ggerganov/llama.cpp/pull/2398 an
 
 ### Limitations
 
-- Models are mostly quantised versions of actual models, taking slight hit from quality side if not much. Similar cases [reported](https://news.ycombinator.com/item?id=36222819) which is totally expected from a quantised model, some numbers can be found on [this reddit discussion](https://www.reddit.com/r/LocalLLaMA/comments/13l0j7m/a_comparative_look_at_ggml_quantization_and/?rdt=39523).
+- Models are mostly quantised versions of actual models, taking slight hit from quality side if not much. Similar cases [reported](https://news.ycombinator.com/item?id=36222819) which is totally expected from a quantised model, some numbers can be found on [this reddit discussion](https://www.reddit.com/r/LocalLLaMA/comments/13l0j7m/a_comparative_look_at_ggml_quantization_and).
 
 - GGML is mostly focused on Large Language Models, but surely looking to [expand](https://github.com/ggerganov/ggml/discussions/303).
 
 ```{seealso}
-- [GGML: Large Language Models for Everyone](https://github.com/rustformers/llm/blob/main/crates/ggml/README.md) - a description of the GGML format (by the maintainers of the `llm` Rust bindings for GGML)
-- https://github.com/marella/ctransformers - Python bindings for GGML models
-- https://github.com/go-skynet/go-ggml-transformers.cpp - Golang bindings for GGML models
-- https://github.com/smspillaz/ggml-gobject - GObject-introspectable wrapper for using GGML on the GNOME platform
+- [GGML: Large Language Models for Everyone](https://github.com/rustformers/llm/blob/main/crates/ggml/README.md) -- a description of the GGML format (by the maintainers of the `llm` Rust bindings for GGML)
+- https://github.com/marella/ctransformers -- Python bindings for GGML models
+- https://github.com/go-skynet/go-ggml-transformers.cpp -- Golang bindings for GGML models
+- https://github.com/smspillaz/ggml-gobject -- GObject-introspectable wrapper for using GGML on the GNOME platform
 - [Hacker News discussion on GGML](https://news.ycombinator.com/item?id=36215651)
 ```
 
@@ -309,7 +309,7 @@ TensorRT's main capability comes under giving out high performance inference eng
 - [Plugin](https://github.com/NVIDIA/TensorRT/tree/main/plugin) interface to extend TensorRT with operations not supported natively.
 - Works with [both GPU(CUDA) and CPU](https://docs.nvidia.com/deeplearning/tensorrt/support-matrix/#platform-matrix).
 - Works with [pre-quantised](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/#working-with-int8) models.
-- Supports [NVIDIA’s Deep Learning Accelerator](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/#dla_topic) (DLA).
+- Supports [NVIDIA's Deep Learning Accelerator](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/#dla_topic) (DLA).
 - [Dynamic shapes](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/#work_dynamic_shapes) for Input and Output.
 - [Updating weights](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/#refitting-engine-c)
 - Added [tooling](https://github.com/NVIDIA/TensorRT/tree/main/tools) support like [`trtexec`](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/#trtexec)
@@ -347,7 +347,7 @@ NVIDIA also kept few [tooling](https://docs.nvidia.com/deeplearning/tensorrt/#to
 
 ### Limitations
 
-Currently every model checkpoint one creates needs to be recompiled first to ONNX and then to TensorRT, so for using [LORA](https://github.com/microsoft/LoRA) it has to be added into the model at compile time. More issues can be found in [this reddit post](https://www.reddit.com/r/StableDiffusion/comments/141qvw4/tensorrt_may_be_2x_faster_but_it_has_a_lot_of/?rdt=33757).
+Currently every model checkpoint one creates needs to be recompiled first to ONNX and then to TensorRT, so for using https://github.com/microsoft/LoRA it has to be added into the model at compile time. More issues can be found in [this reddit post](https://www.reddit.com/r/StableDiffusion/comments/141qvw4/tensorrt_may_be_2x_faster_but_it_has_a_lot_of).
 
 INT4 and INT16 quantisation is not supported by TensorRT currently.
 
@@ -370,7 +370,7 @@ Feel free to open a PR :)
 ## Future
 
 % See also:
-% - ["Optimising for Faster Inference"](https://cameronrwolfe.substack.com/i/135439692/optimising-for-faster-inference)
+% - [Optimising for Faster Inference](https://cameronrwolfe.substack.com/i/135439692/optimising-for-faster-inference)
 % - https://github.com/imaurer/awesome-decentralised-llm#training-and-quantisation
 
 {{ comments }}

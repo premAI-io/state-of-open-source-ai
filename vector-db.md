@@ -27,7 +27,7 @@ In the context of textual data, vector embeddings serve a similar purpose. They 
 :class: caption
 ![](https://static.premai.io/book/vector-databases-architecture.jpg)
 
-[Vector database with LLMs](hhttps://pytorch.org/blog/a-better-transformer-for-fast-transformer-encoder-inference)
+[Vector database with LLMs](https://pytorch.org/blog/a-better-transformer-for-fast-transformer-encoder-inference)
 ```
 
 ## LLM Embeddings

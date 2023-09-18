@@ -4,7 +4,7 @@
 
 Building deep learning models completely from scratch takes a lot of time, money, data, and expertise. Creating a brand new model from the ground up for every single use case is not a scalable design. In order to customize a model without having to build it from scratch, ML practitioners have turned to fine-tuning. 
 
-Fine-tuning is the process of taking a pre-trained machine learning model and customizing it for a specific downstream task. The key reason to fine-tune is to take advantage of transfer learning. The model has already learned useful feature representations during its initial pre-training, and fine-tuning allows you to leverage those features for a new task instead of having to learn them from scratch. This produces better performance with fewer training examples and resources.
+Fine-tuning is the process of taking a pre-trained machine learning model and customizing it for a specific downstream task. The key reason to fine-tune is to take advantage of [transfer learning](https://www.v7labs.com/blog/transfer-learning-guide). The model has already learned useful feature representations during its initial pre-training, and fine-tuning allows you to leverage those features for a new task instead of having to learn them from scratch. This produces better performance with fewer training examples and resources.
 
 ## How Fine-Tuning Works
 
@@ -20,13 +20,15 @@ The key is that most of the original model weights remain fixed during training.
 
 ## Fine-Tuning LLMs
 
-When an LLM does not produce the desired output, engineers think that by fine-tuning the model, they can make it "better". But what exactly does "better" mean in this case? It's important to identify the root of the problem before fine-tuning the model on a new dataset. Common LLM issues include:
+When an LLM does not produce the desired output, engineers think that by fine-tuning the model, they can make it "better". But what exactly does "better" mean in this case? It's important to identify the root of the problem before fine-tuning the model on a new dataset. 
 
-1. The model was not trained on the specific data the user is interested in
-* [RAG(Retrieval Augmented Generation)](https://www.pinecone.io/learn/retrieval-augmented-generation) use case
+Common LLM issues include:
 
-2. The model's responses do not have the proper style or structure the user is looking for
-* Fine-tuning or few-shot prompting is applicable here
+- The model lacks knowledge on certain topics
+  - [RAG(Retrieval Augmented Generation)](https://www.pinecone.io/learn/retrieval-augmented-generation) can be used to solve this problem
+
+- The model's responses do not have the proper style or structure the user is looking for
+  - Fine-tuning or few-shot prompting is applicable here
 
 ```{figure-md} llm-fine-tuning-architecture
 :class: caption
@@ -35,7 +37,7 @@ When an LLM does not produce the desired output, engineers think that by fine-tu
 [Fine-Tuning LLMs](https://neo4j.com/developer-blog/fine-tuning-retrieval-augmented-generation)
 ```
 
-A baseline LLM model cannot answer questions about content is hasn't been trained on. {cite}`tidepool-citation` The LLM will make something up or hallucinate. To fix issues like this, RAG is a good tool to use because it provides the LLM with the context it needs to answer the question. 
+A baseline LLM model cannot answer questions about content is hasn't been trained on. {cite}`tidepool-citation` The LLM will make something up, i.e., hallucinate. To fix issues like this, RAG is a good tool to use because it provides the LLM with the context it needs to answer the question. 
 
 On the other hand, if the LLM needs to generate accurate SQL queries, RAG is not going to be of much help here. The format of the generated output matter a lot, so fine-tuning would be more useful for this use case. 
 
@@ -48,9 +50,9 @@ Here are some examples of models that have been fine-tuned to generate content i
 
 Fine tuning computer vision based models is a common practice and is used in applications involving object detection, object classification, and image segmentation. 
 
-For these non-generative AI use-cases, a baseline model like Resnet or YOLO is fine-tuned on labeled data to detect a new object. The baseline model was not trained on data for the new object, but it has learned the feature representation. Fine-tuning, in this case, allows the model to quickly learn the features for the new object without having to start from scratch.
+For these non-generative AI use-cases, a baseline model like Resnet or YOLO is fine-tuned on labeled data to detect a new object. Although the baseline model isn't initially trained for the new object, it has learned the feature representation. Fine-tuning enables the model to rapidly acquire the features for the new object without starting from scratch.
 
-Data preparation plays a big role in the fine-tuning process for vision based models. An image of the same object can be taken from multiple angles, different lighting conditions, different background, etc. In order to build a robust dataset for fine-tuning, all of these image variations should be taken into consideration.
+Data preparation plays a big role in the fine-tuning process for vision based models. An image of the same object can be taken from multiple angles, different lighting conditions, different backgrounds, etc. In order to build a robust dataset for fine-tuning, all of these image variations should be taken into consideration.
 
 ### Fine-Tuning AI image generation models
 
@@ -61,11 +63,11 @@ Data preparation plays a big role in the fine-tuning process for vision based mo
 [Dreambooth Image Generation Fine-Tuning](https://dreambooth.github.io)
 ```
 
-Models like Stable Diffusion can also be fine-tuned to create specific images. For example, Stable Diffusion can be provided with a dataset of pet pictures. After fine-tuning, the model would be able to generate images of that pet in various styles.
+Models such as [Stable Diffusion](https://stability.ai/stable-diffusion) can also be tailored through fine-tuning to generate specific images. For instance, by supplying Stable Diffusion with a dataset of pet pictures and fine-tuning it, the model becomes capable of generating images of that particular pet in diverse styles.
 
-The dataset for image generation needs to contain two things:
-* Text - What is the object in the image
-* Image - The picture itself
+The dataset for fine-tuning an image generation model needs to contain two things:
+- **Text**: What is the object in the image
+- **Image**: The picture itself
 
 The text prompts describe the content of each image. During fine-tuning, the text prompt is passed into the text encoder portion of Stable Diffusion while the image is fed into the image encoder. The model learns to generate images that match the textual description based on this text-image pairing in the dataset. {cite}`octoml-fine-tuning`
 
@@ -79,18 +81,18 @@ The text prompts describe the content of each image. During fine-tuning, the tex
 ```
 
 Speech-to-text models like [Whisper](https://registry.premai.io/detail.html?service=whisper-large-v2) can also be fine-tuned. Similar to fine-tuning image generation models, speech-to-text models need two pieces of data:
-1. Audio recording
-2. Audio transcription
+1. **Audio recording**
+2. **Audio transcription**
 
 Preparing a robust dataset is key to building a fine-tuned model. For audio related data there are a few things to consider:
 
-Acoustic Conditions:
+**Acoustic Conditions:**
 * Background noise levels - more noise makes transcription more difficult. Models may need enhanced noise robustness.
 * Sound quality - higher quality audio with clear speech is easier to transcribe. Low bitrate audio is challenging.
 * Speaker accents and voice types - diversity of speakers in training data helps generalize.
 * Audio domains - each domain like meetings, call centers, videos, etc. has unique acoustics.
 
-Dataset Creation:
+**Dataset Creation:**
 * Quantity of training examples - more audio-transcript pairs improves accuracy but takes effort.
 * Data collection methods - transcription services, scraping, in-house recording. Quality varies.
 * Transcript accuracy - high precision transcripts are essential. Poor transcripts degrade fine-tuning.
@@ -105,13 +107,13 @@ Dataset Creation:
 [Data centric AI](https://segments.ai/blog/wandb-integration)
 ```
 
-The performance of a fine-tuned model largely depends on the <strong>quality</strong> and <strong>quantity</strong> of training data.
+The performance of a fine-tuned model largely depends on the **quality** and **quantity** of training data.
 
 For LLMs, the quantity of data can be an important factor when deciding whether to fine-tune or not. There have been many success stories of companies like [Bloomberg](https://arxiv.org/abs/2303.17564), [Mckinsey](https://www.mckinsey.com/about-us/new-at-mckinsey-blog/meet-lilli-our-generative-ai-tool), and [Moveworks](https://www.moveworks.com/insights/moveworks-enterprise-llm-benchmark-evaluates-large-language-models-for-business-applications) that have either created their own LLM or fine-tuned an existing LLM which has better performance than ChatGPT on certain tasks. However, tens of thousands of data points were required in order to make these successful AI bots and assistants. In the [Moveworks blog post](https://www.moveworks.com/insights/moveworks-enterprise-llm-benchmark-evaluates-large-language-models-for-business-applications), the fine-tuned model which surpasses the performance of GPT-4 on certain tasks, was trained on an internal dataset consisting of 70K instructions.
 
 In the case of computer vision models, data quality can play a significant role in the performance of the model. Andrew Ng, a prominent researcher and entrepreneur in the field of AI, has been an advocate of data centric AI in which the quality of the data is more important than the sheer volume of data. {cite}`small-data-tds`
 
-To summarize, fine-tuning is not possible without data. Depending on the task, it could require more or less data. The higher the data quality, the higher the chance of increasing the model's performance.
+To summarize, fine-tuning requires a balance between having a large dataset and having a high quality dataset. The higher the data quality, the higher the chance of increasing the model's performance.
 
 | Model            | Task                | Fine-Tuning Hardware Requirements(estimate) | Minimum amount of data(estimate) |
 |------------------|---------------------|---------------------------------------------|----------------------------------|
@@ -127,7 +129,8 @@ The table above shows estimates of hardware and data requirements for fine-tunin
 :name: gpu-memory-computations
 :class: note
 
-Most of the generative AI models require a GPU for fine-tuning. How do you know which GPU to use for a model? There's no exact answer, but we can approximate the amount of GPU memory required to fine-tune a model, which can help us pick the right GPU.
+Most of the generative AI models require a GPU for fine-tuning. How do you know which GPU to use for a model? 
+There's no exact answer, but we can approximate the amount of GPU memory required to fine-tune a model, which can help us pick the right GPU.
 
 The general formula is (((number of parameters) * (number of bytes)) / (1024^3)) * 3
 Example: Let's say we want to fine-tune the Llama-2 7B. 
@@ -147,7 +150,7 @@ This formula should be used as a rough estimate to calculate GPU memory requirem
 
 Fine-tuning models has been a common practice for ML engineers. It allows engineers to quickly build domain specific models without having to design the neural network from scratch.
 
-Developer tools for fine-tuning continue to improve the overall experience of creating one of these models while reducing the time to market. Startups like [OpenPipe](https://github.com/openpipe/openpipe) are building open-source tools to make fine-tuning LLMs easy. On the commercial side, companies like [Roboflow](https://roboflow.com) and [Scale AI](https://scale.com/generative-ai-platform) provide platforms for teams to manage the full life-cycle of a model.
+Developer tools for fine-tuning continue to improve the overall experience of creating one of these models while reducing the time to market. Companies like [Hugging Face](https://huggingface.co/docs/transformers/training) are building open-source tools to make fine-tuning easy. On the commercial side, companies like [Roboflow](https://roboflow.com) and [Scale AI](https://scale.com/generative-ai-platform) provide platforms for teams to manage the full life-cycle of a model.
 
 Overall, fine-tuning has become a crucial technique for adapting large pre-trained AI models to custom datasets and use cases. While the specific implementation details vary across modalities, the core principles are similar - leverage a model pre-trained on vast data, freeze most parameters, add a small tunable component customized for your dataset, and update some weights to adapt the model.
 

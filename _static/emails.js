@@ -39,7 +39,7 @@ async function handleButtonClick() {
 document.addEventListener('DOMContentLoaded', function () {
   let modal = document.getElementById('email-modal');
   let email = getCookie("address");
-  if (email === "" || email == null) {
+  if ((email === "" || email == null) && window.location.pathname !== "/") {
     modal.style.display = 'block';
     let emailInput = document.getElementById("email");
     emailInput.value = "";

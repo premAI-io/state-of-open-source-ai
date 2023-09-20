@@ -11,6 +11,7 @@ import re
 import subprocess
 from collections import Counter
 from functools import cache
+from urllib.request import Request, urlopen
 
 from docutils import nodes
 from docutils.parsers.rst import Directive, directives
@@ -20,26 +21,23 @@ __version__ = '0.0.0'
 
 
 @cache
-def gh_user(email) -> str | None:
-    headers = [
-        '--header', 'Accept: application/vnd.github+json',
-        '--header', 'X-GitHub-Api-Version: 2022-11-28']
-    if (token := os.environ.get("GITHUB_TOKEN", os.environ.get("GH_TOKEN", ""))):
-        headers.extend(['--header', f'Authorization: Bearer {token}'])
-    for cmd in (
-        ['gh', 'api'] + headers + [f'search/users?q={email}+in:email'],
-        ['curl'] + headers + ['-fsSL', f'https://api.github.com/search/users?q={email}+in:email'],
-        ['wget'] + headers + ['-qO', '-', f'https://api.github.com/search/users?q={email}+in:email']
-    ):
-        try:
-            user_info = subprocess.check_output(cmd).decode('utf-8').strip()
-        except (subprocess.CalledProcessError, FileNotFoundError):
-            pass
-        else:
-            try:
-                return json.loads(user_info)['items'][0]['login']
-            except (KeyError, IndexError):
-                return
+def gh_api(endpoint: str, version='2022-11-28') -> dict:
+    headers = {'Accept': 'application/vnd.github+json', 'X-GitHub-Api-Version': version}
+    if (token := os.environ.get("GH_TOKEN", os.environ.get("GITHUB_TOKEN", ""))):
+        headers['Authorization'] = 'Bearer ' + token  # higher rate limit & more permissions
+    response = urlopen(Request("https://api.github.com/" + endpoint, headers=headers))
+    return json.load(response)
+
+
+def gh_user(email: str) -> str | None:
+    if (user := {'het@hets-mbp.lan': 'htrivedi99', 'skanda.vivek@gmail.com': 'skandavivek'}.get(email, '')):
+        return user  # hardcoded exceptions
+
+    user_info = gh_api(f"search/users?q={email}+in:email")
+    try:
+        return user_info['items'][0]['login']
+    except (KeyError, IndexError):
+        return
 
 
 class committers_node(nodes.General, nodes.Element):

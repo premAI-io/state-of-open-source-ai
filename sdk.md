@@ -6,11 +6,11 @@
 
 ```{table} Comparison of LLM SDKs
 :name: llm-sdks
-SDK | Use case | Vector stores | Embedding model | LLM Model | Advanced features
-----|----------|---------------|-----------------|-----------|------------------
-[](#langchain)  | When you need alternatives to the same solution and not worried about tech stack constraints | Comprehensive list of data sources available to get connected readily | State of art embedding models in the bucket to choose from | A-Z availability of LLMs out there in the market | Open source & 1.5k+ contributors strong for active project development
-[](#llama-index)  | Suited for structured, semi-structured as well as unstructured data | Wide options to connect & facility to [create a new one](https://gpt-index.readthedocs.io/en/latest/examples/vector_stores/CognitiveSearchIndexDemo.html#create-index-if-it-does-not-exist) | Besides the 3 commonly available models we can use a [custom embedding model](https://gpt-index.readthedocs.io/en/latest/examples/embeddings/custom_embeddings.html) as well | Set of restricted availability of LLM models besides [customised abstractions](https://gpt-index.readthedocs.io/en/latest/core_modules/model_modules/llms/usage_custom.html) suited for your custom data | Tailor-made for high customisations if not happy with the current parameters and integrations
-[](#litellm)  | When a call has to be made to multiple LLMs for the same prompt at the same time | Not Applicable  | Currently supports only `text-embedding-ada-002` from OpenAI & Azure | Expanding the list of LLM providers with the most commonly used ones ready for use | Lightweight and consistent output response
+SDK | Use cases | Vector stores | Embedding model | LLM Model | Languages | Features
+----|-----------|---------------|-----------------|-----------|-----------|----------
+[](#langchain)  | Chatbots, prompt chaining, document related tasks | Comprehensive list of data sources available to get connected readily | State of art embedding models in the bucket to choose from | A-Z availability of LLMs out there in the market | Python, Javascript, Typescript | Open source & 1.5k+ contributors strong for active project development
+[](#llama-index)  | Connecting multiple data sources to LLMs, document query interface using retrieval augmented generation, advanced chatbots, structured analytics | Wide options to connect & facility to [create a new one](https://gpt-index.readthedocs.io/en/latest/examples/vector_stores/CognitiveSearchIndexDemo.html#create-index-if-it-does-not-exist) | Besides the 3 commonly available models we can use a [custom embedding model](https://gpt-index.readthedocs.io/en/latest/examples/embeddings/custom_embeddings.html) as well | Set of restricted availability of LLM models besides [customised abstractions](https://gpt-index.readthedocs.io/en/latest/core_modules/model_modules/llms/usage_custom.html) suited for your custom data | Python, Javascript, Typescript | Tailor-made for high customisations if not happy with the current parameters and integrations
+[](#litellm)  | Integrating multiple LLMs, evaluating LLMs | Not Applicable  | Currently supports only `text-embedding-ada-002` from OpenAI & Azure | Expanding the list of LLM providers with the most commonly used ones ready for use | Python | Lightweight, streaming model response, consistent output response
 ```
 
 {{ table_feedback }}
@@ -19,18 +19,17 @@ SDK | Use case | Vector stores | Embedding model | LLM Model | Advanced features
 [awesome-transformers](https://github.com/huggingface/transformers/blob/main/awesome-transformers.md)
 ```
 
-A few reasons for why there is a need for LLM SDK in this current era of AI.
+A few reasons for why there is a need for LLM SDKs in this current era of AI.
 
-1. **Compliance with Agreements**: By using an LLM SDK, developers can ensure that their application complies with agreements by tracking and managing requests properly. This helps avoid potential legal issues related to software piracy or unauthorised use of resources.
-1. **Improved User Experience**: An LLM SDK can help create a seamless user experience by ensuring that license management is handled transparently within the application, without interrupting users with unnecessary prompts or errors.
-1. **Increased Security**: By implementing an LLM SDK, developers can protect their resources and prevent unauthorised use of their software by enforcing strict license restrictions. This helps ensure that only authorised users have access to the application's features and functionality.
-1. **Flexibility and Scalability**: An LLM SDK provides flexibility in terms of customisation and scalability, allowing developers to tailor the management system to their specific needs and adapt it as their application grows or evolves over time.
-1. **Reduced Support Costs**: By using an LLM SDK, developers can reduce support costs associated with managing licenses manually, as the toolkit handles these tasks automatically. This allows developers to focus on other aspects of their application and provide better customer support overall.
+1. **Compliance with Agreements**: By using an LLM SDK, developers can ensure that their application complies with agreements by logging, tracing, and monitoring requests appropriately. This helps avoid potential legal issues related to software piracy or unauthorised use of resources.
+1. **Improved User Experience**: An LLM SDK can help create a seamless user experience by removing boilerplate code and abstracting lower level interactions with LLMs.
+1. **Increased Security**: By implementing an LLM SDK, developers can protect their resources and prevent unauthorised use of their software by security features such as [access control and user management](https://www.businesswire.com/news/home/20230531005251/en/LlamaIndex-Raises-8.5M-to-Unlock-Large-Language-Models-Capabilities-with-Personal-Data).
+1. **Flexibility**: An LLM SDK provides flexibility in terms of customisation and bringing together different components, allowing developers to tailor the management system to their specific needs and adapt it easily.
 1. **Improved Collaboration**: An LLM SDK can facilitate collaboration among team members by providing a centralised platform for license management, ensuring that everyone is on the same page regarding issues and compliance requirements.
 
 ## LangChain
 
-![banner](https://user-images.githubusercontent.com/81156510/266282851-e02419bf-9e1e-4838-9cd7-daa613ce456c.png)
+![banner](https://python.langchain.com/img/parrot-chainlink-icon.png)
 
 On the LangChain page -- it states that LangChain is a framework for developing applications powered by Large Language Models(LLMs). It is available as an python sdk and npm packages suited for development purposes.
 
@@ -82,7 +81,7 @@ Overall, LangChain's advanced features enable developers to build advanced langu
 
 ## LLaMA Index
 
-![banner](https://user-images.githubusercontent.com/81156510/266319218-f8d45ec4-ec5d-4325-bd95-980845695b90.png)
+![banner](https://mms.businesswire.com/media/20230531005251/en/1806126/23/logo.jpg)
 
 LLaMAIndex is a data framework for LLM applications to ingest, structure, and access private or domain-specific data. It provides tools such as data connectors, data indexes, engines (query and chat), and data agents to facilitate natural language access to data. LLaMAIndex is designed for beginners, advanced users, and everyone in between, with a high-level API for easy data ingestion and querying, as well as lower-level APIs for customisation. It can be installed using `pip` and has detailed [documentation](https://gpt-index.readthedocs.io/en/latest) and tutorials for getting started. LLaMAIndex also has associated projects like https://github.com/emptycrown/llama-hub and https://github.com/run-llama/llama-lab.
 
@@ -176,7 +175,7 @@ LLaMAIndex provides several advanced features that cater to the needs of advance
 
 ## LiteLLM
 
-![banner](https://user-images.githubusercontent.com/81156510/266440975-6c29c205-fc6b-47c1-955e-c5b9082828e7.png)
+![banner](https://litellm.vercel.app/img/docusaurus-social-card.png)
 
 As the name suggests a light package that simplifies the task of getting the responses form multiple APIs at the same time without having to worry about the imports is known as the [LiteLLM](https://litellm.ai). It is available as a python package which can be accessed using `pip` Besides we can test the working of the library using the [playground](https://litellm.ai/playground) that is readily available.
 

@@ -13,13 +13,7 @@ Some ideas:
 
 ## Model Evaluation
 
-In the realm of machine learning models spanning various domains, advanced models have emerged as transformative
-innovations. These {term}`SotA` have revolutionised our interaction with and understanding of data, whether
-in vision, language, speech, or other fields. These models exhibit remarkable capabilities, including tasks like image
-recognition, text generation, and voice synthesis. However, assessing the performance and reliability of these models
-necessitates the use of established evaluation metrics, which vary depending on the domain.
-
-Evaluating a model involves the application of well-known metrics to measure its effectiveness. These metrics serve as
+Evaluating a [model](models) involves the application of well-known metrics to measure its effectiveness. These metrics serve as
 yardsticks for quantifying the model's performance and ensuring its suitability for specific tasks. Let's explore
 how these metrics are applied in different domains:
 
@@ -29,18 +23,16 @@ how these metrics are applied in different domains:
 
 - **Speech**: models are assessed using metrics like [Word Error Rate (WER)](https://en.wikipedia.org/wiki/Word_error_rate), and accuracy are commonly used. WER measures the dissimilarity between recognised words and the ground truth.
 
-  While evaluation metrics offer valuable insights into a model's capabilities within its specific domain, they may not provide a comprehensive assessment of its overall performance. To address this limitation, benchmarks play a pivotal role by offering a more holistic perspective. Benchmarks consist of carefully curated datasets or sets of tasks designed to evaluate a model's proficiency across diverse real-world scenarios. Just as in model training, where the axiom [Better Data = Better Performance](https://cameronrwolfe.substack.com/p/the-history-of-open-source-llms-better#%C2%A7better-data-better-performance) holds, this maxim applies equally to benchmarks, underscoring the critical importance of using meticulously curated datasets. Their significance becomes evident when considering the following factors:
+While evaluation metrics offer valuable insights into a model's capabilities within its specific domain, they may not provide a comprehensive assessment of its overall performance. To address this limitation, {term}`benchmarks <Benchmark>` play a pivotal role by offering a more holistic perspective. Just as in model training, where the axiom [Better Data = Better Performance](https://cameronrwolfe.substack.com/p/the-history-of-open-source-llms-better#%C2%A7better-data-better-performance) holds, this maxim applies equally to benchmarks, underscoring the critical importance of using meticulously curated datasets. Their significance becomes evident when considering the following factors:
 
-- **Diverse Assessment**: benchmarks encompass a wide range of tasks, including common knowledge, reasoning, mathematics, or code generation, tailored to the specific domain. This diversity ensures that models undergo testing across a broad spectrum of challenges, providing a more comprehensive evaluation.
+- **Diverse Task Coverage:** Encompassing a broad spectrum of tasks across various domains, benchmarks ensure a comprehensive evaluation of models.
 
-- **Real-World Relevance**: benchmarks are structured to emulate real-world scenarios, enabling the assessment of a model's practical applicability. They gauge a model's ability to handle complex tasks that extend beyond the scope of simple metrics, such as understanding context, decision-making, and managing intricate data.
+- **Realistic Challenges:** By emulating real-world scenarios, benchmarks assess models on intricate and practical tasks that extend beyond basic metrics.
 
-- **Comparison**: benchmarks facilitate standardised comparisons among different models. Researchers and developers can assess how their models perform relative to others on the same set of tasks, offering valuable insights for model selection and improvement.
+- **Facilitating Comparisons:** Benchmarks facilitate standardized model comparisons, providing valuable guidance for researchers in model selection and enhancement.
 
-Having explored benchmarks, we now turn our attention to leaderboards. These are crucial in the ever-evolving field of AI,
-providing a much-needed benchmark for evaluating models. Given the frequent emergence of new, boundary-pushing models, determining
-the best model for specific tasks can be challenging. Leaderboards offer a standardised framework for objective evaluation,
-aiding researchers, businesses, and the open-source community in making informed decisions and driving progress in the field.
+In light of the frequent emergence of groundbreaking models, selecting the most suitable model for specific tasks can be 
+a daunting task, and that's where {term}`leaderboards <Leaderboard>` play a vital role.
 
 ```{table} Comparison of Leaderboards
 :name: leaderboards-table
@@ -64,15 +56,12 @@ Leaderboard | Tasks | Benchmarks
 
 {{ table_feedback }}
 
-% TODO: unhardcode eval-datasets-comments
-
 These leaderboards are covered in more detail below.
 
 ## Text-only
 
-LLMs transcend mere language generation; they are expected to excel in diverse scenarios, encompassing reasoning, nuanced
-language comprehension, and the resolution of complex questions. Traditional metrics like BLEU and ROUGE are helpful but
-may miss subtleties in coherence and context comprehension. Human evaluations are crucial but can be subjective and
+{term}`LLMs <LLM>` transcend mere language generation; they are expected to excel in diverse scenarios, encompassing reasoning, nuanced
+language comprehension, and the resolution of complex questions. Human evaluations are crucial but can be subjective and
 prone to biases. Additionally, LLM behaviour can be unpredictable, making it complex to evaluate ethical and safety aspects.
 Balancing quantitative measures with qualitative human judgment remains a complex endeavour when evaluating these formidable
 language models.
@@ -197,14 +186,14 @@ You fall unconscious; You digest the watermelon seeds
 ```
 
 (mt-benchmark)=
-**[MT-Bench](https://arxiv.org/pdf/2306.05685.pdf)** has been introduced by
-[Large Model Systems Organisation (LMSYS Org)](https://lmsys.org), and consists of 80 challenging multi-turn questions.
+**[MT-Bench](https://arxiv.org/pdf/2306.05685.pdf)** {cite}`zheng2023judging` has been introduced by
+[LMSYS Org](https://lmsys.org), and consists of 80 challenging multi-turn questions.
 This benchmark is specifically designed to evaluate a model's performance in multi-turn conversations
 and instruction-following tasks. It covers a wide range of common use cases and focuses on challenging questions to
 effectively differentiate between models. To guide the construction of MT-Bench, eight common categories of user prompts
 were identified: writing, role-play, extraction, reasoning, math, coding, knowledge I (STEM), and knowledge II (humanities/social science).
 
-```{admonition} [Example](https://arxiv.org/pdf/2306.05685.pdf)
+```{admonition} Example 
 :name: mt-bench-example
 :class: hint
 Category: Writing<br>
@@ -214,7 +203,7 @@ must-see attractions.<br>
 ```
 
 (humaneval-benchmark)=
-**[HumanEval](https://arxiv.org/pdf/2107.03374v2.pdf)** is a benchmark specifically tailored to evaluate code generation models.
+**HumanEval** {cite}`chen2021evaluating` is a benchmark specifically tailored to evaluate code generation models.
 In NLP code generation models are often evaluated on evaluation metrics such as BLEU, however these metrics don't capture
 the complexity of the solutions' space for code generation as stated in this [thread](https://twitter.com/LoubnaBenAllal1/status/1692573780609057001).
 HumanEval contains 164 programs with 8 tests for each.
@@ -223,12 +212,13 @@ HumanEval contains 164 programs with 8 tests for each.
 ---
 width: 70%
 ---
-[Examples of HumanEval Dataset](https://arxiv.org/pdf/2107.03374v2.pdf)
+Examples of HumanEval Dataset {cite}`chen2021evaluating`
 ```
 
-Several other benchmarks have been proposed,in the following table a summary of such benchmarks with the considered
-factors.
+Several other benchmarks have been proposed,in the following table a summary {cite}`evaluate-llm` of such benchmarks with the considered factors.
 
+```{table} Comparison of Benchmarks
+:name: benchmarks-table
 Benchmark | Factors considered
 ----------|--------------------
 [Big Bench](https://arxiv.org/pdf/2206.04615.pdf) | Generalisation abilities
@@ -240,8 +230,7 @@ Benchmark | Factors considered
 [LogiQA](https://arxiv.org/pdf/2007.08124v1.pdf) | Logical reasoning abilities
 [MultiNLI](https://arxiv.org/pdf/1704.05426v4.pdf) | Understanding relationships between sentences across genres
 [SQUAD](https://arxiv.org/pdf/1606.05250v3.pdf) | Reading comprehension tasks
-
-Source: [Analytics Vidhya, Table of the Major Existing Evaluation Frameworks](https://www.analyticsvidhya.com/blog/2023/05/how-to-evaluate-a-large-language-model-llm)
+```
 
 ### Leaderboards
 
@@ -279,7 +268,7 @@ utilising the [AlpacaEval](https://huggingface.co/datasets/tatsu-lab/alpaca_eval
 version of the [AlpacaFarm](https://github.com/tatsu-lab/alpaca_farm) evaluation set. Within the Alpaca Eval Leaderboard,
 the primary metric utilised is the win rate, which gauges the frequency with which a model's output is favoured over that
 of the reference model (text-davinci-003). This evaluation process is automated and carried out by an automatic evaluator,
-such as [GPT4](https://openai.com/gpt-4) or [Claude](https://claude.ai), which determines the preferred output.
+such as [GPT4](models.md#chatgpt) or [Claude](models.md#claude), which determines the preferred output.
 
 ````{subfigure} AB
 :subcaptions: above
@@ -332,12 +321,10 @@ Chatbot Arena Leaderboard
 
 #### Human Eval LLM Leaderboard
 
-[Human Eval LLM Leaderboard](https://huggingface.co/spaces/HuggingFaceH4/human_eval_llm_leaderboard) focuses on tracking,
-ranking, and evaluating LLMs and chatbots within the open-source community. The evaluation process involves both human
-and GPT-4 comparisons of completions generated by popular LLMs based on secret instruction prompts. These prompts encompass
-various tasks, including brainstorming, creative generation, reasoning, open question answering, summarisation, and code generation.
-Evaluators rate model completions on a 1-8 [Likert scale](https://en.wikipedia.org/wiki/Likert_scale), and Elo rankings
-are created using these preferences.
+[Human Eval LLM Leaderboard](https://huggingface.co/spaces/HuggingFaceH4/human_eval_llm_leaderboard) distinguishes itself 
+through its unique evaluation process, which entails comparing completions generated from undisclosed instruction prompts 
+using assessments from both human evaluators and [GPT4](models.md#chatgpt). Evaluators rate model completions on a 1-8 
+[Likert scale](https://en.wikipedia.org/wiki/Likert_scale), and Elo rankings are created using these preferences.
 
 ```{figure} https://static.premai.io/book/eval-datasets-human-eval-llm.png
 ---
@@ -348,12 +335,9 @@ Human Eval LLM Leaderboard
 
 #### Massive Text Embedding Benchmark
 
-[Massive Text Embedding Benchmark Leaderboard](https://huggingface.co/spaces/mteb/leaderboard) is a framework designed to
-revolutionise the assessment of text embedding models across a diverse array of tasks in the realm of NLP.
-Text embeddings, encoding semantic information into vector representations, hold immense significance in NLP, facilitating
-efficient text processing for tasks ranging from clustering to text classification. MTEB's significance lies in its capacity
-to aid users in identifying the most suitable embedding model for a multitude of real-world tasks. Comprising an expansive
-collection of 129 datasets across eight tasks, and supporting up to 113 languages, MTEB is truly massive and multilingual.
+[Massive Text Embedding Benchmark Leaderboard](https://huggingface.co/spaces/mteb/leaderboard) empowers users to discover 
+the most appropriate {term}`embedding <Embedding>` model for a wide range of real-world tasks. It achieves this by offering
+an extensive set of 129 datasets spanning eight different tasks and supporting as many as 113 languages.
 
 ```{figure} https://static.premai.io/book/eval-datasets-mteb-leaderboard.png
 ---
@@ -364,8 +348,7 @@ MTEB Leaderboard
 
 #### Code Generation on HumanEval
 
-Differently from aforementioned leaderboards, which focus more on question-answering,
-reasoning and text generation, [Code Generation on HumanEval Leaderboard](https://paperswithcode.com/sota/code-generation-on-humaneval)
+Differently from aforementioned leaderboards [Code Generation on HumanEval Leaderboard](https://paperswithcode.com/sota/code-generation-on-humaneval)
 tries to close the gap regarding the evaluation of LLMs on code generation tasks by being based on [HumanEval](humaneval-benchmark).
 The evaluation process for a model involves the generation of k distinct solutions, initiated from the function's signature
 and its accompanying docstring. If any of these k solutions successfully pass the unit tests, it is considered a correct
@@ -398,16 +381,12 @@ Big Code Models Leaderboard
 
 ## Audio
 
-Within the realm of language, audio plays a significant role, and text-to-speech and automatic speech recognition stand
-out as pivotal tasks in this domain, however evaluating [TTS](https://en.wikipedia.org/wiki/Speech_synthesis) and
-[ASR](https://en.wikipedia.org/wiki/Speech_recognition) models presents unique challenges and nuances. TTS evaluation
-involves subjective judgments related to naturalness and intelligibility, which can be influenced by individual
-listener biases. Instead, ASR assessment relies heavily on metrics like WER but may not fully capture
-semantic accuracy. Both domains require meticulously crafted datasets and robust evaluation protocols. TTS models,
-in particular, grapple with prosody and speaker similarity assessments, adding complexity to the process. ASR evaluations
-must factor in considerations like domain-specific adaptation and the model's robustness to varying accents and environmental
-conditions. Striking a balance between objective metrics and human perception in these critical speech technology fields
-remains an ongoing and intricate task.
+Text-to-speech and automatic speech recognition stand out as pivotal tasks in this domain, however evaluating 
+[TTS](https://en.wikipedia.org/wiki/Speech_synthesis) and[ASR](https://en.wikipedia.org/wiki/Speech_recognition) models 
+presents unique challenges and nuances. TTS evaluation incorporates subjective assessments regarding naturalness and 
+intelligibility, which may be subject to individual listener biases and pose additional challenges, especially when 
+considering prosody and speaker similarity in TTS models. ASR evaluations must factor in considerations like domain-specific
+adaptation and the model's robustness to varying accents and environmental conditions.
 
 ### Benchmarks
 
@@ -601,11 +580,10 @@ Semantic Segmentation Leaderboard
 
 #### Open Parti Prompt Leaderboard
 
-[Open Parti Prompt Leaderboard](https://huggingface.co/spaces/OpenGenAI/parti-prompts-leaderboard) evaluates open-source
-text-to-image models based on human preferences, using the [Parti Prompts dataset](https://huggingface.co/datasets/nateraw/parti-prompts)
-for assessment. Unlike traditional metrics, it relies on community feedback to compare models. Participants play the
-[Open Parti Prompts Game](https://huggingface.co/spaces/OpenGenAI/open-parti-prompts),
-selecting the best image for a given prompt, and their preferences contribute to the model comparisons.
+[Open Parti Prompt Leaderboard](https://huggingface.co/spaces/OpenGenAI/parti-prompts-leaderboard) assesses open-source 
+text-to-image models according to human preferences, utilizing the [Parti Prompts dataset](https://huggingface.co/datasets/nateraw/parti-prompts) 
+for evaluation. It leverages community engagement through the [Open Parti Prompts Game](https://huggingface.co/spaces/OpenGenAI/open-parti-prompts), 
+in which participants choose the most suitable image for a given prompt, with their selections informing the model comparisons.
 
 ```{figure} https://static.premai.io/book/eval-datasets-open-party-prompts.png
 ---
@@ -614,11 +592,8 @@ width: 90%
 Open Parti Prompts Game
 ```
 
-The leaderboard includes models like [Kandinsky 2.2](https://huggingface.co/kandinsky-community/kandinsky-2-2-decoder),
-[Stable Diffusion XL](https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0),
-[Wuerstchen](https://huggingface.co/warp-ai/wuerstchen), and [Karlo](https://huggingface.co/kakaobrain/karlo-v1-alpha).
-It offers an overall comparison and detailed breakdown analyses by category and challenge type, providing a comprehensive
-assessment of model performance.
+The leaderboard offers an overall comparison and detailed breakdown analyses by category and challenge type, providing 
+a comprehensive assessment of model performance.
 
 ```{figure} https://static.premai.io/book/eval-datasets-open-party-leaderboard.png
 ---
@@ -643,21 +618,20 @@ Thus far, we have conducted an analysis of multiple leaderboards, and now we wil
 their limitations.
 
 - **[Overfitting to Benchmarks](https://www.reddit.com/r/LocalLLaMA/comments/15n6cmb/optimizing_models_for_llm_leaderboard_is_a_huge)**:
-  excessive fine-tuning of models for benchmark tasks may lead to models that excel in those specific
+  excessive [fine-tuning](fine-tuning) of models for benchmark tasks may lead to models that excel in those specific
   tasks but are less adaptable and prone to struggling with real-world tasks outside their training data distribution
-- **Benchmark Discrepancy**: benchmarks may not accurately reflect real-world performance; for instance, the LLaMA 70B
-  model may appear superior to ChatGPT in a benchmark but could perform differently in practical applications.
+- **Benchmark Discrepancy**: benchmarks may not accurately reflect real-world performance; for instance, the [LLaMA 70B](models.md#llama-2)
+  model may appear superior to [ChatGPT](models.md#chatgpt) in a benchmark but could perform differently in practical applications.
 - **[Benchmarks' Implementations](https://huggingface.co/blog/evaluating-mmlu-leaderboard)**: variations in implementations
   and evaluation approaches can result in substantial score disparities and model rankings, even when applied to the same
   dataset and models.
-- **[Illusion of Improvement](https://arxiv.org/pdf/math/0606441.pdf)**: minor performance gains observed in a benchmark
+- **Illusion of Improvement**: minor performance gains observed in a benchmark
   may not materialise in real-world applications due to uncertainties arising from the mismatch between the benchmark
-  environment and the actual practical context.
+  environment and the actual practical context {cite}`hand2006classifier`.
 - **AI, Not AGI**: LLM leaderboards assess various models trained on diverse datasets by posing general questions (e.g., "how
   old is Earth?") and evaluating their responses. Consequently, the metrics gauge several facets, including the alignment
-  between questions and training data, the LLM's
-  [language comprehension](https://direct.mit.edu/daed/article/151/2/127/110621/Human-Language-Understanding-amp-Reasoning)
-  (syntax, semantics, ontology), its [memorisation capability](https://en.wikipedia.org/wiki/Tacit_knowledge#Embodied_knowledge),
+  between questions and training data, the LLM's language comprehension (syntax, semantics, ontology) {cite}`manning2022human`, 
+  its [memorisation capability](https://en.wikipedia.org/wiki/Tacit_knowledge#Embodied_knowledge),
   and its ability to retrieve memorised information. A more effective approach would involve providing the LLM with
   contextual information (e.g., instructing it to read a specific astronomy textbook: <path/to/some.pdf>) and evaluating
   LLMs solely based on their outputs within that context.
@@ -665,16 +639,16 @@ their limitations.
   potential inputs that a model may encounter (e.g. limited dataset for [code generation evaluation](#code-generation-on-humaneval)).
 - **Balanced Approach**: while benchmarks serve as valuable initial evaluation tools for models, it's essential not to depend
   solely on them. Prioritise an in-depth understanding of your unique use case and project requirements.
-- **[Evaluating ChatGPT on Internet Data](https://ehudreiter.com/2023/04/04/evaluating-chatgpt)**: it is crucial to note
-  that evaluating ChatGPT on internet data or test sets found online, which may overlap with its training data, can lead
+- **Evaluating ChatGPT on Internet Data**: it is crucial to note that evaluating ChatGPT on internet data or test sets found online 
+  {cite}`evaluating-chatgpt`, which may overlap with its training data, can lead 
   to invalid results. This practice violates fundamental machine learning principles and renders the evaluations unreliable.
   Instead, it is advisable to use test data that is not readily available on the internet or to employ human domain experts
   for meaningful and trustworthy assessments of ChatGPT's text quality and appropriateness.
-- **[Beyond leaderboard rankings](https://skandavivek.substack.com/p/how-do-you-evaluate-large-language)**: several factors
-  including prompt tuning, embeddings retrieval, model parameter adjustments, and data storage, significantly impact a
-  language model's real-world performance. Recent developments (e.g. https://github.com/explodinggradients/ragas,
-  https://github.com/langchain-ai/langsmith-cookbook) aim to simplify LLM evaluation and integration into
-  applications, emphasising the transition from leaderboards to practical deployment, monitoring, and assessment.
+- **Beyond leaderboard rankings**: several factors including prompt tuning, embeddings retrieval, model parameter 
+  adjustments, and data storage, significantly impact a LLM's real-world performance {cite}`skanda-evaluating-llm`. Recent 
+  developments (e.g. [ragas](https://github.com/explodinggradients/ragas), [langsmith](https://github.com/langchain-ai/langsmith-cookbook)) 
+  aim to simplify LLM evaluation and integration into applications, emphasising the transition from leaderboards to 
+  practical deployment, monitoring, and assessment.
 
 ## Future
 
@@ -686,9 +660,8 @@ of human judgment and perception in model evaluation.
 
 In parallel, there is a noteworthy exploration of alternative evaluation approaches, where models themselves act as
 evaluators. This transformation is illustrated by the creation of automatic evaluators within the
-[Alpaca Leaderboard](#alpaca-eval), and by the proposed approach of using the GPT-4 as an evaluator in the
-[Judging LLM-as-a-judge](https://arxiv.org/pdf/2306.05685.pdf) paper. These endeavours shed light on novel methods for
-assessing model performance.
+[Alpaca Leaderboard](#alpaca-eval), and by the proposed approach of using the GPT-4 as an evaluator {cite}`zheng2023judging`. 
+These endeavours shed light on novel methods for assessing model performance.
 
 The future of model evaluation will likely involve a multidimensional approach that combines benchmarks, leaderboards,
 human evaluations, and innovative model-based assessments to comprehensively gauge model capabilities in a variety

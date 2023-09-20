@@ -226,6 +226,7 @@ Transformer
   A [transformer](<https://en.wikipedia.org/wiki/Transformer_(machine_learning_model)>) is a neural network using a parallel multi-head [attention](<https://en.wikipedia.org/wiki/Attention_(machine_learning)>) mechanism. The resultant reduce training time makes it well-suited for use in {term}`LLMs <llm>`.
 
 Foundation model
+  A model trained from scratch using trillions of tokens of data.
 Evaluation
 Auto-regressive language model
 Decoder-style transformer

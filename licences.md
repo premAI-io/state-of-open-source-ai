@@ -18,6 +18,8 @@ A working [model](models) is defined partially in code (architecture & training 
 
 Here's a summary of the usage restrictions around some popular models (in descending order of real-world output quality as measured by us):
 
+% all links should open in a new tab not in the same tab
+
 ```{table} Restrictions on training data, trained weights, and generated outputs
 :name: model-licences
 

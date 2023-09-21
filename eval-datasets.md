@@ -5,10 +5,8 @@
 {{ wip_chapter }}
 
 Some ideas:
-
-- Quality: ["Better Data = Better Performance"](https://cameronrwolfe.substack.com/i/135439692/better-data-better-performance)
 - https://gist.github.com/veekaybee/be375ab33085102f9027853128dc5f0e#evaluation
-- https://dev.premai.io/blog/evaluating-open-source-llms
+  - https://arxiv.org/abs/2103.11251
 ```
 
 ## Model Evaluation
@@ -23,7 +21,7 @@ how these metrics are applied in different domains:
 
 - **Speech**: models are assessed using metrics like [Word Error Rate (WER)](https://en.wikipedia.org/wiki/Word_error_rate), and accuracy are commonly used. WER measures the dissimilarity between recognised words and the ground truth.
 
-While evaluation metrics offer valuable insights into a model's capabilities within its specific domain, they may not provide a comprehensive assessment of its overall performance. To address this limitation, {term}`benchmarks <Benchmark>` play a pivotal role by offering a more holistic perspective. Just as in model training, where the axiom [Better Data = Better Performance](https://cameronrwolfe.substack.com/p/the-history-of-open-source-llms-better#%C2%A7better-data-better-performance) holds, this maxim applies equally to benchmarks, underscoring the critical importance of using meticulously curated datasets. Their significance becomes evident when considering the following factors:
+While evaluation metrics offer valuable insights into a model's capabilities within its specific domain, they may not provide a comprehensive assessment of its overall performance. To address this limitation, {term}`benchmarks <Benchmark>` play a pivotal role by offering a more holistic perspective. Just as in model training, where the axiom "Better Data = Better Performance" holds {cite}`better-data-better-performance`, this maxim applies equally to benchmarks, underscoring the critical importance of using meticulously curated datasets. Their significance becomes evident when considering the following factors:
 
 - **Diverse Task Coverage:** Encompassing a broad spectrum of tasks across various domains, benchmarks ensure a comprehensive evaluation of models.
 
@@ -52,7 +50,9 @@ Leaderboard | Tasks | Benchmarks
 [Open Parti Prompt Leaderboard](https://huggingface.co/spaces/OpenGenAI/parti-prompts-leaderboard) | Text-to-Image | Open Parti Prompts
 ```
 
-% TODO: cite https://github.com/imaurer/awesome-decentralized-llm#leaderboards
+```{seealso}
+[awesome-dencentralized-llm](https://github.com/imaurer/awesome-decentralized-llm#leaderboards)
+```
 
 {{ table_feedback }}
 
@@ -116,11 +116,8 @@ When benchmarking an LLM model, two approaches emerge {cite}`machinelearningmast
 
 ### Benchmarks
 
-An array of benchmarks has been developed to gauge the capabilities of LLMs. To gain a comprehensive understanding, we
-will now explore some of the most renowned benchmarks that have become touchstones for assessing LLMs.
-
 (arc-benchmark)=
-**[AI2 Reasoning Challenge](https://arxiv.org/pdf/1803.05457.pdf) (ARC)** dataset is composed of 7,787 genuine grade-school level,
+**AI2 Reasoning Challenge (ARC)** {cite}`clark2018think,evaluating-os-llm` dataset is composed of 7,787 genuine grade-school level,
 multiple-choice science questions in English. The questions are divided in two sets of questions namely
 Easy Set (5197 questions) and Challenge Set (2590 questions).
 
@@ -133,7 +130,7 @@ A) Cellular Phone B) Television C) Refrigerator D) Aeroplane
 ```
 
 (hellaswag-benchmark)=
-**[HellaSwag](https://arxiv.org/pdf/1905.07830.pdf)** dataset comprises questions that are considered straightforward for
+**HellaSwag** {cite}`zellers2019hellaswag,evaluating-os-llm` dataset comprises questions that are considered straightforward for
 humans, achieving a remarkable accuracy rate of over 95%. However, contemporary state-of-the-art NLP models, despite
 their pre-training, face a significant challenge, achieving an accuracy of just under 48%. This dataset serves as a means
 to assess the proficiency of models, particularly in the domain of common-sense reasoning, specifically their capacity to
@@ -151,7 +148,7 @@ D) ... the man continues removing the snow on his car.<br>
 ```
 
 (mmlu-benchmark)=
-**[Massive Multi-task Language Understanding](https://arxiv.org/pdf/2009.03300.pdf) (MMLU)** dataset contains multiple
+**Massive Multi-task Language Understanding(MMLU)** {cite}`hendrycks2020measuring,evaluating-os-llm` dataset contains multiple
 choice questions for 57 tasks; including elementary mathematics, US history, computer science, law, and more. The goal
 is to measure a model's multitask accuracy.
 
@@ -164,7 +161,7 @@ A) 4 B) 3 C) 2 D) 1
 ```
 
 (truthfulqa-benchmark)=
-**[TruthfulQA](https://arxiv.org/pdf/2109.07958.pdf)** is a benchmark to measure whether a language model is truthful in
+**TruthfulQA** {cite}`lin2021truthfulqa,evaluating-os-llm` is a benchmark to measure whether a language model is truthful in
 generating answers to questions. The benchmark comprises 817 questions that span 38 categories, including health, law,
 finance and politics. This dataset is extremely interesting because the authors created questions that some humans might
 answer falsely due to misconceptions or false beliefs. TruthfulQA measures two separate tasks:
@@ -621,7 +618,7 @@ their limitations.
   excessive [fine-tuning](fine-tuning) of models for benchmark tasks may lead to models that excel in those specific
   tasks but are less adaptable and prone to struggling with real-world tasks outside their training data distribution
 - **Benchmark Discrepancy**: benchmarks may not accurately reflect real-world performance; for instance, the [LLaMA 70B](models.md#llama-2)
-  model may appear superior to [ChatGPT](models.md#chatgpt) in a benchmark but could perform differently in practical applications.
+  model may appear superior to [ChatGPT](models.md#chatgpt) in a benchmark but could perform differently in practical applications {cite}`evaluating-os-llm`.
 - **[Benchmarks' Implementations](https://huggingface.co/blog/evaluating-mmlu-leaderboard)**: variations in implementations
   and evaluation approaches can result in substantial score disparities and model rankings, even when applied to the same
   dataset and models.
@@ -636,11 +633,11 @@ their limitations.
   contextual information (e.g., instructing it to read a specific astronomy textbook: <path/to/some.pdf>) and evaluating
   LLMs solely based on their outputs within that context.
 - **Dataset Coverage**: benchmarks datasets often lack comprehensive coverage, failing to encompass the full range of
-  potential inputs that a model may encounter (e.g. limited dataset for [code generation evaluation](#code-generation-on-humaneval)).
-- **Balanced Approach**: while benchmarks serve as valuable initial evaluation tools for models, it's essential not to depend
+  potential inputs that a model may encounter (e.g. limited dataset for [code generation evaluation](#code-generation-on-humaneval)) {cite}`evaluating-os-llm`.
+- **Balanced Approach**: while benchmarks serve as valuable initial evaluation tools for models {cite}`evaluating-os-llm`, it's essential not to depend
   solely on them. Prioritise an in-depth understanding of your unique use case and project requirements.
-- **Evaluating ChatGPT on Internet Data**: it is crucial to note that evaluating ChatGPT on internet data or test sets found online 
-  {cite}`evaluating-chatgpt`, which may overlap with its training data, can lead 
+- **Evaluating ChatGPT on Internet Data**: it is crucial to note that [evaluating ChatGPT](https://github.com/CLARIN-PL/chatgpt-evaluation-01-2023) 
+  on internet data or test sets found online {cite}`evaluating-chatgpt`, which may overlap with its training data, can lead 
   to invalid results. This practice violates fundamental machine learning principles and renders the evaluations unreliable.
   Instead, it is advisable to use test data that is not readily available on the internet or to employ human domain experts
   for meaningful and trustworthy assessments of ChatGPT's text quality and appropriateness.

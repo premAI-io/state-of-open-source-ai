@@ -22,9 +22,11 @@ You should already know the basic principles of MLOps {cite}`google-mlops,redhat
 4. Deployment/Automated Inference (CD)
 5. Monitoring (logging, feedback, drift detection)
 ```
+% why are we linking to sota for the last year developments. i think we should have a quick tldr of all the stuff that has happened in the last year as a footnote or something like n open source models released, n open source llmops tools x number of investment dollars etc etc... sota isnt much of a value add imo
 
-You haven't followed the most recent developments in open source AI over {term}`the last year <SotA>`, and want to catch up quickly.
-We go beyond just mentioning the models, but also include things such as changing infrastructure, licence pitfalls, and novel applications.
+We created this guide for people who haven't followed the most recent developments in open source AI over {term}`the last year <SotA>`. This is for those who want to catch up quickly without reading 50 random blog posts.
+
+We go beyond just mentioning the models but also include things such as changing infrastructure, licence pitfalls, and novel applications.
 
 (toc)=
 

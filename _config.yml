@@ -112,6 +112,7 @@ sphinx:
     - https://chat.openai.com
     - https://falconllm.tii.ae
     - https://www.midjourney.com
+    - https://accent.gmu.edu
     linkcheck_allowed_redirects:
       https://doi.org/.*/.*: https://.*
       https://codespaces.new/.*: https://github.com/login.*

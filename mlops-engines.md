@@ -22,19 +22,17 @@ Some ideas:
 - Apache TVM
 ```
 
-% ```{figure-md} llm-lifecycle
-% :class: caption
-% ![](https://static.premai.io/book/mlops-engines-LLMOps-diagram.jpg)
-%
-% The LLM Lifecycle
-% ```
-%TODO: redo or drop the above image (what do the arrows mean? what do the colours mean? don't make the reader feel stupid without explaining anything)
-
 This chapter focuses on recent open-source {term}`MLOps` developments -- which are largely due to the current rise of {term}`LLMs <LLM>`.
 
 While MLOps typically focuses on model training, "LLMOps" focuses on fine-tuning. In production, both also require good inference engines.
 
-% TODO: summary table of engines
+| Inference Engine          | Open-Source | GPU support | GPU optimizations                                        | Ease of use |
+|---------------------------|-------------|-------------|----------------------------------------------------------|-------------|
+| [Nvidia Triton](https://developer.nvidia.com/triton-inference-server)             | 🟢 Yes       | 🟢 Yes       | Dynamic Batching, Tensor Parallelism, Model concurrency  | 🔴 Difficult |
+| [Text Generation Inference](https://github.com/huggingface/text-generation-inference) | 🟢 Yes       | 🟢 Yes       | Continuous Batching, Tensor Parallelism, Flash Attention | 🟢 Easy      |
+| [vLLM](https://github.com/vllm-project/vllm)                      | 🟢 Yes       | 🟢 Yes       | Continuous Batching, Tensor Parallelism, Paged Attention | 🟢 Easy      |
+| [BentoML](https://www.bentoml.com)                   | 🟢 Yes       | 🟢 Yes       | None                                                     | 🟢 Easy      |
+| [Modular](https://www.modular.com)                   | 🔴 No        | 🟢 Yes       | N/A                                                      | 🟠 Moderate  |
 
 ## Challenges in Open Source
 
@@ -53,8 +51,6 @@ The main challenges with open-source MLOps are [](#maintenance), [](#performance
 
 Open-Source vs Closed-Source MLOps
 ```
-
-%TODO: where is this image above from?
 
 ### Maintenance
 

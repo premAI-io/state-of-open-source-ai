@@ -245,13 +245,15 @@ Transformer
   A [transformer](<https://en.wikipedia.org/wiki/Transformer_(machine_learning_model)>) is a neural network using a parallel multi-head [attention](<https://en.wikipedia.org/wiki/Attention_(machine_learning)>) mechanism. The resultant reduce training time makes it well-suited for use in {term}`LLMs <llm>`.
 
 Benchmark
- A carefully curated datasets or sets of tasks designed to evaluate a model's proficiency across diverse real-world scenarios.
+  A carefully curated datasets or sets of tasks designed to evaluate a model's proficiency across diverse real-world scenarios.
  
 Leaderboard
- A visual or tabular representation that ranks machine learning models based on their performance metrics, allowing data scientists and researchers to compare and select the best-performing models for a specific task or dataset.
+  A visual or tabular representation that ranks machine learning models based on their performance metrics, allowing data scientists and researchers to compare and select the best-performing models for a specific task or dataset.
  
-Foundation model
 Evaluation
+  Systematic assessment of model or system performance to measure its accuracy, effectiveness, and suitability for a given task.
+
+Foundation model
 Auto-regressive language model
 Decoder-style transformer
 A100, V100, H100

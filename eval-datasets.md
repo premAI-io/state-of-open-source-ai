@@ -11,7 +11,7 @@ Some ideas:
 
 ## Model Evaluation
 
-Evaluating a [model](models) involves the application of well-known metrics to measure its effectiveness. These metrics serve as
+{term}`Evaluating <Evaluation>` a [model](models) involves the application of well-known metrics to measure its effectiveness. These metrics serve as
 yardsticks for quantifying the model's performance and ensuring its suitability for specific tasks. Let's explore
 how these metrics are applied in different domains:
 
@@ -235,7 +235,7 @@ Benchmark | Factors considered
 
 [HuggingFace OpenLLM Leaderboard](https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard)
 is primarily built upon [Language Model Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness) developed by
-[EleutherAI](https://www.eleuther.ai), which serves as a framework for evaluating autoregressive language models with
+[EleutherAI](https://www.eleuther.ai), which serves as a framework for evaluating {term}`autoregressive language models <Auto-regressive language model>` with
 few-shot capabilities. It's important to note that this benchmark exclusively evaluates open-source language models,
 so GPT is not included in the list of models tested. The OpenLLM Leaderboard assigns a score ranging from 0 to 100 and is
 based on the following benchmarks:

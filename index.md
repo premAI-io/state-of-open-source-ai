@@ -10,6 +10,8 @@ The guide covers all the most important categories in the Open Source AI space, 
 
 A quick TL;DR overview is included at the top of each section. We outline the pros/cons and general context/background for each topic. Then we dive a bit deeper. Examples include data models were trained on, and deployment implementations.
 
+% Here example more.
+
 ## Who is This Guide For?
 
 ```{admonition} Prerequisites to Reading

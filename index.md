@@ -30,7 +30,7 @@ We go beyond just mentioning the models, but also include things such as changin
 
 ## Table of Contents
 
-We've divided the open-source tooling, models, & MLOps landscape into the following chapters:
+We've divided the open-source tooling, models, & MLOps/LLMOps landscape into the following chapters:
 
 Chapter | Examples
 ---|---
@@ -41,14 +41,14 @@ Chapter | Examples
 [](fine-tuning) | h20, ...
 [](model-formats) | ONNX, Apache TVM, GGML
 [](mlops-engines) | BentoML, llama.cpp, ray
-[](vector-db) | weaviate, qdrant, milvus, redis, chroma
-[](sdk) | langchain, haystack, llama index
+[](vector-db) | Weaviate, Qdrant, Milvus, Redis, Chroma
+[](sdk) | Langchain, Haystack, Llama index
 [](desktop-apps) | LMStudio, GPT4All UI
 [](hardware) | NVIDIA GPUs, Mac, iPhone
 
 ## Contributing
 
-This source of this guide is available on GitHub at {{ env.config.html_theme_options.repository_url }}.
+This guide is available on GitHub at {{ env.config.html_theme_options.repository_url }}.
 
 ```{admonition} Feedback
 :class: attention
@@ -146,7 +146,7 @@ Don't worry about making it perfect, it's fine to open a (`draft <https://docs.g
 
 > All models are wrong, but some are useful {cite}`box-models`.
 
-% TODO: rewrite
+% TODO: rewrite, talk about how open source is becoming more important becasue of gpt getting worse (link to paper talking about that) and also the need to run things on your own infra. also put a link to quick start with prem.
 
 Open Source AI represents the future of privacy and ownership of data. On the other hand, in order to make this happen a lot of innovation should come into place. In the last year, already the open-source community demonstrated how motivated they are in order to deliver quality models to the hands of consumers creating already few big innovations in different AI fields. At the same time, this is just the beginning. Many improvements in multiple directions must be made in order to compare the results with centralised solutions.
 
@@ -224,6 +224,8 @@ Token
 
 Transformer
   A [transformer](<https://en.wikipedia.org/wiki/Transformer_(machine_learning_model)>) is a neural network using a parallel multi-head [attention](<https://en.wikipedia.org/wiki/Attention_(machine_learning)>) mechanism. The resultant reduce training time makes it well-suited for use in {term}`LLMs <llm>`.
+
+% missing all these definitions
 
 Foundation model
 Evaluation

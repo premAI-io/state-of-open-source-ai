@@ -1,14 +1,5 @@
 # Evaluation & Datasets
 
-```{admonition} Work in Progress
-:class: attention
-{{ wip_chapter }}
-
-Some ideas:
-- https://gist.github.com/veekaybee/be375ab33085102f9027853128dc5f0e#evaluation
-  - https://arxiv.org/abs/2103.11251
-```
-
 ## Model Evaluation
 
 {term}`Evaluating <Evaluation>` a [model](models) involves the application of well-known metrics to measure its effectiveness. These metrics serve as
@@ -19,9 +10,9 @@ how these metrics are applied in different domains:
 
 - **Text**: models are assessed using metrics like [perplexity](https://en.wikipedia.org/wiki/Perplexity), [BLEU score](https://en.wikipedia.org/wiki/BLEU), [ROUGE score](https://en.wikipedia.org/wiki/ROUGE_(metric)), and accuracy. For language translation, BLEU score quantifies the similarity between machine-generated translations and human references.
 
-- **Speech**: models are assessed using metrics like [Word Error Rate (WER)](https://en.wikipedia.org/wiki/Word_error_rate), and accuracy are commonly used. WER measures the dissimilarity between recognised words and the ground truth.
+- **Speech**: metrics like [Word Error Rate (WER)](https://en.wikipedia.org/wiki/Word_error_rate), and accuracy are commonly used. WER measures the dissimilarity between recognised words and the ground truth.
 
-While evaluation metrics offer valuable insights into a model's capabilities within its specific domain, they may not provide a comprehensive assessment of its overall performance. To address this limitation, {term}`benchmarks <Benchmark>` play a pivotal role by offering a more holistic perspective. Just as in model training, where the axiom "Better Data = Better Performance" holds {cite}`better-data-better-performance`, this maxim applies equally to benchmarks, underscoring the critical importance of using meticulously curated datasets. Their significance becomes evident when considering the following factors:
+While evaluation metrics offer valuable insights into a model's capabilities within its specific domain, they may not provide a comprehensive assessment of its overall performance. To address this limitation, {term}`benchmarks <Benchmark>` play a pivotal role by offering a more holistic perspective. Just as in model training, where the axiom "Better Data = Better Performance" holds {cite}`better-data-better-performance`, this maxim applies equally to benchmarks, underscoring the critical importance of using meticulously curated datasets. Their importance becomes apparent when taking into account the following factors:
 
 - **Diverse Task Coverage:** Encompassing a broad spectrum of tasks across various domains, benchmarks ensure a comprehensive evaluation of models.
 
@@ -36,18 +27,18 @@ a daunting task, and that's where {term}`leaderboards <Leaderboard>` play a vita
 :name: leaderboards-table
 Leaderboard | Tasks | Benchmarks
 ------------|-------|-----------
-[OpenLLM](https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard) | Text generation | ARC, HellaSwag, MMLU, TruthfulQA
-[Alpaca Eval](https://tatsu-lab.github.io/alpaca_eval) | Text generation | AlpacaEval
-[Chatbot Arena](https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard) | Text generation | Chatbot Arena, MT-Bench, MMLU
-[Human Eval LLM Leaderboard](https://huggingface.co/spaces/HuggingFaceH4/human_eval_llm_leaderboard) | Text generation | Human Eval, GPT-4
-[Massive Text Embedding Benchmark](https://huggingface.co/spaces/mteb/leaderboard) | Text embedding | 129 datasets across eight tasks, and supporting up to 113 languages
-[Code Generation on HumanEval](https://paperswithcode.com/sota/code-generation-on-humaneval) | Python code generation | HumanEval
-[Big Code Models Leaderboard](https://huggingface.co/spaces/bigcode/bigcode-models-leaderboard) | Multilingual code generation | HumanEval, MultiPL-E
-[Text-To-Speech Synthesis on LJSpeech](https://paperswithcode.com/sota/text-to-speech-synthesis-on-ljspeech) | Text-to-Speech | LJSpeech
-[Open ASR Leaderboard](https://huggingface.co/spaces/hf-audio/open_asr_leaderboard) | Speech recognition | ESB
-[Object Detection Leaderboard](https://huggingface.co/spaces/rafaelpadilla/object_detection_leaderboard) | Object Detection | COCO
-[Semantic Segmentation on ADE20K](https://paperswithcode.com/sota/semantic-segmentation-on-ade20k) | Semantic Segmentation | ADE20K
-[Open Parti Prompt Leaderboard](https://huggingface.co/spaces/OpenGenAI/parti-prompts-leaderboard) | Text-to-Image | Open Parti Prompts
+[OpenLLM](#openllm) | Text generation | ARC, HellaSwag, MMLU, TruthfulQA
+[Alpaca Eval](#alpaca-eval) | Text generation | AlpacaEval
+[Chatbot Arena](#chatbot-arena) | Text generation | Chatbot Arena, MT-Bench, MMLU
+[Human Eval LLM Leaderboard](#human-eval-llm-leaderboard) | Text generation | Human Eval, GPT-4
+[Massive Text Embedding Benchmark](#massive-text-embedding-benchmark) | Text embedding | 129 datasets across eight tasks, and supporting up to 113 languages
+[Code Generation on HumanEval](#code-generation-on-humaneval) | Python code generation | HumanEval
+[Big Code Models Leaderboard](#big-code-models) | Multilingual code generation | HumanEval, MultiPL-E
+[Text-To-Speech Synthesis on LJSpeech](#text-to-speech-synthesis-on-ljspeech) | Text-to-Speech | LJSpeech
+[Open ASR Leaderboard](#open-asr-leaderboard) | Speech recognition | ESB
+[Object Detection Leaderboard](#object-detection-leaderboard) | Object Detection | COCO
+[Semantic Segmentation on ADE20K](#semantic-segmentation-on-ade20k) | Semantic Segmentation | ADE20K
+[Open Parti Prompt Leaderboard](#open-parti-prompt-leaderboard) | Text-to-Image | Open Parti Prompts
 ```
 
 ```{seealso}
@@ -117,7 +108,7 @@ When benchmarking an LLM model, two approaches emerge {cite}`machinelearningmast
 ### Benchmarks
 
 (arc-benchmark)=
-**AI2 Reasoning Challenge (ARC)** {cite}`clark2018think,evaluating-os-llm` dataset is composed of 7,787 genuine grade-school level,
+**[AI2 Reasoning Challenge (ARC)](https://allenai.org/data/arc)** {cite}`clark2018think,evaluating-os-llm` dataset is composed of 7,787 genuine grade-school level,
 multiple-choice science questions in English. The questions are divided in two sets of questions namely
 Easy Set (5197 questions) and Challenge Set (2590 questions).
 
@@ -130,7 +121,7 @@ A) Cellular Phone B) Television C) Refrigerator D) Aeroplane
 ```
 
 (hellaswag-benchmark)=
-**HellaSwag** {cite}`zellers2019hellaswag,evaluating-os-llm` dataset comprises questions that are considered straightforward for
+**[HellaSwag](https://github.com/rowanz/hellaswag/tree/master/data)** {cite}`zellers2019hellaswag,evaluating-os-llm` dataset comprises questions that are considered straightforward for
 humans, achieving a remarkable accuracy rate of over 95%. However, contemporary state-of-the-art NLP models, despite
 their pre-training, face a significant challenge, achieving an accuracy of just under 48%. This dataset serves as a means
 to assess the proficiency of models, particularly in the domain of common-sense reasoning, specifically their capacity to
@@ -148,7 +139,7 @@ D) ... the man continues removing the snow on his car.<br>
 ```
 
 (mmlu-benchmark)=
-**Massive Multi-task Language Understanding(MMLU)** {cite}`hendrycks2020measuring,evaluating-os-llm` dataset contains multiple
+**Massive Multi-task Language Understanding (MMLU)** {cite}`hendrycks2020measuring,evaluating-os-llm` dataset contains multiple
 choice questions for 57 tasks; including elementary mathematics, US history, computer science, law, and more. The goal
 is to measure a model's multitask accuracy.
 
@@ -161,7 +152,7 @@ A) 4 B) 3 C) 2 D) 1
 ```
 
 (truthfulqa-benchmark)=
-**TruthfulQA** {cite}`lin2021truthfulqa,evaluating-os-llm` is a benchmark to measure whether a language model is truthful in
+**[TruthfulQA](https://github.com/sylinrl/TruthfulQA/blob/main/TruthfulQA.csv)** {cite}`lin2021truthfulqa,evaluating-os-llm` is a benchmark to measure whether a language model is truthful in
 generating answers to questions. The benchmark comprises 817 questions that span 38 categories, including health, law,
 finance and politics. This dataset is extremely interesting because the authors created questions that some humans might
 answer falsely due to misconceptions or false beliefs. TruthfulQA measures two separate tasks:
@@ -183,7 +174,7 @@ You fall unconscious; You digest the watermelon seeds
 ```
 
 (mt-benchmark)=
-**[MT-Bench](https://arxiv.org/pdf/2306.05685.pdf)** {cite}`zheng2023judging` has been introduced by
+**[MT-Bench](https://huggingface.co/spaces/lmsys/mt-bench)** {cite}`zheng2023judging` has been introduced by
 [LMSYS Org](https://lmsys.org), and consists of 80 challenging multi-turn questions.
 This benchmark is specifically designed to evaluate a model's performance in multi-turn conversations
 and instruction-following tasks. It covers a wide range of common use cases and focuses on challenging questions to
@@ -200,10 +191,10 @@ must-see attractions.<br>
 ```
 
 (humaneval-benchmark)=
-**HumanEval** {cite}`chen2021evaluating` is a benchmark specifically tailored to evaluate code generation models.
-In NLP code generation models are often evaluated on evaluation metrics such as BLEU, however these metrics don't capture
-the complexity of the solutions' space for code generation as stated in this [thread](https://twitter.com/LoubnaBenAllal1/status/1692573780609057001).
-HumanEval contains 164 programs with 8 tests for each.
+**[HumanEval](https://huggingface.co/datasets/openai_humaneval)** {cite}`chen2021evaluating` is a benchmark specifically tailored to evaluate code generation models.
+In NLP code generation models are often evaluated on evaluation metrics such as BLEU. However, these metrics 
+[don't capture](https://twitter.com/LoubnaBenAllal1/status/1692573780609057001) the complexity of the solutions' space 
+for code generation. HumanEval contains 164 programs with 8 tests for each.
 
 ```{figure} https://static.premai.io/book/eval-datasets-human-eval-examples.png
 ---
@@ -236,7 +227,7 @@ Benchmark | Factors considered
 [HuggingFace OpenLLM Leaderboard](https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard)
 is primarily built upon [Language Model Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness) developed by
 [EleutherAI](https://www.eleuther.ai), which serves as a framework for evaluating {term}`autoregressive language models <Auto-regressive language model>` with
-few-shot capabilities. It's important to note that this benchmark exclusively evaluates open-source language models,
+few-shot capabilities. It's important to note that this benchmark exclusively evaluates [open-source](licences.md#meaning-of-open) language models,
 so GPT is not included in the list of models tested. The OpenLLM Leaderboard assigns a score ranging from 0 to 100 and is
 based on the following benchmarks:
 
@@ -255,14 +246,14 @@ the number of examples provided to the model during evaluation.
 ---
 width: 95%
 ---
-HuggingFace OpenLLM Leaderboard
+[HuggingFace OpenLLM Leaderboard](https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard)
 ```
 
 #### Alpaca Eval
 
 The [Alpaca Eval Leaderboard](https://tatsu-lab.github.io/alpaca_eval) employs an LLM-based automatic evaluation method,
 utilising the [AlpacaEval](https://huggingface.co/datasets/tatsu-lab/alpaca_eval) evaluation set, which is a streamlined
-version of the [AlpacaFarm](https://github.com/tatsu-lab/alpaca_farm) evaluation set. Within the Alpaca Eval Leaderboard,
+version of the [AlpacaFarm](https://github.com/tatsu-lab/alpaca_farm) evaluation set {cite}`dubois2023alpacafarm`. Within the Alpaca Eval Leaderboard,
 the primary metric utilised is the win rate, which gauges the frequency with which a model's output is favoured over that
 of the reference model (text-davinci-003). This evaluation process is automated and carried out by an automatic evaluator,
 such as [GPT4](models.md#chatgpt) or [Claude](models.md#claude), which determines the preferred output.
@@ -277,19 +268,20 @@ such as [GPT4](models.md#chatgpt) or [Claude](models.md#claude), which determine
 ```{image} https://static.premai.io/book/eval-datasets-alpaca-eval-claude.png
 :align: right
 ```
-Alpaca Eval Leaderboard (GPT and Claude eval)
+[Alpaca Eval Leaderboard](https://tatsu-lab.github.io/alpaca_eval) with GPT (left) and a Claude (right) evaluators
 ````
 
-```{admonition} Note
-:name: alpaca-eval-note
-:class: note
+
+```{admonition} Attention
+:name: alpaca-eval-attention
+:class: attention
 * GPT-4 may favor models that were fine-tuned on GPT-4 outputs
 * Claude may favor models that were fine-tuned on Claude outputs
 ```
 
 #### Chatbot Arena
 
-[Chatbot Arena](https://chat.lmsys.org/?arena), developed by [LMSYS Org](https://lmsys.org), represents a pioneering platform for assessing LLMs.
+[Chatbot Arena](https://chat.lmsys.org/?arena), developed by [LMSYS Org](https://lmsys.org), represents a pioneering platform for assessing LLMs {cite}`zheng2023judging`.
 This innovative tool allows users to compare responses from different chatbots. Users are presented with pairs of chatbot
 interactions and asked to select the better response, ultimately contributing to the creation of an
 [Elo rating-based](https://en.wikipedia.org/wiki/Elo_rating_system) leaderboard, which ranks LLMs based on their relative
@@ -305,7 +297,7 @@ Chatbot Arena
 The [Chatbot Arena Leaderboard](https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard) is based on the following
 three benchmarks:
 
-- Chatbot Arena
+- Arena Elo rating
 - [MT-Bench](mt-benchmark)
 - [MMLU](mmlu-benchmark) (5-shot)
 
@@ -313,7 +305,7 @@ three benchmarks:
 ---
 width: 95%
 ---
-Chatbot Arena Leaderboard
+[Chatbot Arena Leaderboard](https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard)
 ```
 
 #### Human Eval LLM Leaderboard
@@ -327,12 +319,12 @@ using assessments from both human evaluators and [GPT4](models.md#chatgpt). Eval
 ---
 width: 95%
 ---
-Human Eval LLM Leaderboard
+[Human Eval LLM Leaderboard](https://huggingface.co/spaces/HuggingFaceH4/human_eval_llm_leaderboard)
 ```
 
 #### Massive Text Embedding Benchmark
 
-[Massive Text Embedding Benchmark Leaderboard](https://huggingface.co/spaces/mteb/leaderboard) empowers users to discover 
+[Massive Text Embedding Benchmark Leaderboard](https://huggingface.co/spaces/mteb/leaderboard) {cite}`muennighoff2023mteb` empowers users to discover 
 the most appropriate {term}`embedding <Embedding>` model for a wide range of real-world tasks. It achieves this by offering
 an extensive set of 129 datasets spanning eight different tasks and supporting as many as 113 languages.
 
@@ -340,7 +332,7 @@ an extensive set of 129 datasets spanning eight different tasks and supporting a
 ---
 width: 100%
 ---
-MTEB Leaderboard
+[MTEB Leaderboard](https://huggingface.co/spaces/mteb/leaderboard)
 ```
 
 #### Code Generation on HumanEval
@@ -363,7 +355,8 @@ width: 95%
 
 Similar to [Code Generation on HumanEval Leaderboard](#code-generation-on-humaneval), [Big Code Models Leaderboard](https://huggingface.co/spaces/bigcode/bigcode-models-leaderboard)
 tackles the code generation tasks. Moreover, the latter leaderboard consider not only python code generation models but
-multilingual code generation models as well. The primarily benchmarks used are:
+multilingual code generation models as well. In the leaderboard, only open pre-trained multilingual code 
+models are compared using the following primary benchmarks:
 
 * [HumanEval](humaneval-benchmark)
 * [MultiPL-E](https://huggingface.co/datasets/nuprl/MultiPL-E): Translation of HumanEval to 18 programming languages.
@@ -373,34 +366,34 @@ multilingual code generation models as well. The primarily benchmarks used are:
 ---
 width: 100%
 ---
-Big Code Models Leaderboard
+[Big Code Models Leaderboard](https://huggingface.co/spaces/bigcode/bigcode-models-leaderboard)
 ```
 
 ## Audio
 
 Text-to-speech and automatic speech recognition stand out as pivotal tasks in this domain, however evaluating 
-[TTS](https://en.wikipedia.org/wiki/Speech_synthesis) and[ASR](https://en.wikipedia.org/wiki/Speech_recognition) models 
+[TTS](https://en.wikipedia.org/wiki/Speech_synthesis) and [ASR](https://en.wikipedia.org/wiki/Speech_recognition) models 
 presents unique challenges and nuances. TTS evaluation incorporates subjective assessments regarding naturalness and 
-intelligibility, which may be subject to individual listener biases and pose additional challenges, especially when 
-considering prosody and speaker similarity in TTS models. ASR evaluations must factor in considerations like domain-specific
-adaptation and the model's robustness to varying accents and environmental conditions.
+intelligibility {cite}`stevens2005line`, which may be subject to individual listener biases and pose additional challenges, 
+especially when considering prosody and speaker similarity in TTS models. ASR evaluations must factor in considerations like domain-specific
+adaptation and the model's robustness to varying accents and environmental conditions {cite}`benzeghiba2007automatic`.
 
 ### Benchmarks
 
 (ljspeech)=
-[LJSpeech](https://huggingface.co/datasets/lj_speech) is a widely used benchmark dataset for TTS research. It comprises
+**[LJSpeech](https://huggingface.co/datasets/lj_speech)** {cite}`ljspeech17` is a widely used benchmark dataset for TTS research. It comprises
 around 13,100 short audio clips recorded by a single speaker who reads passages from non-fiction books. The dataset is
 based on texts published between 1884 and 1964, all of which are in the public domain. The audio recordings, made in 2016-17
 as part of the [LibriVox project](https://librivox.org), are also in the public domain. LJSpeech serves as a valuable
 resource for TTS researchers and developers due to its high-quality, diverse, and freely available speech data.
 
-[Multilingual LibriSpeech](https://huggingface.co/datasets/facebook/multilingual_librispeech#dataset-summary) is an
+**[Multilingual LibriSpeech](https://huggingface.co/datasets/facebook/multilingual_librispeech#dataset-summary)** {cite}`pratap2020mls` is an
 extension of the extensive LibriSpeech dataset, known for its English-language audiobook recordings. This expansion broadens
 its horizons by incorporating various additional languages, including German, Dutch, Spanish, French, Italian, Portuguese,
 and Polish. It includes about 44.5K hours of English and a total of about 6K hours for other languages. Within this dataset,
 you'll find audio recordings expertly paired with meticulously aligned transcriptions for each of these languages.
 
-[CSTR VCTK](https://huggingface.co/datasets/vctk) Corpus comprises speech data from 110 English speakers with diverse accents.
+**[CSTR VCTK](https://huggingface.co/datasets/vctk)** Corpus comprises speech data from 110 English speakers with diverse accents.
 Each speaker reads approximately 400 sentences selected from various sources, including a newspaper
 ([Herald Glasgow](https://www.heraldscotland.com) with permission), the
 [rainbow passage](https://www.dialectsarchive.com/the-rainbow-passage), and an
@@ -408,20 +401,20 @@ Each speaker reads approximately 400 sentences selected from various sources, in
 VCTK provides a valuable asset for TTS models, offering a wide range of voices and accents to
 enhance the naturalness and diversity of synthesised speech.
 
-[Common Voice](https://commonvoice.mozilla.org/en/datasets), developed by [Mozilla](https://www.mozilla.org/en-US),
+**[Common Voice](https://commonvoice.mozilla.org/en/datasets)** {cite}`ardila2019common`, developed by [Mozilla](https://www.mozilla.org/en-US),
 is a substantial and multilingual dataset of human voices, contributed by volunteers and encompassing multiple languages.
 This corpus is vast and diverse, with data collected and validated through crowdsourcing. As of November 2019, it includes
 29 languages, with 38 in the pipeline, featuring contributions from over 50,000 individuals and totaling 2,500 hours of audio.
 It's the largest publicly available audio corpus for speech recognition in terms of volume and linguistic diversity.
 
-[LibriTTS](http://www.openslr.org/60) is an extensive English speech dataset featuring multiple speakers, totaling around
+**[LibriTTS](http://www.openslr.org/60)** {cite}`zen2019libritts` is an extensive English speech dataset featuring multiple speakers, totaling around
 585 hours of recorded speech at a 24kHz sampling rate. This dataset was meticulously crafted by
 [Heiga Zen](https://research.google/people/HeigaZen), with support from members of the Google Speech and
 [Google Brain](https://research.google/teams/brain) teams, primarily for the advancement of TTS research. LibriTTS is
 derived from the source materials of the LibriSpeech corpus, incorporating mp3 audio files from LibriVox and text files
 from [Project Gutenberg](https://www.gutenberg.org).
 
-[FLEURS](https://huggingface.co/datasets/google/fleurs), the Few-shot Learning Evaluation of Universal Representations
+**[FLEURS](https://huggingface.co/datasets/google/fleurs)** {cite}`conneau2023fleurs`, the Few-shot Learning Evaluation of Universal Representations
 of Speech benchmark, is a significant addition to the field of speech technology and multilingual understanding. Building
 upon the https://github.com/facebookresearch/flores machine translation benchmark, FLEURS presents a parallel
 speech dataset spanning an impressive 102 languages. This dataset incorporates approximately 12 hours of meticulously
@@ -430,7 +423,7 @@ hines through its applicability in various speech-related tasks, including ASR, 
 Translation, and Retrieval.
 
 (esb)=
-[ESB](https://arxiv.org/pdf/2210.13352v1.pdf), the End-to-End ASR Systems Benchmark, is designed to assess the performance
+**[ESB](https://huggingface.co/datasets/esb/datasets)** {cite}`gandhi2022esb`, the End-to-End ASR Systems Benchmark, is designed to assess the performance
 of a single ASR system across a diverse set of speech datasets. This benchmark incorporates eight English speech recognition
 datasets, encompassing a wide spectrum of domains, acoustic conditions, speaker styles, and transcription needs. ESB serves
 as a valuable tool for evaluating the adaptability and robustness of ASR systems in handling various real-world speech scenarios.
@@ -485,7 +478,7 @@ qualitative and quantitative evaluation methods.
 ### Benchmarks
 
 (coco-dataset)=
-[COCO](https://cocodataset.org/#home) (Common Objects in Context) dataset is a comprehensive and extensive resource for
+[COCO](https://cocodataset.org/#download) (Common Objects in Context) {cite}`lin2015microsoft` dataset is a comprehensive and extensive resource for
 various computer vision tasks, including object detection, segmentation, key-point detection, and captioning.
 Comprising a vast collection of 328,000 images, this dataset has undergone several iterations and improvements since its
 initial release in 2014.
@@ -497,7 +490,7 @@ width: 80%
 [COCO Dataset Examples](https://cocodataset.org/#home)
 ```
 
-[ImageNet](https://paperswithcode.com/dataset/imagenet) dataset is a vast collection of 14,197,122 annotated
+[ImageNet](https://paperswithcode.com/dataset/imagenet) {cite}`deng2009imagenet` dataset is a vast collection of 14,197,122 annotated
 images organised according to the [WordNet hierarchy](https://wordnet.princeton.edu). It has been a cornerstone of the
 [ImageNet Large Scale Visual Recognition Challenge (ILSVRC)](https://www.image-net.org/challenges/LSVRC/index.php) since 2010,
 serving as a critical benchmark for tasks like image classification and object detection. This dataset encompasses a
@@ -520,7 +513,7 @@ thoughtfully split into three subsets, comprising 1,464 training images, 1,449 v
 set, enabling rigorous evaluation and advancement in the field of computer vision.
 
 (ade20k-dataset)=
-[ADE20K](https://groups.csail.mit.edu/vision/datasets/ADE20K) semantic segmentation dataset is a valuable resource,
+[ADE20K](https://groups.csail.mit.edu/vision/datasets/ADE20K) {cite}`zhou2017scene` semantic segmentation dataset is a valuable resource,
 featuring over 20,000 scene-centric images meticulously annotated with pixel-level object and object parts labels.
 It encompasses a diverse set of 150 semantic categories, encompassing both "stuff" categories such as sky, road, and
 grass, as well as discrete objects like persons, cars, and beds. This dataset serves as a critical tool for advancing
@@ -534,7 +527,7 @@ width: 50%
 [ADE20K Examples](https://paperswithcode.com/dataset/ade20k)
 ```
 
-[DiffusionDB](https://poloclub.github.io/diffusiondb) is the first large-scale text-to-image prompt dataset. It contains
+[DiffusionDB](https://poloclub.github.io/diffusiondb) {cite}`wang2023diffusiondb` is the first large-scale text-to-image prompt dataset. It contains
 14 million images generated by Stable Diffusion using prompts and hyperparameters specified by real users (retrieved
 from the official [Stable Diffusion Discord server](https://discord.com/invite/stablediffusion). The prompts in
 the dataset are mostly English (contains also other languages such as Spanish, Chinese, and Russian).
@@ -622,9 +615,8 @@ their limitations.
 - **[Benchmarks' Implementations](https://huggingface.co/blog/evaluating-mmlu-leaderboard)**: variations in implementations
   and evaluation approaches can result in substantial score disparities and model rankings, even when applied to the same
   dataset and models.
-- **Illusion of Improvement**: minor performance gains observed in a benchmark
-  may not materialise in real-world applications due to uncertainties arising from the mismatch between the benchmark
-  environment and the actual practical context {cite}`hand2006classifier`.
+- **Dataset Coverage**: benchmarks datasets often lack comprehensive coverage, failing to encompass the full range of
+  potential inputs that a model may encounter (e.g. limited dataset for [code generation evaluation](#code-generation-on-humaneval)) {cite}`evaluating-os-llm`.
 - **AI, Not AGI**: LLM leaderboards assess various models trained on diverse datasets by posing general questions (e.g., "how
   old is Earth?") and evaluating their responses. Consequently, the metrics gauge several facets, including the alignment
   between questions and training data, the LLM's language comprehension (syntax, semantics, ontology) {cite}`manning2022human`, 
@@ -632,8 +624,9 @@ their limitations.
   and its ability to retrieve memorised information. A more effective approach would involve providing the LLM with
   contextual information (e.g., instructing it to read a specific astronomy textbook: <path/to/some.pdf>) and evaluating
   LLMs solely based on their outputs within that context.
-- **Dataset Coverage**: benchmarks datasets often lack comprehensive coverage, failing to encompass the full range of
-  potential inputs that a model may encounter (e.g. limited dataset for [code generation evaluation](#code-generation-on-humaneval)) {cite}`evaluating-os-llm`.
+- **Illusion of Improvement**: minor performance gains observed in a benchmark
+  may not materialise in real-world applications due to uncertainties arising from the mismatch between the benchmark
+  environment and the actual practical context {cite}`hand2006classifier`.
 - **Balanced Approach**: while benchmarks serve as valuable initial evaluation tools for models {cite}`evaluating-os-llm`, it's essential not to depend
   solely on them. Prioritise an in-depth understanding of your unique use case and project requirements.
 - **Evaluating ChatGPT on Internet Data**: it is crucial to note that [evaluating ChatGPT](https://github.com/CLARIN-PL/chatgpt-evaluation-01-2023) 
@@ -641,6 +634,10 @@ their limitations.
   to invalid results. This practice violates fundamental machine learning principles and renders the evaluations unreliable.
   Instead, it is advisable to use test data that is not readily available on the internet or to employ human domain experts
   for meaningful and trustworthy assessments of ChatGPT's text quality and appropriateness.
+- **Models Interpretability**: it is essential to consider model interpretability {cite}`rudin2021interpretable` in the 
+  evaluation process. Understanding how a model makes decisions and ensuring its transparency is crucial, especially in 
+  applications involving sensitive data or critical decision-making. Striking a balance between predictive power and 
+  interpretability is imperative.
 - **Beyond leaderboard rankings**: several factors including prompt tuning, embeddings retrieval, model parameter 
   adjustments, and data storage, significantly impact a LLM's real-world performance {cite}`skanda-evaluating-llm`. Recent 
   developments (e.g. [ragas](https://github.com/explodinggradients/ragas), [langsmith](https://github.com/langchain-ai/langsmith-cookbook)) 

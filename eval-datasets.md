@@ -39,6 +39,10 @@ Leaderboard | Tasks | Benchmarks
 [Object Detection Leaderboard](#object-detection-leaderboard) | Object Detection | COCO
 [Semantic Segmentation on ADE20K](#semantic-segmentation-on-ade20k) | Semantic Segmentation | ADE20K
 [Open Parti Prompt Leaderboard](#open-parti-prompt-leaderboard) | Text-to-Image | Open Parti Prompts
+[Action Recognition on UCF101](#action-recognition-on-ucf101) | Action Recognition | UCF 101
+[Action Classification on Kinetics-700](#action-classification-on-kinetics-700) | Action Classification | Kinetics-700
+[Text-to-Video Generation on MSR-VTT](#text-to-video-generation-on-msr-vtt) | Text-to-Video | MSR-VTT
+[Visual Question Answering on MSVD-QA](#visual-question-answering-on-msvd-qa) | Visual Question Answering | MSVD
 ```
 
 ```{seealso}
@@ -553,19 +557,19 @@ the COCO evaluation approach from the
 ---
 width: 100%
 ---
-Object Detection Leaderboard
+[Object Detection Leaderboard](https://huggingface.co/spaces/rafaelpadilla/object_detection_leaderboard)
 ```
 
 #### Semantic Segmentation on ADE20K
 
-[Semantic Segmentation on ADE20K](https://paperswithcode.com/sota/semantic-segmentation-on-ade20k) evaluates models on the
+[Semantic Segmentation on ADE20K Leaderboard](https://paperswithcode.com/sota/semantic-segmentation-on-ade20k) evaluates models on the
 [ADE20K](ade20k-dataset) mainly using mean Intersection over Union (mIoU).
 
 ```{figure} https://static.premai.io/book/eval-datasets-semantic-segmentation-ade20k.png
 ---
 width: 80%
 ---
-Semantic Segmentation Leaderboard
+[Semantic Segmentation on ADE20K](https://paperswithcode.com/sota/semantic-segmentation-on-ade20k)
 ```
 
 #### Open Parti Prompt Leaderboard
@@ -589,18 +593,99 @@ a comprehensive assessment of model performance.
 ---
 width: 90%
 ---
-Open Parti Prompt Leaderboard
+[Open Parti Prompt Leaderboard](https://huggingface.co/spaces/OpenGenAI/parti-prompts-leaderboard)
 ```
 
 ## Videos
 
-```{admonition} Work in Progress
-:class: attention
-Please do {{
-  '[<i class="fab fa-github"></i> open a pull request]({}/edit/main/{}.md)'.format(
-  env.config.html_theme_options.repository_url, env.docname)
-}}!
+Understanding video content requires recognizing not just objects and actions but also comprehending their temporal 
+relationships. Creating accurate ground truth annotations for video datasets is a time-consuming process due to the 
+sequential nature of video data. Additionally, assessing video generation or comprehension models involves intricate 
+metrics that measure both content relevance and temporal coherence, making the evaluation task intricate.
+
+### Benchmarks
+
+(ucf101)=
+**[UCF101](https://www.crcv.ucf.edu/data/UCF101.php)** dataset {cite}`soomro2012ucf101` comprises 13,320 video clips categorized 
+into 101 distinct classes. These 101 categories can be further grouped into five types: Body motion, Human-human interactions, 
+Human-object interactions, Playing musical instruments, and Sports. The combined duration of these video clips exceeds 27 
+hours. All videos were sourced from YouTube and maintain a consistent frame rate of 25 frames per second (FPS) with a 
+resolution of 320 × 240 pixels.
+
+(kinetics)=
+**[Kinetics](https://www.deepmind.com/open-source/kinetics)**, developed by the Google Research team, is a dataset featuring 
+up to 650,000 video clips, covering 400/600/700 human action classes in different versions. These clips show diverse human 
+interactions, including human-object and human-human activities. Each action class contains a minimum of 
+[400](https://paperswithcode.com/dataset/kinetics-400-1)/[600](https://paperswithcode.com/dataset/kinetics-600)/[700](https://paperswithcode.com/dataset/kinetics-700) 
+video clips, each lasting about 10 seconds and annotated with a single action class.
+
+(msr-vtt)=
+**[MSR-VTT](https://paperswithcode.com/dataset/msr-vtt)** dataset {cite}`xu2016msr`, also known as Microsoft Research Video to Text, 
+stands as a substantial dataset tailored for open domain video captioning. This extensive dataset comprises 10,000 video 
+clips spanning across 20 diverse categories. Remarkably, each video clip is meticulously annotated with 20 English sentences 
+by [Amazon Mechanical Turks](https://www.mturk.com/), resulting in a rich collection of textual descriptions. These annotations 
+collectively employ approximately 29,000 distinct words across all captions.
+
+(msvd)=
+**[MSVD dataset](https://paperswithcode.com/dataset/msvd)**, known as the Microsoft Research Video Description Corpus, 
+encompasses approximately 120,000 sentences that were gathered in the summer of 2010. The process involved compensating 
+workers on [Amazon Mechanical Turks](https://www.mturk.com/) to view brief video segments and subsequently encapsulate 
+the action within a single sentence. Consequently, this dataset comprises a collection of nearly parallel descriptions 
+for over 2,000 video snippets.
+
+### Leaderboards
+
+#### Action Recognition on UCF101
+
+[Action Recognition on UCF101 Leaderboard](https://paperswithcode.com/sota/action-recognition-in-videos-on-ucf101) evaluates models 
+on the action recognition task based on [UCF101](ucf101) dataset.
+
+```{figure} https://static.premai.io/book/eval-datasets-ucf101-leaderboard.png
+---
+width: 80%
+---
+[Action Recognition on UCF101](https://paperswithcode.com/sota/action-recognition-in-videos-on-ucf101)
 ```
+
+#### Action Classification on Kinetics-700
+
+[Action Classification on Kinetics-700 Leaderboard](https://paperswithcode.com/sota/action-classification-on-kinetics-700) evaluates models 
+on the action classification task based on [Kinetics-700](kinetics) dataset. The evaluation is based on top-1 and top-5 
+accuracy metrics, where top-1 accuracy measures the correctness of the model's highest prediction, and top-5 accuracy 
+considers whether the correct label is within the top five predicted labels.
+
+```{figure} https://static.premai.io/book/eval-datasets-kinetics-700-leaderboard.png
+---
+width: 80%
+---
+[Action Classification on Kinetics-700](https://paperswithcode.com/sota/action-classification-on-kinetics-700)
+```
+
+#### Text-to-Video Generation on MSR-VTT
+[Text-to-Video Generation on MSR-VTT Leaderboard](https://paperswithcode.com/sota/text-to-video-generation-on-msr-vtt) evaluates models 
+on video generation based on [MSR-VTT](msr-vtt) dataset. The leaderboard employs two crucial metrics, namely clipSim and FID. 
+ClipSim quantifies the similarity between video clips in terms of their content alignment, while FID evaluates the quality 
+and diversity of generated videos. Lower FID scores are indicative of superior performance in this task.
+
+```{figure} https://static.premai.io/book/eval-datasets-msr-vtt-leaderboard.png
+---
+width: 80%
+---
+[Text-to-Video Generation on MSR-VTT Leaderboard](https://paperswithcode.com/sota/text-to-video-generation-on-msr-vtt)
+```
+
+#### Visual Question Answering on MSVD-QA
+
+In the [Visual Question Answering on MSVD-QA Leaderboard](https://paperswithcode.com/sota/visual-question-answering-on-msvd-qa-1)
+models are evaluated for their ability to answer questions about video content from the [MSVD](msvd) dataset.
+
+```{figure} https://static.premai.io/book/eval-datasets-msvd-qa-leaderboard.png
+---
+width: 80%
+---
+[Visual Question Answering on MSVD-QA Leaderboard](https://paperswithcode.com/sota/visual-question-answering-on-msvd-qa-1)
+```
+ 
 
 ## Limitations
 

@@ -482,7 +482,7 @@ qualitative and quantitative evaluation methods.
 ### Benchmarks
 
 (coco-dataset)=
-[COCO](https://cocodataset.org/#download) (Common Objects in Context) {cite}`lin2015microsoft` dataset is a comprehensive and extensive resource for
+[COCO](https://cocodataset.org) (Common Objects in Context) {cite}`lin2015microsoft` dataset is a comprehensive and extensive resource for
 various computer vision tasks, including object detection, segmentation, key-point detection, and captioning.
 Comprising a vast collection of 328,000 images, this dataset has undergone several iterations and improvements since its
 initial release in 2014.

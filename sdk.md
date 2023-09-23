@@ -194,4 +194,9 @@ However there are many [supported providers](https://docs.litellm.ai/docs/provid
 
 By setting the `stream=True` parameter to boolean `True` we can view the [streaming](https://docs.litellm.ai/docs/completion/stream) iterator response in the output. But this is currently supported for models like OpenAI, Azure, Anthropic, and HuggingFace.
 
+## Other SDKs
+Apart from the SDKs discussed, there are a variety of newer SDKs for other aspects of integrating LLMs in production. One example is Marvin, from [Prefect](https://github.com/prefecthq/marvin),great for building APIs, data pipelines, and streamlining the AI engineering framework for building natural language interfaces. Another example is [Superagent](https://github.com/homanp/superagent), which is a higher level abstraction and allows for building many AI applications/micro services like chatbots, co-pilots, assistants, etc.
+
+
+
 {{ comments }}

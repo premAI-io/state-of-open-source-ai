@@ -420,7 +420,7 @@ And currently [its fine-tuned variants](https://huggingface.co/Phind/Phind-CodeL
 
 ##### Uniqueness
 
-- [Outperforms GPT-3.5](https://www.reddit.com/r/OpenAI/comments/160bbaq/comment/jxls1xq).
+- [Outperforms GPT-3.5](https://www.reddit.com/r/OpenAI/comments/160bbaq/comment/jxls1xq) on code generation capabilities.
 - Uses [](#llama-2) as foundation model.
 - Released [three variants](https://huggingface.co/codellama) for each model sizes:
   - **Code llama**: constitute foundation models for code generation. They come in three model sizes: 7B, 13B and 34B parameters. The 7B and 13B models are trained using an infilling objective, appropriate for code generation in an IDE. The 34B model was trained without the infilling objective
@@ -469,7 +469,7 @@ And currently [its fine-tuned variants](https://huggingface.co/Phind/Phind-CodeL
   ```
 
 - Uses a [vocabulary of 262k tokens](https://twitter.com/suchenzang/status/1700214181772013762), built using a unigram sentencepiece model.
-- It's a skinnier, deeper model than Llama-2-7B.
+- Architecture is skinnier and deeper than Llama-2-7B.
 - They developed an [improved version of FlashAttention](https://www.adept.ai/blog/flashier-attention).
 - Inference optimisations possible.
 - In the model architecture it uses:
@@ -482,7 +482,7 @@ And currently [its fine-tuned variants](https://huggingface.co/Phind/Phind-CodeL
 
 ## Comparisons
 
-Here we went through the properties of popular models in Text and Visual domains. Comparing Large Language Models to a single source of truth is an inherently very difficult task, and Comparing visual models even harder. Since while generalising capabilities it's really important to take care of racial, gender, religious and other biases that the model can have. There are lot of popular [leaderboards](eval-datasets.md#leaderboards) to track these models' aggregate or specific performances, based on [evaluation datasets](eval-datasets.md) curated by the community exactly for measuring capabilities, each catering to specific needs.
+Here we went through the properties of popular models in Text and Visual domains. Comparing Large Language Models to a single source of truth is an inherently very difficult task, and Comparing visual models even harder. Since while generalising capabilities it's really important to take care of racial, gender, religious and other biases that the model can have. There are lot of popular [leaderboards](eval-datasets.md#leaderboards-table) to track these models' aggregate or specific performances, based on [evaluation datasets](eval-datasets.md) curated by the community exactly for measuring capabilities, each catering to specific needs.
 
 Our current based approaches for comparisons include evaluating each model on each dataset and get an average score across datasets. Combining this with evaluations performed by having [humans and GPT-4 compare completions](https://huggingface.co/spaces/HuggingFaceH4/human_eval_llm_leaderboard), gives a somewhat trustable score for tracking the current best. But this current way is not enough, even pillar models like GPT-4 [fails](https://twitter.com/cHHillee/status/1635790330854526981), and it's [hard to determine](https://www.technologyreview.com/2023/08/30/1078670/large-language-models-arent-people-lets-stop-testing-them-like-they-were#piano__post_body-mobile-3) on how much similar data to evaluation set has actually been a part of training set.
 
@@ -494,8 +494,8 @@ For practical commercial usage models ranging below 14B parameters has been a go
 
 Overall let's take look at the few discussed llms' attributes to get the bigger picture.
 
-##### < 15 Billion Parameters:
-
+```{table} < 15 Billion Parameters
+:name: llms-below-15b
 | LLMs              | Params     | Dataset | Release Details | Tokens  | ~VRAM   | License | Commercial Usage |
 | :---------------- | ---------: | :-----: | --------------: | ------: | :-----: | ------: | ---------------: |
 | [LLaMA-2-13B](https://huggingface.co/meta-llama/Llama-2-13b-hf)       | 13 Billion      |  -  | [Paper](https://ai.meta.com/research/publications/llama-2-open-foundation-and-fine-tuned-chat-models/)           | 2000 Billion   |  29GB+               | [LLaMA 2](https://blog.opensource.org/metas-llama-2-license-is-not-open-source/)   | ✅ |
@@ -505,21 +505,7 @@ Overall let's take look at the few discussed llms' attributes to get the bigger 
 | [WizardLM-7B](https://huggingface.co/WizardLM/WizardLM-7B-V1.0)          | 7 Billion     | [evol-instruct](https://huggingface.co/datasets/victor123/evol_instruct_70k)  | [Paper](https://arxiv.org/abs/2304.12244)           | ~2000 Billion   |  15.8GB+               | Non-Commercial Usage  | 	❌ |
 | [Falcon-7B](https://huggingface.co/tiiuae/falcon-7b)               | 7 Billion    |  [RefinedWeb (partial)](https://huggingface.co/datasets/tiiuae/falcon-refinedweb)   | -           | 1500 Billion   |  16GB+               |  [Apache 2.0](https://huggingface.co/tiiuae/falcon-7b#license)  | ✅ |
 | [MPT-7B](https://huggingface.co/mosaicml/mpt-7b)            | 6.7 Billion  |  [RedPajama](https://huggingface.co/datasets/togethercomputer/RedPajama-Data-1T)   | [Blog](https://www.mosaicml.com/blog/mpt-7b)           | 1000 Billion   |  15.5GB+         | [Apache 2.0](https://huggingface.co/mosaicml/mpt-7b#model-license)   | ✅ |
-
-
-
-<!-- | LLMs              | Score    | Parameters | Dataset | Technical Paper | HW Req. | Est. Compute Cost   | License |
-| :---------------- | :------: | ---------: | :-----: | --------------: | ------: | :-----------------: | ------: |
-| LLaMA 2           |   True   | 7B, 13B, 70B      |  [Not Released](https://www.reddit.com/r/LocalLLaMA/comments/15fi4s0/has_meta_released_the_training_dataset_for_llama_2/)   | [Released](https://ai.meta.com/research/publications/llama-2-open-foundation-and-fine-tuned-chat-models/)           | -   |  -               | [LLaMA 2 (Commercially Usable)](https://blog.opensource.org/metas-llama-2-license-is-not-open-source/)   |
-| Persimmon         |   True   | 8B      |  Not Released   | Not Released           | -   |  -               | [Apache 2.0 (Commercially Usable)](https://github.com/persimmon-ai-labs/adept-inference/blob/main/LICENSE)   |
-| WizardLM          |   True   | 7B, 13B, 30B, 70B      |  True   | [Released](https://arxiv.org/abs/2304.12244)           | -   |  -               | [LLaMA 2 (Commercially Usable)](https://arxiv.org/abs/2304.12244)   |
-| MPT               |   True   | 23.99      |  True   | 23.99           | 23.99   |  True               | 23.99   |
-| Falcon            |   True   | 23.99      |  True   | 23.99           | 23.99   |  True               | 23.99   |
-| GPT-4             |   True   | 23.99      |  True   | 23.99           | 23.99   |  True               | 23.99   |
-| GPT-3.5           |   True   | 23.99      |  True   | 23.99           | 23.99   |  True               | 23.99   |
-| PaLM              |   True   | 23.99      |  True   | 23.99           | 23.99   |  True               | 23.99   |
-| Claude            |   True   | 23.99      |  True   | 23.99           | 23.99   |  True               | 23.99   | -->
-
+```
 
 ### Vision
 
@@ -542,13 +528,15 @@ To recap current advancements we can see that few key moments were:
 - Creation and release of RLHF recipes.
 - many [other smaller moments](https://www.semianalysis.com/i/119223672/the-timeline).
 
-Even though Open Source AI is advancing, it is evident that it remains heavily regulated by major corporations such as Meta, OpenAI, Nvidia, Google, Microsoft, and others. These entities often control critical parameters, creating a [myth of open source AI](https://www.wired.com/story/the-myth-of-open-source-ai/), including:
+Even though Open Source AI is advancing, it is evident that it remains heavily regulated by major corporations such as Meta, OpenAI, Nvidia, Google, Microsoft, and others. These entities often control critical parameters, creating a myth of open source AI {cite}`myth-of-os-ai-wired`, including:
 - Data required to train these models.
 - Control of Software frameworks required to build such models
 - Compute power required to train these models.
 
-Returning to actual state, there are significant gaps that need to be addressed to achieve true progress in the development of intelligent models. For instance, recent [analyses have revealed the limited generalization capabilities](https://twitter.com/OwainEvans_UK/status/1705285631520407821), current LLMs learn things in the specific direction of an input context window of an occurrence and may not generalize when asked in other directions.
+Returning to actual state, there are significant gaps that need to be addressed to achieve true progress in the development of intelligent models. For instance, recent analyses have revealed the limited generalization capabilities {cite}`reversal-curse`, current LLMs learn things in the specific direction of an input context window of an occurrence and may not generalize when asked in other directions.
 
-The rise of [Mixture-of-Experts (MOE)](https://finbarrtimbers.substack.com/p/papers-ive-read-this-week-mixture) models has garnered attention and research interest, particularly following rumors about the GPT-4 architecture. The open-source community has already made strides in implementing various MOE variants ([1](https://x.com/nisten/status/1704307637729231143?s=20), [2](https://github.com/XueFuzhao/OpenMoE)), demonstrating a push toward more versatile model architectures.
+The rise of [Mixture-of-Experts (MOE)](https://finbarrtimbers.substack.com/p/papers-ive-read-this-week-mixture) models has garnered attention and research interest, particularly following rumors about the GPT-4 architecture. The open-source community has already made strides in implementing various MOE variants {cite}`nisten-opensource-moe,openmoe2023` demonstrating a push toward more versatile model architectures.
 
-{{ comments }}
+On another part using quantized version of models usages are increasing rapidly, as it makes running large models (> 30B parameters) possible on low precision, even on just cpu machines. Specially lots of contributions in this area is coming up by https://github.com/ggerganov/ggml community and [TheBloke](https://huggingface.co/TheBloke).
+
+{{ wip }}

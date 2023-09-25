@@ -535,9 +535,20 @@ StabilityAI's SDXL vs [Midjourney](https://www.midjourney.com) comparison shows 
 
 ## Future
 
-```{admonition} Work in Progress
-:class: attention
-{{ wip_chapter }}
-```
+To recap current advancements we can see that few key moments were:
+- Release of ChatGPT, GPT-4, DALL-E by OpenAI.
+- Release of Stable Diffusion models by StabilityAI.
+- Leak of LLaMA weights, and LLaMA-2's release by Meta.
+- Creation and release of RLHF recipes.
+- many [other smaller moments](https://www.semianalysis.com/i/119223672/the-timeline).
+
+Even though Open Source AI is advancing, it is evident that it remains heavily regulated by major corporations such as Meta, OpenAI, Nvidia, Google, Microsoft, and others. These entities often control critical parameters, creating a [myth of open source AI](https://www.wired.com/story/the-myth-of-open-source-ai/), including:
+- Data required to train these models.
+- Control of Software frameworks required to build such models
+- Compute power required to train these models.
+
+Returning to actual state, there are significant gaps that need to be addressed to achieve true progress in the development of intelligent models. For instance, recent [analyses have revealed the limited generalization capabilities](https://twitter.com/OwainEvans_UK/status/1705285631520407821), current LLMs learn things in the specific direction of an input context window of an occurrence and may not generalize when asked in other directions.
+
+The rise of [Mixture-of-Experts (MOE)](https://finbarrtimbers.substack.com/p/papers-ive-read-this-week-mixture) models has garnered attention and research interest, particularly following rumors about the GPT-4 architecture. The open-source community has already made strides in implementing various MOE variants ([1](https://x.com/nisten/status/1704307637729231143?s=20), [2](https://github.com/XueFuzhao/OpenMoE)), demonstrating a push toward more versatile model architectures.
 
 {{ comments }}

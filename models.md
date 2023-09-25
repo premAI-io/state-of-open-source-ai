@@ -501,8 +501,8 @@ Overall let's take look at the few discussed llms' attributes to get the bigger 
 | [LLaMA-2-13B](https://huggingface.co/meta-llama/Llama-2-13b-hf)       | 13 Billion      |  -  | [Paper](https://ai.meta.com/research/publications/llama-2-open-foundation-and-fine-tuned-chat-models/)           | 2000 Billion   |  29GB+               | [LLaMA 2](https://blog.opensource.org/metas-llama-2-license-is-not-open-source/)   | ✅ |
 | [LLaMA-2-7B](https://huggingface.co/meta-llama/Llama-2-7b-hf)        | 7 Billion      |  -  | [Paper](https://ai.meta.com/research/publications/llama-2-open-foundation-and-fine-tuned-chat-models/)           | 2000 Billion   |  15.8GB+               | [LLaMA 2](https://blog.opensource.org/metas-llama-2-license-is-not-open-source/)   | ✅ |
 | [Persimmon-8B](https://huggingface.co/docs/transformers/main/model_doc/persimmon)      | 9.3 Billion      |  -  | [Blog](https://www.adept.ai/blog/persimmon-8b)           | 737 Billion   |  20.8GB+         | [Apache 2.0](https://github.com/persimmon-ai-labs/adept-inference/blob/main/LICENSE)   | ✅ |
-| [WizardLM-13B](https://huggingface.co/WizardLM/WizardLM-13B-V1.2)          | 13 Billion     |  [evol-instruct](https://huggingface.co/datasets/victor123/evol_instruct_70k)   | [Paper](https://arxiv.org/abs/2304.12244)           | ~2000 Billion   |  30GB+               | [LLaMA 2](https://blog.opensource.org/metas-llama-2-license-is-not-open-source/)   | ✅ |
-| [WizardLM-7B](https://huggingface.co/WizardLM/WizardLM-7B-V1.0)          | 7 Billion     | [evol-instruct](https://huggingface.co/datasets/victor123/evol_instruct_70k)  | [Paper](https://arxiv.org/abs/2304.12244)           | ~2000 Billion   |  15.8GB+               | Non-Commercial Usage  | 	❌ |
+| [WizardLM-13B](https://huggingface.co/WizardLM/WizardLM-13B-V1.2)          | 13 Billion     |  [evol-instruct](https://huggingface.co/datasets/WizardLM/WizardLM_evol_instruct_70k)   | [Paper](https://arxiv.org/abs/2304.12244)           | ~2000 Billion   |  30GB+               | [LLaMA 2](https://blog.opensource.org/metas-llama-2-license-is-not-open-source/)   | ✅ |
+| [WizardLM-7B](https://huggingface.co/WizardLM/WizardLM-7B-V1.0)          | 7 Billion     | [evol-instruct](https://huggingface.co/datasets/WizardLM/WizardLM_evol_instruct_70k)  | [Paper](https://arxiv.org/abs/2304.12244)           | ~2000 Billion   |  15.8GB+               | Non-Commercial Usage  | 	❌ |
 | [Falcon-7B](https://huggingface.co/tiiuae/falcon-7b)               | 7 Billion    |  [RefinedWeb (partial)](https://huggingface.co/datasets/tiiuae/falcon-refinedweb)   | -           | 1500 Billion   |  16GB+               |  [Apache 2.0](https://huggingface.co/tiiuae/falcon-7b#license)  | ✅ |
 | [MPT-7B](https://huggingface.co/mosaicml/mpt-7b)            | 6.7 Billion  |  [RedPajama](https://huggingface.co/datasets/togethercomputer/RedPajama-Data-1T)   | [Blog](https://www.mosaicml.com/blog/mpt-7b)           | 1000 Billion   |  15.5GB+         | [Apache 2.0](https://huggingface.co/mosaicml/mpt-7b#model-license)   | ✅ |
 ```
@@ -526,7 +526,7 @@ To recap current advancements we can see that few key moments were:
 - Release of Stable Diffusion models by StabilityAI.
 - Leak of LLaMA weights, and LLaMA-2's release by Meta.
 - Creation and release of RLHF recipes.
-- many [other smaller moments](https://www.semianalysis.com/i/119223672/the-timeline).
+- few [other smaller moments](https://www.semianalysis.com/p/google-we-have-no-moat-and-neither#%C2%A7the-timeline).
 
 Even though Open Source AI is advancing, it is evident that it remains heavily regulated by major corporations such as Meta, OpenAI, Nvidia, Google, Microsoft, and others. These entities often control critical parameters, creating a myth of open source AI {cite}`myth-of-os-ai-wired`, including:
 - Data required to train these models.

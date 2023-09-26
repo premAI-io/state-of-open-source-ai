@@ -22,13 +22,99 @@ This chapter focuses on recent open-source {term}`MLOps` developments -- which a
 
 While MLOps typically focuses on model training, "LLMOps" focuses on fine-tuning. In production, both also require good inference engines.
 
-| Inference Engine          | Open-Source | GPU support | GPU optimizations                                        | Ease of use |
-|---------------------------|-------------|-------------|----------------------------------------------------------|-------------|
-| [Nvidia Triton](https://developer.nvidia.com/triton-inference-server)             | 🟢 Yes       | 🟢 Yes       | Dynamic Batching, Tensor Parallelism, Model concurrency  | 🔴 Difficult |
-| [Text Generation Inference](https://github.com/huggingface/text-generation-inference) | 🟢 Yes       | 🟢 Yes       | Continuous Batching, Tensor Parallelism, Flash Attention | 🟢 Easy      |
-| [vLLM](https://github.com/vllm-project/vllm)                      | 🟢 Yes       | 🟢 Yes       | Continuous Batching, Tensor Parallelism, Paged Attention | 🟢 Easy      |
-| [BentoML](https://www.bentoml.com)                   | 🟢 Yes       | 🟢 Yes       | None                                                     | 🟢 Easy      |
-| [Modular](https://www.modular.com)                   | 🔴 No        | 🟢 Yes       | N/A                                                      | 🟠 Moderate  |
+Inference Engine | Open-Source | GPU support | GPU optimisations | Ease of use
+-----------------|-------------|-------------|-------------------|-------------
+[Nvidia Triton](#nvidia-triton-inference-server) | 🟢 Yes | 🟢 Yes | Dynamic Batching, Tensor Parallelism, Model concurrency | 🔴 Difficult
+[Text Generation Inference](#text-generation-inference) | 🟢 Yes | 🟢 Yes | Continuous Batching, Tensor Parallelism, Flash Attention | 🟢 Easy
+[vLLM](#vllm) | 🟢 Yes | 🟢 Yes | Continuous Batching, Tensor Parallelism, Paged Attention | 🟢 Easy
+[BentoML](#bentoml) | 🟢 Yes | 🟢 Yes | None | 🟢 Easy
+[Modular](https://www.modular.com) | 🔴 No | 🟢 Yes | N/A | 🟠 Moderate
+
+The previous section explained why LLM inferencing is so difficult. In this section we'll look at some open-source optimisers that can help make inferencing faster and easier.
+
+## Nvidia Triton Inference Server
+
+```{figure-md} mlops-engines-triton-architecture
+:class: caption
+![](https://static.premai.io/book/mlops-engines-triton-architecture.png)
+
+[Nvidia Triton Architecture](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/user_guide/jetson.html)
+```
+
+This [inference server](https://developer.nvidia.com/triton-inference-server) offers support for multiple model formats such as PyTorch, TensorFlow, ONNX, TensorRT, etc. It uses GPUs efficiently to boost the performance of deep learning models.
+
+- **Concurrent model execution**: This allows multiple models to be executed on 1 or many GPUs in parallel. Multiple requests are routed to each model to execute the tasks in parallel
+- **Dynamic Batching**: Combines multiple inference requests into a batch to increase throughput. Requests in each batch can be processed in parallel instead of handling each request sequentially.
+
+Pros:
+
+* High throughput, low latency for serving LLMs on a GPU
+* Supports multiple frameworks/backends
+* Production level performance
+* Works with non-LLM models such as image generation or speech to text
+
+Cons:
+
+* Difficult to set up
+* Not compatible with many of the newer LLMs
+
+## Text Generation Inference
+
+```{figure-md} tgi-architecture
+:class: caption
+![](https://static.premai.io/book/mlops-engines-tgi-architecture.png)
+
+[Text Generation Inference Architecture](https://github.com/huggingface/text-generation-inference)
+```
+
+Compared to Triton, https://github.com/huggingface/text-generation-inference is easier to setup and supports most of the popular LLMs on Hugging Face.
+
+Pros:
+
+* Supports newer models on Hugging Face
+* Easy setup via docker container
+* Production-ready
+
+Cons:
+
+* Open-source license has restrictions on commercial usage
+* Only works with Hugging Face models
+
+## vLLM
+
+This is an open-source project created by researchers at Berkeley to improve the performance of LLM inferencing. [vLLM](https://vllm.ai) primarily optimises LLM throughput via methods like PagedAttention and Continuous Batching. The project is fairly new and there is ongoing development.
+
+Pros:
+
+* Can be used commercially
+* Supports many popular Hugging Face models
+* Easy to setup
+
+Cons:
+
+* Not all LLM models are supported
+
+Many other open-source projects like [BentoML](https://www.bentoml.com), [FastAPI](https://fastapi.tiangolo.com), and [Flask](https://flask.palletsprojects.com/en/2.3.x) have been used for serving models in the past. These frameworks work just fine for traditional ML related tasks, but fall behind when it comes to generative AI. The reason for this is that traditional ML serving solutions don't come with the necessary optimisations(tensor parallelism, continuous batching, flash attention, etc.) to run generative AI models in production.
+
+There is ongoing development in both the open-source and private sectors to improve the performance of LLMs. It's up to the community to test out different services to see which one works best for their use case.
+
+## BentoML
+
+```{admonition} Work in Progress
+:class: attention
+{{ wip_chapter }}
+
+<https://www.bentoml.com>
+```
+
+## Modular
+
+```{admonition} Work in Progress
+:class: attention
+{{ wip_chapter }}
+
+<https://www.modular.com>
+```
 
 ## Challenges in Open Source
 
@@ -59,7 +145,7 @@ You are responsible for monitoring pipeline health & fixing issues quickly to av
 Performance could refer to:
 
 - output *quality*: e.g. accuracy -- how close is a model's output to ideal expectations (see [](eval-datasets)), or
-- operational *speed*: e.g. throughput & latency -- how much time it takes to complete a request (see [](#llm-inference-optimisers)... as well as [](hardware), which can play as large a role as software {cite}`nvidia-gpu-inference`).
+- operational *speed*: e.g. throughput & latency -- how much time it takes to complete a request (see also [](hardware), which can play as large a role as software {cite}`nvidia-gpu-inference`).
 
 By comparison, closed-source engines (e.g. [Cohere](https://cohere.com)) tend to give better baseline operational performance due to default-enabled inference optimisations {cite}`cohere-triton`.
 
@@ -94,76 +180,6 @@ Here are a few reasons for why inferencing is slow:
 
 * Not only do LLMs have billions of parameters, but they perform millions of mathematical calculations for each inference
 * To do these massive calculations in a timely manner, GPUs are required to help speed up the process. GPUs have much more memory bandwidth and processing power compared to a CPU which is why they are in such high demand when it comes to running large language models.
-
-## LLM Inference Optimisers
-
-The previous section explained why LLM inferencing is so difficult. In this section we'll look at some  open-source optimisers that can help make inferencing faster and easier.
-
-### Nvidia Triton Inference Server
-
-```{figure-md} mlops-engines-triton-architecture
-:class: caption
-![](https://static.premai.io/book/mlops-engines-triton-architecture.png)
-
-[Nvidia Triton Architecture](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/user_guide/jetson.html)
-```
-
-This [inference server](https://developer.nvidia.com/triton-inference-server) offers support for multiple model formats such as PyTorch, TensorFlow, ONNX, TensorRT, etc. It uses GPUs efficiently to boost the performance of deep learning models.
-
-- **Concurrent model execution**: This allows multiple models to be executed on 1 or many GPUs in parallel. Multiple requests are routed to each model to execute the tasks in parallel
-- **Dynamic Batching**: Combines multiple inference requests into a batch to increase throughput. Requests in each batch can be processed in parallel instead of handling each request sequentially.
-
-Pros:
-
-* High throughput, low latency for serving LLMs on a GPU
-* Supports multiple frameworks/backends
-* Production level performance
-* Works with non-LLM models such as image generation or speech to text
-
-Cons:
-
-* Difficult to set up
-* Not compatible with many of the newer LLMs
-
-### Text Generation Inference
-
-```{figure-md} tgi-architecture
-:class: caption
-![](https://static.premai.io/book/mlops-engines-tgi-architecture.png)
-
-[Text Generation Inference Architecture](https://github.com/huggingface/text-generation-inference)
-```
-
-Compared to Triton, https://github.com/huggingface/text-generation-inference is easier to setup and supports most of the popular LLMs on Hugging Face.
-
-Pros:
-
-* Supports newer models on Hugging Face
-* Easy setup via docker container
-* Production-ready
-
-Cons:
-
-* Open-source license has restrictions on commercial usage
-* Only works with Hugging Face models
-
-### vLLM
-
-This is an open-source project created by researchers at Berkeley to improve the performance of LLM inferencing. [vLLM](https://vllm.ai) primarily optimises LLM throughput via methods like PagedAttention and Continuous Batching. The project is fairly new and there is ongoing development.
-
-Pros:
-
-* Can be used commercially
-* Supports many popular Hugging Face models
-* Easy to setup
-
-Cons:
-
-* Not all LLM models are supported
-
-Many other open-source projects like [BentoML](https://www.bentoml.com), [FastAPI](https://fastapi.tiangolo.com), and [Flask](https://flask.palletsprojects.com/en/2.3.x) have been used for serving models in the past. These frameworks work just fine for traditional ML related tasks, but fall behind when it comes to generative AI. The reason for this is that traditional ML serving solutions don't come with the necessary optimisations(tensor parallelism, continuous batching, flash attention, etc.)  to run generative AI models in production.
-
-There is ongoing development in both the open-source and private sectors to improve the performance of LLMs. It's up to the community to test out different services to see which one works best for their use case.
 
 ## Future
 

@@ -37,6 +37,8 @@ jobs:
         EOF
     - name: jupyter-book build
       run: |
+        # https://stackoverflow.com/a/69012150
+        sudo apt-get install ghostscript fonts-freefont-otf
         sed -ri 's#^(\s*baseurl:).*#\1 ${{ steps.pages.outputs.base_url }}/'$SITE_PREFIX'#g' _config.yml
         # https://jupyterbook.org/en/stable/reference/cli.html
         jupyter-book build --builder linkcheck --warningiserror --nitpick --keep-going .

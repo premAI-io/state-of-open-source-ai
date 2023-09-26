@@ -109,6 +109,7 @@ When benchmarking an LLM model, two approaches emerge {cite}`machinelearningmast
   Classification: Neg
   ```
 
+(text-benchmarks)=
 ### Benchmarks
 
 (arc-benchmark)=
@@ -224,6 +225,7 @@ Benchmark | Factors considered
 [SQUAD](https://arxiv.org/pdf/1606.05250v3.pdf) | Reading comprehension tasks
 ```
 
+(text-leaderboards)=
 ### Leaderboards
 
 #### OpenLLM
@@ -372,6 +374,88 @@ width: 100%
 ---
 [Big Code Models Leaderboard](https://huggingface.co/spaces/bigcode/bigcode-models-leaderboard)
 ```
+
+### Evaluating LLM Applications
+
+Assessing the applications of LLMs involves a complex undertaking that goes beyond mere model selection through [benchmarks](text-benchmarks)
+and [leaderboards](text-leaderboards). To unlock the complete capabilities of these models and guarantee their dependability 
+and efficiency in practical situations, a comprehensive evaluation process is indispensable.
+
+#### Prompt Evaluation
+
+Prompt evaluation stands as the foundation for comprehending an LLM's responses to various inputs. Achieving a holistic 
+understanding involves considering the following key points:
+
+- **Prompt Testing**: To measure the adaptability of an LLM effectively, we must employ a diverse array of prompts spanning 
+  various domains, tones, and complexities. This approach grants us valuable insights into the model's capacity to handle 
+  a wide spectrum of user queries and contexts. Tools like [promptfoo](https://promptfoo.dev) can facilitate prompt testing.
+
+- **Prompt Robustness Amid Ambiguity**: User-defined prompts can be highly flexible, leading to situations where even 
+  slight changes can yield significantly different outputs. This underscores the importance of evaluating the LLM's 
+  sensitivity to variations in phrasing or wording, emphasizing its robustness {cite}`building-llm-applications`.
+
+- **Handling Ambiguity**: LLM-generated responses may occasionally introduce ambiguity, posing difficulties for downstream 
+  applications that rely on precise output formats. Although we can make prompts explicit regarding the desired output 
+  format, there is no assurance that the model will consistently meet these requirements. To tackle these issues, a 
+  rigorous engineering approach becomes imperative.
+
+- **[Few-Shot Prompt](few-shot-prompting) Evaluation**: This assessment consists of two vital aspects: firstly, verifying 
+  if the LLM comprehends the examples by comparing its responses to expected outcomes; secondly, ensuring that the model 
+  avoids becoming overly specialized on these examples, which is assessed by testing it on distinct instances to assess 
+  its generalization capabilities {cite}`building-llm-applications`.
+
+#### Embeddings Evaluation in RAG
+
+In {term}`RAG <RAG>` based applications, the evaluation of embeddings is critical to ensure that the LLM retrieves relevant context.
+
+- **Embedding Quality Metrics:** The quality of embeddings is foundational in RAG setups. Metrics like [cosine similarity](https://en.wikipedia.org/wiki/Cosine_similarity), 
+  [Euclidean distance](https://en.wikipedia.org/wiki/Euclidean_distance), or 
+  [semantic similarity scores](https://en.wikipedia.org/wiki/Semantic_similarity) serve as critical yardsticks to measure 
+  how well the retrieved documents align with the context provided in prompts.
+
+- **Human Assessment:** While automated metrics offer quantifiable insights, human evaluators play a pivotal role in 
+  assessing contextual relevance and coherence. Their qualitative judgments complement the automated evaluation process by 
+  capturing nuances that metrics might overlook, ultimately ensuring that the LLM-generated responses align with the 
+  intended context.
+
+#### Monitoring LLM Application Output
+
+Continuous monitoring is indispensable for maintaining the reliability of LLM applications, and it can be achieved trough:
+
+- **Automatic Evaluation Metrics:** Quantitative metrics such as [BLEU](https://it.wikipedia.org/wiki/BLEU) {cite}`papineni2002bleu`, 
+  [ROUGE](https://en.wikipedia.org/wiki/ROUGE_(metric)) {cite}`lin-2004-rouge`, [METEOR](https://en.wikipedia.org/wiki/METEOR) 
+  {cite}`banerjee-lavie-2005-meteor`, and [perplexity](https://en.wikipedia.org/wiki/Perplexity) provide objective insights into 
+  content quality. By continuously tracking the LLM's performance using these metrics, developers can identify deviations 
+  from expected behavior, helping pinpoint failure points.
+
+- **Human Feedback Loop:** Establishing a feedback mechanism involving human annotators or domain experts proves invaluable
+  in identifying and mitigating {term}`hallucinations <Hallucination>` and failure points. These human evaluators review 
+  and rate LLM-generated content, flagging instances where the model provides misleading or incorrect information.
+
+#### Composable applications
+
+LLM-based applications often exhibit increased complexity and consist of multiple tasks {cite}`building-llm-applications`. 
+For instance, consider the scenario of [talk-to-your-data](https://dev.premai.io/blog/chainlit-langchain-prem) in which 
+the objective is to establish a connection with a database and interact with it using natural language queries. 
+
+```{figure} https://static.premai.io/book/evaluation-dataset-control-flows.png
+---
+width: 80%
+---
+[Control Flows with LLMs](https://huyenchip.com/2023/04/11/llm-engineering.html)
+```
+
+Evaluating an agent, which is an application that performs multiple tasks based on a predefined control flow, is crucial 
+to ensure its reliability and effectiveness.
+
+- **Unit Testing for Tasks**: For each task, define input-output pairs as evaluation examples. This helps ensure that 
+  individual tasks produce the correct results.
+
+- **Control Flow Testing**: Evaluate the accuracy of the control flow within the agent. Confirm that the control flow 
+  directs the agent to execute tasks in the correct order, as specified by the control flow logic.
+
+- **Integration Testing**: Assess the entire agent as a whole by conducting integration tests. This involves evaluating 
+  the agent's performance when executing the entire sequence of tasks according to the defined control flow.
 
 ## Audio
 

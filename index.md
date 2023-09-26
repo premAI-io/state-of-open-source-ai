@@ -253,6 +253,9 @@ Leaderboard
 Evaluation
   Systematic assessment of model or system performance to measure its accuracy, effectiveness, and suitability for a given task.
 
+Hallucination
+  Generation of text or information that is fictional, incorrect, or not grounded in factual knowledge, leading to the production of misleading or inaccurate content.
+
 Foundation model
 Auto-regressive language model
 Decoder-style transformer

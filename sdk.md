@@ -11,14 +11,7 @@ SDK | Use case | Vector stores | Embedding model | LLM Model | Advanced features
 [](#litellm)  | When a call has to be made to multiple LLMs for the same prompt at the same time | Not Applicable  | Currently supports only `text-embedding-ada-002` from OpenAI & Azure | Expanding the list of LLM providers with the most commonly used ones ready for use | Lightweight and consistent output response
 ```
 
-```{admonition} Feedback
-:class: attention
-Is the [table above](llm-sdks) outdated or missing an important toolkit? Let us know in the {{
-  '[<i class="fas fa-pencil-alt"></i> comments]({}-comments)'.format(env.docname) }} below, or {{
-  '[<i class="fab fa-github"></i> open a pull request]({}/edit/main/{}.md)'.format(
-  env.config.html_theme_options.repository_url, env.docname)
-}}!
-```
+{{ table_feedback }}
 
 ```{seealso}
 [awesome-transformers](https://github.com/huggingface/transformers/blob/main/awesome-transformers.md)

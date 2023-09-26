@@ -2,11 +2,7 @@
 
 ```{admonition} Work in Progress
 :class: attention
-This chapter is still being written & reviewed. Please do post links & discussion in the {{
-  '[<i class="fas fa-pencil-alt"></i> comments]({}-comments)'.format(env.docname) }} below, or {{
-  '[<i class="fab fa-github"></i> open a pull request]({}/edit/main/{}.md)'.format(
-  env.config.html_theme_options.repository_url, env.docname)
-}}!
+{{ wip_chapter }}
 
 Some ideas:
 
@@ -66,13 +62,7 @@ Leaderboard | Tasks | Benchmarks
 
 % TODO: cite https://github.com/imaurer/awesome-decentralized-llm#leaderboards
 
-```{admonition} Feedback
-:class: attention
-Is the [table above](leaderboards-table) outdated or missing an important leaderboard? Let us know in the [<i class="fas fa-pencil-alt"></i> comments](eval-datasets-comments) below, or {{
-  '[<i class="fab fa-github"></i> open a pull request]({}/edit/main/{}.md)'.format(
-  env.config.html_theme_options.repository_url, env.docname)
-}}!
-```
+{{ table_feedback }}
 
 % TODO: unhardcode eval-datasets-comments
 

@@ -20,7 +20,6 @@ Here's a summary of the usage restrictions around some popular models (in descen
 
 ```{table} Restrictions on training data, trained weights, and generated outputs
 :name: model-licences
-
 Model | Weights | Training Data | Output
 --|--|--|--
 [OpenAI ChatGPT](https://openai.com/policies/terms-of-use) | 🔴 unavailable | 🔴 unavailable | 🟢 user has full ownership
@@ -37,14 +36,7 @@ Model | Weights | Training Data | Output
 
 % TODO: mention Apache-2.0, LLaMA vs LLaMA 2, HuggingFace, CC-BY((-NC)-SA) in the table above?
 
-```{admonition} Feedback
-:class: attention
-Is the [table above](model-licences) outdated or missing an important model? Let us know in the {{
-  '[<i class="fas fa-pencil-alt"></i> comments]({}-comments)'.format(env.docname) }} below, or {{
-  '[<i class="fab fa-github"></i> open a pull request]({}/edit/main/{}.md)'.format(
-  env.config.html_theme_options.repository_url, env.docname)
-}}!
-```
+{{ table_feedback }}
 
 Just a few weeks after some said "the golden age of open [...] AI is coming to an end" {cite}`golden-age-os-end`, things like Falcon's `Apache-2.0` relicensing {cite}`falcon-relicence` and the [LLaMA 2 community licence](https://ai.meta.com/llama/license) {cite}`llama-2-licence` were announced (both permitting commercial use), completely changing the landscape.
 

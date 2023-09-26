@@ -2,11 +2,7 @@
 
 ```{admonition} Work in Progress
 :class: attention
-This chapter is still being written & reviewed. Please do post links & discussion in the {{
-  '[<i class="fas fa-pencil-alt"></i> comments]({}-comments)'.format(env.docname) }} below, or {{
-  '[<i class="fab fa-github"></i> open a pull request]({}/edit/main/{}.md)'.format(
-  env.config.html_theme_options.repository_url, env.docname)
-}}!
+{{ wip_chapter }}
 
 Some ideas:
 
@@ -22,92 +18,22 @@ Some ideas:
 - Apache TVM
 ```
 
-% ```{figure-md} llm-lifecycle
-% :class: caption
-% ![](https://static.premai.io/book/mlops-engines-LLMOps-diagram.jpg)
-%
-% The LLM Lifecycle
-% ```
-%TODO: redo or drop the above image (what do the arrows mean? what do the colours mean? don't make the reader feel stupid without explaining anything)
+This chapter focuses on recent open-source {term}`MLOps` engine developments -- which are largely due to the current rise of {term}`LLMs <LLM>`. While MLOps typically focuses on model training, "LLMOps" focuses on fine-tuning. In production, both also require good inference engines.
 
-This chapter focuses on recent open-source {term}`MLOps` developments -- which are largely due to the current rise of {term}`LLMs <LLM>`.
-
-While MLOps typically focuses on model training, "LLMOps" focuses on fine-tuning. In production, both also require good inference engines.
-
-% TODO: summary table of engines
-
-## Challenges in Open Source
-
-MLOps solutions come in two flavours {cite}`mlops-challenges`:
-
-- Managed: a full pipeline (and support) is provided (for a price)
-- Self-hosted: various DIY stitched-together open-source components
-
-Some companies (e.g. [Hugging Face](https://huggingface.co)) push for open-source models & datasets, while others (e.g. [OpenAI](https://openai.com), [Anthropic](https://www.anthropic.com)) do the opposite.
-
-The main challenges with open-source MLOps are [](#maintenance), [](#performance), and [](#cost).
-
-```{figure-md} open-vs-closed-mlops
-:class: caption
-![](https://static.premai.io/book/mlops-engines-table.jpg)
-
-Open-Source vs Closed-Source MLOps
+```{table} Comparison of Inference Engines
+:name: inference-engines
+Inference Engine | Open-Source | GPU optimisations | Ease of use
+-----------------|-------------|-------------------|-------------
+[Nvidia Triton](#nvidia-triton-inference-server) | 🟢 Yes | Dynamic Batching, Tensor Parallelism, Model concurrency | 🔴 Difficult
+[Text Generation Inference](#text-generation-inference) | 🟢 Yes | Continuous Batching, Tensor Parallelism, Flash Attention | 🟢 Easy
+[vLLM](#vllm) | 🟢 Yes | Continuous Batching, Tensor Parallelism, Paged Attention | 🟢 Easy
+[BentoML](#bentoml) | 🟢 Yes | None | 🟢 Easy
+[Modular](#modular) | 🔴 No | N/A | 🟠 Moderate
 ```
 
-%TODO: where is this image above from?
+{{ table_feedback }}
 
-### Maintenance
-
-Using open-source components, most setup & configuration must be done manually. This could mean finding & downloading [models](models) & [datasets](eval-datasets), setting up [fine-tuning](fine-tuning), performing [evaluations](eval-datasets), and [inference](#inference) -- all components held together by self-maintained bespoke "glue" code.
-
-You are responsible for monitoring pipeline health & fixing issues quickly to avoid application downtime. This is particularly painful in the early stages of a project, when robustness and scalability are not yet implemented and there is much firefighting for developers to do.
-
-### Performance
-
-Performance could refer to:
-
-- output *quality*: e.g. accuracy -- how close is a model's output to ideal expectations (see [](eval-datasets)), or
-- operational *speed*: e.g. throughput & latency -- how much time it takes to complete a request (see [](#llm-inference-optimisers)... as well as [](hardware), which can play as large a role as software {cite}`nvidia-gpu-inference`).
-
-By comparison, closed-source engines (e.g. [Cohere](https://cohere.com)) tend to give better baseline operational performance due to default-enabled inference optimisations {cite}`cohere-triton`.
-
-### Cost
-
-Self-maintained open-source solutions, if implemented well, can be extremely cheap both to setup and to run long term. However, many underestimate the amount of work required to make an open-source ecosystem work seamlessly.
-
-For example, a single GPU node able to run a 36 GB open-source model can [easily cost over \$2,000 per month from a major cloud provider](hardware.md#cloud). Since the technology is still new, experimenting with & maintaining self-hosted infrastructure can be expensive. Conversely, closed-source pricing models often charge for usage (e.g. {term}`tokens <token>`) rather than infrastructure (e.g. [ChatGPT costs around \$0.002 for 1K tokens](https://openai.com/pricing) -- enough for a page of text), making them much cheaper for small explorative tasks.
-
-## Inference
-
-Inference is one of the hot topics currently with LLMs in general. Large models like ChatGPT have very low latency and great performance but become more expensive with more usage.
-
-On the flip side, open-source models like [LLaMA-2](https://registry.premai.io/detail.html?service=llama-2-7b) or [Falcon](https://registry.premai.io/detail.html?service=falcon-7b-instruct) have variants that are much smaller in size, yet it's difficult to match the latency and throughput that ChatGPT provides, while still being cost efficient. {cite}`cursor-llama`
-
-Models that are run using Hugging Face pipelines do not have the necessary optimisations to run in a production environment. The open-source LLM inferencing market is still evolving so currently there's no silver bullet that can run any open-source LLM at blazing-fast speeds.
-
-Here are a few reasons for why inferencing is slow:
-
-### Models are growing larger in size
-
-* As models grow in size and neural networks become more complex it's no surprise that it's taking longer to get an output
-
-### Python as the choice of programming language for AI
-
-* Python, is inherently slow compared to compiled languages like C++
-* The developer-friendly syntax and vast array of libraries have put Python in the spotlight, but when it comes to sheer performance it falls behind many other languages
-* To compensate for its performance many inferencing servers convert the Python code into an optimised module. For example, Nvidia's [Triton Inference Server](https://developer.nvidia.com/triton-inference-server) can take a PyTorch model and compile it into [TensorRT](https://developer.nvidia.com/tensorrt-getting-started), which has a much higher performance than native PyTorch
-* Similarly, https://github.com/ggerganov/llama.cpp optimises the LLaMA inference code to run in raw C++. Using this optimisation, people can run a large language model on their laptops without a dedicated GPU.
-
-### Larger inputs
-
-* Not only do LLMs have billions of parameters, but they perform millions of mathematical calculations for each inference
-* To do these massive calculations in a timely manner, GPUs are required to help speed up the process. GPUs have much more memory bandwidth and processing power compared to a CPU which is why they are in such high demand when it comes to running large language models.
-
-## LLM Inference Optimisers
-
-The previous section explained why LLM inferencing is so difficult. In this section we'll look at some  open-source optimisers that can help make inferencing faster and easier.
-
-### Nvidia Triton Inference Server
+## Nvidia Triton Inference Server
 
 ```{figure-md} mlops-engines-triton-architecture
 :class: caption
@@ -133,7 +59,7 @@ Cons:
 * Difficult to set up
 * Not compatible with many of the newer LLMs
 
-### Text Generation Inference
+## Text Generation Inference
 
 ```{figure-md} tgi-architecture
 :class: caption
@@ -155,7 +81,7 @@ Cons:
 * Open-source license has restrictions on commercial usage
 * Only works with Hugging Face models
 
-### vLLM
+## vLLM
 
 This is an open-source project created by researchers at Berkeley to improve the performance of LLM inferencing. [vLLM](https://vllm.ai) primarily optimises LLM throughput via methods like PagedAttention and Continuous Batching. The project is fairly new and there is ongoing development.
 
@@ -169,9 +95,92 @@ Cons:
 
 * Not all LLM models are supported
 
-Many other open-source projects like [BentoML](https://www.bentoml.com), [FastAPI](https://fastapi.tiangolo.com), and [Flask](https://flask.palletsprojects.com/en/2.3.x) have been used for serving models in the past. These frameworks work just fine for traditional ML related tasks, but fall behind when it comes to generative AI. The reason for this is that traditional ML serving solutions don't come with the necessary optimisations(tensor parallelism, continuous batching, flash attention, etc.)  to run generative AI models in production.
+Many other open-source projects like [BentoML](https://www.bentoml.com), [FastAPI](https://fastapi.tiangolo.com), and [Flask](https://flask.palletsprojects.com/en/2.3.x) have been used for serving models in the past. These frameworks work just fine for traditional ML related tasks, but fall behind when it comes to generative AI. The reason for this is that traditional ML serving solutions don't come with the necessary optimisations(tensor parallelism, continuous batching, flash attention, etc.) to run generative AI models in production.
 
 There is ongoing development in both the open-source and private sectors to improve the performance of LLMs. It's up to the community to test out different services to see which one works best for their use case.
+
+## BentoML
+
+```{admonition} Work in Progress
+:class: attention
+{{ wip_chapter }}
+
+<https://www.bentoml.com>
+```
+
+## Modular
+
+```{admonition} Work in Progress
+:class: attention
+{{ wip_chapter }}
+
+<https://www.modular.com>
+```
+
+## Challenges in Open Source
+
+MLOps solutions come in two flavours {cite}`mlops-challenges`:
+
+- Managed: a full pipeline (and support) is provided (for a price)
+- Self-hosted: various DIY stitched-together open-source components
+
+Some companies (e.g. [Hugging Face](https://huggingface.co)) push for open-source models & datasets, while others (e.g. [OpenAI](https://openai.com), [Anthropic](https://www.anthropic.com)) do the opposite.
+
+The main challenges with open-source MLOps are [](#maintenance), [](#performance), and [](#cost).
+
+```{figure-md} open-vs-closed-mlops
+:class: caption
+![](https://static.premai.io/book/mlops-engines-table.jpg)
+
+Open-Source vs Closed-Source MLOps
+```
+
+### Maintenance
+
+Using open-source components, most setup & configuration must be done manually. This could mean finding & downloading [models](models) & [datasets](eval-datasets), setting up [fine-tuning](fine-tuning), performing [evaluations](eval-datasets), and [inference](#inference) -- all components held together by self-maintained bespoke "glue" code.
+
+You are responsible for monitoring pipeline health & fixing issues quickly to avoid application downtime. This is particularly painful in the early stages of a project, when robustness and scalability are not yet implemented and there is much firefighting for developers to do.
+
+### Performance
+
+Performance could refer to:
+
+- output *quality*: e.g. accuracy -- how close is a model's output to ideal expectations (see [](eval-datasets)), or
+- operational *speed*: e.g. throughput & latency -- how much time it takes to complete a request (see also [](hardware), which can play as large a role as software {cite}`nvidia-gpu-inference`).
+
+By comparison, closed-source engines (e.g. [Cohere](https://cohere.com)) tend to give better baseline operational performance due to default-enabled inference optimisations {cite}`cohere-triton`.
+
+### Cost
+
+Self-maintained open-source solutions, if implemented well, can be extremely cheap both to setup and to run long term. However, many underestimate the amount of work required to make an open-source ecosystem work seamlessly.
+
+For example, a single GPU node able to run a 36 GB open-source model can [easily cost over \$2,000 per month from a major cloud provider](hardware.md#cloud). Since the technology is still new, experimenting with & maintaining self-hosted infrastructure can be expensive. Conversely, closed-source pricing models often charge for usage (e.g. {term}`tokens <token>`) rather than infrastructure (e.g. [ChatGPT costs around \$0.002 for 1K tokens](https://openai.com/pricing) -- enough for a page of text), making them much cheaper for small explorative tasks.
+
+## Inference
+
+Inference is one of the hot topics currently with LLMs in general. Large models like ChatGPT have very low latency and great performance but become more expensive with more usage.
+
+On the flip side, open-source models like [LLaMA-2](models.md#llama-2) or [Falcon](models.md#falcon) have variants that are much smaller in size, yet it's difficult to match the latency and throughput that ChatGPT provides, while still being cost efficient {cite}`cursor-llama`.
+
+Models that are run using Hugging Face pipelines do not have the necessary optimisations to run in a production environment. The open-source LLM inferencing market is still evolving so currently there's no silver bullet that can run any open-source LLM at blazing-fast speeds.
+
+Here are a few reasons for why inferencing is slow:
+
+### Models are growing larger in size
+
+* As models grow in size and neural networks become more complex it's no surprise that it's taking longer to get an output
+
+### Python as the choice of programming language for AI
+
+* Python, is inherently slow compared to compiled languages like C++
+* The developer-friendly syntax and vast array of libraries have put Python in the spotlight, but when it comes to sheer performance it falls behind many other languages
+* To compensate for its performance many inferencing servers convert the Python code into an optimised module. For example, Nvidia's [Triton Inference Server](https://developer.nvidia.com/triton-inference-server) can take a PyTorch model and compile it into [TensorRT](https://developer.nvidia.com/tensorrt-getting-started), which has a much higher performance than native PyTorch
+* Similarly, https://github.com/ggerganov/llama.cpp optimises the LLaMA inference code to run in raw C++. Using this optimisation, people can run a large language model on their laptops without a dedicated GPU.
+
+### Larger inputs
+
+* Not only do LLMs have billions of parameters, but they perform millions of mathematical calculations for each inference
+* To do these massive calculations in a timely manner, GPUs are required to help speed up the process. GPUs have much more memory bandwidth and processing power compared to a CPU which is why they are in such high demand when it comes to running large language models.
 
 ## Future
 

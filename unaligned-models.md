@@ -14,7 +14,6 @@ This chapter covers models which are any combination of:
 
 ```{table} Comparison of Uncensored Models
 :name: uncensored-model-table
-
 Model | Reference Model | Training Data | Features
 ------|-----------------|---------------|---------
 [FraudGPT](#fraudgpt) | 🔴 unknown | 🔴 unknown | Phishing email, {term}`BEC`, Malicious Code, Undetectable Malware, Find vulnerabilities, Identify Targets
@@ -24,13 +23,7 @@ Model | Reference Model | Training Data | Features
 [Falcon-180B](#falcon-180b) | 🟢 N/A | 🟡 partially [available](https://huggingface.co/datasets/tiiuae/falcon-refinedweb) | Unaligned
 ```
 
-```{admonition} Feedback
-:class: attention
-Is the [table above](uncensored-model-table) outdated or missing an important model? Let us know in the [<i class="fas fa-pencil-alt"></i> comments](licences-comments) below, or {{
-  '[<i class="fab fa-github"></i> open a pull request]({}/edit/main/{}.md)'.format(
-  env.config.html_theme_options.repository_url, env.docname)
-}}!
-```
+{{ table_feedback }}
 
 These models are covered in more detail below.
 

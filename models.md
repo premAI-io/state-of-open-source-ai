@@ -2,11 +2,7 @@
 
 ```{admonition} Work in Progress
 :class: attention
-This chapter is still being written & reviewed. Please do post links & discussion in the {{
-  '[<i class="fas fa-pencil-alt"></i> comments]({}-comments)'.format(env.docname) }} below, or {{
-  '[<i class="fab fa-github"></i> open a pull request]({}/edit/main/{}.md)'.format(
-  env.config.html_theme_options.repository_url, env.docname)
-}}!
+{{ wip_chapter }}
 
 Some ideas:
 
@@ -510,6 +506,9 @@ StabilityAI's SDXL vs [Midjourney](https://www.midjourney.com) comparison shows 
 
 ## Future
 
-{{ wip }}
+```{admonition} Work in Progress
+:class: attention
+{{ wip_chapter }}
+```
 
 {{ comments }}

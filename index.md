@@ -2,7 +2,7 @@
 
 {{ '```{badges} %s %s\n```' % (baseurl, env.config.html_theme_options.repository_url) }}
 
-*Clarity in the current fast-paced mess of Open Source innovation.*
+*Clarity in the current fast-paced mess of Open Source innovation {cite}`self`*
 
 As a data scientist/developer with a 9 to 5 job, it's difficult to keep track of all the innovations. There's been enormous progress in the field in {term}`the last year <SotA>`.
 
@@ -147,9 +147,23 @@ Anyone who adds a few sentences to a chapter is {{
    '/'.join(env.config.html_theme_options.repository_url.split('/')[-2:]),
    env.config.html_theme_options.repository_url) }}
 
+- Editor: Casper da Costa-Luis (https://github.com/casperdcl)
+
+  > With a strong [academic background](https://cdcl.ml/learn) as well [industry expertise](https://cdcl.ml/work) to backup his enthusiasm for all things open source, Casper is happy to help with all queries related to this book.
+
+- Maintainer: https://github.com/PremAI-io
+
+  > Our vision is to engineer a world where individuals, developers, and businesses can embrace the power of AI without compromising their privacy. We believe in a future where users retain ownership of their data, AND the models trained on it.
+
+- Citing this book: {cite}`self`
+
 ## Conclusion
 
-> All models are wrong, but some are useful {cite}`box-models`.
+```{epigraph}
+All models are wrong, but some are useful
+
+-- G.E.P. Box {cite}`box-models`
+```
 
 % TODO: rewrite
 

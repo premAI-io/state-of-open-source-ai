@@ -2,7 +2,7 @@
 
 {{ '```{badges} %s %s\n```' % (baseurl, env.config.html_theme_options.repository_url) }}
 
-*Clarity in the current fast-paced mess of Open Source innovation.*
+*Clarity in the current fast-paced mess of Open Source innovation {cite}`self`*
 
 As a data scientist/developer with a 9 to 5 job, it's difficult to keep track of all the innovations. There's been enormous progress in the field in {term}`the last year <SotA>`.
 
@@ -62,7 +62,8 @@ Spot something outdated or missing? Want to start a discussion? We welcome any o
 
 ### Editing the Book
 
-- Using [GitHub Codespaces](https://codespaces.new/premAI-io/state-of-open-source-ai), you can edit code & preview the site in your browser without installing anything (you may have to whitelist `github.dev` & `visualstudio.com` if you use an adblocker).
+- Using {{ '[GitHub Codespaces](https://codespaces.new/{})'.format(
+  '/'.join(env.config.html_theme_options.repository_url.split('/')[-2:])) }}, you can edit code & preview the site in your browser without installing anything (you may have to whitelist `github.dev` & `visualstudio.com` if you use an adblocker).
 - Alternatively, to run locally, open {{ '[this repository]({})'.format(env.config.html_theme_options.repository_url) }} in a [Dev Container](https://containers.dev) (most likely [using VSCode](https://code.visualstudio.com/docs/devcontainers/containers#_installation)).
 - Or instead, manually set up your own Python environment:
 
@@ -138,13 +139,31 @@ Don't worry about making it perfect, it's fine to open a (`draft <https://docs.g
 
 ### Contributors
 
+Anyone who adds a few sentences to a chapter is {{
+  '[automatically mentioned in the respective chapter]({}/blob/main/committers.py)'.format(
+  env.config.html_theme_options.repository_url) }} as well as below.
+
 {{ '[![](https://contrib.rocks/image?repo={})]({}/graphs/contributors)'.format(
    '/'.join(env.config.html_theme_options.repository_url.split('/')[-2:]),
    env.config.html_theme_options.repository_url) }}
 
+- Editor: Casper da Costa-Luis (https://github.com/casperdcl)
+
+  > With a strong [academic background](https://cdcl.ml/learn) as well [industry expertise](https://cdcl.ml/work) to backup his enthusiasm for all things open source, Casper is happy to help with all queries related to this book.
+
+- Maintainer: https://github.com/PremAI-io
+
+  > Our vision is to engineer a world where individuals, developers, and businesses can embrace the power of AI without compromising their privacy. We believe in a future where users retain ownership of their data, AND the models trained on it.
+
+- Citing this book: {cite}`self`
+
 ## Conclusion
 
-> All models are wrong, but some are useful {cite}`box-models`.
+```{epigraph}
+All models are wrong, but some are useful
+
+-- G.E.P. Box {cite}`box-models`
+```
 
 % TODO: rewrite
 

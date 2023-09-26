@@ -20,14 +20,7 @@ Maintainer | [LF AI & Data Foundation](https://wiki.lfaidata.foundation) | https
 [Permissive licence](open-licences) | yes (`Apache-2.0`) | yes (`MIT`) | yes (`Apache-2.0`)
 ```
 
-```{admonition} Feedback
-:class: attention
-Is the [table above](model-format-table) outdated or missing an important format? Let us know in the {{
-  '[<i class="fas fa-pencil-alt"></i> comments]({}-comments)'.format(env.docname) }} below, or {{
-  '[<i class="fab fa-github"></i> open a pull request]({}/edit/main/{}.md)'.format(
-  env.config.html_theme_options.repository_url, env.docname)
-}}!
-```
+{{ table_feedback }}
 
 And here's some repository stats:
 

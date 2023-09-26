@@ -2,26 +2,19 @@
 
 ## Model Evaluation
 
-{term}`Evaluating <Evaluation>` a [model](models) involves the application of well-known metrics to measure its effectiveness. These metrics serve as
-yardsticks for quantifying the model's performance and ensuring its suitability for specific tasks. Let's explore
-how these metrics are applied in different domains:
+{term}`Evaluating <Evaluation>` a [model](models) means applying it to fixed datasets unused during its training, and calculating metrics on the results. These metrics are a quantitative measure of a model's real-world effectiveness. Metrics also need to be domain-appropriate, e.g.:
 
-- **Image**: models are evaluated using metrics like accuracy, precision, recall, and F1-score. For instance, in [object detection](https://en.wikipedia.org/wiki/Object_detection), [Intersection over Union (IoU)](https://en.wikipedia.org/wiki/Jaccard_index) is a crucial metric to measure how well a model localises objects within images.
-
-- **Text**: models are assessed using metrics like [perplexity](https://en.wikipedia.org/wiki/Perplexity), [BLEU score](https://en.wikipedia.org/wiki/BLEU), [ROUGE score](https://en.wikipedia.org/wiki/ROUGE_(metric)), and accuracy. For language translation, BLEU score quantifies the similarity between machine-generated translations and human references.
-
-- **Speech**: metrics like [Word Error Rate (WER)](https://en.wikipedia.org/wiki/Word_error_rate), and accuracy are commonly used. WER measures the dissimilarity between recognised words and the ground truth.
+- **Text-only**: {term}`perplexity`, [BLEU score](https://en.wikipedia.org/wiki/BLEU), [ROUGE score](https://en.wikipedia.org/wiki/ROUGE_(metric)), and accuracy. For language translation, BLEU score quantifies the similarity between machine-generated translations and human references.
+- **Visual (images, video)**: accuracy, precision, recall, and F1-score. For instance, in [object detection](https://en.wikipedia.org/wiki/Object_detection), [Intersection over Union (IoU)](https://en.wikipedia.org/wiki/Jaccard_index) is a crucial metric to measure how well a model localises objects within images.
+- **Audio (speech, music)**: [Word Error Rate (WER)](https://en.wikipedia.org/wiki/Word_error_rate), and accuracy are commonly used. WER measures the dissimilarity between recognised words and the ground truth.
 
 While evaluation metrics offer valuable insights into a model's capabilities within its specific domain, they may not provide a comprehensive assessment of its overall performance. To address this limitation, {term}`benchmarks <Benchmark>` play a pivotal role by offering a more holistic perspective. Just as in model training, where the axiom "Better Data = Better Performance" holds {cite}`better-data-better-performance`, this maxim applies equally to benchmarks, underscoring the critical importance of using meticulously curated datasets. Their importance becomes apparent when taking into account the following factors:
 
 - **Diverse Task Coverage:** Encompassing a broad spectrum of tasks across various domains, benchmarks ensure a comprehensive evaluation of models.
-
 - **Realistic Challenges:** By emulating real-world scenarios, benchmarks assess models on intricate and practical tasks that extend beyond basic metrics.
-
 - **Facilitating Comparisons:** Benchmarks facilitate standardized model comparisons, providing valuable guidance for researchers in model selection and enhancement.
 
-In light of the frequent emergence of groundbreaking models, selecting the most suitable model for specific tasks can be 
-a daunting task, and that's where {term}`leaderboards <Leaderboard>` play a vital role.
+In light of the frequent emergence of groundbreaking models, selecting the most suitable model for specific tasks can be a daunting task, and that's where {term}`leaderboards <Leaderboard>` play a vital role.
 
 ```{table} Comparison of Leaderboards
 :name: leaderboards-table
@@ -191,7 +184,7 @@ and instruction-following tasks. It covers a wide range of common use cases and 
 effectively differentiate between models. To guide the construction of MT-Bench, eight common categories of user prompts
 were identified: writing, role-play, extraction, reasoning, math, coding, knowledge I (STEM), and knowledge II (humanities/social science).
 
-```{admonition} Example 
+```{admonition} Example
 :name: mt-bench-example
 :class: hint
 Category: Writing<br>
@@ -203,8 +196,8 @@ must-see attractions.<br>
 #### HumanEval
 
 **[HumanEval](https://huggingface.co/datasets/openai_humaneval)** {cite}`chen2021evaluating` is a benchmark specifically tailored to evaluate code generation models.
-In NLP code generation models are often evaluated on evaluation metrics such as BLEU. However, these metrics 
-[don't capture](https://twitter.com/LoubnaBenAllal1/status/1692573780609057001) the complexity of the solutions' space 
+In NLP code generation models are often evaluated on evaluation metrics such as BLEU. However, these metrics
+[don't capture](https://twitter.com/LoubnaBenAllal1/status/1692573780609057001) the complexity of the solutions' space
 for code generation. HumanEval contains 164 programs with 8 tests for each.
 
 ```{figure} https://static.premai.io/book/eval-datasets-human-eval-examples.png
@@ -322,9 +315,9 @@ width: 95%
 
 #### Human Eval LLM Leaderboard
 
-[Human Eval LLM Leaderboard](https://huggingface.co/spaces/HuggingFaceH4/human_eval_llm_leaderboard) distinguishes itself 
-through its unique evaluation process, which entails comparing completions generated from undisclosed instruction prompts 
-using assessments from both human evaluators and [GPT4](models.md#chatgpt). Evaluators rate model completions on a 1-8 
+[Human Eval LLM Leaderboard](https://huggingface.co/spaces/HuggingFaceH4/human_eval_llm_leaderboard) distinguishes itself
+through its unique evaluation process, which entails comparing completions generated from undisclosed instruction prompts
+using assessments from both human evaluators and [GPT4](models.md#chatgpt). Evaluators rate model completions on a 1-8
 [Likert scale](https://en.wikipedia.org/wiki/Likert_scale), and Elo rankings are created using these preferences.
 
 ```{figure} https://static.premai.io/book/eval-datasets-human-eval-llm.png
@@ -336,7 +329,7 @@ width: 95%
 
 #### Massive Text Embedding Benchmark
 
-[Massive Text Embedding Benchmark Leaderboard](https://huggingface.co/spaces/mteb/leaderboard) {cite}`muennighoff2023mteb` empowers users to discover 
+[Massive Text Embedding Benchmark Leaderboard](https://huggingface.co/spaces/mteb/leaderboard) {cite}`muennighoff2023mteb` empowers users to discover
 the most appropriate {term}`embedding <Embedding>` model for a wide range of real-world tasks. It achieves this by offering
 an extensive set of 129 datasets spanning eight different tasks and supporting as many as 113 languages.
 
@@ -367,7 +360,7 @@ width: 95%
 
 Similar to [Code Generation on HumanEval Leaderboard](#code-generation-on-humaneval), [Big Code Models Leaderboard](https://huggingface.co/spaces/bigcode/bigcode-models-leaderboard)
 tackles the code generation tasks. Moreover, the latter leaderboard consider not only python code generation models but
-multilingual code generation models as well. In the leaderboard, only open pre-trained multilingual code 
+multilingual code generation models as well. In the leaderboard, only open pre-trained multilingual code
 models are compared using the following primary benchmarks:
 
 * [HumanEval](#humaneval)
@@ -384,64 +377,57 @@ width: 100%
 ### Evaluating LLM Applications
 
 Assessing the applications of LLMs involves a complex undertaking that goes beyond mere model selection through [benchmarks](text-benchmarks)
-and [leaderboards](text-leaderboards). To unlock the complete capabilities of these models and guarantee their dependability 
+and [leaderboards](text-leaderboards). To unlock the complete capabilities of these models and guarantee their dependability
 and efficiency in practical situations, a comprehensive evaluation process is indispensable.
 
 #### Prompt Evaluation
 
-Prompt evaluation stands as the foundation for comprehending an LLM's responses to various inputs. Achieving a holistic 
+Prompt evaluation stands as the foundation for comprehending an LLM's responses to various inputs. Achieving a holistic
 understanding involves considering the following key points:
 
-- **Prompt Testing**: To measure the adaptability of an LLM effectively, we must employ a diverse array of prompts spanning 
-  various domains, tones, and complexities. This approach grants us valuable insights into the model's capacity to handle 
+- **Prompt Testing**: To measure the adaptability of an LLM effectively, we must employ a diverse array of prompts spanning
+  various domains, tones, and complexities. This approach grants us valuable insights into the model's capacity to handle
   a wide spectrum of user queries and contexts. Tools like [promptfoo](https://promptfoo.dev) can facilitate prompt testing.
 
-- **Prompt Robustness Amid Ambiguity**: User-defined prompts can be highly flexible, leading to situations where even 
-  slight changes can yield significantly different outputs. This underscores the importance of evaluating the LLM's 
+- **Prompt Robustness Amid Ambiguity**: User-defined prompts can be highly flexible, leading to situations where even
+  slight changes can yield significantly different outputs. This underscores the importance of evaluating the LLM's
   sensitivity to variations in phrasing or wording, emphasizing its robustness {cite}`building-llm-applications`.
 
-- **Handling Ambiguity**: LLM-generated responses may occasionally introduce ambiguity, posing difficulties for downstream 
-  applications that rely on precise output formats. Although we can make prompts explicit regarding the desired output 
-  format, there is no assurance that the model will consistently meet these requirements. To tackle these issues, a 
+- **Handling Ambiguity**: LLM-generated responses may occasionally introduce ambiguity, posing difficulties for downstream
+  applications that rely on precise output formats. Although we can make prompts explicit regarding the desired output
+  format, there is no assurance that the model will consistently meet these requirements. To tackle these issues, a
   rigorous engineering approach becomes imperative.
 
-- **[Few-Shot Prompt](few-shot-prompting) Evaluation**: This assessment consists of two vital aspects: firstly, verifying 
-  if the LLM comprehends the examples by comparing its responses to expected outcomes; secondly, ensuring that the model 
-  avoids becoming overly specialized on these examples, which is assessed by testing it on distinct instances to assess 
+- **[Few-Shot Prompt](few-shot-prompting) Evaluation**: This assessment consists of two vital aspects: firstly, verifying
+  if the LLM comprehends the examples by comparing its responses to expected outcomes; secondly, ensuring that the model
+  avoids becoming overly specialized on these examples, which is assessed by testing it on distinct instances to assess
   its generalization capabilities {cite}`building-llm-applications`.
 
 #### Embeddings Evaluation in RAG
 
 In {term}`RAG <RAG>` based applications, the evaluation of embeddings is critical to ensure that the LLM retrieves relevant context.
 
-- **Embedding Quality Metrics:** The quality of embeddings is foundational in RAG setups. Metrics like [cosine similarity](https://en.wikipedia.org/wiki/Cosine_similarity), 
-  [Euclidean distance](https://en.wikipedia.org/wiki/Euclidean_distance), or 
-  [semantic similarity scores](https://en.wikipedia.org/wiki/Semantic_similarity) serve as critical yardsticks to measure 
+- **Embedding Quality Metrics:** The quality of embeddings is foundational in RAG setups. Metrics like [cosine similarity](https://en.wikipedia.org/wiki/Cosine_similarity),
+  [Euclidean distance](https://en.wikipedia.org/wiki/Euclidean_distance), or
+  [semantic similarity scores](https://en.wikipedia.org/wiki/Semantic_similarity) serve as critical yardsticks to measure
   how well the retrieved documents align with the context provided in prompts.
 
-- **Human Assessment:** While automated metrics offer quantifiable insights, human evaluators play a pivotal role in 
-  assessing contextual relevance and coherence. Their qualitative judgments complement the automated evaluation process by 
-  capturing nuances that metrics might overlook, ultimately ensuring that the LLM-generated responses align with the 
+- **Human Assessment:** While automated metrics offer quantifiable insights, human evaluators play a pivotal role in
+  assessing contextual relevance and coherence. Their qualitative judgments complement the automated evaluation process by
+  capturing nuances that metrics might overlook, ultimately ensuring that the LLM-generated responses align with the
   intended context.
 
 #### Monitoring LLM Application Output
 
 Continuous monitoring is indispensable for maintaining the reliability of LLM applications, and it can be achieved trough:
 
-- **Automatic Evaluation Metrics:** Quantitative metrics such as [BLEU](https://it.wikipedia.org/wiki/BLEU) {cite}`papineni2002bleu`, 
-  [ROUGE](https://en.wikipedia.org/wiki/ROUGE_(metric)) {cite}`lin-2004-rouge`, [METEOR](https://en.wikipedia.org/wiki/METEOR) 
-  {cite}`banerjee-lavie-2005-meteor`, and [perplexity](https://en.wikipedia.org/wiki/Perplexity) provide objective insights into 
-  content quality. By continuously tracking the LLM's performance using these metrics, developers can identify deviations 
-  from expected behavior, helping pinpoint failure points.
-
-- **Human Feedback Loop:** Establishing a feedback mechanism involving human annotators or domain experts proves invaluable
-  in identifying and mitigating {term}`hallucinations <Hallucination>` and failure points. These human evaluators review 
-  and rate LLM-generated content, flagging instances where the model provides misleading or incorrect information.
+- **Automatic Evaluation Metrics:** Quantitative metrics such as [BLEU](https://it.wikipedia.org/wiki/BLEU) {cite}`papineni2002bleu`, [ROUGE](https://en.wikipedia.org/wiki/ROUGE_(metric)) {cite}`lin-2004-rouge`, [METEOR](https://en.wikipedia.org/wiki/METEOR) {cite}`banerjee-lavie-2005-meteor`, and {term}`perplexity` provide objective insights into content quality. By continuously tracking the LLM's performance using these metrics, developers can identify deviations from expected behaviour, helping pinpoint failure points.
+- **Human Feedback Loop:** Establishing a feedback mechanism involving human annotators or domain experts proves invaluable in identifying and mitigating {term}`hallucinations <Hallucination>` and failure points. These human evaluators review and rate LLM-generated content, flagging instances where the model provides misleading or incorrect information.
 
 #### Composable applications
 
-LLM-based applications often exhibit increased complexity and consist of multiple tasks {cite}`building-llm-applications`. 
-For instance, let's take the scenario of [talk-to-your-data](https://dev.premai.io/blog/chainlit-langchain-prem), where 
+LLM-based applications often exhibit increased complexity and consist of multiple tasks {cite}`building-llm-applications`.
+For instance, let's take the scenario of [talk-to-your-data](https://dev.premai.io/blog/chainlit-langchain-prem), where
 the objective is to illustrate connecting to a database and interacting with it using natural language queries.
 
 ```{figure} https://static.premai.io/book/evaluation-dataset-control-flows.png
@@ -451,24 +437,22 @@ width: 80%
 [Control Flows with LLMs](https://huyenchip.com/2023/04/11/llm-engineering.html)
 ```
 
-Evaluating an agent, which is an application that performs multiple tasks based on a predefined control flow, is crucial 
+Evaluating an agent, which is an application that performs multiple tasks based on a predefined control flow, is crucial
 to ensure its reliability and effectiveness. Achieving this goal can be done by means of:
 
-- **Unit Testing for Tasks**: For each task, define input-output pairs as evaluation examples. This helps ensure that 
+- **Unit Testing for Tasks**: For each task, define input-output pairs as evaluation examples. This helps ensure that
   individual tasks produce the correct results.
-
-- **Control Flow Testing**: Evaluate the accuracy of the control flow within the agent. Confirm that the control flow 
+- **Control Flow Testing**: Evaluate the accuracy of the control flow within the agent. Confirm that the control flow
   directs the agent to execute tasks in the correct order, as specified by the control flow logic.
-
-- **Integration Testing**: Assess the entire agent as a whole by conducting integration tests. This involves evaluating 
+- **Integration Testing**: Assess the entire agent as a whole by conducting integration tests. This involves evaluating
   the agent's performance when executing the entire sequence of tasks according to the defined control flow.
 
 ## Audio
 
-Text-to-speech and automatic speech recognition stand out as pivotal tasks in this domain, however evaluating 
-[TTS](https://en.wikipedia.org/wiki/Speech_synthesis) and [ASR](https://en.wikipedia.org/wiki/Speech_recognition) models 
-presents unique challenges and nuances. TTS evaluation incorporates subjective assessments regarding naturalness and 
-intelligibility {cite}`stevens2005line`, which may be subject to individual listener biases and pose additional challenges, 
+Text-to-speech and automatic speech recognition stand out as pivotal tasks in this domain, however evaluating
+[TTS](https://en.wikipedia.org/wiki/Speech_synthesis) and [ASR](https://en.wikipedia.org/wiki/Speech_recognition) models
+presents unique challenges and nuances. TTS evaluation incorporates subjective assessments regarding naturalness and
+intelligibility {cite}`stevens2005line`, which may be subject to individual listener biases and pose additional challenges,
 especially when considering prosody and speaker similarity in TTS models. ASR evaluations must factor in considerations like domain-specific
 adaptation and the model's robustness to varying accents and environmental conditions {cite}`benzeghiba2007automatic`.
 
@@ -682,9 +666,9 @@ width: 80%
 
 #### Open Parti Prompt Leaderboard
 
-[Open Parti Prompt Leaderboard](https://huggingface.co/spaces/OpenGenAI/parti-prompts-leaderboard) assesses open-source 
-text-to-image models according to human preferences, utilizing the [Parti Prompts dataset](https://huggingface.co/datasets/nateraw/parti-prompts) 
-for evaluation. It leverages community engagement through the [Open Parti Prompts Game](https://huggingface.co/spaces/OpenGenAI/open-parti-prompts), 
+[Open Parti Prompt Leaderboard](https://huggingface.co/spaces/OpenGenAI/parti-prompts-leaderboard) assesses open-source
+text-to-image models according to human preferences, utilizing the [Parti Prompts dataset](https://huggingface.co/datasets/nateraw/parti-prompts)
+for evaluation. It leverages community engagement through the [Open Parti Prompts Game](https://huggingface.co/spaces/OpenGenAI/open-parti-prompts),
 in which participants choose the most suitable image for a given prompt, with their selections informing the model comparisons.
 
 ```{figure} https://static.premai.io/book/eval-datasets-open-party-prompts.png
@@ -694,7 +678,7 @@ width: 90%
 Open Parti Prompts Game
 ```
 
-The leaderboard offers an overall comparison and detailed breakdown analyses by category and challenge type, providing 
+The leaderboard offers an overall comparison and detailed breakdown analyses by category and challenge type, providing
 a comprehensive assessment of model performance.
 
 ```{figure} https://static.premai.io/book/eval-datasets-open-party-leaderboard.png
@@ -706,50 +690,50 @@ width: 90%
 
 ## Videos
 
-Understanding video content requires recognizing not just objects and actions but also comprehending their temporal 
-relationships. Creating accurate ground truth annotations for video datasets is a time-consuming process due to the 
-sequential nature of video data. Additionally, assessing video generation or comprehension models involves intricate 
+Understanding video content requires recognizing not just objects and actions but also comprehending their temporal
+relationships. Creating accurate ground truth annotations for video datasets is a time-consuming process due to the
+sequential nature of video data. Additionally, assessing video generation or comprehension models involves intricate
 metrics that measure both content relevance and temporal coherence, making the evaluation task intricate.
 
 ### Benchmarks
 
 #### UCF101
 
-**[UCF101](https://www.crcv.ucf.edu/data/UCF101.php)** dataset {cite}`soomro2012ucf101` comprises 13,320 video clips categorized 
-into 101 distinct classes. These 101 categories can be further grouped into five types: Body motion, Human-human interactions, 
-Human-object interactions, Playing musical instruments, and Sports. The combined duration of these video clips exceeds 27 
-hours. All videos were sourced from YouTube and maintain a consistent frame rate of 25 frames per second (FPS) with a 
+**[UCF101](https://www.crcv.ucf.edu/data/UCF101.php)** dataset {cite}`soomro2012ucf101` comprises 13,320 video clips categorized
+into 101 distinct classes. These 101 categories can be further grouped into five types: Body motion, Human-human interactions,
+Human-object interactions, Playing musical instruments, and Sports. The combined duration of these video clips exceeds 27
+hours. All videos were sourced from YouTube and maintain a consistent frame rate of 25 frames per second (FPS) with a
 resolution of 320 × 240 pixels.
 
 #### Kinetics
 
-**[Kinetics](https://www.deepmind.com/open-source/kinetics)**, developed by the Google Research team, is a dataset featuring 
-up to 650,000 video clips, covering 400/600/700 human action classes in different versions. These clips show diverse human 
-interactions, including human-object and human-human activities. Each action class contains a minimum of 
-[400](https://paperswithcode.com/dataset/kinetics-400-1)/[600](https://paperswithcode.com/dataset/kinetics-600)/[700](https://paperswithcode.com/dataset/kinetics-700) 
+**[Kinetics](https://www.deepmind.com/open-source/kinetics)**, developed by the Google Research team, is a dataset featuring
+up to 650,000 video clips, covering 400/600/700 human action classes in different versions. These clips show diverse human
+interactions, including human-object and human-human activities. Each action class contains a minimum of
+[400](https://paperswithcode.com/dataset/kinetics-400-1)/[600](https://paperswithcode.com/dataset/kinetics-600)/[700](https://paperswithcode.com/dataset/kinetics-700)
 video clips, each lasting about 10 seconds and annotated with a single action class.
 
 #### MSR-VTT
 
-**[MSR-VTT](https://paperswithcode.com/dataset/msr-vtt)** dataset {cite}`xu2016msr`, also known as Microsoft Research Video to Text, 
-stands as a substantial dataset tailored for open domain video captioning. This extensive dataset comprises 10,000 video 
-clips spanning across 20 diverse categories. Remarkably, each video clip is meticulously annotated with 20 English sentences 
-by [Amazon Mechanical Turks](https://www.mturk.com/), resulting in a rich collection of textual descriptions. These annotations 
+**[MSR-VTT](https://paperswithcode.com/dataset/msr-vtt)** dataset {cite}`xu2016msr`, also known as Microsoft Research Video to Text,
+stands as a substantial dataset tailored for open domain video captioning. This extensive dataset comprises 10,000 video
+clips spanning across 20 diverse categories. Remarkably, each video clip is meticulously annotated with 20 English sentences
+by [Amazon Mechanical Turks](https://www.mturk.com/), resulting in a rich collection of textual descriptions. These annotations
 collectively employ approximately 29,000 distinct words across all captions.
 
 #### MSVD
 
-**[MSVD dataset](https://paperswithcode.com/dataset/msvd)**, known as the Microsoft Research Video Description Corpus, 
-encompasses approximately 120,000 sentences that were gathered in the summer of 2010. The process involved compensating 
-workers on [Amazon Mechanical Turks](https://www.mturk.com/) to view brief video segments and subsequently encapsulate 
-the action within a single sentence. Consequently, this dataset comprises a collection of nearly parallel descriptions 
+**[MSVD dataset](https://paperswithcode.com/dataset/msvd)**, known as the Microsoft Research Video Description Corpus,
+encompasses approximately 120,000 sentences that were gathered in the summer of 2010. The process involved compensating
+workers on [Amazon Mechanical Turks](https://www.mturk.com/) to view brief video segments and subsequently encapsulate
+the action within a single sentence. Consequently, this dataset comprises a collection of nearly parallel descriptions
 for over 2,000 video snippets.
 
 ### Leaderboards
 
 #### Action Recognition on UCF101
 
-[Action Recognition on UCF101 Leaderboard](https://paperswithcode.com/sota/action-recognition-in-videos-on-ucf101) evaluates models 
+[Action Recognition on UCF101 Leaderboard](https://paperswithcode.com/sota/action-recognition-in-videos-on-ucf101) evaluates models
 on the action recognition task based on [UCF101](#ucf101) dataset.
 
 ```{figure} https://static.premai.io/book/eval-datasets-ucf101-leaderboard.png
@@ -761,9 +745,9 @@ width: 80%
 
 #### Action Classification on Kinetics-700
 
-[Action Classification on Kinetics-700 Leaderboard](https://paperswithcode.com/sota/action-classification-on-kinetics-700) evaluates models 
-on the action classification task based on [Kinetics-700](#kinetics) dataset. The evaluation is based on top-1 and top-5 
-accuracy metrics, where top-1 accuracy measures the correctness of the model's highest prediction, and top-5 accuracy 
+[Action Classification on Kinetics-700 Leaderboard](https://paperswithcode.com/sota/action-classification-on-kinetics-700) evaluates models
+on the action classification task based on [Kinetics-700](#kinetics) dataset. The evaluation is based on top-1 and top-5
+accuracy metrics, where top-1 accuracy measures the correctness of the model's highest prediction, and top-5 accuracy
 considers whether the correct label is within the top five predicted labels.
 
 ```{figure} https://static.premai.io/book/eval-datasets-kinetics-700-leaderboard.png
@@ -797,7 +781,6 @@ width: 80%
 ---
 [Visual Question Answering on MSVD-QA Leaderboard](https://paperswithcode.com/sota/visual-question-answering-on-msvd-qa-1)
 ```
- 
 
 ## Limitations
 
@@ -816,7 +799,7 @@ their limitations.
   potential inputs that a model may encounter (e.g. limited dataset for [code generation evaluation](#code-generation-on-humaneval)) {cite}`evaluating-os-llm`.
 - **AI, Not AGI**: LLM leaderboards assess various models trained on diverse datasets by posing general questions (e.g., "how
   old is Earth?") and evaluating their responses. Consequently, the metrics gauge several facets, including the alignment
-  between questions and training data, the LLM's language comprehension (syntax, semantics, ontology) {cite}`manning2022human`, 
+  between questions and training data, the LLM's language comprehension (syntax, semantics, ontology) {cite}`manning2022human`,
   its [memorisation capability](https://en.wikipedia.org/wiki/Tacit_knowledge#Embodied_knowledge),
   and its ability to retrieve memorised information. A more effective approach would involve providing the LLM with
   contextual information (e.g., instructing it to read a specific astronomy textbook: <path/to/some.pdf>) and evaluating
@@ -826,19 +809,19 @@ their limitations.
   environment and the actual practical context {cite}`hand2006classifier`.
 - **Balanced Approach**: while benchmarks serve as valuable initial evaluation tools for models {cite}`evaluating-os-llm`, it's essential not to depend
   solely on them. Prioritise an in-depth understanding of your unique use case and project requirements.
-- **Evaluating ChatGPT on Internet Data**: it is crucial to note that [evaluating ChatGPT](https://github.com/CLARIN-PL/chatgpt-evaluation-01-2023) 
-  on internet data or test sets found online {cite}`evaluating-chatgpt`, which may overlap with its training data, can lead 
+- **Evaluating ChatGPT on Internet Data**: it is crucial to note that [evaluating ChatGPT](https://github.com/CLARIN-PL/chatgpt-evaluation-01-2023)
+  on internet data or test sets found online {cite}`evaluating-chatgpt`, which may overlap with its training data, can lead
   to invalid results. This practice violates fundamental machine learning principles and renders the evaluations unreliable.
   Instead, it is advisable to use test data that is not readily available on the internet or to employ human domain experts
   for meaningful and trustworthy assessments of ChatGPT's text quality and appropriateness.
-- **Models Interpretability**: it is essential to consider model interpretability {cite}`rudin2021interpretable` in the 
-  evaluation process. Understanding how a model makes decisions and ensuring its transparency is crucial, especially in 
-  applications involving sensitive data or critical decision-making. Striking a balance between predictive power and 
+- **Models Interpretability**: it is essential to consider model interpretability {cite}`rudin2021interpretable` in the
+  evaluation process. Understanding how a model makes decisions and ensuring its transparency is crucial, especially in
+  applications involving sensitive data or critical decision-making. Striking a balance between predictive power and
   interpretability is imperative.
-- **Beyond leaderboard rankings**: several factors including prompt tuning, embeddings retrieval, model parameter 
-  adjustments, and data storage, significantly impact a LLM's real-world performance {cite}`skanda-evaluating-llm`. Recent 
-  developments (e.g. [ragas](https://github.com/explodinggradients/ragas), [langsmith](https://github.com/langchain-ai/langsmith-cookbook)) 
-  aim to simplify LLM evaluation and integration into applications, emphasising the transition from leaderboards to 
+- **Beyond leaderboard rankings**: several factors including prompt tuning, embeddings retrieval, model parameter
+  adjustments, and data storage, significantly impact a LLM's real-world performance {cite}`skanda-evaluating-llm`. Recent
+  developments (e.g. [ragas](https://github.com/explodinggradients/ragas), [langsmith](https://github.com/langchain-ai/langsmith-cookbook))
+  aim to simplify LLM evaluation and integration into applications, emphasising the transition from leaderboards to
   practical deployment, monitoring, and assessment.
 
 ## Future
@@ -851,7 +834,7 @@ of human judgment and perception in model evaluation.
 
 In parallel, there is a noteworthy exploration of alternative evaluation approaches, where models themselves act as
 evaluators. This transformation is illustrated by the creation of automatic evaluators within the
-[Alpaca Leaderboard](#alpaca-eval), and by the proposed approach of using the GPT-4 as an evaluator {cite}`zheng2023judging`. 
+[Alpaca Leaderboard](#alpaca-eval), and by the proposed approach of using the GPT-4 as an evaluator {cite}`zheng2023judging`.
 These endeavours shed light on novel methods for assessing model performance.
 
 The future of model evaluation will likely involve a multidimensional approach that combines benchmarks, leaderboards,

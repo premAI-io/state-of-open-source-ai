@@ -220,6 +220,9 @@ Open
 Permissive
   A type of [open licence](open-licences) which allows reselling and closed-source modifications, and can often be used in larger projects alongside other licences. Usually, the only condition of use is citing the author by name.
 
+Perplexity
+  [Perplexity](https://en.wikipedia.org/wiki/Perplexity) is a metric based on [entropy](<https://en.wikipedia.org/wiki/Entropy_(information_theory)>), and is a rough measure of the difficulty/uncertainty in a prediction problem.
+
 Public Domain
   "Open" {term}`IP` owned by nobody (often due to the author disclaiming all rights) and thus can be used by anyone without restrictions. Technically a disclaimer/non-licence. See [](open-licences).
 

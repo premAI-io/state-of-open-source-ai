@@ -62,7 +62,8 @@ Spot something outdated or missing? Want to start a discussion? We welcome any o
 
 ### Editing the Book
 
-- Using [GitHub Codespaces](https://codespaces.new/premAI-io/state-of-open-source-ai), you can edit code & preview the site in your browser without installing anything (you may have to whitelist `github.dev` & `visualstudio.com` if you use an adblocker).
+- Using {{ '[GitHub Codespaces](https://codespaces.new/{})'.format(
+  '/'.join(env.config.html_theme_options.repository_url.split('/')[-2:])) }}, you can edit code & preview the site in your browser without installing anything (you may have to whitelist `github.dev` & `visualstudio.com` if you use an adblocker).
 - Alternatively, to run locally, open {{ '[this repository]({})'.format(env.config.html_theme_options.repository_url) }} in a [Dev Container](https://containers.dev) (most likely [using VSCode](https://code.visualstudio.com/docs/devcontainers/containers#_installation)).
 - Or instead, manually set up your own Python environment:
 
@@ -137,6 +138,10 @@ Don't worry about making it perfect, it's fine to open a (`draft <https://docs.g
 % comment lines (not rendered) are prefixed with a "%"
 
 ### Contributors
+
+Anyone who adds a few sentences to a chapter is {{
+  '[automatically mentioned in the respective chapter]({}/blob/main/committers.py)'.format(
+  env.config.html_theme_options.repository_url) }} as well as below.
 
 {{ '[![](https://contrib.rocks/image?repo={})]({}/graphs/contributors)'.format(
    '/'.join(env.config.html_theme_options.repository_url.split('/')[-2:]),

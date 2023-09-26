@@ -42,7 +42,7 @@ Chapter | Examples
 [](model-formats) | ONNX, Apache TVM, GGML
 [](mlops-engines) | BentoML, llama.cpp, ray
 [](vector-db) | Weaviate, Qdrant, Milvus, Redis, Chroma
-[](sdk) | Langchain, Haystack, Llama index
+[](sdk) | Langchain, Haystack, LLaMA index
 [](desktop-apps) | LMStudio, GPT4All UI
 [](hardware) | NVIDIA GPUs, Mac, iPhone
 

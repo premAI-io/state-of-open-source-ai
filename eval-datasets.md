@@ -39,7 +39,7 @@ Leaderboard | Tasks | Benchmarks
 ```
 
 ```{seealso}
-[awesome-dencentralized-llm](https://github.com/imaurer/awesome-decentralized-llm#leaderboards)
+https://github.com/imaurer/awesome-decentralized-llm#leaderboards
 ```
 
 {{ table_feedback }}
@@ -103,6 +103,7 @@ When benchmarking an LLM model, two approaches emerge {cite}`machinelearningmast
   ```
 
 (text-benchmarks)=
+
 ### Benchmarks
 
 #### ARC 
@@ -225,6 +226,7 @@ Benchmark | Factors considered
 ```
 
 (text-leaderboards)=
+
 ### Leaderboards
 
 #### OpenLLM
@@ -276,12 +278,11 @@ such as [GPT4](models.md#chatgpt) or [Claude](models.md#claude), which determine
 [Alpaca Eval Leaderboard](https://tatsu-lab.github.io/alpaca_eval) with GPT (left) and a Claude (right) evaluators
 ````
 
-
 ```{admonition} Attention
 :name: alpaca-eval-attention
 :class: attention
-* GPT-4 may favor models that were fine-tuned on GPT-4 outputs
-* Claude may favor models that were fine-tuned on Claude outputs
+* GPT-4 may favour models that were fine-tuned on GPT-4 outputs
+* Claude may favour models that were fine-tuned on Claude outputs
 ```
 
 #### Chatbot Arena
@@ -427,8 +428,7 @@ Continuous monitoring is indispensable for maintaining the reliability of LLM ap
 #### Composable applications
 
 LLM-based applications often exhibit increased complexity and consist of multiple tasks {cite}`building-llm-applications`.
-For instance, let's take the scenario of [talk-to-your-data](https://dev.premai.io/blog/chainlit-langchain-prem), where
-the objective is to illustrate connecting to a database and interacting with it using natural language queries.
+For instance, consider ["talking to your data"](https://dev.premai.io/blog/chainlit-langchain-prem), where you query your database using natural language.
 
 ```{figure} https://static.premai.io/book/evaluation-dataset-control-flows.png
 ---
@@ -489,12 +489,12 @@ enhance the naturalness and diversity of synthesised speech.
 **[Common Voice](https://commonvoice.mozilla.org/en/datasets)** {cite}`ardila2019common`, developed by [Mozilla](https://www.mozilla.org/en-US),
 is a substantial and multilingual dataset of human voices, contributed by volunteers and encompassing multiple languages.
 This corpus is vast and diverse, with data collected and validated through crowdsourcing. As of November 2019, it includes
-29 languages, with 38 in the pipeline, featuring contributions from over 50,000 individuals and totaling 2,500 hours of audio.
+29 languages, with 38 in the pipeline, featuring contributions from over 50,000 individuals and totalling 2,500 hours of audio.
 It's the largest publicly available audio corpus for speech recognition in terms of volume and linguistic diversity.
 
 #### LibriTTS
 
-**[LibriTTS](http://www.openslr.org/60)** {cite}`zen2019libritts` is an extensive English speech dataset featuring multiple speakers, totaling around
+**[LibriTTS](http://www.openslr.org/60)** {cite}`zen2019libritts` is an extensive English speech dataset featuring multiple speakers, totalling around
 585 hours of recorded speech at a 24kHz sampling rate. This dataset was meticulously crafted by
 [Heiga Zen](https://research.google/people/HeigaZen), with support from members of the Google Speech and
 [Google Brain](https://research.google/teams/brain) teams, primarily for the advancement of TTS research. LibriTTS is
@@ -547,7 +547,7 @@ Not all the metrics are available for all models.
 [Open ASR Leaderboard](https://huggingface.co/spaces/hf-audio/open_asr_leaderboard) assesses speech recognition models,
 primarily focusing on English, using WER and Real-Time Factor ([RTF](https://en-academic.com/dic.nsf/enwiki/3796485)) as
 key metrics, with a preference for lower values in both categories. They utilise the [ESB benchmark](#esb),
-and models are ranked based on their average WER scores. This endeavor operates under an open-source framework, and the
+and models are ranked based on their average WER scores. This endeavour operates under an open-source framework, and the
 evaluation code can be found on https://github.com/huggingface/open_asr_leaderboard.
 
 ```{figure} https://static.premai.io/book/eval-datasets-open-asr-leaderboard.png
@@ -758,6 +758,7 @@ width: 80%
 ```
 
 #### Text-to-Video Generation on MSR-VTT
+
 [Text-to-Video Generation on MSR-VTT Leaderboard](https://paperswithcode.com/sota/text-to-video-generation-on-msr-vtt) evaluates models 
 on video generation based on [MSR-VTT](#msr-vtt) dataset. The leaderboard employs two crucial metrics, namely clipSim and FID. 
 ClipSim quantifies the similarity between video clips in terms of their content alignment, while FID evaluates the quality 

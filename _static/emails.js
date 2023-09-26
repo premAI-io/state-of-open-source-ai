@@ -20,7 +20,7 @@ function getCookie(cname) {
   return "";
 }
 
-async function handleButtonClick() {
+async function emailButtonClick() {
   let emailInput = document.getElementById("email");
   let emailValue = emailInput.value;
   let res = await fetch("https://premai.pythonanywhere.com/email?a=" + emailValue);
@@ -36,10 +36,10 @@ async function handleButtonClick() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
   let modal = document.getElementById('email-modal');
   let email = getCookie("address");
-  if ((email === "" || email == null) && window.location.pathname !== "/") {
+  if (email === "" || email == null) {
     modal.style.display = 'block';
     let emailInput = document.getElementById("email");
     emailInput.value = "";

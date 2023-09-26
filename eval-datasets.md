@@ -23,15 +23,15 @@ Leaderboard | Tasks | Benchmarks
 [OpenLLM](#openllm) | Text generation | ARC, HellaSwag, MMLU, TruthfulQA
 [Alpaca Eval](#alpaca-eval) | Text generation | AlpacaEval
 [Chatbot Arena](#chatbot-arena) | Text generation | Chatbot Arena, MT-Bench, MMLU
-[Human Eval LLM Leaderboard](#human-eval-llm-leaderboard) | Text generation | Human Eval, GPT-4
+[Human Eval LLM](#human-eval-llm) | Text generation | Human Eval, GPT-4
 [Massive Text Embedding Benchmark](#massive-text-embedding-benchmark) | Text embedding | 129 datasets across eight tasks, and supporting up to 113 languages
 [Code Generation on HumanEval](#code-generation-on-humaneval) | Python code generation | HumanEval
-[Big Code Models Leaderboard](#big-code-models) | Multilingual code generation | HumanEval, MultiPL-E
+[Big Code Models](#big-code-models) | Multilingual code generation | HumanEval, MultiPL-E
 [Text-To-Speech Synthesis on LJSpeech](#text-to-speech-synthesis-on-ljspeech) | Text-to-Speech | LJSpeech
-[Open ASR Leaderboard](#open-asr-leaderboard) | Speech recognition | ESB
-[Object Detection Leaderboard](#object-detection-leaderboard) | Object Detection | COCO
+[Open ASR](#open-asr) | Speech recognition | ESB
+[Object Detection](#object-detection) | Object Detection | COCO
 [Semantic Segmentation on ADE20K](#semantic-segmentation-on-ade20k) | Semantic Segmentation | ADE20K
-[Open Parti Prompt Leaderboard](#open-parti-prompt-leaderboard) | Text-to-Image | Open Parti Prompts
+[Open Parti Prompt](#open-parti-prompt) | Text-to-Image | Open Parti Prompts
 [Action Recognition on UCF101](#action-recognition-on-ucf101) | Action Recognition | UCF 101
 [Action Classification on Kinetics-700](#action-classification-on-kinetics-700) | Action Classification | Kinetics-700
 [Text-to-Video Generation on MSR-VTT](#text-to-video-generation-on-msr-vtt) | Text-to-Video | MSR-VTT
@@ -208,7 +208,7 @@ width: 70%
 Examples of HumanEval Dataset {cite}`chen2021evaluating`
 ```
 
-Several other benchmarks have been proposed,in the following table a summary {cite}`evaluate-llm` of such benchmarks with the considered factors.
+Several other benchmarks have been proposed, in the following table a summary {cite}`evaluate-llm` of such benchmarks with the considered factors.
 
 ```{table} Comparison of Benchmarks
 :name: benchmarks-table
@@ -314,7 +314,7 @@ width: 95%
 [Chatbot Arena Leaderboard](https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard)
 ```
 
-#### Human Eval LLM Leaderboard
+#### Human Eval LLM
 
 [Human Eval LLM Leaderboard](https://huggingface.co/spaces/HuggingFaceH4/human_eval_llm_leaderboard) distinguishes itself
 through its unique evaluation process, which entails comparing completions generated from undisclosed instruction prompts
@@ -542,9 +542,9 @@ Text-To-Speech Synthesis on LJSpeech Leaderboard
 Not all the metrics are available for all models.
 ```
 
-#### Open ASR Leaderboard
+#### Open ASR
 
-[Open ASR Leaderboard](https://huggingface.co/spaces/hf-audio/open_asr_leaderboard) assesses speech recognition models,
+The [Open ASR Leaderboard](https://huggingface.co/spaces/hf-audio/open_asr_leaderboard) assesses speech recognition models,
 primarily focusing on English, using WER and Real-Time Factor ([RTF](https://en-academic.com/dic.nsf/enwiki/3796485)) as
 key metrics, with a preference for lower values in both categories. They utilise the [ESB benchmark](#esb),
 and models are ranked based on their average WER scores. This endeavour operates under an open-source framework, and the
@@ -637,9 +637,9 @@ width: 100%
 
 ### Leaderboards
 
-#### Object Detection Leaderboard
+#### Object Detection
 
-[Object Detection Leaderboard](https://huggingface.co/spaces/rafaelpadilla/object_detection_leaderboard) evaluates models u
+The [Object Detection Leaderboard](https://huggingface.co/spaces/rafaelpadilla/object_detection_leaderboard) evaluates models u
 sing various metrics on the [COCO dataset](#coco). These metrics include Average Precision (AP) at different
 IoU thresholds, Average Recall (AR) at various detection counts, and FPS (Frames Per Second). The leaderboard is based on
 the COCO evaluation approach from the
@@ -654,7 +654,7 @@ width: 100%
 
 #### Semantic Segmentation on ADE20K
 
-[Semantic Segmentation on ADE20K Leaderboard](https://paperswithcode.com/sota/semantic-segmentation-on-ade20k) evaluates models on the
+The [Semantic Segmentation on ADE20K Leaderboard](https://paperswithcode.com/sota/semantic-segmentation-on-ade20k) evaluates models on the
 [ADE20K](#ade20k) mainly using mean Intersection over Union (mIoU).
 
 ```{figure} https://static.premai.io/book/eval-datasets-semantic-segmentation-ade20k.png
@@ -664,9 +664,9 @@ width: 80%
 [Semantic Segmentation on ADE20K](https://paperswithcode.com/sota/semantic-segmentation-on-ade20k)
 ```
 
-#### Open Parti Prompt Leaderboard
+#### Open Parti Prompt
 
-[Open Parti Prompt Leaderboard](https://huggingface.co/spaces/OpenGenAI/parti-prompts-leaderboard) assesses open-source
+The [Open Parti Prompt Leaderboard](https://huggingface.co/spaces/OpenGenAI/parti-prompts-leaderboard) assesses open-source
 text-to-image models according to human preferences, utilizing the [Parti Prompts dataset](https://huggingface.co/datasets/nateraw/parti-prompts)
 for evaluation. It leverages community engagement through the [Open Parti Prompts Game](https://huggingface.co/spaces/OpenGenAI/open-parti-prompts),
 in which participants choose the most suitable image for a given prompt, with their selections informing the model comparisons.
@@ -759,9 +759,9 @@ width: 80%
 
 #### Text-to-Video Generation on MSR-VTT
 
-[Text-to-Video Generation on MSR-VTT Leaderboard](https://paperswithcode.com/sota/text-to-video-generation-on-msr-vtt) evaluates models 
-on video generation based on [MSR-VTT](#msr-vtt) dataset. The leaderboard employs two crucial metrics, namely clipSim and FID. 
-ClipSim quantifies the similarity between video clips in terms of their content alignment, while FID evaluates the quality 
+[Text-to-Video Generation on MSR-VTT Leaderboard](https://paperswithcode.com/sota/text-to-video-generation-on-msr-vtt) evaluates models
+on video generation based on [MSR-VTT](#msr-vtt) dataset. The leaderboard employs two crucial metrics, namely clipSim and FID.
+ClipSim quantifies the similarity between video clips in terms of their content alignment, while FID evaluates the quality
 and diversity of generated videos. Lower FID scores are indicative of superior performance in this task.
 
 ```{figure} https://static.premai.io/book/eval-datasets-msr-vtt-leaderboard.png
@@ -830,7 +830,7 @@ their limitations.
 The evaluation of {term}`SotA` models presents both intriguing challenges and promising opportunities. There
 is a clear trend towards the recognition of human evaluation as an essential component, facilitated by the utilisation
 of crowdsourcing platforms. Initiatives like [Chatbot Arena](#chatbot-arena) for LLM evaluation and
-[Open Parti Prompts Game](#open-parti-prompt-leaderboard) for text-to-image generation assessment underscore the growing importance
+[Open Parti Prompts Game](#open-parti-prompt) for text-to-image generation assessment underscore the growing importance
 of human judgment and perception in model evaluation.
 
 In parallel, there is a noteworthy exploration of alternative evaluation approaches, where models themselves act as

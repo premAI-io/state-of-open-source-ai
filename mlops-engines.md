@@ -18,19 +18,20 @@ Some ideas:
 - Apache TVM
 ```
 
-This chapter focuses on recent open-source {term}`MLOps` developments -- which are largely due to the current rise of {term}`LLMs <LLM>`.
+This chapter focuses on recent open-source {term}`MLOps` engine developments -- which are largely due to the current rise of {term}`LLMs <LLM>`. While MLOps typically focuses on model training, "LLMOps" focuses on fine-tuning. In production, both also require good inference engines.
 
-While MLOps typically focuses on model training, "LLMOps" focuses on fine-tuning. In production, both also require good inference engines.
+```{table} Comparison of Inference Engines
+:name: inference-engines
+Inference Engine | Open-Source | GPU optimisations | Ease of use
+-----------------|-------------|-------------------|-------------
+[Nvidia Triton](#nvidia-triton-inference-server) | 🟢 Yes | Dynamic Batching, Tensor Parallelism, Model concurrency | 🔴 Difficult
+[Text Generation Inference](#text-generation-inference) | 🟢 Yes | Continuous Batching, Tensor Parallelism, Flash Attention | 🟢 Easy
+[vLLM](#vllm) | 🟢 Yes | Continuous Batching, Tensor Parallelism, Paged Attention | 🟢 Easy
+[BentoML](#bentoml) | 🟢 Yes | None | 🟢 Easy
+[Modular](#modular) | 🔴 No | N/A | 🟠 Moderate
+```
 
-Inference Engine | Open-Source | GPU support | GPU optimisations | Ease of use
------------------|-------------|-------------|-------------------|-------------
-[Nvidia Triton](#nvidia-triton-inference-server) | 🟢 Yes | 🟢 Yes | Dynamic Batching, Tensor Parallelism, Model concurrency | 🔴 Difficult
-[Text Generation Inference](#text-generation-inference) | 🟢 Yes | 🟢 Yes | Continuous Batching, Tensor Parallelism, Flash Attention | 🟢 Easy
-[vLLM](#vllm) | 🟢 Yes | 🟢 Yes | Continuous Batching, Tensor Parallelism, Paged Attention | 🟢 Easy
-[BentoML](#bentoml) | 🟢 Yes | 🟢 Yes | None | 🟢 Easy
-[Modular](https://www.modular.com) | 🔴 No | 🟢 Yes | N/A | 🟠 Moderate
-
-The previous section explained why LLM inferencing is so difficult. In this section we'll look at some open-source optimisers that can help make inferencing faster and easier.
+{{ table_feedback }}
 
 ## Nvidia Triton Inference Server
 
@@ -159,7 +160,7 @@ For example, a single GPU node able to run a 36 GB open-source model can [easily
 
 Inference is one of the hot topics currently with LLMs in general. Large models like ChatGPT have very low latency and great performance but become more expensive with more usage.
 
-On the flip side, open-source models like [LLaMA-2](https://registry.premai.io/detail.html?service=llama-2-7b) or [Falcon](https://registry.premai.io/detail.html?service=falcon-7b-instruct) have variants that are much smaller in size, yet it's difficult to match the latency and throughput that ChatGPT provides, while still being cost efficient. {cite}`cursor-llama`
+On the flip side, open-source models like [LLaMA-2](models.md#llama-2) or [Falcon](models.md#falcon) have variants that are much smaller in size, yet it's difficult to match the latency and throughput that ChatGPT provides, while still being cost efficient {cite}`cursor-llama`.
 
 Models that are run using Hugging Face pipelines do not have the necessary optimisations to run in a production environment. The open-source LLM inferencing market is still evolving so currently there's no silver bullet that can run any open-source LLM at blazing-fast speeds.
 

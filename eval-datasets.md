@@ -441,8 +441,8 @@ Continuous monitoring is indispensable for maintaining the reliability of LLM ap
 #### Composable applications
 
 LLM-based applications often exhibit increased complexity and consist of multiple tasks {cite}`building-llm-applications`. 
-For instance, consider the scenario of [talk-to-your-data](https://dev.premai.io/blog/chainlit-langchain-prem) in which 
-the objective is to establish a connection with a database and interact with it using natural language queries. 
+For instance, let's take the scenario of [talk-to-your-data](https://dev.premai.io/blog/chainlit-langchain-prem), where 
+the objective is to illustrate connecting to a database and interacting with it using natural language queries.
 
 ```{figure} https://static.premai.io/book/evaluation-dataset-control-flows.png
 ---
@@ -452,7 +452,7 @@ width: 80%
 ```
 
 Evaluating an agent, which is an application that performs multiple tasks based on a predefined control flow, is crucial 
-to ensure its reliability and effectiveness.
+to ensure its reliability and effectiveness. Achieving this goal can be done by means of:
 
 - **Unit Testing for Tasks**: For each task, define input-output pairs as evaluation examples. This helps ensure that 
   individual tasks produce the correct results.

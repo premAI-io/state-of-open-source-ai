@@ -128,6 +128,7 @@ While [training](https://github.com/CompVis/stable-diffusion/blob/main/Stable_Di
 - The model was trained mainly with English captions.
 - No measures were used to deduplicate the dataset before usage.
 
+(llama)=
 #### LLaMA
 
 Under LLaMA, Meta released a collection of foundation language models ranging from 7B to 65B parameters, pre-trained over a corpus containing more than 1.4 trillion tokens. It was designed to be versatile and applicable for many different use cases, and possibly fine-tuned for domain specific tasks if required.
@@ -155,7 +156,7 @@ There are few key inspirations LLaMA architecture took from other LLMs:
 - LLaMA is a foundation model and not fine-tuned for specific tasks, which may limit its performance on certain tasks
 - LLaMA seemed not as competitive as other models on certain benchmarks, such as BoolQ and WinoGrande.
 
-Interestingly within a week from LLaMA's launch, its [weights were leaked to the public](https://www.vice.com/en/article/xgwqgw/facebooks-powerful-large-language-model-leaks-online-4chan-llama). This created a huge impact on the community for all kinds innovations coming up, eventhough there was still license restrictions not permitting commercial usage.
+Interestingly within a week from LLaMA's launch, its [weights were leaked to the public](https://www.vice.com/en/article/xgwqgw/facebooks-powerful-large-language-model-leaks-online-4chan-llama). [This](https://github.com/facebookresearch/llama/pull/73/files) created a huge impact on the community for all kinds innovations coming up, eventhough there was still license restrictions not permitting commercial usage.
 
 ### Pacing Up
 
@@ -328,7 +329,7 @@ Some win rate graphs on LLaMA-2 after evaluation comparisons against popular LLM
 
 - LLaMA-2 models are pre-trained over 2 trillion tokens dataset in total, compared to 1.4 trillion tokens dataset for LLaMA-1.
 - LLaMA-2 models are trained with a 4k context length, whereas it's 2k for LLaMA-1.
-- Larger variants use grouped query attention (GQA) within their underlying architecture, helping improve inference efficiency.
+- Larger variants use grouped query attention (GQA) {cite}`ainslie2023gqa` within their underlying architecture, helping improve inference efficiency.
 
     ```{figure} https://static.premai.io/book/models_llama2-gqa.png
     :width: 80%
@@ -449,6 +450,7 @@ And currently [its fine-tuned variants](https://huggingface.co/Phind/Phind-CodeL
 - For 7B and 13B variants' large context fine-tuning and infilling comes at a cost on standard benchmarks.
 - Performs [worse](https://www.reddit.com/r/OpenAI/comments/160bbaq/meta_has_released_code_llama_although_gpt4) compared to GPT-4.
 
+(persimmon-8b)=
 #### Persimmon-8B
 
 [Persimmon-8B](https://www.adept.ai/blog/persimmon-8b) is a standard decoder-only transformer model released under an Apache-2.0 license. Both code and weights are available at https://github.com/persimmon-ai-labs/adept-inference.
@@ -477,6 +479,33 @@ And currently [its fine-tuned variants](https://huggingface.co/Phind/Phind-CodeL
 
 - Normally it's not recommended to train from scratch with 16k context size, as depending on dataset, simply increasing context length will cause model to attend across more unrelated documents.
 
+
+(mistral-7b)=
+#### Mistral 7B
+
+[Mistral-7B](https://huggingface.co/mistralai) is released by [Mistral AI](https://mistral.ai/), a french startup which recently [raised a good seed round](https://techcrunch.com/2023/06/13/frances-mistral-ai-blows-in-with-a-113m-seed-round-at-a-260m-valuation-to-take-on-openai). The team comprises of ex-[Deepmind](https://www.deepmind.com/) and ex-[Meta](https://ai.meta.com/) researchers, who worked on [LLaMA](llama), [Flamingo](https://arxiv.org/abs/2204.14198) and [Chinchilla](https://en.wikipedia.org/wiki/Chinchilla_AI) projects.
+
+##### Uniqueness
+
+- [Mistral 7B](https://huggingface.co/mistralai/Mistral-7B-v0.1) outperforms [Llama-2-13B](https://registry.premai.io/detail.html?service=llama-2-13b) on all and llama-1-34B on code, math, and reasoning benchmarks.
+
+  ```{figure} https://static.premai.io/book/models_mistral-7b-comparison.png
+    :width: 70%
+    [Mistral 7B Comparison](https://mistral.ai/news/announcing-mistral-7b/)
+  ```
+- Close to CodeLlama 7B performance on code, while remaining good at English tasks.
+- Uses Grouped-query attention (GQA) {cite}`ainslie2023gqa` for faster inference.
+- Uses [Sliding Window Attention (SWA)](https://github.com/mistralai/mistral-src#sliding-window-attention) {cite}`child2019generating,beltagy2020longformer` to handle longer sequences at smaller cost.
+- Uses Byte-fallback BPE tokenizer.
+- Released [7B base](https://huggingface.co/mistralai/Mistral-7B-v0.1) model and [7B Instruct](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.1) model which outperforms all 7B models on [MT-Bench](https://arxiv.org/abs/2306.05685) and outperforms [llama-2-13B-chat](https://huggingface.co/meta-llama/Llama-2-13b-chat).
+- Both models released under Apache 2.0 license, with no restrictions.
+- [Released a codebase](https://github.com/mistralai/mistral-src) which documents how to run and explains some concepts used in the model.
+
+
+##### Limitations
+- No training/finetuning code or paper has been released yet.
+- No training or finetuning dataset has been released eventhough they mentioned usage of datasets publicly available on HuggingFace for fine-tuning.
+
 ## Comparisons
 
 Here we went through the properties of popular models in Text and Visual domains. Comparing Large Language Models to a single source of truth is an inherently very difficult task, and Comparing visual models even harder. Since while generalising capabilities it's really important to take care of racial, gender, religious and other biases that the model can have. There are lot of popular [leaderboards](leaderboards-table) to track these models' aggregate or specific performances, based on [evaluation datasets](eval-datasets.md) curated by the community exactly for measuring capabilities, each catering to specific needs.
@@ -487,7 +516,7 @@ Our current based approaches for comparisons include evaluating each model on ea
 
 [Open LLM Leaderboard](https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard) shows us that Falcon 180B is currently just ahead of Meta's Llama 2 70B, and TII claims that it ranks just behind OpenAI's GPT 4, and performs on par with Google's PaLM 2 Large, which powers Bard, despite being half the size of the model. But it required 4x more compute to train and it's 2.5 times larger compared to llama-2, which makes it not so cost-effective for commercial usages.
 
-For practical commercial usage models ranging below 14B parameters has been a good candidate, and Persimmon-8B does a great job showing that.
+For practical commercial usage models ranging below 14B parameters has been a good candidate, and [Mistral-7b](mistral-7b), [LLaMA-2-7b](llama-2), [Persimmon-8B](persimmon-8b) does a great job showing that.
 
 Overall let's take look at the few discussed llms' attributes to get the bigger picture.
 
@@ -496,6 +525,7 @@ Overall let's take look at the few discussed llms' attributes to get the bigger 
 :name: llms-below-15b
 | LLMs              | Params     | Dataset | Release Details | Tokens  | ~VRAM   | License | Commercial Usage |
 | :---------------- | ---------: | :-----: | --------------: | ------: | :-----: | ------: | ---------------: |
+| [Mistral-7B](https://huggingface.co/mistralai/Mistral-7B-v0.1)       | 7.3 Billion      |  -  | [Blog](https://mistral.ai/news/announcing-mistral-7b/)           | -   |  17GB+               | Apache 2.0   | ✅ |
 | [LLaMA-2-13B](https://registry.premai.io/detail.html?service=llama-2-13b)       | 13 Billion      |  -  | [Paper](https://ai.meta.com/research/publications/llama-2-open-foundation-and-fine-tuned-chat-models/)           | 2000 Billion   |  29GB+               | [LLaMA 2](https://blog.opensource.org/metas-llama-2-license-is-not-open-source/)   | ✅ |
 | [LLaMA-2-7B](https://registry.premai.io/detail.html?service=llama-2-7b)        | 7 Billion      |  -  | [Paper](https://ai.meta.com/research/publications/llama-2-open-foundation-and-fine-tuned-chat-models/)           | 2000 Billion   |  15.8GB+               | [LLaMA 2](https://blog.opensource.org/metas-llama-2-license-is-not-open-source/)   | ✅ |
 | [Persimmon-8B](https://huggingface.co/docs/transformers/main/model_doc/persimmon)      | 9.3 Billion      |  -  | [Blog](https://www.adept.ai/blog/persimmon-8b)           | 737 Billion   |  20.8GB+         | [Apache 2.0](https://github.com/persimmon-ai-labs/adept-inference/blob/main/LICENSE)   | ✅ |

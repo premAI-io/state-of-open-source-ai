@@ -112,7 +112,8 @@ When benchmarking an LLM model, two approaches emerge {cite}`machinelearningmast
 (text-benchmarks)=
 ### Benchmarks
 
-(arc-benchmark)=
+#### ARC 
+
 **[AI2 Reasoning Challenge (ARC)](https://allenai.org/data/arc)** {cite}`clark2018think,evaluating-os-llm` dataset is composed of 7,787 genuine grade-school level,
 multiple-choice science questions in English. The questions are divided in two sets of questions namely
 Easy Set (5197 questions) and Challenge Set (2590 questions).
@@ -125,7 +126,8 @@ Which technology was developed most recently?
 A) Cellular Phone B) Television C) Refrigerator D) Aeroplane
 ```
 
-(hellaswag-benchmark)=
+#### HellaSwag
+
 **[HellaSwag](https://github.com/rowanz/hellaswag/tree/master/data)** {cite}`zellers2019hellaswag,evaluating-os-llm` dataset comprises questions that are considered straightforward for
 humans, achieving a remarkable accuracy rate of over 95%. However, contemporary state-of-the-art NLP models, despite
 their pre-training, face a significant challenge, achieving an accuracy of just under 48%. This dataset serves as a means
@@ -143,7 +145,8 @@ C) ... the man puts on a christmas coat, knitted with netting.<br>
 D) ... the man continues removing the snow on his car.<br>
 ```
 
-(mmlu-benchmark)=
+#### MMLU 
+
 **Massive Multi-task Language Understanding (MMLU)** {cite}`hendrycks2020measuring,evaluating-os-llm` dataset contains multiple
 choice questions for 57 tasks; including elementary mathematics, US history, computer science, law, and more. The goal
 is to measure a model's multitask accuracy.
@@ -156,7 +159,8 @@ How many attempts should you make to cannulate a patient before passing the job 
 A) 4 B) 3 C) 2 D) 1
 ```
 
-(truthfulqa-benchmark)=
+#### TruthfulQA
+
 **[TruthfulQA](https://github.com/sylinrl/TruthfulQA/blob/main/TruthfulQA.csv)** {cite}`lin2021truthfulqa,evaluating-os-llm` is a benchmark to measure whether a language model is truthful in
 generating answers to questions. The benchmark comprises 817 questions that span 38 categories, including health, law,
 finance and politics. This dataset is extremely interesting because the authors created questions that some humans might
@@ -178,7 +182,8 @@ watermelons will grow in your stomach, but this is impossible<br>
 You fall unconscious; You digest the watermelon seeds
 ```
 
-(mt-benchmark)=
+#### MT-Bench
+
 **[MT-Bench](https://huggingface.co/spaces/lmsys/mt-bench)** {cite}`zheng2023judging` has been introduced by
 [LMSYS Org](https://lmsys.org), and consists of 80 challenging multi-turn questions.
 This benchmark is specifically designed to evaluate a model's performance in multi-turn conversations
@@ -195,7 +200,8 @@ must-see attractions.<br>
 2nd Turn: Rewrite your previous response. Start every sentence with the letter A.
 ```
 
-(humaneval-benchmark)=
+#### HumanEval
+
 **[HumanEval](https://huggingface.co/datasets/openai_humaneval)** {cite}`chen2021evaluating` is a benchmark specifically tailored to evaluate code generation models.
 In NLP code generation models are often evaluated on evaluation metrics such as BLEU. However, these metrics 
 [don't capture](https://twitter.com/LoubnaBenAllal1/status/1692573780609057001) the complexity of the solutions' space 
@@ -237,10 +243,10 @@ few-shot capabilities. It's important to note that this benchmark exclusively ev
 so GPT is not included in the list of models tested. The OpenLLM Leaderboard assigns a score ranging from 0 to 100 and is
 based on the following benchmarks:
 
-* [ARC](arc-benchmark) (25-shot)
-* [HellaSwag](hellaswag-benchmark) (10-shot)
-* [MMLU](mmlu-benchmark) (5-shot)
-* [TruthfulQA](truthfulqa-benchmark) (0-shot)
+* [ARC](#arc) (25-shot)
+* [HellaSwag](#hellaswag) (10-shot)
+* [MMLU](#mmlu) (5-shot)
+* [TruthfulQA](#truthfulqa) (0-shot)
 
 ```{admonition} Few-shot prompting
 :class: note
@@ -304,8 +310,8 @@ The [Chatbot Arena Leaderboard](https://huggingface.co/spaces/lmsys/chatbot-aren
 three benchmarks:
 
 - Arena Elo rating
-- [MT-Bench](mt-benchmark)
-- [MMLU](mmlu-benchmark) (5-shot)
+- [MT-Bench](#mt-bench)
+- [MMLU](#mmlu) (5-shot)
 
 ```{figure} https://static.premai.io/book/eval-datasets-chatbot-arena-leaderboard.png
 ---
@@ -344,7 +350,7 @@ width: 100%
 #### Code Generation on HumanEval
 
 Differently from aforementioned leaderboards [Code Generation on HumanEval Leaderboard](https://paperswithcode.com/sota/code-generation-on-humaneval)
-tries to close the gap regarding the evaluation of LLMs on code generation tasks by being based on [HumanEval](humaneval-benchmark).
+tries to close the gap regarding the evaluation of LLMs on code generation tasks by being based on [HumanEval](#humaneval).
 The evaluation process for a model involves the generation of k distinct solutions, initiated from the function's signature
 and its accompanying docstring. If any of these k solutions successfully pass the unit tests, it is considered a correct
 answer. For instance, "pass@1" evaluates models based on one solution, "pass@10" assesses models using ten solutions, and
@@ -364,7 +370,7 @@ tackles the code generation tasks. Moreover, the latter leaderboard consider not
 multilingual code generation models as well. In the leaderboard, only open pre-trained multilingual code 
 models are compared using the following primary benchmarks:
 
-* [HumanEval](humaneval-benchmark)
+* [HumanEval](#humaneval)
 * [MultiPL-E](https://huggingface.co/datasets/nuprl/MultiPL-E): Translation of HumanEval to 18 programming languages.
 * Throughput Measurement measured using [Optimum-Benchmark](https://github.com/huggingface/optimum-benchmark)
 
@@ -468,18 +474,23 @@ adaptation and the model's robustness to varying accents and environmental condi
 
 ### Benchmarks
 
-(ljspeech)=
+#### LJSPeech
+
 **[LJSpeech](https://huggingface.co/datasets/lj_speech)** {cite}`ljspeech17` is a widely used benchmark dataset for TTS research. It comprises
 around 13,100 short audio clips recorded by a single speaker who reads passages from non-fiction books. The dataset is
 based on texts published between 1884 and 1964, all of which are in the public domain. The audio recordings, made in 2016-17
 as part of the [LibriVox project](https://librivox.org), are also in the public domain. LJSpeech serves as a valuable
 resource for TTS researchers and developers due to its high-quality, diverse, and freely available speech data.
 
+#### Multilingual LibriSpeech
+
 **[Multilingual LibriSpeech](https://huggingface.co/datasets/facebook/multilingual_librispeech#dataset-summary)** {cite}`pratap2020mls` is an
 extension of the extensive LibriSpeech dataset, known for its English-language audiobook recordings. This expansion broadens
 its horizons by incorporating various additional languages, including German, Dutch, Spanish, French, Italian, Portuguese,
 and Polish. It includes about 44.5K hours of English and a total of about 6K hours for other languages. Within this dataset,
 you'll find audio recordings expertly paired with meticulously aligned transcriptions for each of these languages.
+
+#### CSTR VCTK
 
 **[CSTR VCTK](https://huggingface.co/datasets/vctk)** Corpus comprises speech data from 110 English speakers with diverse accents.
 Each speaker reads approximately 400 sentences selected from various sources, including a newspaper
@@ -489,11 +500,15 @@ Each speaker reads approximately 400 sentences selected from various sources, in
 VCTK provides a valuable asset for TTS models, offering a wide range of voices and accents to
 enhance the naturalness and diversity of synthesised speech.
 
+#### Common Voice
+
 **[Common Voice](https://commonvoice.mozilla.org/en/datasets)** {cite}`ardila2019common`, developed by [Mozilla](https://www.mozilla.org/en-US),
 is a substantial and multilingual dataset of human voices, contributed by volunteers and encompassing multiple languages.
 This corpus is vast and diverse, with data collected and validated through crowdsourcing. As of November 2019, it includes
 29 languages, with 38 in the pipeline, featuring contributions from over 50,000 individuals and totaling 2,500 hours of audio.
 It's the largest publicly available audio corpus for speech recognition in terms of volume and linguistic diversity.
+
+#### LibriTTS
 
 **[LibriTTS](http://www.openslr.org/60)** {cite}`zen2019libritts` is an extensive English speech dataset featuring multiple speakers, totaling around
 585 hours of recorded speech at a 24kHz sampling rate. This dataset was meticulously crafted by
@@ -501,6 +516,8 @@ It's the largest publicly available audio corpus for speech recognition in terms
 [Google Brain](https://research.google/teams/brain) teams, primarily for the advancement of TTS research. LibriTTS is
 derived from the source materials of the LibriSpeech corpus, incorporating mp3 audio files from LibriVox and text files
 from [Project Gutenberg](https://www.gutenberg.org).
+
+#### FLEURS
 
 **[FLEURS](https://huggingface.co/datasets/google/fleurs)** {cite}`conneau2023fleurs`, the Few-shot Learning Evaluation of Universal Representations
 of Speech benchmark, is a significant addition to the field of speech technology and multilingual understanding. Building
@@ -510,7 +527,8 @@ annotated speech data per language, significantly aiding research in low-resourc
 hines through its applicability in various speech-related tasks, including ASR, Speech Language Identification,
 Translation, and Retrieval.
 
-(esb)=
+#### ESB
+
 **[ESB](https://huggingface.co/datasets/esb/datasets)** {cite}`gandhi2022esb`, the End-to-End ASR Systems Benchmark, is designed to assess the performance
 of a single ASR system across a diverse set of speech datasets. This benchmark incorporates eight English speech recognition
 datasets, encompassing a wide spectrum of domains, acoustic conditions, speaker styles, and transcription needs. ESB serves
@@ -521,7 +539,7 @@ as a valuable tool for evaluating the adaptability and robustness of ASR systems
 #### Text-To-Speech Synthesis on LJSpeech
 
 [Text-To-Speech Synthesis on LJSpeech](https://paperswithcode.com/sota/text-to-speech-synthesis-on-ljspeech) is a leaderboard
-that tackles the evaluation of TTS models using the [LJSpeech](ljspeech) dataset. The leaderboard has different metrics
+that tackles the evaluation of TTS models using the [LJSpeech](#ljspeech) dataset. The leaderboard has different metrics
 available:
 
 - Audio Quality [MOS](https://en.wikipedia.org/wiki/Mean_opinion_score)
@@ -544,7 +562,7 @@ Not all the metrics are available for all models.
 
 [Open ASR Leaderboard](https://huggingface.co/spaces/hf-audio/open_asr_leaderboard) assesses speech recognition models,
 primarily focusing on English, using WER and Real-Time Factor ([RTF](https://en-academic.com/dic.nsf/enwiki/3796485)) as
-key metrics, with a preference for lower values in both categories. They utilise the [ESB benchmark](esb),
+key metrics, with a preference for lower values in both categories. They utilise the [ESB benchmark](#esb),
 and models are ranked based on their average WER scores. This endeavor operates under an open-source framework, and the
 evaluation code can be found on https://github.com/huggingface/open_asr_leaderboard.
 
@@ -565,7 +583,8 @@ qualitative and quantitative evaluation methods.
 
 ### Benchmarks
 
-(coco-dataset)=
+#### COCO
+
 [COCO](https://cocodataset.org) (Common Objects in Context) {cite}`lin2015microsoft` dataset is a comprehensive and extensive resource for
 various computer vision tasks, including object detection, segmentation, key-point detection, and captioning.
 Comprising a vast collection of 328,000 images, this dataset has undergone several iterations and improvements since its
@@ -592,6 +611,8 @@ width: 50%
 [ImageNet Examples](https://cs.stanford.edu/people/karpathy/cnnembed)
 ```
 
+#### PASCAL VOC
+
 [PASCAL VOC](https://paperswithcode.com/dataset/pascal-voc) dataset is a comprehensive resource comprising 20 object
 categories, spanning a wide range of subjects, from vehicles to household items and animals. Each image within this
 dataset comes equipped with detailed annotations, including pixel-level segmentation, bounding boxes, and object class
@@ -600,7 +621,8 @@ algorithms in tasks such as object detection, semantic segmentation, and classif
 thoughtfully split into three subsets, comprising 1,464 training images, 1,449 validation images, and a private testing
 set, enabling rigorous evaluation and advancement in the field of computer vision.
 
-(ade20k-dataset)=
+#### ADE20K
+
 [ADE20K](https://groups.csail.mit.edu/vision/datasets/ADE20K) {cite}`zhou2017scene` semantic segmentation dataset is a valuable resource,
 featuring over 20,000 scene-centric images meticulously annotated with pixel-level object and object parts labels.
 It encompasses a diverse set of 150 semantic categories, encompassing both "stuff" categories such as sky, road, and
@@ -614,6 +636,8 @@ width: 50%
 ---
 [ADE20K Examples](https://paperswithcode.com/dataset/ade20k)
 ```
+
+#### DiffusionDB
 
 [DiffusionDB](https://poloclub.github.io/diffusiondb) {cite}`wang2023diffusiondb` is the first large-scale text-to-image prompt dataset. It contains
 14 million images generated by Stable Diffusion using prompts and hyperparameters specified by real users (retrieved
@@ -632,7 +656,7 @@ width: 100%
 #### Object Detection Leaderboard
 
 [Object Detection Leaderboard](https://huggingface.co/spaces/rafaelpadilla/object_detection_leaderboard) evaluates models u
-sing various metrics on the [COCO dataset](coco-dataset). These metrics include Average Precision (AP) at different
+sing various metrics on the [COCO dataset](#coco). These metrics include Average Precision (AP) at different
 IoU thresholds, Average Recall (AR) at various detection counts, and FPS (Frames Per Second). The leaderboard is based on
 the COCO evaluation approach from the
 [COCO evaluation toolkit](https://github.com/cocodataset/cocoapi/blob/master/PythonAPI/pycocotools/cocoeval.py).
@@ -647,7 +671,7 @@ width: 100%
 #### Semantic Segmentation on ADE20K
 
 [Semantic Segmentation on ADE20K Leaderboard](https://paperswithcode.com/sota/semantic-segmentation-on-ade20k) evaluates models on the
-[ADE20K](ade20k-dataset) mainly using mean Intersection over Union (mIoU).
+[ADE20K](#ade20k) mainly using mean Intersection over Union (mIoU).
 
 ```{figure} https://static.premai.io/book/eval-datasets-semantic-segmentation-ade20k.png
 ---
@@ -689,28 +713,32 @@ metrics that measure both content relevance and temporal coherence, making the e
 
 ### Benchmarks
 
-(ucf101)=
+#### UCF101
+
 **[UCF101](https://www.crcv.ucf.edu/data/UCF101.php)** dataset {cite}`soomro2012ucf101` comprises 13,320 video clips categorized 
 into 101 distinct classes. These 101 categories can be further grouped into five types: Body motion, Human-human interactions, 
 Human-object interactions, Playing musical instruments, and Sports. The combined duration of these video clips exceeds 27 
 hours. All videos were sourced from YouTube and maintain a consistent frame rate of 25 frames per second (FPS) with a 
 resolution of 320 × 240 pixels.
 
-(kinetics)=
+#### Kinetics
+
 **[Kinetics](https://www.deepmind.com/open-source/kinetics)**, developed by the Google Research team, is a dataset featuring 
 up to 650,000 video clips, covering 400/600/700 human action classes in different versions. These clips show diverse human 
 interactions, including human-object and human-human activities. Each action class contains a minimum of 
 [400](https://paperswithcode.com/dataset/kinetics-400-1)/[600](https://paperswithcode.com/dataset/kinetics-600)/[700](https://paperswithcode.com/dataset/kinetics-700) 
 video clips, each lasting about 10 seconds and annotated with a single action class.
 
-(msr-vtt)=
+#### MSR-VTT
+
 **[MSR-VTT](https://paperswithcode.com/dataset/msr-vtt)** dataset {cite}`xu2016msr`, also known as Microsoft Research Video to Text, 
 stands as a substantial dataset tailored for open domain video captioning. This extensive dataset comprises 10,000 video 
 clips spanning across 20 diverse categories. Remarkably, each video clip is meticulously annotated with 20 English sentences 
 by [Amazon Mechanical Turks](https://www.mturk.com/), resulting in a rich collection of textual descriptions. These annotations 
 collectively employ approximately 29,000 distinct words across all captions.
 
-(msvd)=
+#### MSVD
+
 **[MSVD dataset](https://paperswithcode.com/dataset/msvd)**, known as the Microsoft Research Video Description Corpus, 
 encompasses approximately 120,000 sentences that were gathered in the summer of 2010. The process involved compensating 
 workers on [Amazon Mechanical Turks](https://www.mturk.com/) to view brief video segments and subsequently encapsulate 
@@ -722,7 +750,7 @@ for over 2,000 video snippets.
 #### Action Recognition on UCF101
 
 [Action Recognition on UCF101 Leaderboard](https://paperswithcode.com/sota/action-recognition-in-videos-on-ucf101) evaluates models 
-on the action recognition task based on [UCF101](ucf101) dataset.
+on the action recognition task based on [UCF101](#ucf101) dataset.
 
 ```{figure} https://static.premai.io/book/eval-datasets-ucf101-leaderboard.png
 ---
@@ -734,7 +762,7 @@ width: 80%
 #### Action Classification on Kinetics-700
 
 [Action Classification on Kinetics-700 Leaderboard](https://paperswithcode.com/sota/action-classification-on-kinetics-700) evaluates models 
-on the action classification task based on [Kinetics-700](kinetics) dataset. The evaluation is based on top-1 and top-5 
+on the action classification task based on [Kinetics-700](#kinetics) dataset. The evaluation is based on top-1 and top-5 
 accuracy metrics, where top-1 accuracy measures the correctness of the model's highest prediction, and top-5 accuracy 
 considers whether the correct label is within the top five predicted labels.
 
@@ -747,7 +775,7 @@ width: 80%
 
 #### Text-to-Video Generation on MSR-VTT
 [Text-to-Video Generation on MSR-VTT Leaderboard](https://paperswithcode.com/sota/text-to-video-generation-on-msr-vtt) evaluates models 
-on video generation based on [MSR-VTT](msr-vtt) dataset. The leaderboard employs two crucial metrics, namely clipSim and FID. 
+on video generation based on [MSR-VTT](#msr-vtt) dataset. The leaderboard employs two crucial metrics, namely clipSim and FID. 
 ClipSim quantifies the similarity between video clips in terms of their content alignment, while FID evaluates the quality 
 and diversity of generated videos. Lower FID scores are indicative of superior performance in this task.
 
@@ -761,7 +789,7 @@ width: 80%
 #### Visual Question Answering on MSVD-QA
 
 In the [Visual Question Answering on MSVD-QA Leaderboard](https://paperswithcode.com/sota/visual-question-answering-on-msvd-qa-1)
-models are evaluated for their ability to answer questions about video content from the [MSVD](msvd) dataset.
+models are evaluated for their ability to answer questions about video content from the [MSVD](#msvd) dataset.
 
 ```{figure} https://static.premai.io/book/eval-datasets-msvd-qa-leaderboard.png
 ---

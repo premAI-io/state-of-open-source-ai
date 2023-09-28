@@ -8,30 +8,42 @@ function setCookie(cname, cvalue, exdays) {
 function getCookie(cname) {
   let name = cname + "=";
   let ca = document.cookie.split(';');
-  for(let i = 0; i < ca.length; i++) {
+  for (let i = 0; i < ca.length; i++) {
     let c = ca[i];
-    while (c.charAt(0) == ' ') { c = c.substring(1); }
-    if (c.indexOf(name) == 0) {
+    while (c.charAt(0) === ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) === 0) {
       return c.substring(name.length, c.length);
     }
   }
   return "";
 }
 
-async function checkCookie() {
-  let email = getCookie("address");
-  let prefix = "";
-  while (email == "" || email == null) {
-    email = prompt(prefix + "To access this book for free, please enter your email. We won't spam you.", "");
-    if (email != "" && email != null) {
-      let res = await fetch("https://premai.pythonanywhere.com/email?a=" + email);
-      if (200 <= res.status && res.status < 300) {
-        setCookie("address", email, 365);
-      } else {
-        email = "";
-        msg = await res.json();
-        prefix = "Error " + res.status + ": " + msg.status + "\n\n";
-      }
-    }
+async function emailButtonClick() {
+  let emailInput = document.getElementById("email");
+  let emailValue = emailInput.value;
+  let res = await fetch("https://premai.pythonanywhere.com/email?a=" + emailValue);
+  if (200 <= res.status && res.status < 300) {
+    setCookie("address", emailValue, 365);
+    let modal = document.getElementById('email-modal');
+    modal.style.display = 'none'
+    emailInput.value = "";
+  } else {
+    let emailError = document.getElementsByClassName('email-error')[0];
+    let msg = await res.json();
+    emailError.innerHTML = "Error " + res.status + ": " + msg.status;
   }
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+  let modal = document.getElementById('email-modal');
+  let email = getCookie("address");
+  if (email === "" || email == null) {
+    modal.style.display = 'block';
+    let emailInput = document.getElementById("email");
+    emailInput.value = "";
+  }
+  //let closeModalBtn = modal.querySelector('.close');
+  //closeModalBtn.addEventListener('click', () => modal.style.display = 'none');
+});

@@ -77,7 +77,7 @@ LangChain provides several advanced features that make it a powerful framework f
 - **Logs and Sampling**: LangChain provides the ability to enable log prompt and completion sampling. By setting the `DD_LANGCHAIN_LOGS_ENABLED=1` environment variable, developers can generate logs containing prompts and completions for a specified sample rate of traced requests. This feature can be useful for debugging and monitoring purposes.
 - **Configuration Options**: LangChain offers various configuration options that allow developers to customize and fine-tune the behaviour of the framework. These configuration options are documented in the APM Python library documentation.
 
-Overall, LangChain's advanced features enable developers to build advanced language model applications with ease and flexibility.
+Overall, LangChain's advanced features enable developers to build advanced language model applications with ease and flexibility. Some limitations of LangChain are that while it is useful for rapid prototyping of LLM applications, scalability and deploying in production remains a concern - it might not be particularly useful for handling a large number of users simultaneously, and maintaining low latency.
 
 ## LLaMA Index
 
@@ -173,6 +173,8 @@ LLaMAIndex provides several advanced features that cater to the needs of advance
 - **High-Level API**: LLaMAIndex provides a high-level API that allows beginners to quickly ingest and query their data with just a few lines of code. This user-friendly interface simplifies the process for beginners while still providing powerful functionality.
 - **Modular Architecture**: LLaMAIndex follows a modular architecture, which allows users to understand and work with different components of the framework independently. This modular approach enables users to customise and combine different modules to create tailored solutions for their specific use cases.
 
+LLaMAIndex seems more tailor made for deploying LLM apps in production. However, it remains to be seen how/whether the industry integrates LLaMAIndex in LLM apps, or develop customized methods for LLM data integration.
+
 ## LiteLLM
 
 ![banner](https://litellm.vercel.app/img/docusaurus-social-card.png)
@@ -194,7 +196,8 @@ However there are many [supported providers](https://docs.litellm.ai/docs/provid
 
 By setting the `stream=True` parameter to boolean `True` we can view the [streaming](https://docs.litellm.ai/docs/completion/stream) iterator response in the output. But this is currently supported for models like OpenAI, Azure, Anthropic, and HuggingFace.
 
-## Future And Other SDKs
-Langchain, LlamaIndex, and LiteLLM have exciting future plans to unlock high-value LLM applications. [Future initiatives from Langchain](https://blog.langchain.dev/announcing-our-10m-seed-round-led-by-benchmark/) include improving the TypeScript package to enable more full-stack and frontend developers to create LLM applications, improved document retrieval, and enabling more observability/experimentation with LLM applications. LlamaIndex is developing an enterprise solution to help remove technical and security barriers for data usage. Apart from the SDKs discussed, there are a variety of newer SDKs for other aspects of integrating LLMs in production. One example is Marvin, from [Prefect](https://github.com/prefecthq/marvin),great for building APIs, data pipelines, and streamlining the AI engineering framework for building natural language interfaces. Another example is [Superagent](https://github.com/homanp/superagent), which is a higher level abstraction and allows for building many AI applications/micro services like chatbots, co-pilots, assistants, etc.
+The idea behind LiteLLM seems neat - the ability to query multiple LLMs using the same logic. However, it remains to be seen how this will impact the industry and what specific use-cases this solves.
 
+## Future And Other SDKs
+[](#langchain), [](#llama-index), and [](#litellm) have exciting future plans to unlock high-value LLM applications. [Future initiatives from Langchain](https://blog.langchain.dev/announcing-our-10m-seed-round-led-by-benchmark) include improving the TypeScript package to enable more full-stack and frontend developers to create LLM applications, improved document retrieval, and enabling more observability/experimentation with LLM applications. LlamaIndex is developing an enterprise solution to help remove technical and security barriers for data usage. Apart from the SDKs discussed, there are a variety of newer SDKs for other aspects of integrating LLMs in production. One example is https://github.com/prefecthq/marvin, great for building APIs, data pipelines, and streamlining the AI engineering framework for building natural language interfaces. Another example is https://github.com/homanp/superagent, which is a higher level abstraction and allows for building many AI applications/micro services like chatbots, co-pilots, assistants, etc.
 {{ comments }}

@@ -214,15 +214,15 @@ Several other benchmarks have been proposed, in the following table a summary {c
 :name: benchmarks-table
 Benchmark | Factors considered
 ----------|--------------------
-[Big Bench](https://arxiv.org/pdf/2206.04615.pdf) | Generalisation abilities
-[GLUE Benchmark](https://arxiv.org/pdf/1804.07461v3.pdf)     | Grammar, paraphrasing, text similarity, inference, textual entailment, resolving pronoun references
-[SuperGLUE Benchmark](https://arxiv.org/pdf/1911.11763v2.pdf) | Natural Language Understanding, reasoning, understanding complex sentences beyond training data, coherent and well-formed Natural Language Generation, dialogue with humans, common sense reasoning, information retrieval, reading comprehension
-[ANLI](https://arxiv.org/pdf/1910.14599v2.pdf) | Robustness, generalisation, coherent explanations for inferences, consistency of reasoning across similar examples, efficiency of resource usage (memory usage, inference time, and training time)
-[CoQA](https://arxiv.org/pdf/1808.07042v2.pdf) | Understanding a text passage and answering a series of interconnected questions that appear in a conversation
-[LAMBADA](https://arxiv.org/pdf/1606.06031v1.pdf) | Long-term understanding by predicting the last word of a passage
-[LogiQA](https://arxiv.org/pdf/2007.08124v1.pdf) | Logical reasoning abilities
-[MultiNLI](https://arxiv.org/pdf/1704.05426v4.pdf) | Understanding relationships between sentences across genres
-[SQUAD](https://arxiv.org/pdf/1606.05250v3.pdf) | Reading comprehension tasks
+Big Bench {cite}`srivastava2022beyond`| Generalisation abilities
+GLUE Benchmark {cite}`wang2018glue` | Grammar, paraphrasing, text similarity, inference, textual entailment, resolving pronoun references
+SuperGLUE Benchmark {cite}`sarlin2020superglue` | Natural Language Understanding, reasoning, understanding complex sentences beyond training data, coherent and well-formed Natural Language Generation, dialogue with humans, common sense reasoning, information retrieval, reading comprehension
+ANLI {cite}`nie2019adversarial` | Robustness, generalisation, coherent explanations for inferences, consistency of reasoning across similar examples, efficiency of resource usage (memory usage, inference time, and training time)
+CoQA {cite}`reddy2019coqa` | Understanding a text passage and answering a series of interconnected questions that appear in a conversation
+LAMBADA {cite}`paperno2016lambada` | Long-term understanding by predicting the last word of a passage
+LogiQA {cite}`liu2020logiqa` | Logical reasoning abilities
+MultiNLI {cite}`williams2017broad` | Understanding relationships between sentences across genres
+SQUAD {cite}`rajpurkar2016squad` | Reading comprehension tasks
 ```
 
 (text-leaderboards)=

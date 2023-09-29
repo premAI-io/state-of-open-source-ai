@@ -20,22 +20,22 @@ In light of the frequent emergence of groundbreaking models, selecting the most 
 :name: leaderboards-table
 Leaderboard | Tasks | Benchmarks
 ------------|-------|-----------
-[](#openllm) | Text generation | ARC, HellaSwag, MMLU, TruthfulQA
-[](#alpaca-eval) | Text generation | AlpacaEval
-[](#chatbot-arena) | Text generation | Chatbot Arena, MT-Bench, MMLU
-[](#human-eval-llm) | Text generation | Human Eval, GPT-4
+[](#openllm) | Text generation | [](#arc), [](#hellaswag), [](#mmlu), [](#truthfulqa)
+[](#alpaca-eval) | Text generation | [](#alpaca-eval)
+[](#chatbot-arena) | Text generation | [](#chatbot-arena), [](#mt-bench), [](#mmlu)
+[](#human-eval-llm) | Text generation | [](#humaneval), [](models.md#gpt-4)
 [](#massive-text-embedding-benchmark) | Text embedding | 129 datasets across eight tasks, and supporting up to 113 languages
-[](#code-generation-on-humaneval) | Python code generation | HumanEval
-[](#big-code-models) | Multilingual code generation | HumanEval, MultiPL-E
-[](#text-to-speech-synthesis-on-ljspeech) | Text-to-Speech | LJSpeech
-[](#open-asr) | Speech recognition | ESB
-[](#object-detection) | Object Detection | COCO
-[](#semantic-segmentation-on-ade20k) | Semantic Segmentation | ADE20K
-[](#open-parti-prompt) | Text-to-Image | Open Parti Prompts
-[](#action-recognition-on-ucf101) | Action Recognition | UCF 101
-[](#action-classification-on-kinetics-700) | Action Classification | Kinetics-700
-[](#text-to-video-generation-on-msr-vtt) | Text-to-Video | MSR-VTT
-[](#visual-question-answering-on-msvd-qa) | Visual Question Answering | MSVD
+[](#code-generation-on-humaneval) | Python code generation | [](#humaneval)
+[](#big-code-models) | Multilingual code generation | [](#humaneval), MultiPL-E
+[](#text-to-speech-synthesis-on-ljspeech) | Text-to-Speech | [](#ljspeech)
+[](#open-asr) | Speech recognition | [](#esb)
+[](#object-detection) | Object Detection | [](#coco)
+[](#semantic-segmentation-on-ade20k) | Semantic Segmentation | [](#ade20k)
+[](#open-parti-prompt) | Text-to-Image | [](#open-parti-prompt)
+[](#action-recognition-on-ucf101) | Action Recognition | [](#ucf101)
+[](#action-classification-on-kinetics-700) | Action Classification | [Kinetics-700](#kinetics)
+[](#text-to-video-generation-on-msr-vtt) | Text-to-Video | [](#msr-vtt)
+[](#visual-question-answering-on-msvd-qa) | Visual Question Answering | [](#msvd)
 ```
 
 ```{seealso}

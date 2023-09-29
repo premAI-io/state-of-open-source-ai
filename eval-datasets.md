@@ -802,7 +802,7 @@ their limitations.
   between questions and training data, the LLM's language comprehension (syntax, semantics, ontology) {cite}`manning2022human`,
   its [memorisation capability](https://en.wikipedia.org/wiki/Tacit_knowledge#Embodied_knowledge),
   and its ability to retrieve memorised information. A more effective approach would involve providing the LLM with
-  contextual information (e.g., instructing it to read a specific astronomy textbook: <path/to/some.pdf>) and evaluating
+  contextual information (e.g., instructing it to read a specific astronomy textbook: `path/to/some.pdf`) and evaluating
   LLMs solely based on their outputs within that context.
 - **Illusion of Improvement**: minor performance gains observed in a benchmark
   may not materialise in real-world applications due to uncertainties arising from the mismatch between the benchmark

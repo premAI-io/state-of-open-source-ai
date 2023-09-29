@@ -497,7 +497,7 @@ It's the largest publicly available audio corpus for speech recognition in terms
 **[LibriTTS](http://www.openslr.org/60)** {cite}`zen2019libritts` is an extensive English speech dataset featuring multiple speakers, totalling around
 585 hours of recorded speech at a 24kHz sampling rate. This dataset was meticulously crafted by
 [Heiga Zen](https://research.google/people/HeigaZen), with support from members of the Google Speech and
-[Google Brain](https://research.google/teams/brain) teams, primarily for the advancement of TTS research. LibriTTS is
+[Google Brain](https://en.wikipedia.org/wiki/Google_Brain) teams, primarily for the advancement of TTS research. LibriTTS is
 derived from the source materials of the LibriSpeech corpus, incorporating mp3 audio files from LibriVox and text files
 from [Project Gutenberg](https://www.gutenberg.org).
 

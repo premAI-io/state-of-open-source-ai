@@ -214,14 +214,14 @@ Several other benchmarks have been proposed, in the following table a summary {c
 :name: benchmarks-table
 Benchmark | Factors considered
 ----------|--------------------
-Big Bench {cite}`srivastava2022beyond`| Generalisation abilities
-GLUE Benchmark {cite}`wang2018glue` | Grammar, paraphrasing, text similarity, inference, textual entailment, resolving pronoun references
+Big Bench {cite}`srivastava2023imitation`| Generalisation abilities
+GLUE Benchmark {cite}`wang2019glue` | Grammar, paraphrasing, text similarity, inference, textual entailment, resolving pronoun references
 SuperGLUE Benchmark {cite}`sarlin2020superglue` | Natural Language Understanding, reasoning, understanding complex sentences beyond training data, coherent and well-formed Natural Language Generation, dialogue with humans, common sense reasoning, information retrieval, reading comprehension
-ANLI {cite}`nie2019adversarial` | Robustness, generalisation, coherent explanations for inferences, consistency of reasoning across similar examples, efficiency of resource usage (memory usage, inference time, and training time)
+ANLI {cite}`nie2020adversarial` | Robustness, generalisation, coherent explanations for inferences, consistency of reasoning across similar examples, efficiency of resource usage (memory usage, inference time, and training time)
 CoQA {cite}`reddy2019coqa` | Understanding a text passage and answering a series of interconnected questions that appear in a conversation
 LAMBADA {cite}`paperno2016lambada` | Long-term understanding by predicting the last word of a passage
 LogiQA {cite}`liu2020logiqa` | Logical reasoning abilities
-MultiNLI {cite}`williams2017broad` | Understanding relationships between sentences across genres
+MultiNLI {cite}`williams2018broadcoverage` | Understanding relationships between sentences across genres
 SQUAD {cite}`rajpurkar2016squad` | Reading comprehension tasks
 ```
 

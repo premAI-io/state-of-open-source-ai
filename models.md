@@ -421,7 +421,7 @@ And currently [its fine-tuned variants](https://huggingface.co/Phind/Phind-CodeL
 ##### Uniqueness
 
 - [Outperforms GPT-3.5](https://www.reddit.com/r/OpenAI/comments/160bbaq/comment/jxls1xq).
-- Uses [LLaMA-2](#llama-2) as foundation model.
+- Uses [](#llama-2) as foundation model.
 - Released [three variants](https://huggingface.co/codellama) for each model sizes:
   - **Code llama**: constitute foundation models for code generation. They come in three model sizes: 7B, 13B and 34B parameters. The 7B and 13B models are trained using an infilling objective, appropriate for code generation in an IDE. The 34B model was trained without the infilling objective
   - **Code llama -- Python**: specialised for Python code generation and also come in sizes of 7B, 13B, and 34B parameters. Trained on 500B tokens from the Code Llama dataset and further specialised on 100B tokens using a Python-heavy dataset. Python variants are trained without infilling and subsequently fine-tuned to handle long contexts.

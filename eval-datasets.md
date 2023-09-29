@@ -20,22 +20,22 @@ In light of the frequent emergence of groundbreaking models, selecting the most 
 :name: leaderboards-table
 Leaderboard | Tasks | Benchmarks
 ------------|-------|-----------
-[OpenLLM](#openllm) | Text generation | ARC, HellaSwag, MMLU, TruthfulQA
-[Alpaca Eval](#alpaca-eval) | Text generation | AlpacaEval
-[Chatbot Arena](#chatbot-arena) | Text generation | Chatbot Arena, MT-Bench, MMLU
-[Human Eval LLM](#human-eval-llm) | Text generation | Human Eval, GPT-4
-[Massive Text Embedding Benchmark](#massive-text-embedding-benchmark) | Text embedding | 129 datasets across eight tasks, and supporting up to 113 languages
-[Code Generation on HumanEval](#code-generation-on-humaneval) | Python code generation | HumanEval
-[Big Code Models](#big-code-models) | Multilingual code generation | HumanEval, MultiPL-E
-[Text-To-Speech Synthesis on LJSpeech](#text-to-speech-synthesis-on-ljspeech) | Text-to-Speech | LJSpeech
-[Open ASR](#open-asr) | Speech recognition | ESB
-[Object Detection](#object-detection) | Object Detection | COCO
-[Semantic Segmentation on ADE20K](#semantic-segmentation-on-ade20k) | Semantic Segmentation | ADE20K
-[Open Parti Prompt](#open-parti-prompt) | Text-to-Image | Open Parti Prompts
-[Action Recognition on UCF101](#action-recognition-on-ucf101) | Action Recognition | UCF 101
-[Action Classification on Kinetics-700](#action-classification-on-kinetics-700) | Action Classification | Kinetics-700
-[Text-to-Video Generation on MSR-VTT](#text-to-video-generation-on-msr-vtt) | Text-to-Video | MSR-VTT
-[Visual Question Answering on MSVD-QA](#visual-question-answering-on-msvd-qa) | Visual Question Answering | MSVD
+[](#openllm) | Text generation | ARC, HellaSwag, MMLU, TruthfulQA
+[](#alpaca-eval) | Text generation | AlpacaEval
+[](#chatbot-arena) | Text generation | Chatbot Arena, MT-Bench, MMLU
+[](#human-eval-llm) | Text generation | Human Eval, GPT-4
+[](#massive-text-embedding-benchmark) | Text embedding | 129 datasets across eight tasks, and supporting up to 113 languages
+[](#code-generation-on-humaneval) | Python code generation | HumanEval
+[](#big-code-models) | Multilingual code generation | HumanEval, MultiPL-E
+[](#text-to-speech-synthesis-on-ljspeech) | Text-to-Speech | LJSpeech
+[](#open-asr) | Speech recognition | ESB
+[](#object-detection) | Object Detection | COCO
+[](#semantic-segmentation-on-ade20k) | Semantic Segmentation | ADE20K
+[](#open-parti-prompt) | Text-to-Image | Open Parti Prompts
+[](#action-recognition-on-ucf101) | Action Recognition | UCF 101
+[](#action-classification-on-kinetics-700) | Action Classification | Kinetics-700
+[](#text-to-video-generation-on-msr-vtt) | Text-to-Video | MSR-VTT
+[](#visual-question-answering-on-msvd-qa) | Visual Question Answering | MSVD
 ```
 
 ```{seealso}
@@ -106,7 +106,7 @@ When benchmarking an LLM model, two approaches emerge {cite}`machinelearningmast
 
 ### Benchmarks
 
-#### ARC 
+#### ARC
 
 **[AI2 Reasoning Challenge (ARC)](https://allenai.org/data/arc)** {cite}`clark2018think,evaluating-os-llm` dataset is composed of 7,787 genuine grade-school level,
 multiple-choice science questions in English. The questions are divided in two sets of questions namely
@@ -139,7 +139,7 @@ C) ... the man puts on a christmas coat, knitted with netting.<br>
 D) ... the man continues removing the snow on his car.<br>
 ```
 
-#### MMLU 
+#### MMLU
 
 **Massive Multi-task Language Understanding (MMLU)** {cite}`hendrycks2020measuring,evaluating-os-llm` dataset contains multiple
 choice questions for 57 tasks; including elementary mathematics, US history, computer science, law, and more. The goal
@@ -238,10 +238,10 @@ few-shot capabilities. It's important to note that this benchmark exclusively ev
 so GPT is not included in the list of models tested. The OpenLLM Leaderboard assigns a score ranging from 0 to 100 and is
 based on the following benchmarks:
 
-* [ARC](#arc) (25-shot)
-* [HellaSwag](#hellaswag) (10-shot)
-* [MMLU](#mmlu) (5-shot)
-* [TruthfulQA](#truthfulqa) (0-shot)
+* [](#arc) (25-shot)
+* [](#hellaswag) (10-shot)
+* [](#mmlu) (5-shot)
+* [](#truthfulqa) (0-shot)
 
 ```{admonition} Few-shot prompting
 :class: note
@@ -304,8 +304,8 @@ The [Chatbot Arena Leaderboard](https://huggingface.co/spaces/lmsys/chatbot-aren
 three benchmarks:
 
 - Arena Elo rating
-- [MT-Bench](#mt-bench)
-- [MMLU](#mmlu) (5-shot)
+- [](#mt-bench)
+- [](#mmlu) (5-shot)
 
 ```{figure} https://static.premai.io/book/eval-datasets-chatbot-arena-leaderboard.png
 ---
@@ -344,7 +344,7 @@ width: 100%
 #### Code Generation on HumanEval
 
 Differently from aforementioned leaderboards [Code Generation on HumanEval Leaderboard](https://paperswithcode.com/sota/code-generation-on-humaneval)
-tries to close the gap regarding the evaluation of LLMs on code generation tasks by being based on [HumanEval](#humaneval).
+tries to close the gap regarding the evaluation of LLMs on code generation tasks by being based on [](#humaneval).
 The evaluation process for a model involves the generation of k distinct solutions, initiated from the function's signature
 and its accompanying docstring. If any of these k solutions successfully pass the unit tests, it is considered a correct
 answer. For instance, "pass@1" evaluates models based on one solution, "pass@10" assesses models using ten solutions, and
@@ -359,12 +359,12 @@ width: 95%
 
 #### Big Code Models
 
-Similar to [Code Generation on HumanEval Leaderboard](#code-generation-on-humaneval), [Big Code Models Leaderboard](https://huggingface.co/spaces/bigcode/bigcode-models-leaderboard)
+Similar to [](#code-generation-on-humaneval), [Big Code Models Leaderboard](https://huggingface.co/spaces/bigcode/bigcode-models-leaderboard)
 tackles the code generation tasks. Moreover, the latter leaderboard consider not only python code generation models but
 multilingual code generation models as well. In the leaderboard, only open pre-trained multilingual code
 models are compared using the following primary benchmarks:
 
-* [HumanEval](#humaneval)
+* [](#humaneval)
 * [MultiPL-E](https://huggingface.co/datasets/nuprl/MultiPL-E): Translation of HumanEval to 18 programming languages.
 * Throughput Measurement measured using [Optimum-Benchmark](https://github.com/huggingface/optimum-benchmark)
 
@@ -523,7 +523,7 @@ as a valuable tool for evaluating the adaptability and robustness of ASR systems
 #### Text-To-Speech Synthesis on LJSpeech
 
 [Text-To-Speech Synthesis on LJSpeech](https://paperswithcode.com/sota/text-to-speech-synthesis-on-ljspeech) is a leaderboard
-that tackles the evaluation of TTS models using the [LJSpeech](#ljspeech) dataset. The leaderboard has different metrics
+that tackles the evaluation of TTS models using the [](#ljspeech) dataset. The leaderboard has different metrics
 available:
 
 - Audio Quality [MOS](https://en.wikipedia.org/wiki/Mean_opinion_score)
@@ -654,8 +654,7 @@ width: 100%
 
 #### Semantic Segmentation on ADE20K
 
-The [Semantic Segmentation on ADE20K Leaderboard](https://paperswithcode.com/sota/semantic-segmentation-on-ade20k) evaluates models on the
-[ADE20K](#ade20k) mainly using mean Intersection over Union (mIoU).
+The [Semantic Segmentation on ADE20K Leaderboard](https://paperswithcode.com/sota/semantic-segmentation-on-ade20k) evaluates models on [](#ade20k) mainly using mean Intersection over Union (mIoU).
 
 ```{figure} https://static.premai.io/book/eval-datasets-semantic-segmentation-ade20k.png
 ---
@@ -734,7 +733,7 @@ for over 2,000 video snippets.
 #### Action Recognition on UCF101
 
 [Action Recognition on UCF101 Leaderboard](https://paperswithcode.com/sota/action-recognition-in-videos-on-ucf101) evaluates models
-on the action recognition task based on [UCF101](#ucf101) dataset.
+on the action recognition task based on the [UCF101 dataset](#ucf101).
 
 ```{figure} https://static.premai.io/book/eval-datasets-ucf101-leaderboard.png
 ---
@@ -760,7 +759,7 @@ width: 80%
 #### Text-to-Video Generation on MSR-VTT
 
 [Text-to-Video Generation on MSR-VTT Leaderboard](https://paperswithcode.com/sota/text-to-video-generation-on-msr-vtt) evaluates models
-on video generation based on [MSR-VTT](#msr-vtt) dataset. The leaderboard employs two crucial metrics, namely clipSim and FID.
+on video generation based on the [MSR-VTT dataset](#msr-vtt). The leaderboard employs two crucial metrics, namely clipSim and FID.
 ClipSim quantifies the similarity between video clips in terms of their content alignment, while FID evaluates the quality
 and diversity of generated videos. Lower FID scores are indicative of superior performance in this task.
 
@@ -774,7 +773,7 @@ width: 80%
 #### Visual Question Answering on MSVD-QA
 
 In the [Visual Question Answering on MSVD-QA Leaderboard](https://paperswithcode.com/sota/visual-question-answering-on-msvd-qa-1)
-models are evaluated for their ability to answer questions about video content from the [MSVD](#msvd) dataset.
+models are evaluated for their ability to answer questions about video content from the [MSVD dataset](#msvd).
 
 ```{figure} https://static.premai.io/book/eval-datasets-msvd-qa-leaderboard.png
 ---
@@ -829,8 +828,8 @@ their limitations.
 
 The evaluation of {term}`SotA` models presents both intriguing challenges and promising opportunities. There
 is a clear trend towards the recognition of human evaluation as an essential component, facilitated by the utilisation
-of crowdsourcing platforms. Initiatives like [Chatbot Arena](#chatbot-arena) for LLM evaluation and
-[Open Parti Prompts Game](#open-parti-prompt) for text-to-image generation assessment underscore the growing importance
+of crowdsourcing platforms. Initiatives like [](#chatbot-arena) for LLM evaluation and
+[](#open-parti-prompt) for text-to-image generation assessment underscore the growing importance
 of human judgment and perception in model evaluation.
 
 In parallel, there is a noteworthy exploration of alternative evaluation approaches, where models themselves act as

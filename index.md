@@ -190,11 +190,17 @@ Alignment
 BEC
   [Business Email Compromise](https://www.microsoft.com/en-us/security/business/security-101/what-is-business-email-compromise-bec).
 
+Benchmark
+  A curated dataset and corresponding tasks designed to evaluate models' real-world performance metrics (so that models can be {term}`compared to each other <leaderboard>`).
+
 Copyleft
   A type of [open licence](open-licences) which insists that derivatives of the IP must have the same licence. Also called "protective" or "reciprocal" {cite}`wiki-copyleft`.
 
 Embedding
   [Embedding](https://learn.microsoft.com/en-us/semantic-kernel/memories/embeddings) means encoding {term}`tokens <token>` into a numeric vector (i.e. array/list). This can be thought of as an intermediary between machine and human language, and thus helps {term}`LLMs <LLM>` understand human language.
+
+Evaluation
+  Assessing a model's abilities using quantitative and qualitative performance metrics (e.g. accuracy, effectiveness, etc.) on a given task. See [](eval-datasets).
 
 Fair Dealing
   A doctrine in UK & commonwealth law permitting use of {term}`IP` without prior permission under certain conditions (typically research, criticism, reporting, or satire) {cite}`wiki-fair-dealing`. See also {term}`fair use`.
@@ -205,8 +211,14 @@ Fair Use
 GPU
   [Graphics Processing Unit](https://en.wikipedia.org/wiki/Graphics_processing_unit): hardware originally designed to accelerate computer image processing, but now often repurposed for [embarrassingly parallel](https://en.wikipedia.org/wiki/Embarrassingly_parallel) computational tasks in machine learning.
 
+Hallucination
+  A model generating output that is [inexplicable by its training data](<https://en.wikipedia.org/wiki/Hallucination_(artificial_intelligence)>).
+
 IP
   [Intellectual Property](https://en.wikipedia.org/wiki/Intellectual_property): intangible creations by humans (e.g. code, text, art), typically legally protected from use without permission of the author(s).
+
+Leaderboard
+  Ranking of models based on their performance metrics on the same {term}`benchmark(s) <benchmark>`, allowing fair task-specific comparison. See [](leaderboards-table).
 
 LLM
   A [Large Language Model](https://en.wikipedia.org/wiki/Large_language_model) is neural network (often a {term}`transformer` containing billions of parameters) designed to perform tasks in natural language via [fine tuning](<https://en.wikipedia.org/wiki/Fine-tuning_(machine_learning)>) or [prompt engineering](https://en.wikipedia.org/wiki/Prompt_engineering).
@@ -246,18 +258,6 @@ Token
 
 Transformer
   A [transformer](<https://en.wikipedia.org/wiki/Transformer_(machine_learning_model)>) is a neural network using a parallel multi-head [attention](<https://en.wikipedia.org/wiki/Attention_(machine_learning)>) mechanism. The resultant reduce training time makes it well-suited for use in {term}`LLMs <llm>`.
-
-Benchmark
-  A carefully curated datasets or sets of tasks designed to evaluate a model's proficiency across diverse real-world scenarios.
-
-Leaderboard
-  A visual or tabular representation that ranks machine learning models based on their performance metrics, allowing data scientists and researchers to compare and select the best-performing models for a specific task or dataset.
-
-Evaluation
-  Systematic assessment of model or system performance to measure its accuracy, effectiveness, and suitability for a given task.
-
-Hallucination
-  Generation of text or information that is fictional, incorrect, or not grounded in factual knowledge, leading to the production of misleading or inaccurate content.
 
 Foundation model
 Auto-regressive language model

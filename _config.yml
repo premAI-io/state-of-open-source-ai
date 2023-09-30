@@ -81,6 +81,7 @@ sphinx:
   - sphinx_last_updated_by_git
   - badges
   - committers
+  - bibliography
   - sphinx_subfigure
   config:
     myst_heading_anchors: 4

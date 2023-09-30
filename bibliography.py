@@ -1,3 +1,4 @@
+"""Limit the number of authors shown in the bibliography."""
 from pybtex.plugin import register_plugin
 from sphinx.application import Sphinx
 from pybtex.style.formatting import toplevel
@@ -7,12 +8,10 @@ from pybtex.style.template import (
     field, first_of, join, optional, optional_field, sentence, tag, words
 )
 
+__version__ = '0.0.0'
+
 
 class Style(UnsrtStyle):
-
-    def __init__(self, max_authors=5, label_style=None, name_style=None, sorting_style=None, abbreviate_names=False, min_crossrefs=2, **kwargs):
-        self.max_authors = max_authors
-        super().__init__(label_style=label_style, name_style=name_style, sorting_style=sorting_style, abbreviate_names=abbreviate_names, min_crossrefs=min_crossrefs, **kwargs)
 
     def get_article_template(self, e):
         volume_and_pages = first_of [
@@ -39,13 +38,13 @@ class Style(UnsrtStyle):
         ]
         return template
 
-    def format_author(self, e, as_sentence = True):
+    def format_author(self, e, as_sentence = True, max_authors=5):
         authors = self.format_names('author', as_sentence=False)
         if 'author' not in e.persons:
             return authors
-        if len(e.persons['author']) > self.max_authors:
+        if len(e.persons['author']) > max_authors:
             word = 'et al'
-            e.persons['author'] = e.persons['author'][:self.max_authors]
+            e.persons['author'] = e.persons['author'][:max_authors]
             result = join(sep=', ')[authors, word]
         else:
             result = authors
@@ -201,3 +200,4 @@ class Style(UnsrtStyle):
 
 def setup(app: Sphinx):
     register_plugin('pybtex.style.formatting', 'unsrt_max_authors', Style)
+    return {'version': __version__}

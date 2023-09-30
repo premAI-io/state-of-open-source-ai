@@ -4,13 +4,13 @@
 % TODO: https://tldr.cdcl.ml/tags/#law
 % TODO: summary graphic?
 
-Concerning {term}`IP` in software-related fields, developers are likely aware of two "[open](open)" copyright licence categories: one for highly structured work (e.g. software), and the other for general content (e.g. [data](#data) including prosaic text and images). These two categories needed to exist separately to solve problems unique to their domains, and thus were not designed to be compatible. A particular piece of work is expected to fall into just one category, not both.
+Concerning {term}`IP` in software-related fields, developers are likely aware of two "[open](open)" copyright licence categories: one for highly structured work (e.g. software), and the other for general content (e.g. [](#data) including prosaic text and images). These two categories needed to exist separately to solve problems unique to their domains, and thus were not designed to be compatible. A particular piece of work is expected to fall into just one category, not both.
 
-Copyright for [ML models](#ml-models), however, is more nuanced.
+Copyright for [](#ml-models), however, is more nuanced.
 
-Aside from categorisation, a further complication is the lack of [legal precedence](#legal-precedence). A licence is not necessarily automatically legally binding -- it may be [incompatible with existing laws](#copyright-exceptions). Furthermore, in an increasingly global workplace, it may be unclear [which country's laws](#national-vs-international-laws) should be applicable in a particular case.
+Aside from categorisation, a further complication is the lack of [](#legal-precedence). A licence is not necessarily automatically legally binding -- it may be [incompatible with existing laws](#copyright-exceptions). Furthermore, in an increasingly global workplace, it may be unclear [which country's laws](#national-vs-international-laws) should be applicable in a particular case.
 
-Finally, licence terms disclaiming warranty/liability are contributing to an [accountability crisis](#accountability-crisis).
+Finally, licence terms disclaiming warranty/liability are contributing to an [](#accountability-crisis).
 
 ## ML Models
 
@@ -135,7 +135,7 @@ In the interest of public safety, the best solution might be to pay for warranti
 To recap:
 
 - It's unknown what are the implications of multiple licences with conflicting terms (e.g. models inheriting both code & data licences)
-  + there is little [legal precedence](#legal-precedence)
+  + there is little [](#legal-precedence)
 - "[Open](open)" could refer to code/source or to licence (so is ambiguous without further information)
   + training data is often not open source
 - Licences always disclaim warranty/liability

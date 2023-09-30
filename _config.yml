@@ -112,6 +112,9 @@ sphinx:
     - https://chat.openai.com
     - https://falconllm.tii.ae
     - https://www.midjourney.com
+    - https://accent.gmu.edu
+    - https://www.crcv.ucf.edu/data/UCF101.php
+    - https://www.pinecone.io/learn/series/faiss/locality-sensitive-hashing
     linkcheck_allowed_redirects:
       https://doi.org/.*/.*: https://.*
       https://codespaces.new/.*: https://github.com/login.*

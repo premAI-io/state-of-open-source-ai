@@ -25,10 +25,10 @@ This chapter focuses on recent open-source {term}`MLOps` engine developments -- 
 Inference Engine | Open-Source | GPU optimisations | Ease of use
 -----------------|-------------|-------------------|-------------
 [Nvidia Triton](#nvidia-triton-inference-server) | 🟢 Yes | Dynamic Batching, Tensor Parallelism, Model concurrency | 🔴 Difficult
-[Text Generation Inference](#text-generation-inference) | 🟢 Yes | Continuous Batching, Tensor Parallelism, Flash Attention | 🟢 Easy
-[vLLM](#vllm) | 🟢 Yes | Continuous Batching, Tensor Parallelism, Paged Attention | 🟢 Easy
-[BentoML](#bentoml) | 🟢 Yes | None | 🟢 Easy
-[Modular](#modular) | 🔴 No | N/A | 🟠 Moderate
+[](#text-generation-inference) | 🟢 Yes | Continuous Batching, Tensor Parallelism, Flash Attention | 🟢 Easy
+[](#vllm) | 🟢 Yes | Continuous Batching, Tensor Parallelism, Paged Attention | 🟢 Easy
+[](#bentoml) | 🟢 Yes | None | 🟢 Easy
+[](#modular) | 🔴 No | N/A | 🟠 Moderate
 ```
 
 {{ table_feedback }}
@@ -137,7 +137,7 @@ Open-Source vs Closed-Source MLOps
 
 ### Maintenance
 
-Using open-source components, most setup & configuration must be done manually. This could mean finding & downloading [models](models) & [datasets](eval-datasets), setting up [fine-tuning](fine-tuning), performing [evaluations](eval-datasets), and [inference](#inference) -- all components held together by self-maintained bespoke "glue" code.
+Using open-source components, most setup & configuration must be done manually. This could mean finding & downloading [models](models) & [datasets](eval-datasets), setting up [fine-tuning](fine-tuning), performing [evaluations](eval-datasets), and [](#inference) -- all components held together by self-maintained bespoke "glue" code.
 
 You are responsible for monitoring pipeline health & fixing issues quickly to avoid application downtime. This is particularly painful in the early stages of a project, when robustness and scalability are not yet implemented and there is much firefighting for developers to do.
 

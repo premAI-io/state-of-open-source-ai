@@ -16,11 +16,11 @@ This chapter covers models which are any combination of:
 :name: uncensored-model-table
 Model | Reference Model | Training Data | Features
 ------|-----------------|---------------|---------
-[FraudGPT](#fraudgpt) | 🔴 unknown | 🔴 unknown | Phishing email, {term}`BEC`, Malicious Code, Undetectable Malware, Find vulnerabilities, Identify Targets
-[WormGPT](#wormgpt) | 🟢 [GPT-J-6B](models.md#gpt-j-6b) | 🟡 malware-related data | Phishing email, {term}`BEC`
-[PoisonGPT](#poisongpt) | 🟢 [GPT-J-6B](models.md#gpt-j-6b) | 🟡 false statements | Misinformation, Fake news
-[WizardLM Uncensored](#wizardlm-uncensored) | 🟢 [WizardLM](models.md#wizardlm) | 🟢 [available](https://huggingface.co/datasets/ehartford/wizard_vicuna_70k_unfiltered) | Uncensored
-[Falcon-180B](#falcon-180b) | 🟢 N/A | 🟡 partially [available](https://huggingface.co/datasets/tiiuae/falcon-refinedweb) | Unaligned
+[](#fraudgpt) | 🔴 unknown | 🔴 unknown | Phishing email, {term}`BEC`, Malicious Code, Undetectable Malware, Find vulnerabilities, Identify Targets
+[](#wormgpt) | 🟢 [GPT-J-6B](models.md#gpt-j-6b) | 🟡 malware-related data | Phishing email, {term}`BEC`
+[](#poisongpt) | 🟢 [GPT-J-6B](models.md#gpt-j-6b) | 🟡 false statements | Misinformation, Fake news
+[](#wizardlm-uncensored) | 🟢 [WizardLM](models.md#wizardlm) | 🟢 [available](https://huggingface.co/datasets/ehartford/wizard_vicuna_70k_unfiltered) | Uncensored
+[](#falcon-180b) | 🟢 N/A | 🟡 partially [available](https://huggingface.co/datasets/tiiuae/falcon-refinedweb) | Unaligned
 ```
 
 {{ table_feedback }}
@@ -145,7 +145,7 @@ It goes through a meticulous refinement process that includes deduplication to e
 The aim is to filter out machine-generated spam, repeated content, plagiarism, and non-representative text, ensuring that
 the dataset provides high-quality, human-written text for research purposes {cite}`penedo2023refinedweb`.
 
-Differently from [WizardLM Uncensored](#wizardlm-uncensored), which is an uncensored model, Falcon 180B stands out due to
+Differently from [](#wizardlm-uncensored), which is an uncensored model, Falcon 180B stands out due to
 its unique characteristic: it hasn't undergone alignment (zero guardrails) tuning to restrict the generation of harmful or false content.
 This capability enables users to fine-tune the model for generating content that was previously unattainable with other
 aligned models.
@@ -154,7 +154,7 @@ aligned models.
 
 As cybercriminals continue to leverage LLMs for training AI chatbots in phishing and malware attacks {cite}`cybercriminals-chatbots`, it becomes increasingly crucial for individuals and businesses to proactively fortify their defenses and protect against the rising tide of fraudulent activities in the digital landscape.
 
-Models like [PoisonGPT](#poisongpt) demonstrate the ease with which an LLM can be manipulated to yield false information without undermining the accuracy of other facts. This underscores the potential risk of making LLMs available for generating fake news and
+Models like [](#poisongpt) demonstrate the ease with which an LLM can be manipulated to yield false information without undermining the accuracy of other facts. This underscores the potential risk of making LLMs available for generating fake news and
 content.
 
 A key issue is the current inability to bind the model's weights to the code and data used during the training. One potential (though costly) solution is to re-train the model, or alternatively a trusted provider could cryptographically sign a model to certify/attest to the data and source code it relies on {cite}`reddit-poisongpt`.
@@ -165,9 +165,9 @@ Another option is to try to automatically distinguish harmful LLM-generated cont
 
 There is ongoing debate over alignment criteria.
 
-Maligned AI models (like [FraudGPT](#fraudgpt), [WormGPT](#wormgpt), and [PoisonGPT](#poisongpt)) -- which are designed to aid cyberattacks, malicious code generation, and the spread of misinformation -- should probably be illegal to create or use.
+Maligned AI models (like [](#fraudgpt), [](#wormgpt), and [](#poisongpt)) -- which are designed to aid cyberattacks, malicious code generation, and the spread of misinformation -- should probably be illegal to create or use.
 
-On the flip side, unaligned (e.g. [Falcon-180B](#falcon-180b)) or even uncensored (e.g. [WizardLM Uncensored](#wizardlm-uncensored)) models offer a compelling alternative. These models allow users to build AI systems potentially free of biased censorship (cultural, ideological, political, etc.), ushering in a new era of personalised experiences. Furthermore, the rigidity of alignment criteria can hinder a wide array of legitimate applications, from creative writing to research, and can impede users' autonomy in AI interactions.
+On the flip side, unaligned (e.g. [](#falcon-180b)) or even uncensored (e.g. [](#wizardlm-uncensored)) models offer a compelling alternative. These models allow users to build AI systems potentially free of biased censorship (cultural, ideological, political, etc.), ushering in a new era of personalised experiences. Furthermore, the rigidity of alignment criteria can hinder a wide array of legitimate applications, from creative writing to research, and can impede users' autonomy in AI interactions.
 
 Disregarding uncensored models or dismissing the debate over them is probably not a good idea.
 

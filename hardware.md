@@ -54,7 +54,11 @@ Here are the main components you will interact with:
 
 Here is a basic workflow for using NVIDIA GPUs:
 
-1. [**Install the necessary software**](https://developer.nvidia.com/how-to-cuda-c-cpp): This includes the NVIDIA GPU drivers, the CUDA Toolkit, and any other libraries or software development kits (SDKs) you need.
+1. **Install NVIDIA drivers & CUDA Toolkit**, using one of the following (depending on your taste):
+   - [Developer download matrix (recommended)](https://developer.nvidia.com/cuda-downloads)
+   - [Quickstart guide (slightly more detailed)](https://docs.nvidia.com/cuda/cuda-quick-start-guide)
+   - [Quickstart videos (if you prefer eye-candy)](https://developer.nvidia.com/how-to-cuda-c-cpp)
+   - Full Guide for [Linux](https://docs.nvidia.com/cuda/cuda-installation-guide-linux) or [Windows](https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows)
 2. [**Write your code**](https://docs.nvidia.com/cuda/cuda-c-programming-guide): Use the CUDA programming language (an extension of C/C++) to write your code. This will involve writing kernel functions that will be executed on the GPU, and host code that will be executed on the CPU.
 3. **Compile your code**: Use the NVCC compiler (included in the CUDA Toolkit) to compile your code.
 4. **Run your code**: Run your compiled code on an NVIDIA GPU.
@@ -62,32 +66,37 @@ Here is a basic workflow for using NVIDIA GPUs:
 For example, here is a simple CUDA program that adds two vectors:
 
 ```cpp
-#include <cuda_runtime.h>
-#include <stdio.h>
+#include "cuda_runtime.h"
+#include <cstdio>
 
-// CUDA kernel function for vector addition
-__global__ void vectorAdd(const float *A, const float *B, float *C, int numElements) {
+/// CUDA kernel function for vector addition (dst = srcA + srcB)
+__global__ void vectorAdd(float *const dst, const float *const srcA, const float *const srcB, int numElements) {
   int i = blockDim.x * blockIdx.x + threadIdx.x;
-  if (i < numElements) C[i] = A[i] + B[i];
+  if (i < numElements) dst[i] = srcA[i] + srcB[i];
 }
 
 int main(void) {
-  // ...
-  // Allocate and initialise host & device memory
+  // Allocate & initialise host (CPU) & device (GPU) memory
+  const int numElements = 1337;
+  float *srcA;
+  cudaMallocManaged((void **)&srcA, numElements);
+  for(int i=0; i<numElements; ++i) srcA[i] = i;
+  cudaDeviceSynchronize();
   // ...
 
   // Launch the vectorAdd kernel
-  int threadsPerBlock = 256;
-  int blocksPerGrid = (numElements + threadsPerBlock - 1) / threadsPerBlock;
-  vectorAdd<<<blocksPerGrid, threadsPerBlock>>>(d_A, d_B, d_C, numElements);
+  const int threadsPerBlock = 256;
+  const int blocksPerGrid = (numElements + threadsPerBlock - 1) / threadsPerBlock;
+  vectorAdd<<<blocksPerGrid, threadsPerBlock>>>(dst, srcA, srcB, numElements);
+  cudaDeviceSynchronize();
 
-  // ...
-  // Copy result from device to host and clean up
+  // clean up memory
+  cudaFree((void *)a);
   // ...
 }
 ```
 
-In this example, `d_A`, `d_B`, and `d_C` are pointers to device memory, and `numElements` is the number of elements in each vector. The `vectorAdd` kernel is launched with `blocksPerGrid` blocks, each containing `threadsPerBlock` threads. Each thread computes the sum of one pair of elements from `d_A` and `d_B`, and stores the result in `d_C`.
+In this example, `srcA`, `srcB`, and `dst` are memory pointers to linear vectors (of size `numElements`). Note that the CUDA compiler automatically converts these to host (CPU) or device (GPU) memory pointers (and copies data between host & device) when appropriate. The `vectorAdd` "kernel" (GPU function) is launched with `blocksPerGrid` blocks, each containing `threadsPerBlock` threads. Each thread computes the sum of one pair of elements from `srcA` and `srcB`, and stores the result in `dst`.
 
 ```{admonition} High-level wrappers
 :class: seealso
@@ -123,28 +132,26 @@ To develop applications for AMD GPUs using the ROCm platform, you will need to:
 For example, here is a simple HIP program that adds two vectors:
 
 ```cpp
-#include <hip/hip_runtime.h>
-#include <stdio.h>
+#include "hip/hip_runtime.h"
+#include <cstdio>
 
-// HIP kernel function for vector addition
-__global__ void vectorAdd(const float *A, const float *B, float *C, int numElements) {
+/// HIP kernel function for vector addition (dst = srcA + srcB)
+__global__ void vectorAdd(float *const dst, const float *const srcA, const float *const srcB, int numElements) {
   int i = blockDim.x * blockIdx.x + threadIdx.x;
-  if (i < numElements) C[i] = A[i] + B[i];
+  if (i < numElements) dst[i] = srcA[i] + srcB[i];
 }
 
 int main(void) {
-  // ...
-  // Allocate and initialise host and device memory
+  // Allocate and initialise host (CPU) & device (GPU) memory
   // ...
 
   // Launch the vectorAdd kernel
-  int threadsPerBlock = 256;
-  int blocksPerGrid = (numElements + threadsPerBlock - 1) / threadsPerBlock;
+  const int threadsPerBlock = 256;
+  const int blocksPerGrid = (numElements + threadsPerBlock - 1) / threadsPerBlock;
   hipLaunchKernelGGL(
-    vectorAdd, dim3(blocksPerGrid), dim3(threadsPerBlock), 0, 0, d_A, d_B, d_C, numElements);
+    vectorAdd, dim3(blocksPerGrid), dim3(threadsPerBlock), 0, 0, dst, srcA, srcB, numElements);
 
-  // ...
-  // Copy result from device to host and clean up
+  // Copy result from device to host & clean up memory
   // ...
 }
 ```
@@ -280,7 +287,7 @@ WebGPU will be a cross-platform API because it will be supported in web browsers
 
 ```{admonition} Work in Progress
 :class: attention
-An entire chapter will be dedicated to WebGPU
+An entire chapter will be dedicated to WebGPU (coming soon!)
 ```
 
 ### Benchmarks

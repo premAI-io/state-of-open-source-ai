@@ -18,24 +18,20 @@ Some ideas:
 - RLHF vs RLAIF?
 ```
 
-The emergence of Large Language Models, notably with the advent of [GPT-3](https://openai.com/research/language-models-are-few-shot-learners), [ChatGPT](https://openai.com/blog/chatgpt), [Midjourney](https://www.midjourney.com/home), [Whisper](https://openai.com/research/whisper) helped bloom a new era. Beyond revolutionising just language models, these models also pushed innovation in other domains like Vision ([ViT](https://huggingface.co/docs/transformers/model_doc/vit), [DALL-E](https://openai.com/research/dall-e), [Stable Diffusion](https://github.com/CompVis/stable-diffusion/blob/main/Stable_Diffusion_v1_Model_Card.md#stable-diffusion-v1-model-card) [SAM](https://segment-anything.com/), etc), Audio ([Wave2vec](https://arxiv.org/abs/1904.05862), [Bark](https://registry.premai.io/detail.html?service=bark)) or even [Multimodal models](https://codi-gen.github.io/).
+The emergence of Large Language Models, notably with the advent of [GPT-3](https://openai.com/research/language-models-are-few-shot-learners), [](#chatgpt), [Midjourney](#midjourney), [Whisper](https://openai.com/research/whisper) helped bloom a new era. Beyond revolutionising just language models, these models also pushed innovation in other domains like Vision ([ViT](https://huggingface.co/docs/transformers/model_doc/vit), [DALL-E](https://openai.com/research/dall-e), [Stable Diffusion](#stable-diffusion) [SAM](https://segment-anything.com), etc), Audio ([Wave2vec](https://arxiv.org/abs/1904.05862), [Bark](https://registry.premai.io/detail.html?service=bark)) or even [Multimodal models](https://codi-gen.github.io).
 
 ```{figure} https://static.premai.io/book/models_llms-landscape.png
 :width: 90%
-:name: llms landscape
+:name: llms-landscape
 
 [Page 7, A Survey of Large Language Models](https://arxiv.org/pdf/2303.18223.pdf)
 ```
 
-Before looking into the Open source models timeline, let's take a look at few proprietary competitors.
-
 ## Proprietary Models
-
-We will see across the domains of Text, Audio and Vision for now.
 
 ### Text
 
-For performance comparisons, [Chatbot Arena leaderboard](https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard) helps though it's a bit old and doesn't reflect latest results, but that's another problem to solve.
+For performance comparisons, [](eval-datasets.md#chatbot-arena) helps (though it's a bit old and doesn't reflect latest results).
 
 #### PaLM
 
@@ -69,20 +65,20 @@ Despite its capabilities, [GPT-4 still sometimes "hallucinates"](https://www.red
 
 [Midjourney](https://www.midjourney.com/home) is a proprietary model for Image generation developed by [Midjourney](https://www.midjourney.com/home).
 
-## Rise of Open-Source Models
+## Open-Source Models
 
-[ChatGPT](chatgpt) would be playing a huge role if it was a story of LLMs and how they fast-tracked their improvements.
+[](#chatgpt) would be playing a huge role if it was a story of LLMs and how they fast-tracked their improvements.
 Early high performing LLMs were proprietary, accessible only through organisations' paid APIs, hindering transparency and raising concerns about data privacy, bias, alignment and robustness, giving limited possibilities to cater domain-specific use cases without letting RLHF'ed alignment {cite}`lambert2022illustrating` interfere.
+
+### Early models
 
 Recognising the need for openness, the LLM research community responded by creating open-source variants, laying the foundation for increased transparency and the development of more powerful models.
 
-### Early Open LLMs
-
-There has been few notable open LLMs pre-ChatGPT era like  [BLOOM](https://bigscience.huggingface.co/blog/bloom), [GPT-NewX-20B](https://arxiv.org/abs/2204.06745), [GPT-J-6B](https://huggingface.co/EleutherAI/gpt-j-6b), [OPT](https://arxiv.org/abs/2205.01068).
+There has been few notable open LLMs pre-ChatGPT era like [BLOOM](https://bigscience.huggingface.co/blog/bloom), [GPT-NewX-20B](https://arxiv.org/abs/2204.06745), [GPT-J-6B](https://huggingface.co/EleutherAI/gpt-j-6b), [OPT](https://arxiv.org/abs/2205.01068).
 
 #### GPT-J-6B
 
-[GPT-J-6B](https://huggingface.co/EleutherAI/gpt-j-6b) is an English-only casual language model, which at the time of its release was the largest publicly available GPT-3 style language model. [Code and weights are open sourced](https://github.com/kingoflolz/mesh-transformer-jax#gpt-j-6b) along with a [blog](https://arankomatsuzaki.wordpress.com/2021/06/04/gpt-j) by [Aran Komatsuzaki](https://arankomatsuzaki.wordpress.com), one of the authors of the model.
+[GPT-J-6B](https://huggingface.co/EleutherAI/gpt-j-6b) is an early English-only casual language model, which at the time of its release was the largest publicly available GPT-3 style language model. [Code and weights are open sourced](https://github.com/kingoflolz/mesh-transformer-jax#gpt-j-6b) along with a [blog](https://arankomatsuzaki.wordpress.com/2021/06/04/gpt-j) by [Aran Komatsuzaki](https://arankomatsuzaki.wordpress.com), one of the authors of the model.
 
 ##### Uniqueness
 
@@ -98,10 +94,7 @@ There has been few notable open LLMs pre-ChatGPT era like  [BLOOM](https://bigsc
 - It's trained on an English-only dataset.
 - The [Pile](https://arxiv.org/abs/2101.00027) dataset which was used for training is known to contain profanity, lewd and abrasive language too.
 
-
-## Catching Up with Close-Source Models
-
-Before [ChatGPT](https://openai.com/blog/chatgpt)'s (GPT-3.5) public release we had [GPT-3](https://en.wikipedia.org/wiki/GPT-3) being one of the "[best](https://www.reddit.com/r/MachineLearning/comments/ydwi6c/d_whats_the_best_open_source_model_for_gpt3like)" Base Language Model which released ~2.1 years before ChatGPT. And following that we've had LLMs like [Bard](https://blog.google/technology/ai/bard-google-ai-search-updates), [Claude](https://www.anthropic.com/index/introducing-claude), [GPT-4](https://openai.com/research/gpt-4) and [others](https://lmsys.org/blog/2023-05-25-leaderboard).
+Before [](#chatgpt)'s (GPT-3.5) public release we had [GPT-3](https://en.wikipedia.org/wiki/GPT-3) being one of the "[best](https://www.reddit.com/r/MachineLearning/comments/ydwi6c/d_whats_the_best_open_source_model_for_gpt3like)" Base Language Model which released ~2.1 years before ChatGPT. And following that we've had LLMs like [Bard](https://blog.google/technology/ai/bard-google-ai-search-updates), [Claude](https://www.anthropic.com/index/introducing-claude), [GPT-4](#gpt-4) and [others](https://lmsys.org/blog/2023-05-25-leaderboard).
 
 ### Initial steps
 
@@ -128,7 +121,6 @@ While [training](https://github.com/CompVis/stable-diffusion/blob/main/Stable_Di
 - The model was trained mainly with English captions.
 - No measures were used to deduplicate the dataset before usage.
 
-(llama)=
 #### LLaMA
 
 Under LLaMA, Meta released a collection of foundation language models ranging from 7B to 65B parameters, pre-trained over a corpus containing more than 1.4 trillion tokens. It was designed to be versatile and applicable for many different use cases, and possibly fine-tuned for domain specific tasks if required.
@@ -152,11 +144,11 @@ There are few key inspirations LLaMA architecture took from other LLMs:
 
 ##### Limitations
 
-- It was released under a noncommercial license focused on usage for research use cases only.
+- It was released under a non-commercial license focused on usage for research use cases only.
 - LLaMA is a foundation model and not fine-tuned for specific tasks, which may limit its performance on certain tasks
 - LLaMA seemed not as competitive as other models on certain benchmarks, such as BoolQ and WinoGrande.
 
-Interestingly within a week from LLaMA's launch, its [weights were leaked to the public](https://www.vice.com/en/article/xgwqgw/facebooks-powerful-large-language-model-leaks-online-4chan-llama). [This](https://github.com/facebookresearch/llama/pull/73/files) created a huge impact on the community for all kinds innovations coming up, eventhough there was still license restrictions not permitting commercial usage.
+Interestingly within a week from LLaMA's launch, its [weights were leaked to the public](https://www.vice.com/en/article/xgwqgw/facebooks-powerful-large-language-model-leaks-online-4chan-llama). https://github.com/facebookresearch/llama/pull/73 created a huge impact on the community for all kinds innovations coming up, even though there was still license restrictions not permitting commercial usage.
 
 ### Pacing Up
 
@@ -164,7 +156,7 @@ After 2 weeks from the LLaMa weights leak, Stanford [releases Alpaca 7B](https:/
 
 #### Alpaca 7B
 
-It's a 7B parameter model fine-tuned from LLaMA 7B model on 52K instruction-following datapoints. It performs qualitatively similarly to OpenAI's text-davinci-003 while being smaller and cheaper to reproduce i.e taking only < \$600. Github repository [here](https://github.com/tatsu-lab/stanford_alpaca).
+It's a 7B parameter model fine-tuned from LLaMA 7B model on 52K instruction-following data-points. It performs qualitatively similarly to OpenAI's text-davinci-003 while being smaller and cheaper to reproduce i.e taking only < \$600. Github repository [here](https://github.com/tatsu-lab/stanford_alpaca).
 
 ```{figure} https://static.premai.io/book/models_alpaca-finetuning.png
 :width: 80%
@@ -248,7 +240,7 @@ After a month, WizardLM dropped in which gained a lot of popularity mainly due t
 
 #### OpenLLaMA
 
-Students at UC Berkeley started [OpenLM Research group](https://huggingface.co/openlm-research) through which they trained in collaboration with [Stability AI](https://stability.ai) to release [OpenLLaMA](https://github.com/openlm-research/open_llama) v1, a permissively licensed open source reporduction of Meta AI's LLaMA. They released a series of 3B, 7B and 13B models trained on [different mix of datasets](https://huggingface.co/openlm-research). And the weights released can serve as drop in replacement of LLaMA.
+Students at UC Berkeley started [OpenLM Research group](https://huggingface.co/openlm-research) through which they trained in collaboration with [Stability AI](https://stability.ai) to release [OpenLLaMA](https://github.com/openlm-research/open_llama) v1, a permissively licensed open source reproduction of Meta AI's LLaMA. They released a series of 3B, 7B and 13B models trained on [different mix of datasets](https://huggingface.co/openlm-research). And the weights released can serve as drop in replacement of LLaMA.
 
 ##### Uniqueness
 
@@ -419,7 +411,7 @@ And currently [its fine-tuned variants](https://huggingface.co/Phind/Phind-CodeL
 ##### Uniqueness
 
 - [Outperforms GPT-3.5](https://www.reddit.com/r/OpenAI/comments/160bbaq/comment/jxls1xq) on code generation capabilities.
-- Uses [](llama-2) as foundation model.
+- Uses [](#llama-2) as foundation model.
 - Released [three variants](https://huggingface.co/codellama) for each model sizes:
   - **Code llama**: constitute foundation models for code generation. They come in three model sizes: 7B, 13B and 34B parameters. The 7B and 13B models are trained using an infilling objective, appropriate for code generation in an IDE. The 34B model was trained without the infilling objective
   - **Code llama -- Python**: specialised for Python code generation and also come in sizes of 7B, 13B, and 34B parameters. Trained on 500B tokens from the Code Llama dataset and further specialised on 100B tokens using a Python-heavy dataset. Python variants are trained without infilling and subsequently fine-tuned to handle long contexts.
@@ -450,7 +442,6 @@ And currently [its fine-tuned variants](https://huggingface.co/Phind/Phind-CodeL
 - For 7B and 13B variants' large context fine-tuning and infilling comes at a cost on standard benchmarks.
 - Performs [worse](https://www.reddit.com/r/OpenAI/comments/160bbaq/meta_has_released_code_llama_although_gpt4) compared to GPT-4.
 
-(persimmon-8b)=
 #### Persimmon-8B
 
 [Persimmon-8B](https://www.adept.ai/blog/persimmon-8b) is a standard decoder-only transformer model released under an Apache-2.0 license. Both code and weights are available at https://github.com/persimmon-ai-labs/adept-inference.
@@ -479,11 +470,9 @@ And currently [its fine-tuned variants](https://huggingface.co/Phind/Phind-CodeL
 
 - Normally it's not recommended to train from scratch with 16k context size, as depending on dataset, simply increasing context length will cause model to attend across more unrelated documents.
 
-
-(mistral-7b)=
 #### Mistral 7B
 
-[Mistral-7B](https://huggingface.co/mistralai) is released by [Mistral AI](https://mistral.ai/), a french startup which recently [raised a good seed round](https://techcrunch.com/2023/06/13/frances-mistral-ai-blows-in-with-a-113m-seed-round-at-a-260m-valuation-to-take-on-openai). The team comprises of ex-[Deepmind](https://www.deepmind.com/) and ex-[Meta](https://ai.meta.com/) researchers, who worked on [LLaMA](llama), [Flamingo](https://arxiv.org/abs/2204.14198) and [Chinchilla](https://en.wikipedia.org/wiki/Chinchilla_AI) projects.
+[Mistral-7B](https://huggingface.co/mistralai) is released by [Mistral AI](https://mistral.ai), a french startup which recently [raised a good seed round](https://techcrunch.com/2023/06/13/frances-mistral-ai-blows-in-with-a-113m-seed-round-at-a-260m-valuation-to-take-on-openai). The team comprises of ex-[Deepmind](https://www.deepmind.com) and ex-[Meta](https://ai.meta.com) researchers, who worked on [](#llama), [Flamingo](https://arxiv.org/abs/2204.14198) and [Chinchilla](https://en.wikipedia.org/wiki/Chinchilla_AI) projects.
 
 ##### Uniqueness
 
@@ -491,8 +480,9 @@ And currently [its fine-tuned variants](https://huggingface.co/Phind/Phind-CodeL
 
   ```{figure} https://static.premai.io/book/models_mistral-7b-comparison.png
     :width: 70%
-    [Mistral 7B Comparison](https://mistral.ai/news/announcing-mistral-7b/)
+    [Mistral 7B Comparison](https://mistral.ai/news/announcing-mistral-7b)
   ```
+
 - Close to CodeLlama 7B performance on code, while remaining good at English tasks.
 - Uses Grouped-query attention (GQA) {cite}`ainslie2023gqa` for faster inference.
 - Uses [Sliding Window Attention (SWA)](https://github.com/mistralai/mistral-src#sliding-window-attention) {cite}`child2019generating,beltagy2020longformer` to handle longer sequences at smaller cost.
@@ -501,10 +491,10 @@ And currently [its fine-tuned variants](https://huggingface.co/Phind/Phind-CodeL
 - Both models released under Apache 2.0 license, with no restrictions.
 - [Released a codebase](https://github.com/mistralai/mistral-src) which documents how to run and explains some concepts used in the model.
 
-
 ##### Limitations
-- No training/finetuning code or paper has been released yet.
-- No training or finetuning dataset has been released eventhough they mentioned usage of datasets publicly available on HuggingFace for fine-tuning.
+
+- No training/fine-tuning code or paper has been released yet.
+- No training or fine-tuning dataset has been released even though they mentioned usage of datasets publicly available on HuggingFace for fine-tuning.
 
 ## Comparisons
 
@@ -516,23 +506,22 @@ Our current based approaches for comparisons include evaluating each model on ea
 
 [Open LLM Leaderboard](https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard) shows us that Falcon 180B is currently just ahead of Meta's Llama 2 70B, and TII claims that it ranks just behind OpenAI's GPT 4, and performs on par with Google's PaLM 2 Large, which powers Bard, despite being half the size of the model. But it required 4x more compute to train and it's 2.5 times larger compared to llama-2, which makes it not so cost-effective for commercial usages.
 
-For practical commercial usage models ranging below 14B parameters has been a good candidate, and [Mistral-7b](mistral-7b), [LLaMA-2-7b](llama-2), [Persimmon-8B](persimmon-8b) does a great job showing that.
+For practical commercial usage models ranging below 14B parameters has been a good candidate, and [](#mistral-7b), [LLaMA-2-7b](#llama-2), [Persimmon-8B](#persimmon-8b) does a great job showing that.
 
 Overall let's take look at the few discussed llms' attributes to get the bigger picture.
 
-
 ```{table} < 15 Billion Parameters
 :name: llms-below-15b
-| LLMs              | Params     | Dataset | Release Details | Tokens  | ~VRAM   | License | Commercial Usage |
-| :---------------- | ---------: | :-----: | --------------: | ------: | :-----: | ------: | ---------------: |
-| [Mistral-7B](https://huggingface.co/mistralai/Mistral-7B-v0.1)       | 7.3 Billion      |  -  | [Blog](https://mistral.ai/news/announcing-mistral-7b/)           | -   |  17GB+               | Apache 2.0   | ✅ |
-| [LLaMA-2-13B](https://registry.premai.io/detail.html?service=llama-2-13b)       | 13 Billion      |  -  | [Paper](https://ai.meta.com/research/publications/llama-2-open-foundation-and-fine-tuned-chat-models/)           | 2000 Billion   |  29GB+               | [LLaMA 2](https://blog.opensource.org/metas-llama-2-license-is-not-open-source/)   | ✅ |
-| [LLaMA-2-7B](https://registry.premai.io/detail.html?service=llama-2-7b)        | 7 Billion      |  -  | [Paper](https://ai.meta.com/research/publications/llama-2-open-foundation-and-fine-tuned-chat-models/)           | 2000 Billion   |  15.8GB+               | [LLaMA 2](https://blog.opensource.org/metas-llama-2-license-is-not-open-source/)   | ✅ |
-| [Persimmon-8B](https://huggingface.co/docs/transformers/main/model_doc/persimmon)      | 9.3 Billion      |  -  | [Blog](https://www.adept.ai/blog/persimmon-8b)           | 737 Billion   |  20.8GB+         | [Apache 2.0](https://github.com/persimmon-ai-labs/adept-inference/blob/main/LICENSE)   | ✅ |
-| [WizardLM-13B](https://huggingface.co/WizardLM/WizardLM-13B-V1.2)          | 13 Billion     |  [evol-instruct](https://huggingface.co/datasets/WizardLM/WizardLM_evol_instruct_70k)   | [Paper](https://arxiv.org/abs/2304.12244)           | ~2000 Billion   |  30GB+               | [LLaMA 2](https://blog.opensource.org/metas-llama-2-license-is-not-open-source/)   | ✅ |
-| [WizardLM-7B](https://huggingface.co/WizardLM/WizardLM-7B-V1.0)          | 7 Billion     | [evol-instruct](https://huggingface.co/datasets/WizardLM/WizardLM_evol_instruct_70k)  | [Paper](https://arxiv.org/abs/2304.12244)           | ~2000 Billion   |  15.8GB+               | Non-Commercial Usage  | 	❌ |
-| [Falcon-7B](https://huggingface.co/tiiuae/falcon-7b)               | 7 Billion    |  [RefinedWeb (partial)](https://huggingface.co/datasets/tiiuae/falcon-refinedweb)   | -           | 1500 Billion   |  16GB+               |  [Apache 2.0](https://huggingface.co/tiiuae/falcon-7b#license)  | ✅ |
-| [MPT-7B](https://huggingface.co/mosaicml/mpt-7b)            | 6.7 Billion  |  [RedPajama](https://huggingface.co/datasets/togethercomputer/RedPajama-Data-1T)   | [Blog](https://www.mosaicml.com/blog/mpt-7b)           | 1000 Billion   |  15.5GB+         | [Apache 2.0](https://huggingface.co/mosaicml/mpt-7b#model-license)   | ✅ |
+LLMs | Params | Dataset | Release Details | Tokens | ~VRAM | License | Commercial Usage
+:--- | -----: | :-----: | --------------: | -----: | :---: | ------: | ---------------:
+[Mistral-7B](https://huggingface.co/mistralai/Mistral-7B-v0.1) | 7.3 Billion | - | [Blog](https://mistral.ai/news/announcing-mistral-7b) | - | 17GB+ | Apache 2.0 | ✅
+[LLaMA-2-13B](https://registry.premai.io/detail.html?service=llama-2-13b) | 13 Billion | - | [Paper](https://ai.meta.com/research/publications/llama-2-open-foundation-and-fine-tuned-chat-models) | 2000 Billion | 29GB+ | [LLaMA 2](https://blog.opensource.org/metas-llama-2-license-is-not-open-source) | ✅
+[LLaMA-2-7B](https://registry.premai.io/detail.html?service=llama-2-7b) | 7 Billion | - | [Paper](https://ai.meta.com/research/publications/llama-2-open-foundation-and-fine-tuned-chat-models) | 2000 Billion | 15.8GB+ | [LLaMA 2](https://blog.opensource.org/metas-llama-2-license-is-not-open-source) | ✅
+[Persimmon-8B](https://huggingface.co/docs/transformers/main/model_doc/persimmon) | 9.3 Billion | - | [Blog](https://www.adept.ai/blog/persimmon-8b) | 737 Billion | 20.8GB+ | [Apache 2.0](https://github.com/persimmon-ai-labs/adept-inference/blob/main/LICENSE) | ✅
+[WizardLM-13B](https://huggingface.co/WizardLM/WizardLM-13B-V1.2) | 13 Billion | [evol-instruct](https://huggingface.co/datasets/WizardLM/WizardLM_evol_instruct_70k) | [Paper](https://arxiv.org/abs/2304.12244) | ~2000 Billion | 30GB+ | [LLaMA 2](https://blog.opensource.org/metas-llama-2-license-is-not-open-source) | ✅
+[WizardLM-7B](https://huggingface.co/WizardLM/WizardLM-7B-V1.0) | 7 Billion | [evol-instruct](https://huggingface.co/datasets/WizardLM/WizardLM_evol_instruct_70k) | [Paper](https://arxiv.org/abs/2304.12244) | ~2000 Billion | 15.8GB+ | Non-Commercial Usage | ❌
+[Falcon-7B](https://huggingface.co/tiiuae/falcon-7b) | 7 Billion | [RefinedWeb (partial)](https://huggingface.co/datasets/tiiuae/falcon-refinedweb) | - | 1500 Billion | 16GB+ | [Apache 2.0](https://huggingface.co/tiiuae/falcon-7b#license) | ✅
+[MPT-7B](https://huggingface.co/mosaicml/mpt-7b) | 6.7 Billion | [RedPajama](https://huggingface.co/datasets/togethercomputer/RedPajama-Data-1T) | [Blog](https://www.mosaicml.com/blog/mpt-7b) | 1000 Billion | 15.5GB+ | [Apache 2.0](https://huggingface.co/mosaicml/mpt-7b#model-license) | ✅
 ```
 
 ### Vision
@@ -550,6 +539,7 @@ StabilityAI's SDXL vs [Midjourney](https://www.midjourney.com) comparison shows 
 ## Future
 
 To recap current advancements we can see that few key moments were:
+
 - Release of ChatGPT, GPT-4, DALL-E by OpenAI.
 - Release of Stable Diffusion models by StabilityAI.
 - Leak of LLaMA weights, and LLaMA-2's release by Meta.
@@ -557,6 +547,7 @@ To recap current advancements we can see that few key moments were:
 - few [other smaller moments](https://www.semianalysis.com/p/google-we-have-no-moat-and-neither#%C2%A7the-timeline).
 
 Even though Open Source AI is advancing, it is evident that it remains heavily regulated by major corporations such as Meta, OpenAI, Nvidia, Google, Microsoft, and others. These entities often control critical parameters, creating a myth of open source AI {cite}`myth-of-os-ai-wired`, including:
+
 - Data required to train these models.
 - Control of Software frameworks required to build such models
 - Compute power required to train these models.
@@ -566,3 +557,5 @@ Returning to actual state, there are significant gaps that need to be addressed 
 The rise of [Mixture-of-Experts (MOE)](https://finbarrtimbers.substack.com/p/papers-ive-read-this-week-mixture) models has garnered attention and research interest, particularly following rumours about the GPT-4 architecture. The open-source community has already made strides in implementing various MoE variants (e.g. https://github.com/XueFuzhao/OpenMoE) demonstrating a push toward more versatile model architectures.
 
 On another part using quantized version of models usages are increasing rapidly, as it makes running large models (>30B parameters) possible on low precision, even on just cpu machines. Specially lots of contributions in this area is coming up by https://github.com/ggerganov/ggml community and [TheBloke](https://huggingface.co/TheBloke).
+
+{{ comments }}

@@ -717,14 +717,14 @@ video clips, each lasting about 10 seconds and annotated with a single action cl
 **[MSR-VTT](https://paperswithcode.com/dataset/msr-vtt)** dataset {cite}`xu2016msr`, also known as Microsoft Research Video to Text,
 stands as a substantial dataset tailored for open domain video captioning. This extensive dataset comprises 10,000 video
 clips spanning across 20 diverse categories. Remarkably, each video clip is meticulously annotated with 20 English sentences
-by [Amazon Mechanical Turks](https://www.mturk.com/), resulting in a rich collection of textual descriptions. These annotations
+by [Amazon Mechanical Turks](https://www.mturk.com), resulting in a rich collection of textual descriptions. These annotations
 collectively employ approximately 29,000 distinct words across all captions.
 
 #### MSVD
 
 **[MSVD dataset](https://paperswithcode.com/dataset/msvd)**, known as the Microsoft Research Video Description Corpus,
 encompasses approximately 120,000 sentences that were gathered in the summer of 2010. The process involved compensating
-workers on [Amazon Mechanical Turks](https://www.mturk.com/) to view brief video segments and subsequently encapsulate
+workers on [Amazon Mechanical Turks](https://www.mturk.com) to view brief video segments and subsequently encapsulate
 the action within a single sentence. Consequently, this dataset comprises a collection of nearly parallel descriptions
 for over 2,000 video snippets.
 
@@ -820,7 +820,7 @@ their limitations.
   interpretability is imperative.
 - **Beyond leaderboard rankings**: several factors including prompt tuning, embeddings retrieval, model parameter
   adjustments, and data storage, significantly impact a LLM's real-world performance {cite}`skanda-evaluating-llm`. Recent
-  developments (e.g. [ragas](https://github.com/explodinggradients/ragas), [langsmith](https://github.com/langchain-ai/langsmith-cookbook))
+  developments (e.g. https://github.com/explodinggradients/ragas, https://github.com/langchain-ai/langsmith-cookbook)
   aim to simplify LLM evaluation and integration into applications, emphasising the transition from leaderboards to
   practical deployment, monitoring, and assessment.
 

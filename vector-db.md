@@ -75,6 +75,8 @@ https://github.com/weaviate/weaviate | 🟢 Yes | 🟢 Yes | cosine, dot, L2 squ
 https://github.com/qdrant/qdrant | 🟢 Yes | 🟢 Yes | cosine, dot, euclidean | HNSW
 https://github.com/milvus-io/milvus | 🟢 Yes | 🟢 Yes | cosine, dot, euclidean, jaccard, hamming | HNSW, FLAT, IVF-FLAT, IVF-PQ
 [Pinecone](https://www.pinecone.io) | 🔴 No  | 🟢 Yes | cosine, dot, euclidean | HNSW, FLAT, LSH, PQ
+https://github.com/chroma-core/chroma | 🟢 Yes  | 🔴 No | cosine, inner product, L2 | HNSW
+https://github.com/RedisVentures/redisvl | 🟢 Yes  | 🟢 Yes | cosine, inner product, L2 | HNSW, FLAT
 
 ### Calculating distance between vectors
 

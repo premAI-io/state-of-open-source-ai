@@ -73,15 +73,15 @@ However, there are several advantages to using RAG:
 - **Quick and easy setup**
   - RAG does not require much domain expertise about LLMs. You don't need to find training data or corresponding labels. Most pieces of text can be uploaded into the vector db as is, without major modifications.
 - **Connect to private data**
-  - Using RAG, engineers can connect data from SaaS apps such as Notion, Google Drive, Hubspot, Zendesk, etc. to their LLM. Now the LLM has access to private data and can help answer questions about the data in these applications.
+  - Using RAG, engineers can connect data from SaaS apps such as Notion, Google Drive, HubSpot, Zendesk, etc. to their LLM. Now the LLM has access to private data and can help answer questions about the data in these applications.
 
-RAG plays a key role in making LLMs for useful, but it can be a bit tedious to set up. Tthere are a number of open-source project such as [Llama index](https://github.com/jerryjliu/llama_index) which can help make the process a bit easier.
+RAG plays a key role in making LLMs for useful, but it can be a bit tedious to set up. There are a number of open-source project such as https://github.com/run-llama/llama_index which can help make the process a bit easier.
 
 ## Fine-Tuning Image Models
 
 Fine tuning computer vision based models is a common practice and is used in applications involving object detection, object classification, and image segmentation.
 
-For these non-generative AI use-cases, a baseline model like Resnet or YOLO is fine-tuned on labeled data to detect a new object. Although the baseline model isn't initially trained for the new object, it has learned the feature representation. Fine-tuning enables the model to rapidly acquire the features for the new object without starting from scratch.
+For these non-generative AI use-cases, a baseline model like Resnet or YOLO is fine-tuned on labelled data to detect a new object. Although the baseline model isn't initially trained for the new object, it has learned the feature representation. Fine-tuning enables the model to rapidly acquire the features for the new object without starting from scratch.
 
 Data preparation plays a big role in the fine-tuning process for vision based models. An image of the same object can be taken from multiple angles, different lighting conditions, different backgrounds, etc. In order to build a robust dataset for fine-tuning, all of these image variations should be taken into consideration.
 

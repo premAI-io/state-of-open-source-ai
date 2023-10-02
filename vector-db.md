@@ -71,12 +71,12 @@ Vector databases allow for efficient search and storage of vector embeddings.
 
 Vector Database | Open Source | Sharding | Supported Distance Metrics | Supported Indices
 ----------------|-------------|----------|----------------------------|------------------
-[Weaviate](https://github.com/weaviate/weaviate) | 🟢 Yes | 🟢 Yes | cosine, dot, L2 squared, hamming, manhattan | HNSW, HNSW-PQ
-[Qdrant](https://github.com/qdrant/qdrant) | 🟢 Yes | 🟢 Yes | cosine, dot, euclidean | HNSW
-[Milvus](https://github.com/milvus-io/milvus) | 🟢 Yes | 🟢 Yes | cosine, dot, euclidean, jaccard, hamming | HNSW, FLAT, IVF-FLAT, IVF-PQ
+https://github.com/weaviate/weaviate | 🟢 Yes | 🟢 Yes | cosine, dot, L2 squared, hamming, manhattan | HNSW, HNSW-PQ
+https://github.com/qdrant/qdrant | 🟢 Yes | 🟢 Yes | cosine, dot, euclidean | HNSW
+https://github.com/milvus-io/milvus | 🟢 Yes | 🟢 Yes | cosine, dot, euclidean, jaccard, hamming | HNSW, FLAT, IVF-FLAT, IVF-PQ
 [Pinecone](https://www.pinecone.io) | 🔴 No  | 🟢 Yes | cosine, dot, euclidean | HNSW, FLAT, LSH, PQ
-[Chroma](https://www.trychroma.com) | 🟢 Yes  | 🔴 No | cosine, inner product, L2 | HNSW
-[Redis](https://redis.com/solutions/use-cases/vector-database) | 🟢 Yes  | 🟢 Yes | cosine, inner product, L2 | HNSW, FLAT
+https://github.com/chroma-core/chroma | 🟢 Yes  | 🔴 No | cosine, inner product, L2 | HNSW
+https://github.com/RedisVentures/redisvl | 🟢 Yes  | 🟢 Yes | cosine, inner product, L2 | HNSW, FLAT
 
 ### Calculating distance between vectors
 

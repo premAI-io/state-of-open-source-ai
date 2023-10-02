@@ -95,27 +95,38 @@ Cons:
 
 * Not all LLM models are supported
 
-Many other open-source projects like [BentoML](https://www.bentoml.com), [FastAPI](https://fastapi.tiangolo.com), and [Flask](https://flask.palletsprojects.com/en/2.3.x) have been used for serving models in the past. These frameworks work just fine for traditional ML related tasks, but fall behind when it comes to generative AI. The reason for this is that traditional ML serving solutions don't come with the necessary optimisations(tensor parallelism, continuous batching, flash attention, etc.) to run generative AI models in production.
-
-There is ongoing development in both the open-source and private sectors to improve the performance of LLMs. It's up to the community to test out different services to see which one works best for their use case.
-
 ## BentoML
 
-```{admonition} Work in Progress
-:class: attention
-{{ wip_chapter }}
+[BentoML](https://www.bentoml.com) is a fairly popular tool used to deploy ML models into production. It has gained a lot of popularity by building simple wrappers that can convert any model into a REST API endpoint. Currently, BentoML does not support some of the GPU optimizations such as tensor parallelism. However, the main benefit BentoML provides is that it can serve a wide variety of models. 
 
-<https://www.bentoml.com>
-```
+Pros:
+
+* Easy setup
+* Can be used commercially
+* Supports all models
+
+Cons:
+
+* Lacks some GPU optimizations
 
 ## Modular
 
-```{admonition} Work in Progress
-:class: attention
-{{ wip_chapter }}
+[Modular](https://www.modular.com) is designed to be a high performance AI engine that boosts the performance of deep learning models. The secret is in their custom compiler and runtime environment that improves the inferencing of any model without the developer needing to make any code changes.
 
-<https://www.modular.com>
-```
+The Modular team has designed a new programming language, [Mojo](https://docs.modular.com/mojo), which combines the Python friendly syntax with the performance of C. The purpose of Mojo is to address some of the shortcomings of Python from a performance standpoint while still being a part of the Python ecosystem. This is the programming language used internally to create the Modular AI engine's kernels. 
+
+Pros:
+
+* Low latency/High throughput for inference
+* Compatible with Tensorflow and Pytorch models
+
+Cons:
+
+* Not open-source
+* Not as simple to use compared to other engines on this list 
+
+This is not an exhaustive list of MLOps engines by any means. There are many other tools and frameworks developer use to deploy their ML models. There is ongoing development in both the open-source and private sectors to improve the performance of LLMs. It's up to the community to test out different services to see which one works best for their use case.
+
 
 ## Challenges in Open Source
 

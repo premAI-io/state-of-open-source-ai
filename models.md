@@ -13,18 +13,18 @@ Some ideas:
 - https://github.com/huggingface/transformers/blob/main/awesome-transformers.md
 - [Background, Foundational Papers, Algos](https://gist.github.com/veekaybee/be375ab33085102f9027853128dc5f0e)
 - end of open source AI {cite}`golden-age-os-end`
-- futures section in https://arxiv.org/pdf/2303.18223.pdf
+- futures section in Survey of LLMs {cite}`zhao2023survey`
 - Human/GPT-4 evals
 - RLHF vs RLAIF?
 ```
 
-The emergence of Large Language Models, notably with the advent of [GPT-3](https://openai.com/research/language-models-are-few-shot-learners), [](#chatgpt), [Midjourney](#midjourney), [Whisper](https://openai.com/research/whisper) helped bloom a new era. Beyond revolutionising just language models, these models also pushed innovation in other domains like Vision ([ViT](https://huggingface.co/docs/transformers/model_doc/vit), [DALL-E](https://openai.com/research/dall-e), [Stable Diffusion](#stable-diffusion) [SAM](https://segment-anything.com), etc), Audio ([Wave2vec](https://arxiv.org/abs/1904.05862), [Bark](https://registry.premai.io/detail.html?service=bark)) or even [Multimodal models](https://codi-gen.github.io).
+The emergence of Large Language Models, notably with the advent of [GPT-3](https://openai.com/research/language-models-are-few-shot-learners), [](#chatgpt), [Midjourney](#midjourney), [Whisper](https://openai.com/research/whisper) helped bloom a new era. Beyond revolutionising just language models, these models also pushed innovation in other domains like Vision ([ViT](https://huggingface.co/docs/transformers/model_doc/vit), [DALL-E](https://openai.com/research/dall-e), [Stable Diffusion](#stable-diffusion) [SAM](https://segment-anything.com), etc), Audio Wave2vec {cite}`schneider2019wav2vec`, [Bark](https://registry.premai.io/detail.html?service=bark)) or even [Multimodal models](https://codi-gen.github.io).
 
 ```{figure} https://static.premai.io/book/models_llms-landscape.png
 :width: 90%
 :name: llms-landscape
 
-[Page 7, A Survey of Large Language Models](https://arxiv.org/pdf/2303.18223.pdf)
+Page 7, A Survey of Large Language Models {cite}`zhao2023survey`
 ```
 
 ## Proprietary Models
@@ -74,7 +74,7 @@ Early high performing LLMs were proprietary, accessible only through organisatio
 
 Recognising the need for openness, the LLM research community responded by creating open-source variants, laying the foundation for increased transparency and the development of more powerful models.
 
-There has been few notable open LLMs pre-ChatGPT era like [BLOOM](https://bigscience.huggingface.co/blog/bloom), [GPT-NewX-20B](https://arxiv.org/abs/2204.06745), [GPT-J-6B](https://huggingface.co/EleutherAI/gpt-j-6b), [OPT](https://arxiv.org/abs/2205.01068).
+There has been few notable open LLMs pre-ChatGPT era like [BLOOM](https://bigscience.huggingface.co/blog/bloom), GPT-NewX-20B {cite}`black2022gptneox20b`, [GPT-J-6B](https://huggingface.co/EleutherAI/gpt-j-6b), OPT {cite}`zhang2022opt`.
 
 #### GPT-J-6B
 
@@ -84,15 +84,15 @@ There has been few notable open LLMs pre-ChatGPT era like [BLOOM](https://bigsci
 
 - It belongs to the GPT-J class of models, and has 6 billion trainable parameters.
 - Uses same tokeniser as GPT-2/3.
-- Uses [Rotary Position Embedding (RoPE)](https://arxiv.org/abs/2104.09864)
-- Used open sourced dataset for training -- [Pile](https://arxiv.org/abs/2101.00027), a large scale dataset curated by [EleutherAI](https://www.eleuther.ai).
+- Uses Rotary Position Embedding (RoPE) {cite}`su2022roformer`
+- Used open sourced dataset for training -- Pile {cite}`gao2020pile`, a large scale dataset curated by [EleutherAI](https://www.eleuther.ai).
 - The dimension of each attention head is set to 256, which is twice larger than that of GPT-3 of comparable size, which improved throughput with minimal performance degradation.
 - Places the attention layer and the feed-forward layer in parallel for decreased communication.
 
 ##### Limitations
 
 - It's trained on an English-only dataset.
-- The [Pile](https://arxiv.org/abs/2101.00027) dataset which was used for training is known to contain profanity, lewd and abrasive language too.
+- The Pile {cite}`gao2020pile` dataset which was used for training is known to contain profanity, lewd and abrasive language too.
 
 Before [](#chatgpt)'s (GPT-3.5) public release we had [GPT-3](https://en.wikipedia.org/wiki/GPT-3) being one of the "[best](https://www.reddit.com/r/MachineLearning/comments/ydwi6c/d_whats_the_best_open_source_model_for_gpt3like)" Base Language Model which released ~2.1 years before ChatGPT. And following that we've had LLMs like [Bard](https://blog.google/technology/ai/bard-google-ai-search-updates), [Claude](https://www.anthropic.com/index/introducing-claude), [GPT-4](#gpt-4) and [others](https://lmsys.org/blog/2023-05-25-leaderboard).
 
@@ -105,7 +105,7 @@ There has been a few visible marks across modalities of AI models, highly cataly
 
 #### [Stable Diffusion](https://registry.premai.io/detail.html?service=stable-diffusion-1-5)
 
-Stable Diffusion is a [latent text-to-image diffusion model](https://arxiv.org/abs/2112.10752). Created by [Stability AI](https://stability.ai) and support from [LAION](https://laion.ai), where they used 512x512 images from a subset of the [LAION-5B](https://laion.ai/blog/laion-5b) database for training. Similar to Google's [Imagen](https://arxiv.org/abs/2205.11487), this model uses a frozen [CLIP ViT-L/14](https://arxiv.org/abs/2103.00020) text encoder to condition the model on text prompts. With its 860M UNet and 123M text encoder, the model is relatively lightweight and runs on a GPU with at least 10GB VRAM.
+Stable Diffusion is a latent text-to-image diffusion model {cite}`rombach2022highresolution`. Created by [Stability AI](https://stability.ai) and support from [LAION](https://laion.ai), where they used 512x512 images from a subset of the [LAION-5B](https://laion.ai/blog/laion-5b) database for training. Similar to Google's Imagen {cite}`saharia2022photorealistic`, this model uses a frozen CLIP ViT-L/14 {cite}`radford2021learning` text encoder to condition the model on text prompts. With its 860M UNet and 123M text encoder, the model is relatively lightweight and runs on a GPU with at least 10GB VRAM.
 
 ##### Uniqueness
 
@@ -129,7 +129,7 @@ It showed **better performance** across domains compared to its competitors.
 
 ```{figure} https://static.premai.io/book/models_llama-scores.png
 :width: 88%
-[LLaMA: Open and Efficient Foundation Language Models](https://arxiv.org/abs/2302.13971)
+LLaMA: Open and Efficient Foundation Language Models {cite}`touvron2023llama`
 ```
 
 LLaMA-13B outperforms GPT-3 (175B) on most benchmarks while being more than 10x smaller, and LLaMA-65B is competitive with models like Chinchilla-70B and PaLM-540B. LLaMA-65B performs similarly to the closed-source GPT-3.5 on the MMLU and GSM8K benchmarks (TODO: validate and reference)
@@ -138,9 +138,9 @@ LLaMA-13B outperforms GPT-3 (175B) on most benchmarks while being more than 10x 
 
 There are few key inspirations LLaMA architecture took from other LLMs:
 
-- **[Pre-normalisation](https://arxiv.org/abs/1910.07467) (GPT-3):** using RMSNorm to normalise transformer sub-layer inputs.
-- **[SwiGLU activation function](https://arxiv.org/abs/2002.05202) (PaLM):** replacing ReLU with SwiGLU.
-- **[Rotary Embeddings](https://arxiv.org/abs/2104.09864) (GPTNeo):** replacing absolute positional embeddings with Rotary positional embeddings.
+- **Pre-normalisation (GPT-3):** using RMSNorm to normalise transformer sub-layer inputs {cite}`zhang2019root`.
+- **SwiGLU activation function (PaLM):** replacing ReLU with SwiGLU {cite}`shazeer2020glu`.
+- **Rotary Embeddings (GPTNeo):** replacing absolute positional embeddings with Rotary positional embeddings {cite}`su2022roformer`.
 
 ##### Limitations
 
@@ -165,7 +165,7 @@ It's a 7B parameter model fine-tuned from LLaMA 7B model on 52K instruction-foll
 
 ##### Uniqueness
 
-- Unique Data Source: Alpaca 7B is distinct for being fine-tuned from LLaMA 7B using 52K instruction-following demonstrations ([coming from self-instruct paper](https://arxiv.org/abs/2212.10560)) in the style of text-davinci-003, enabling research into instruction-following scenarios.
+- Unique Data Source: Alpaca 7B is distinct for being fine-tuned from LLaMA 7B using 52K instruction-following demonstrations coming from self-instruct {cite}`wang2023selfinstruct`,  in the style of text-davinci-003, enabling research into instruction-following scenarios.
 - Cost-Efficient Alternative: Alpaca 7B offers similar performance to text-davinci-003 but at a lower cost, making it accessible for academic research.
 
 ##### Limitations
@@ -194,7 +194,7 @@ In a day after, [Vicuna](https://lmsys.org/blog/2023-03-30-vicuna) came in.
 - Impressive Quality: Vicuna-13B achieved over 90% quality compared to ChatGPT and Google Bard, surpassing other models like LLaMA and Stanford Alpaca in more than 90% of cases.
 - For training:
   - Training loss was adjusted to account for multi-turn conversations and compute the fine-tuning loss solely on the chatbot's output.
-  - Expanded max context length from 512 in Alpaca to 2048, [gradient checkpointing](https://arxiv.org/abs/1604.06174) and [flash attention](https://arxiv.org/abs/2205.14135) utilisation helping handle memory pressure.
+  - Expanded max context length from 512 in Alpaca to 2048, gradient checkpointing {cite}`chen2016training` and flash attention {cite}`dao2022flashattention` utilisation helping handle memory pressure.
   - Used [SkyPilot](https://github.com/skypilot-org/skypilot) [managed spot](https://skypilot.readthedocs.io/en/latest/examples/spot-jobs.html) to reduce the cost for training the 7B model from \$500 to around \$140 and the 13B model from around \$1k to \$300.
 - Cost-Efficiency: The cost of training was around \$300, making it a cost-effective choice for research purposes.
 - Enhanced Dataset: Vicuna is fine-tuned using 70K user-shared ChatGPT conversations from [ShareGPT](https://sharegpt.com), enabling it to provide detailed and well-structured answers, with performance on par with ChatGPT.
@@ -208,20 +208,20 @@ In a day after, [Vicuna](https://lmsys.org/blog/2023-03-30-vicuna) came in.
 
 After the release they also conducted a [deeper study on GPT4-based evaluation approach](https://github.com/lm-sys/FastChat/tree/main/fastchat/llm_judge#llm-judge).
 
-Then came in updates like [LLaMa-Adapter](https://arxiv.org/pdf/2303.16199.pdf), [Koala](https://bair.berkeley.edu/blog/2023/04/03/koala) and in less than a month [Open Assistant](https://open-assistant.io) launches a model and a [dataset for Alignment via RLHF](https://arxiv.org/abs/2304.07327).
+Then came in updates like LLaMa-Adapter {cite}`zhang2023llamaadapter`, [Koala](https://bair.berkeley.edu/blog/2023/04/03/koala) and in less than a month [Open Assistant](https://open-assistant.io) launches a model and a dataset for Alignment via RLHF {cite}`köpf2023openassistant`.
 
 Overall the LLaMA variants landscape looked somewhat like this, even though it doesn't show all the variants:
 
 ```{figure} https://static.premai.io/book/models_llama-variants.png
 :width: 80%
-[Page 10, A Survey of Large Language Models](https://arxiv.org/pdf/2303.18223.pdf)
+Page 10, A Survey of Large Language Models {cite}`zhao2023survey`
 ```
 
 After a month, WizardLM dropped in which gained a lot of popularity mainly due to its ground breaking performances compared to other open LLMs. And in next few days the community did an open reproduction of LLaMA, named [OpenLLaMA](https://github.com/openlm-research/open_llama).
 
 #### WizardLM
 
-[WizardLM](https://huggingface.co/WizardLM) is created by fine-tuning LLaMA on a generated instruction dataset which was created by [Evol-Instruct](https://arxiv.org/abs/2304.12244).
+[WizardLM](https://huggingface.co/WizardLM) is created by fine-tuning LLaMA on a generated instruction dataset which was created by Evol-Instruct {cite}`xu2023wizardlm`.
 
 ##### Uniqueness
 
@@ -231,7 +231,7 @@ After a month, WizardLM dropped in which gained a lot of popularity mainly due t
 
   ```{figure} https://static.premai.io/book/models_wizardlm.png
   :width: 88%
-  [Page 4, WizardLM: Empowering Large Language Models to Follow Complex Instructions](https://arxiv.org/pdf/2304.12244.pdf)
+  Page 4, WizardLM: Empowering Large Language Models to Follow Complex Instructions {cite}`xu2023wizardlm`
   ```
 
 ##### Limitations
@@ -245,7 +245,7 @@ Students at UC Berkeley started [OpenLM Research group](https://huggingface.co/o
 ##### Uniqueness
 
 - Model is trained on open sourced [RedPajama dataset](https://huggingface.co/datasets/togethercomputer/RedPajama-Data-1T) by [Together](https://huggingface.co/togethercomputer).
-- All steps for training are kept same as mentioned in [LLaMA paper](https://arxiv.org/abs/2302.13971).
+- All steps for training are kept same as mentioned in LLaMA {cite}`touvron2023llama`.
 - Model is trained on 1T tokens.
 - Weights released under Apache 2.0 license, in two formats:
   - EasyLM format to be use with https://github.com/young-geng/EasyLM framework
@@ -274,8 +274,8 @@ MosaicML released [MPT (MosaicML Pretrained Transformer) models series](https://
 ##### Uniqueness
 
 - Licensed for commercial usage (not all variants in the series): MPT-7B base, MPT-7B-StoryWriter-65k+, MPT-30B were only released under Apache-2.0 license.
-- Uses [ALiBi](https://arxiv.org/abs/2108.12409) to handle long inputs till 84k tokens context size, whereas trained using upto 65k tokens context.
-- Uses [FlashAttention](https://arxiv.org/abs/2205.14135) and https://github.com/NVIDIA/FasterTransformer to optimise for fast training and inference.
+- Uses ALiBi {cite}`press2022train` to handle long inputs till 84k tokens context size, whereas trained using upto 65k tokens context.
+- Uses FlashAttention {cite}`dao2022flashattention` and https://github.com/NVIDIA/FasterTransformer to optimise for fast training and inference.
 - They also released an entire framework, the [MosaicML LLM Foundry](https://github.com/mosaicml/llm-foundry).
 
 ##### Limitations
@@ -293,13 +293,13 @@ MosaicML released [MPT (MosaicML Pretrained Transformer) models series](https://
 - They released all the model and its [instruction tuned](https://registry.premai.io/detail.html?service=falcon-7b-instruct) and chat variants under Apache 2.0 license, permitting commercial usage.
 - The model uses only 75 percent of GPT-3's training compute, 40 percent of Chinchilla AI's, and 80 percent of PaLM-62B's.
 - Falcon 40B pre-training dataset contained around 5 Trillion tokens gathered from public web crawls (~80%), research papers, legal text, news, literature, and social media conversations.
-  - Subset of this [dataset containing 600 Billion tokens](https://arxiv.org/abs/2306.01116) was open sourced.
-- Model uses decoder-only architecture with [Flash Attention](https://arxiv.org/abs/2205.14135), [Multi-Query Attention](https://arxiv.org/abs/1911.02150), [Parallel Attention and Feed Forward](https://arxiv.org/abs/2305.13297).
+  - Subset of this dataset containing 600 Billion tokens {cite}`penedo2023refinedweb` was open sourced.
+- Model uses decoder-only architecture with Flash Attention {cite}`dao2022flashattention`, Multi-Query Attention {cite}`shazeer2019fast`, Parallel Attention and Feed Forward {cite}`sonkar2023investigating`.
 
 ##### Limitations
 
 - Full dataset used for pre-training the 40B variant wasn't released.
-- Falcon-40B is trained using a sequence length of 2K, which is smaller compared to MPT, XGen, but context size can be increased using [RoPE embeddings](https://arxiv.org/abs/2104.09864) within a model's architecture, allowing it to generalise to longer sequence lengths (might require some [](fine-tuning)).
+- Falcon-40B is trained using a sequence length of 2K, which is smaller compared to MPT, XGen, but context size can be increased using RoPE embeddings {cite}`su2022roformer` within a model's architecture, allowing it to generalise to longer sequence lengths (might require some [](fine-tuning)).
 - A paper detailing Falcon models specifically has not yet been released.
 
 ### Narrowing the Gap
@@ -314,7 +314,7 @@ Some win rate graphs on LLaMA-2 after evaluation comparisons against popular LLM
 
 ```{figure} https://static.premai.io/book/models_llama2-rates.png
 :width: 88%
-[Page 3, LLaMA 2: Open Foundations and Fine-Tuned Chat Models](https://arxiv.org/pdf/2307.09288.pdf)
+Page 3, LLaMA 2: Open Foundations and Fine-Tuned Chat Models {cite}`touvron2023llama2`
 ```
 
 ##### Uniqueness
@@ -325,21 +325,21 @@ Some win rate graphs on LLaMA-2 after evaluation comparisons against popular LLM
 
     ```{figure} https://static.premai.io/book/models_llama2-gqa.png
     :width: 80%
-    [GQA: Training Generalised Multi-Query Transformer Models from Multi-Head Checkpoints](https://arxiv.org/pdf/2305.13245.pdf).
+    GQA: Training Generalised Multi-Query Transformer Models from Multi-Head Checkpoints {cite}`ainslie2023gqa`.
     ```
 
 - LLaMA-2-70B became new state-of-the-art among open-source LLMs on all tasks considered.
 
     ```{figure} https://static.premai.io/book/models_llama2-opensource-scores.png
     :width: 80%
-    [Page 8, LLaMA 2: Open Foundations and Fine-Tuned Chat Models](https://arxiv.org/pdf/2307.09288.pdf)
+    Page 8, LLaMA 2: Open Foundations and Fine-Tuned Chat Models {cite}`touvron2023llama2`
     ```
 
 - They released chat variants from base models using instruction tuning and high scale RLHF, also proposed a Ghost Attention (GAtt) which helps control dialogue flow over multiple turns.
 
     ```{figure} https://static.premai.io/book/models_llama2-workflow.png
     :width: 80%
-    [Page 5, LLaMA 2: Open Foundations and Fine-Tuned Chat Models](https://arxiv.org/pdf/2307.09288.pdf)
+    Page 5, LLaMA 2: Open Foundations and Fine-Tuned Chat Models {cite}`touvron2023llama2`
     ```
 
 - For Alignment uses a two-stage RLHF approach, starting with Rejection Sampling, then doing Rejection Sampling + Proximal Policy Optimisation (PPO)
@@ -349,11 +349,11 @@ Some win rate graphs on LLaMA-2 after evaluation comparisons against popular LLM
 
 ##### Limitations
 
-- LLaMA-2 base models perform worse compared to aligned proprietary models, but performs favourably when compared to popular base LLMs like [PaLM](https://arxiv.org/abs/2204.02311).
+- LLaMA-2 base models perform worse compared to aligned proprietary models, but performs favourably when compared to popular base LLMs like PaLM {cite}`chowdhery2022palm`.
 
     ```{figure} https://static.premai.io/book/models_llama2-proprietary-scores.png
     :width: 80%
-    [Page 8, LLaMA 2: Open Foundations and Fine-Tuned Chat Models](https://arxiv.org/pdf/2307.09288.pdf)
+    Page 8, LLaMA 2: Open Foundations and Fine-Tuned Chat Models {cite}`touvron2023llama2`
     ```
 
 - Llama 2 Chat model variants can sometimes give overly cautious responses due to high safety tuning on the model.
@@ -365,7 +365,7 @@ Till now we've mostly been looking at LLMs in general and not other models, let'
 
 [StabilityAI released Stable Diffusion XL 1.0 (SDXL)](https://stability.ai/blog/stable-diffusion-sdxl-1-announcement) models on 26th July, being current State of the Art for text-to-image and image-to-image generation open sourced models. They released a [base model](https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0) and a [refinement model](https://huggingface.co/stabilityai/stable-diffusion-xl-refiner-1.0) which is used to improve the visual fidelity of samples generated by SDXL.
 
-Few months back they released [Stable-diffusion-xl](https://arxiv.org/abs/2307.01952) [base](https://huggingface.co/stabilityai/stable-diffusion-xl-base-0.9) and [refinement](https://huggingface.co/stabilityai/stable-diffusion-xl-refiner-0.9) models versioned as 0.9, where license permitting only research purpose usages.
+Few months back they released Stable-diffusion-xl {cite}`podell2023sdxl` [base](https://huggingface.co/stabilityai/stable-diffusion-xl-base-0.9) and [refinement](https://huggingface.co/stabilityai/stable-diffusion-xl-refiner-0.9) models versioned as 0.9, where license permitting only research purpose usages.
 
 SDXL consistently surpasses all previous versions of Stable Diffusion models by a significant margin:
 
@@ -382,7 +382,7 @@ SDXL consistently surpasses all previous versions of Stable Diffusion models by 
 
   ```{figure} https://static.premai.io/book/models_sdxl-arch.png
   :width: 78%
-  [SDXL: Improving Latent Diffusion Models for High-Resolution Image Synthesis](https://arxiv.org/pdf/2307.01952.pdf)
+  SDXL: Improving Latent Diffusion Models for High-Resolution Image Synthesis {cite}`podell2023sdxl`
   ```
 
 - Proposed two additional model conditioning techniques to preserve training data from being discarded and gain more control over how a generated image should be cropped:
@@ -401,7 +401,7 @@ SDXL consistently surpasses all previous versions of Stable Diffusion models by 
 
 In the domain of Image generation currently [Midjourney](https://www.midjourney.com) is one of the most popular proprietary solutions for [simple users](https://www.reddit.com/r/StableDiffusion/comments/15i6tg3/are_we_killing_the_future_of_stable_diffusion/jusrar3).
 
-Following the timeline and going back to text domain, coder models are gaining lot of popularity too, specially looking at the code generation or code analysis capabilities of OpenAI's codex and GPT-4, there has been few releases on code LLMs like [WizardCoder](https://arxiv.org/abs/2306.08568), [StarCoder](https://huggingface.co/bigcode/starcoder), [Code llama](https://huggingface.co/codellama) (state of the art) and [many more](https://huggingface.co/models?language=code).
+Following the timeline and going back to text domain, coder models are gaining lot of popularity too, specially looking at the code generation or code analysis capabilities of OpenAI's codex and GPT-4, there has been few releases on code LLMs like WizardCoder {cite}`luo2023wizardcoder`, [StarCoder](https://huggingface.co/bigcode/starcoder), [Code llama](https://huggingface.co/codellama) (state of the art) and [many more](https://huggingface.co/models?language=code).
 
 #### Code Llama
 
@@ -419,14 +419,14 @@ And currently [its fine-tuned variants](https://huggingface.co/Phind/Phind-CodeL
 
     ```{figure} https://static.premai.io/book/models_codellama-pipeline.png
     :width: 88%
-    [Page 3, Code Llama: Open Foundation Models for Code](https://arxiv.org/pdf/2308.12950.pdf)
+    Page 3, Code Llama: Open Foundation Models for Code {cite}`rozière2023code`
     ```
 
 - Reached state-of-the-art performance among open models on several code benchmarks, with scores of up to 53% and 55% on [HumanEval](https://github.com/openai/human-eval) and [MBPP](https://github.com/google-research/google-research/tree/master/mbpp), respectively.
 
   ```{figure} https://static.premai.io/book/models_codellama-scores.png
   :width: 78%
-  [Page 7, Code Llama: Open Foundation Models for Code](https://arxiv.org/pdf/2308.12950.pdf)
+  Page 7, Code Llama: Open Foundation Models for Code {cite}`rozière2023code`
   ```
 
 - Supports code [infilling](https://huggingface.co/blog/codellama#code-infilling).
@@ -464,7 +464,7 @@ And currently [its fine-tuned variants](https://huggingface.co/Phind/Phind-CodeL
 - Inference optimisations possible.
 - In the model architecture it uses:
   - Uses [squared ReLU activation function](https://www.adept.ai/blog/persimmon-8b#model-details).
-  - Uses [RoPE](https://arxiv.org/abs/2104.09864) and [QKNorm](https://arxiv.org/abs/2010.04245) which might've been mostly needed to stabilise squared ReLU training since it was also used to reduce instability issues in [ViT-22B model](https://arxiv.org/abs/2302.05442).
+  - Uses RoPE {cite}`su2022roformer` and QKNorm {cite}`henry2020querykey` which might've been mostly needed to stabilise squared ReLU training since it was also used to reduce instability issues in ViT-22B model {cite}`dehghani2023scaling`.
 
 ##### Limitations
 
@@ -472,7 +472,7 @@ And currently [its fine-tuned variants](https://huggingface.co/Phind/Phind-CodeL
 
 #### Mistral 7B
 
-[Mistral-7B](https://huggingface.co/mistralai) is released by [Mistral AI](https://mistral.ai), a french startup which recently [raised a good seed round](https://techcrunch.com/2023/06/13/frances-mistral-ai-blows-in-with-a-113m-seed-round-at-a-260m-valuation-to-take-on-openai). The team comprises of ex-[Deepmind](https://www.deepmind.com) and ex-[Meta](https://ai.meta.com) researchers, who worked on [](#llama), [Flamingo](https://arxiv.org/abs/2204.14198) and [Chinchilla](https://en.wikipedia.org/wiki/Chinchilla_AI) projects.
+[Mistral-7B](https://huggingface.co/mistralai) is released by [Mistral AI](https://mistral.ai), a french startup which recently [raised a good seed round](https://techcrunch.com/2023/06/13/frances-mistral-ai-blows-in-with-a-113m-seed-round-at-a-260m-valuation-to-take-on-openai). The team comprises of ex-[Deepmind](https://www.deepmind.com) and ex-[Meta](https://ai.meta.com) researchers, who worked on [](#llama), Flamingo {cite}`alayrac2022flamingo` and [Chinchilla](https://en.wikipedia.org/wiki/Chinchilla_AI) projects.
 
 ##### Uniqueness
 
@@ -487,7 +487,7 @@ And currently [its fine-tuned variants](https://huggingface.co/Phind/Phind-CodeL
 - Uses Grouped-query attention (GQA) {cite}`ainslie2023gqa` for faster inference.
 - Uses [Sliding Window Attention (SWA)](https://github.com/mistralai/mistral-src#sliding-window-attention) {cite}`child2019generating,beltagy2020longformer` to handle longer sequences at smaller cost.
 - Uses Byte-fallback BPE tokenizer.
-- Released [7B base](https://huggingface.co/mistralai/Mistral-7B-v0.1) model and [7B Instruct](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.1) model which outperforms all 7B models on [MT-Bench](https://arxiv.org/abs/2306.05685) and outperforms [llama-2-13B-chat](https://huggingface.co/meta-llama/Llama-2-13b-chat).
+- Released [7B base](https://huggingface.co/mistralai/Mistral-7B-v0.1) model and [7B Instruct](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.1) model which outperforms all 7B models on  MT-Bench {cite}`zheng2023judging` and outperforms [llama-2-13B-chat](https://huggingface.co/meta-llama/Llama-2-13b-chat).
 - Both models released under Apache 2.0 license, with no restrictions.
 - [Released a codebase](https://github.com/mistralai/mistral-src) which documents how to run and explains some concepts used in the model.
 
@@ -530,7 +530,7 @@ StabilityAI's SDXL vs [Midjourney](https://www.midjourney.com) comparison shows 
 
 ```{figure} https://static.premai.io/book/models_sdxl-midjourney.png
 :width: 88%
-[Page 14, SDXL: Improving Latent Diffusion Models for High-Resolution Image Synthesis](https://arxiv.org/pdf/2307.01952.pdf)
+Page 14, SDXL: Improving Latent Diffusion Models for High-Resolution Image Synthesis {cite}`podell2023sdxl`
 ```
 
 ```{note} Above experiment is against Midjourney v5.1, whereas current latest is [Midjourney v5.2](https://docs.midjourney.com/docs/model-versions).

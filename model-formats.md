@@ -6,31 +6,28 @@ As [ML model](models) applications increase, so too does the need for optimising
 :name: model-format-table
 Feature | [](ONNX) | [](GGML) | [](TensorRT)
 --------|------|------|---------
-Ease of Use | 🟢 good | 🟡 ok | 🟡 ok
-Integration with Deep Learning Frameworks | 🟡 most | 🔴 limited | 🔴 limited
-Deployment Tools | 🟢 yes | 🔴 no | 🟢 yes
-Interoperability | 🟢 yes | 🔴 no | 🔴 no
-GPU Acceleration | yes | yes | yes
-Inference Boost | 🟡 ok | 🟢 good | 🟢 good
-Quantisation Support | 🟡 ok | 🟢 good | 🟡 ok
-Dynamic I/O Shapes | yes | yes | yes
-Custom Layer Support| 🟢 yes | 🔴 limited | 🟢 yes
-Community Support | good | good | good
+Ease of Use | 🟢 [good](onnx-usage) | 🟡 [moderate](ggml-usage) | 🟡 [moderate](tensorrt-usage)
+Integration with Deep Learning Frameworks | 🟢 [most](onnx-support) | 🟡 [growing](ggml-support) | 🟡 [growing](tensorrt-support)
+Deployment Tools | 🟢 [yes](onnx-runtime) | 🔴 no | 🟢 [yes](triton-inference)
+Interoperability | 🟢 [yes](onnx-interoperability) | 🔴 no | 🔴 [no](tensorrt-interoperability)
+Inference Boost | 🟡 moderate | 🟢 good | 🟢 good
+Quantisation Support | 🟡 [good](onnx-quantisation) | 🟢 [good](ggml-quantisation) | 🟡 [moderate](tensorrt-quantisation)
+Custom Layer Support| 🟢 [yes](onnx-custom-layer) | 🔴 limited | 🟢 [yes](tensorrt-custom-layer)
 Maintainer | [LF AI & Data Foundation](https://wiki.lfaidata.foundation) | https://github.com/ggerganov | https://github.com/NVIDIA
-[Permissive licence](open-licences) | yes (`Apache-2.0`) | yes (`MIT`) | yes (`Apache-2.0`)
 ```
 
 {{ table_feedback }}
 
-And here's some repository stats:
-
-Repository | Commit Rate | Stars | Contributors | Issue rate | PR rate
+```{table} Model Formats Repository Statistics
+:name: model-format-repo-table
+Repository | Commit Rate | Stars | Contributors | Issues | Pull Requests
 -----------|-------------|-------|--------------|------------|--------
-[ggerganov/ggml](https://repo-tracker.com/r/gh/ggerganov/ggml) | 1.4 / day | 6.7k | 73 | 2.1 / day | 1.1 / day
-[ggerganov/llama.cpp](https://repo-tracker.com/r/gh/ggerganov/llama.cpp) | 7.6 / day | 40.1k | 315 | 14.4 / day | 8.7 / day
-[onnx/onnx](https://repo-tracker.com/r/gh/onnx/onnx) | 1.3 / day | 15.5k | 267 | 3.1 / day | 1.6 / day
-[microsoft/onnxruntime](https://repo-tracker.com/r/gh/microsoft/onnxruntime) | 7.7 / day | 10.3k | 381 | 13 / day | 9.8 / day
-[nvidia/tensorrt](https://repo-tracker.com/r/gh/NVIDIA/TensorRT) | - | 7.7k | 67 | 3.3 / day | 0.2 / day
+[ggerganov/ggml](https://repo-tracker.com/r/gh/ggerganov/ggml) | ![](https://img.shields.io/github/commit-activity/m/ggerganov/ggml?label=%20) | ![](https://img.shields.io/github/stars/ggerganov/ggml?label=%20) | ![](https://img.shields.io/github/contributors-anon/ggerganov/ggml?label=%20) | ![](https://img.shields.io/github/issues-search/ggerganov/ggml?query=is%3Aissue&label=%20) | ![](https://img.shields.io/github/issues-search/ggerganov/ggml?query=is%3Apr&label=%20)
+[ggerganov/llama.cpp](https://repo-tracker.com/r/gh/ggerganov/llama.cpp) | ![](https://img.shields.io/github/commit-activity/m/ggerganov/llama.cpp?label=%20) | ![](https://img.shields.io/github/stars/ggerganov/llama.cpp?label=%20) | ![](https://img.shields.io/github/contributors-anon/ggerganov/llama.cpp?label=%20) | ![](https://img.shields.io/github/issues-search/ggerganov/llama.cpp?query=is%3Aissue&label=%20) | ![](https://img.shields.io/github/issues-search/ggerganov/llama.cpp?query=is%3Apr&label=%20)
+[onnx/onnx](https://repo-tracker.com/r/gh/onnx/onnx) | ![](https://img.shields.io/github/commit-activity/m/onnx/onnx?label=%20) | ![](https://img.shields.io/github/stars/onnx/onnx?label=%20) | ![](https://img.shields.io/github/contributors-anon/onnx/onnx?label=%20) | ![](https://img.shields.io/github/issues-search/onnx/onnx?query=is%3Aissue&label=%20) | ![](https://img.shields.io/github/issues-search/onnx/onnx?query=is%3Apr&label=%20)
+[microsoft/onnxruntime](https://repo-tracker.com/r/gh/microsoft/onnxruntime) | ![](https://img.shields.io/github/commit-activity/m/microsoft/onnxruntime?label=%20) | ![](https://img.shields.io/github/stars/microsoft/onnxruntime?label=%20) | ![](https://img.shields.io/github/contributors-anon/microsoft/onnxruntime?label=%20) | ![](https://img.shields.io/github/issues-search/microsoft/onnxruntime?query=is%3Aissue&label=%20) | ![](https://img.shields.io/github/issues-search/microsoft/onnxruntime?query=is%3Apr&label=%20)
+[nvidia/tensorrt](https://repo-tracker.com/r/gh/NVIDIA/TensorRT) | ![](https://img.shields.io/github/commit-activity/m/NVIDIA/TensorRT?label=%20) | ![](https://img.shields.io/github/stars/NVIDIA/TensorRT?label=%20) | ![](https://img.shields.io/github/contributors-anon/NVIDIA/TensorRT?label=%20) | ![](https://img.shields.io/github/issues-search/NVIDIA/TensorRT?query=is%3Aissue&label=%20) | ![](https://img.shields.io/github/issues-search/NVIDIA/TensorRT?query=is%3Apr&label=%20)
+```
 
 Based on the above stats, it looks like ggml is the most popular library currently, followed by onnx. Also one thing to note here is onnx repositories are around ~9x older compared to ggml repositories.
 
@@ -47,7 +44,7 @@ ONNX feels truly OSS, since it's run by an OSS community, whereas both GGML and 
 ```{figure} https://static.premai.io/book/model-formats-onnx.png
 ---
 width: 75%
-name: onnx interoperability
+name: onnx-interoperability
 ---
 https://cms-ml.github.io/documentation/inference/onnx.html
 ```
@@ -62,11 +59,16 @@ https://cms-ml.github.io/documentation/inference/onnx.html
   - https://github.com/onnx/models A repository of pre-trained models converted to ONNX format for various tasks.
   - [Hub](https://github.com/onnx/onnx/blob/main/docs/Hub.md): Helps sharing and collaborating on ONNX models within the community.
 
+(onnx-usage)=
 ### Usage
+
+Usability around ONNX is fairly developed and has lots of tooling support around it by the community, let's see how we can directly export into onnx and make use of it.
 
 Firstly the model needs to be converted to ONNX format using a relevant [converter](https://onnx.ai/onnx/intro/converters.html), for example if our model is created using Pytorch, for conversion we can use:
 
+(onnx-custom-layer)=
 - [`torch.onnx.export`](https://pytorch.org/docs/master/onnx.html)
+  - For [custom operators support](https://pytorch.org/docs/stable/onnx.html#custom-operators) same exporter can be used.
 - [`optimum`](https://github.com/huggingface/optimum#onnx--onnx-runtime) by [huggingface](https://huggingface.co/docs/transformers/serialization#export-to-onnx)
 
 Once exported we can load, manipulate, and run ONNX models. Let's take a Python example:
@@ -89,13 +91,18 @@ model = onnx.load("your_awesome_model.onnx")
 # (Specific inference code depends on your application and framework)
 ```
 
+(onnx-support)=
 ### Support
 
 Many frameworks/tools are supported, with many examples/tutorials at https://github.com/onnx/tutorials#converting-to-onnx-format.
 
+(onnx-runtime)=
 It has support for Inference runtime binding APIs written in [few programming languages](https://onnxruntime.ai/docs/install/#inference-install-table-for-all-languages) ([python](https://onnxruntime.ai/docs/install/#python-installs), [rust](https://github.com/microsoft/onnxruntime/tree/main/rust), [js](https://github.com/microsoft/onnxruntime/tree/main/js), [java](https://github.com/microsoft/onnxruntime/tree/main/java), [C#](https://github.com/microsoft/onnxruntime/tree/main/csharp)).
 
 ONNX model's inference depends on the platform which runtime library supports, called Execution Provider. Currently there are few ranging from CPU based, GPU based, IoT/edge based and few others. A full list can be found [here](https://onnxruntime.ai/docs/execution-providers/#summary-of-supported-execution-providers).
+
+(onnx-quantisation)=
+Onnxruntime has few [example tools](https://github.com/microsoft/onnxruntime-inference-examples/tree/main/quantization) that can be used to quantize select ONNX models. Support is currenty based on operators in the model. Read more [here](https://onnxruntime.ai/docs/performance/quantization.html).
 
 Also there are few visualisation tools support like https://github.com/lutzroeder/Netron and [more](https://github.com/onnx/tutorials#visualizing-onnx-models) for models converted to ONNX format, highly recommended for debugging purposes.
 
@@ -169,7 +176,10 @@ https://github.com/ggerganov/ggml is a tensor library for machine learning to en
 
 To know more, see their [manifesto here](https://github.com/ggerganov/llama.cpp/discussions/205)
 
+(ggml-usage)=
 ### Usage
+
+Overall GGML is moderate in terms of usability given it's a fairly new project and growing, but has lots of [community support](ggml-support) already.
 
 Here's an example inference of GPT-2 GGML:
 
@@ -218,10 +228,12 @@ Here's a [GPT-2 conversion example](https://github.com/ggerganov/ggml/blob/6319a
 
       For each weight representation the first list denotes dimensions and second list denotes weights. Dimensions list uses `1` as a placeholder for unused dimensions.
 
+(ggml-quantisation)=
 #### Quantisation
 
 [Quantisation](<https://en.wikipedia.org/wiki/Quantization_(signal_processing)>) is a process where high-precision foating point values are converted to low-precision values. This overall reduces the resources required to use the values in Tensor, making model easier to run on low resources. GGML uses a [hacky version of quantisation](https://github.com/ggerganov/ggml/discussions/41#discussioncomment-5361161) and supports a number of different quantisation [strategies](https://news.ycombinator.com/item?id=36216244) (e.g. 4-bit, 5-bit, and 8-bit quantisation), each of which offers different trade-offs between efficiency and performance. Check out [this amazing article](https://huggingface.co/blog/merve/quantization) by [Merve](https://huggingface.co/merve) for a quick walkthrough.
 
+(ggml-support)=
 ### Support
 
 It's most used projects include:
@@ -309,9 +321,10 @@ TensorRT's main capability comes under giving out high performance inference eng
 
 [TensorRT can also act as a provider when using onnxruntime](https://onnxruntime.ai/docs/execution-providers/TensorRT-ExecutionProvider.html) delivering better inferencing performance on the same hardware compared to generic GPU acceleration by [setting proper Execution Provider](https://onnxruntime.ai/docs/execution-providers).
 
+(tensorrt-usage)=
 ### Usage
 
-Using [NVIDIA's TensorRT containers](https://docs.nvidia.com/deeplearning/tensorrt/container-release-notes) can ease up setup, given it's know what version of TensorRT, CUDA toolkit (if required).
+Using [NVIDIA's TensorRT containers](https://docs.nvidia.com/deeplearning/tensorrt/container-release-notes) can ease up setup, given it's known what version of TensorRT, CUDA toolkit (if required).
 
 ```{figure} https://static.premai.io/book/model-formats_tensorrt-usage-flow.png
 ---
@@ -321,10 +334,12 @@ name: TensorRT conversion flow
 [Path to convert and deploy with TensorRT](https://docs.nvidia.com/deeplearning/tensorrt/quick-start-guide/#select-workflow).
 ```
 
+(tensorrt-support)=
 ### Support
 
 While creating a serialised TensorRT engine, except using [TF-TRT](https://docs.nvidia.com/deeplearning/frameworks/tf-trt-user-guide) or [ONNX](https://onnx.ai), for higher customisability one can also manually construct a network using the TensorRT API ([C++](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/#create_network_c) or [Python](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/#create_network_python))
 
+(triton-inference)=
 TensorRT also includes a standalone [runtime](https://docs.nvidia.com/deeplearning/tensorrt/quick-start-guide/#runtime) with [C++](https://docs.nvidia.com/deeplearning/tensorrt/quick-start-guide/#run-engine-c) and [Python](https://docs.nvidia.com/deeplearning/tensorrt/quick-start-guide/#run-engine-python) bindings, apart from directly using [NVIDIA's Triton Inference server for deployment](https://github.com/triton-inference-server/server/blob/r20.12/docs/quickstart.md).
 
 [ONNX has a TensorRT backend](https://github.com/onnx/onnx-tensorrt#onnx-tensorrt-python-backend-usage) that parses ONNX models for execution with TensorRT, having both [Python](https://github.com/onnx/onnx-tensorrt#c-library-usage) and [C++](https://github.com/onnx/onnx-tensorrt#c-library-usage) support. Current full list of supported ONNX operators for TensorRT is maintained [here](https://github.com/onnx/onnx-tensorrt/blob/main/docs/operators.md#operator-support-matrix). It only supports `DOUBLE`, `FLOAT32`, `FLOAT16`, `INT8` and `BOOL` ONNX data types, and limited support for `INT32`, `INT64` and `DOUBLE` types.
@@ -336,18 +351,25 @@ NVIDIA also kept few [tooling](https://docs.nvidia.com/deeplearning/tensorrt/#to
 - **[`trt-engine-explorer`](https://github.com/NVIDIA/TensorRT/tree/main/tools/experimental/trt-engine-explorer):** It contains Python package [`trex`](https://github.com/NVIDIA/TensorRT/tree/main/tools/experimental/trt-engine-explorer/trex) to explore various aspects of a TensorRT engine plan and its associated inference profiling data.
 - **[`onnx-graphsurgeon`](https://github.com/NVIDIA/TensorRT/tree/main/tools/onnx-graphsurgeon):** It helps easily generate new ONNX graphs, or modify existing ones.
 - **[`polygraphy-extension-trtexec`](https://github.com/NVIDIA/TensorRT/tree/main/tools/polygraphy-extension-trtexec):** polygraphy extension which adds support to run inference with `trtexec` for multiple backends, including TensorRT and ONNX-Runtime, and compare outputs.
-- **[`pytorch-quantization``](https://github.com/NVIDIA/TensorRT/tree/main/tools/pytorch-quantization) and [`tensorflow-quantization``](https://github.com/NVIDIA/TensorRT/tree/main/tools/tensorflow-quantization):** For quantisation aware training or evaluating when using Pytorch/Tensorflow.
+
+(tensorrt-quantisation-2)=
+- **[`pytorch-quantization`](https://github.com/NVIDIA/TensorRT/tree/main/tools/pytorch-quantization) and [`tensorflow-quantization`](https://github.com/NVIDIA/TensorRT/tree/main/tools/tensorflow-quantization):** For quantisation aware training or evaluating when using Pytorch/Tensorflow.
 
 ### Limitations
 
+(tensorrt-interoperability)=
 Currently every model checkpoint one creates needs to be recompiled first to ONNX and then to TensorRT, so for using https://github.com/microsoft/LoRA it has to be added into the model at compile time. More issues can be found in [this reddit post](https://www.reddit.com/r/StableDiffusion/comments/141qvw4/tensorrt_may_be_2x_faster_but_it_has_a_lot_of).
 
-INT4 and INT16 quantisation is not supported by TensorRT currently.
+(tensorrt-quantisation)=
+INT4 and INT16 quantisation is not supported by TensorRT currently. Current support on quantisation can be found [here](tensorrt-quantisation-2).
 
 Many [ONNX operators](https://github.com/onnx/onnx/blob/main/docs/Operators.md) are [not yet supported](https://github.com/onnx/onnx-tensorrt/blob/main/docs/operators.md) by TensorRT and few supported ones have restrictions.
 
+Supports no Interoperability since conversion to onnx or TF-TRT format is a necessary step and has intricrasies which needs to be handled [for custom requirements](tensorrt-interoperability).
+
 ```{seealso}
 - [Docs](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide)
+  (tensorrt-custom-layer)=
   + [Extending TensorRT with Custom Layers: Plugins](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/#extending)
 - [Intro notebooks](https://github.com/NVIDIA/TensorRT/tree/main/quickstart/IntroNotebooks)
 - [Support matrix](https://docs.nvidia.com/deeplearning/tensorrt/support-matrix)

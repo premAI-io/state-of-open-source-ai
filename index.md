@@ -32,19 +32,19 @@ We go beyond just mentioning the models, but also include things such as changin
 
 We've divided the open-source tooling, models, & MLOps landscape into the following chapters:
 
-Chapter | Examples
+Chapter | Description
 ---|---
-[](licences) | LLaMA, HuggingFace, Apache-2.0
-[](eval-datasets) | OpenLLM Leaderboard, Datasets
-[](models) | LLaMA 1 vs 2, Falcon, Stable Diffusion, DALL-E
-[](unaligned-models) | FraudGPT, PoisonGPT
-[](fine-tuning) | h20, ...
-[](model-formats) | ONNX, Apache TVM, GGML
-[](mlops-engines) | BentoML, llama.cpp, ray
-[](vector-db) | weaviate, qdrant, milvus, redis, chroma
-[](sdk) | langchain, haystack, llama index
-[](desktop-apps) | LMStudio, GPT4All UI
-[](hardware) | NVIDIA GPUs, Mac, iPhone
+[](licences) | Weights vs Data, Commercial use, Fair use, Pending lawsuits
+[](eval-datasets) | Leaderboards & Benchmarks for Text/Visual/Audio models
+[](models) | LLaMA 1 vs 2, Stable Diffusion, DALL-E, Persimmon, ...
+[](unaligned-models) | FraudGPT, WormGPT, PoisonGPT, WizardLM, Falcon
+[](fine-tuning) | LLMs, Visual, & Audio models
+[](model-formats) | ONNX, GGML, TensorRT
+[](mlops-engines) | vLLM, TGI, Triton, BentoML, ...
+[](vector-db) | Weaviate, Qdrant, Milvus, Redis, Chroma, ...
+[](sdk) | LangChain, LLaMA Index, LiteLLM
+[](desktop-apps) | LMStudio, GPT4All, Koboldcpp, ...
+[](hardware) | NVIDIA CUDA, AMD ROCm, Apple Silicon, Intel, TPUs, ...
 
 ## Contributing
 

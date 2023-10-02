@@ -2,6 +2,8 @@
 
 {term}`LLM` SDKs are specific for generative AI. These toolkits help developers integrate LLM capabilities into applications. The LLM SDK typically includes APIs, sample code, and documentation to aid in the development process. By leveraging an LLM SDK, developers can streamline their development processes and ensure compliance with industry standards.
 
+% TODO: haystack?
+
 ```{table} Comparison of LLM SDKs
 :name: llm-sdks
 SDK | Use case | Vector stores | Embedding model | LLM Model | Advanced features

@@ -79,9 +79,11 @@ sphinx:
   extra_extensions:
   - sphinxemoji.sphinxemoji
   - sphinx_last_updated_by_git
+  - sphinx_subfigure
+  # custom (local *.py files)
   - badges
   - committers
-  - sphinx_subfigure
+  - bibliography
   config:
     myst_heading_anchors: 4
     html_js_files:

@@ -42,5 +42,5 @@ Couldn't decide which chapter(s) these links are related to. They're mostly abou
 ## BibTeX references (TODO: use this more -- see [guide](index#formatting))
 
 ```{bibliography}
-:style: unsrt
+:style: unsrt_max_authors
 ```

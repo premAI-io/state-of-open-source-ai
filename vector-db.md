@@ -7,16 +7,24 @@
 Some ideas:
 
 - PGVector
-- Redis
-- Chroma
+- short sections for each of the rows from [the table below](vector-db-table)
 ```
 
-Vector databases have exploded in popularity in the past year due to generative AI, but the concept of vectors and embeddings has been around since modern-day neural networks.
+Vector databases have exploded in popularity in the past year due to generative AI, but the concept of vectors and embeddings has been around since modern-day neural networks. When performing image classification, the "features" extracted by a neural network are the "vector embeddings". These vector embeddings contain distilled ("compressed") information about the image. For text-based models, vector embeddings capture the relationship between words, allowing models to understand language. Embeddings can be stored in databases for later lookup/retrieval.
 
-In the field of computer vision when an engineer is performing image classification, the "features" that get extracted by the neural network are the vector embeddings. These vector embeddings contain information about the image that can be used for things like image classification or image similarity.
+```{table} Comparison of Vector Databases
+:name: vector-db-table
+Vector Database | Open Source | Sharding | Supported Distance Metrics | Supported Indices
+----------------|-------------|----------|----------------------------|------------------
+https://github.com/weaviate/weaviate | 🟢 Yes | 🟢 Yes | cosine, dot, L2 squared, hamming, manhattan | HNSW, HNSW-PQ
+https://github.com/qdrant/qdrant | 🟢 Yes | 🟢 Yes | cosine, dot, euclidean | HNSW
+https://github.com/milvus-io/milvus | 🟢 Yes | 🟢 Yes | cosine, dot, euclidean, jaccard, hamming | HNSW, FLAT, IVF-FLAT, IVF-PQ
+https://github.com/RedisVentures/redisvl | 🟢 Yes  | 🟢 Yes | cosine, inner product, L2 | HNSW, FLAT
+https://github.com/chroma-core/chroma | 🟢 Yes  | 🔴 No | cosine, inner product, L2 | HNSW
+[Pinecone](https://www.pinecone.io) | 🔴 No  | 🟢 Yes | cosine, dot, euclidean | HNSW, FLAT, LSH, PQ
+```
 
-In the context of textual data, vector embeddings serve a similar purpose. They capture the relationship between words, which allows models to understand language.
-
+<!--
 *What does a vector embedding look like and how are they created?*
 
 ```{figure-md} vector-database-architecture
@@ -25,6 +33,9 @@ In the context of textual data, vector embeddings serve a similar purpose. They 
 
 [Vector database with LLMs](https://pytorch.org/blog/a-better-transformer-for-fast-transformer-encoder-inference)
 ```
+
+TODO: wat is the diagram above trying to explain?
+-->
 
 ## LLM Embeddings
 
@@ -68,15 +79,6 @@ Many closed-source models like [text-embedding-ada-002](https://platform.openai.
 ## Vector Databases
 
 Vector databases allow for efficient search and storage of vector embeddings.
-
-Vector Database | Open Source | Sharding | Supported Distance Metrics | Supported Indices
-----------------|-------------|----------|----------------------------|------------------
-https://github.com/weaviate/weaviate | 🟢 Yes | 🟢 Yes | cosine, dot, L2 squared, hamming, manhattan | HNSW, HNSW-PQ
-https://github.com/qdrant/qdrant | 🟢 Yes | 🟢 Yes | cosine, dot, euclidean | HNSW
-https://github.com/milvus-io/milvus | 🟢 Yes | 🟢 Yes | cosine, dot, euclidean, jaccard, hamming | HNSW, FLAT, IVF-FLAT, IVF-PQ
-[Pinecone](https://www.pinecone.io) | 🔴 No  | 🟢 Yes | cosine, dot, euclidean | HNSW, FLAT, LSH, PQ
-https://github.com/chroma-core/chroma | 🟢 Yes  | 🔴 No | cosine, inner product, L2 | HNSW
-https://github.com/RedisVentures/redisvl | 🟢 Yes  | 🟢 Yes | cosine, inner product, L2 | HNSW, FLAT
 
 ### Calculating distance between vectors
 

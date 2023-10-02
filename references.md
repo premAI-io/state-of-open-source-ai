@@ -1,8 +1,9 @@
 # References
 
-## TODO: move elsewhere
+````{admonition} Work in Progress (TODO: move elsewhere)
+:class: attention
 
-### important and/or related to whole book
+**important and/or related to whole book**
 
 - "Catching up on the weird world of LLMs" (summary of the last few years) https://simonwillison.net/2023/Aug/3/weird-world-of-llms
 - "Open challenges in LLM research" (exciting post title but mediocre content) https://huyenchip.com/2023/08/16/llm-research-open-challenges.html
@@ -24,7 +25,7 @@
   + ... others?
 - open questions & future interest (pages 15 & 16): https://mlops.community/wp-content/uploads/2023/07/survey-report-MLOPS-v16-FINAL.pdf
 
-### unclassified
+**unclassified**
 
 Couldn't decide which chapter(s) these links are related to. They're mostly about security & optimisation. Perhaps create a new chapter?
 
@@ -38,8 +39,7 @@ Couldn't decide which chapter(s) these links are related to. They're mostly abou
 - "GPTQ: Accurate Post-Training Quantization for Generative Pre-trained Transformers" https://arxiv.org/abs/2210.17323
 - "RetrievalQA with LLaMA 2 70b & Chroma DB" (nothing new, but this guy does a lot of experiments if you wanna follow him) https://youtu.be/93yueQQnqpM
 - "[WiP] build MLOps solutions in Rust" https://github.com/nogibjj/rust-mlops-template
-
-## BibTeX references (TODO: use this more -- see [guide](index#formatting))
+````
 
 ```{bibliography}
 :style: unsrt_max_authors

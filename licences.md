@@ -38,7 +38,7 @@ Model | Weights | Training Data | Output
 
 {{ table_feedback }}
 
-Just a few weeks after some said "the golden age of open [...] AI is coming to an end" {cite}`golden-age-os-end`, things like Falcon's `Apache-2.0` relicensing {cite}`falcon-relicence` and the [LLaMA 2 community licence](https://ai.meta.com/llama/license) {cite}`llama-2-licence` were announced (both permitting commercial use), completely changing the landscape.
+Just a few weeks after some said "the golden age of open [...] AI is coming to an end" {cite}`golden-age-os-end`, things like Falcon's `Apache-2.0` relicensing {cite}`falcon-relicence` and the [LLaMA-2 community licence](https://ai.meta.com/llama/license) {cite}`llama-2-licence` were announced (both permitting commercial use), completely changing the landscape.
 
 Some interesting observations currently:
 

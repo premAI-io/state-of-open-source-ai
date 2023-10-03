@@ -132,7 +132,7 @@ Similar models have been made available:
 ### Falcon-180B
 
 [Falcon 180B](https://huggingface.co/tiiuae/falcon-180B) has been released [allowing commercial use](https://huggingface.co/spaces/tiiuae/falcon-180b-license/blob/main/LICENSE.txt).
-It excels in {term}`SotA` performance across natural language tasks, surpassing previous open-source models and rivalling [Palm 2](models.md#palm). This LLM even outperforms [Llama-2 70B](models.md#llama-2) and OpenAI's [GPT-3.5](https://openai.com/blog/chatgpt).
+It excels in {term}`SotA` performance across natural language tasks, surpassing previous open-source models and rivalling [Palm 2](models.md#palm). This LLM even outperforms [LLaMA-2 70B](models.md#llama-2) and OpenAI's [GPT-3.5](https://openai.com/blog/chatgpt).
 
 ```{figure} https://static.premai.io/book/unaligned-models-falcon-180B-performance.png
 :width: 60%

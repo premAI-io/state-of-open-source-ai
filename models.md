@@ -356,7 +356,7 @@ Page 3, LLaMA 2: Open Foundations and Fine-Tuned Chat Models {cite}`touvron2023l
     Page 8, LLaMA 2: Open Foundations and Fine-Tuned Chat Models {cite}`touvron2023llama2`
     ```
 
-- Llama 2 Chat model variants can sometimes give overly cautious responses due to high safety tuning on the model.
+- LLaMA-2 Chat model variants can sometimes give overly cautious responses due to high safety tuning on the model.
 - Reward models used in the model alignment steps aren't open sourced yet.
 
 Till now we've mostly been looking at LLMs in general and not other models, let's look at the vision domain now.
@@ -401,11 +401,11 @@ SDXL consistently surpasses all previous versions of Stable Diffusion models by 
 
 In the domain of Image generation currently [Midjourney](https://www.midjourney.com) is one of the most popular proprietary solutions for [simple users](https://www.reddit.com/r/StableDiffusion/comments/15i6tg3/are_we_killing_the_future_of_stable_diffusion/jusrar3).
 
-Following the timeline and going back to text domain, coder models are gaining lot of popularity too, specially looking at the code generation or code analysis capabilities of OpenAI's codex and GPT-4, there has been few releases on code LLMs like WizardCoder {cite}`luo2023wizardcoder`, [StarCoder](https://huggingface.co/bigcode/starcoder), [Code llama](https://huggingface.co/codellama) (state of the art) and [many more](https://huggingface.co/models?language=code).
+Following the timeline and going back to text domain, coder models are gaining lot of popularity too, specially looking at the code generation or code analysis capabilities of OpenAI's codex and GPT-4, there has been few releases on code LLMs like WizardCoder {cite}`luo2023wizardcoder`, [StarCoder](https://huggingface.co/bigcode/starcoder), [Code LLaMA](https://huggingface.co/codellama) (state of the art) and [many more](https://huggingface.co/models?language=code).
 
-#### Code Llama
+#### Code LLaMA
 
-[Code llama](https://ai.meta.com/blog/code-llama-large-language-model-coding) release by [Meta AI](https://ai.meta.com/about) (right after ~1.5 month from LLaMA 2's release) caught lot of attention being full open source.
+[Code LLaMA](https://ai.meta.com/blog/code-llama-large-language-model-coding) release by [Meta AI](https://ai.meta.com/about) (right after ~1.5 month from LLaMA 2's release) caught lot of attention being full open source.
 And currently [its fine-tuned variants](https://huggingface.co/Phind/Phind-CodeLlama-34B-v2) are state of the art among open source coder models.
 
 ##### Uniqueness
@@ -413,20 +413,20 @@ And currently [its fine-tuned variants](https://huggingface.co/Phind/Phind-CodeL
 - [Outperforms GPT-3.5](https://www.reddit.com/r/OpenAI/comments/160bbaq/comment/jxls1xq) on code generation capabilities.
 - Uses [](#llama-2) as foundation model.
 - Released [three variants](https://huggingface.co/codellama) for each model sizes:
-  - **Code llama**: constitute foundation models for code generation. They come in three model sizes: 7B, 13B and 34B parameters. The 7B and 13B models are trained using an infilling objective, appropriate for code generation in an IDE. The 34B model was trained without the infilling objective
-  - **Code llama -- Python**: specialised for Python code generation and also come in sizes of 7B, 13B, and 34B parameters. Trained on 500B tokens from the Code Llama dataset and further specialised on 100B tokens using a Python-heavy dataset. Python variants are trained without infilling and subsequently fine-tuned to handle long contexts.
-  - **Code llama -- Instruct**:  based on Code Llama and fine-tuned with an additional approx. 5B tokens to better follow human instructions.
+  - **Code LLaMA**: constitute foundation models for code generation. They come in three model sizes: 7B, 13B and 34B parameters. The 7B and 13B models are trained using an infilling objective, appropriate for code generation in an IDE. The 34B model was trained without the infilling objective
+  - **Code LLaMA -- Python**: specialised for Python code generation and also come in sizes of 7B, 13B, and 34B parameters. Trained on 500B tokens from the Code LLaMA dataset and further specialised on 100B tokens using a Python-heavy dataset. Python variants are trained without infilling and subsequently fine-tuned to handle long contexts.
+  - **Code LLaMA -- Instruct**:  based on Code LLaMA and fine-tuned with an additional approx. 5B tokens to better follow human instructions.
 
     ```{figure} https://static.premai.io/book/models_codellama-pipeline.png
     :width: 88%
-    Page 3, Code Llama: Open Foundation Models for Code {cite}`rozière2023code`
+    Page 3, Code LLaMA: Open Foundation Models for Code {cite}`rozière2023code`
     ```
 
 - Reached state-of-the-art performance among open models on several code benchmarks, with scores of up to 53% and 55% on [HumanEval](https://github.com/openai/human-eval) and [MBPP](https://github.com/google-research/google-research/tree/master/mbpp), respectively.
 
   ```{figure} https://static.premai.io/book/models_codellama-scores.png
   :width: 78%
-  Page 7, Code Llama: Open Foundation Models for Code {cite}`rozière2023code`
+  Page 7, Code LLaMA: Open Foundation Models for Code {cite}`rozière2023code`
   ```
 
 - Supports code [infilling](https://huggingface.co/blog/codellama#code-infilling).
@@ -438,7 +438,7 @@ And currently [its fine-tuned variants](https://huggingface.co/Phind/Phind-CodeL
 
 ##### Limitations
 
-- Proprietary dataset: No Code llama dataset open source release yet.
+- Proprietary dataset: No Code LLaMA dataset open source release yet.
 - For 7B and 13B variants' large context fine-tuning and infilling comes at a cost on standard benchmarks.
 - Performs [worse](https://www.reddit.com/r/OpenAI/comments/160bbaq/meta_has_released_code_llama_although_gpt4) compared to GPT-4.
 
@@ -459,7 +459,7 @@ And currently [its fine-tuned variants](https://huggingface.co/Phind/Phind-CodeL
   ```
 
 - Uses a [vocabulary of 262k tokens](https://twitter.com/suchenzang/status/1700214181772013762), built using a unigram sentencepiece model.
-- Architecture is skinnier and deeper than Llama-2-7B.
+- Architecture is skinnier and deeper than LLaMA-2-7B.
 - They developed an [improved version of FlashAttention](https://www.adept.ai/blog/flashier-attention).
 - Inference optimisations possible.
 - In the model architecture it uses:
@@ -476,18 +476,18 @@ And currently [its fine-tuned variants](https://huggingface.co/Phind/Phind-CodeL
 
 ##### Uniqueness
 
-- [Mistral 7B](https://huggingface.co/mistralai/Mistral-7B-v0.1) outperforms [Llama-2-13B](https://registry.premai.io/detail.html?service=llama-2-13b) on all and llama-1-34B on code, math, and reasoning benchmarks.
+- [Mistral 7B](https://huggingface.co/mistralai/Mistral-7B-v0.1) outperforms [LLaMA-2-13B](https://registry.premai.io/detail.html?service=llama-2-13b) on all and LLaMA-1-34B on code, math, and reasoning benchmarks.
 
   ```{figure} https://static.premai.io/book/models_mistral-7b-comparison.png
     :width: 70%
     [Mistral 7B Comparison](https://mistral.ai/news/announcing-mistral-7b)
   ```
 
-- Close to CodeLlama 7B performance on code, while remaining good at English tasks.
+- Close to Code LLaMA 7B performance on code, while remaining good at English tasks.
 - Uses Grouped-query attention (GQA) {cite}`ainslie2023gqa` for faster inference.
 - Uses [Sliding Window Attention (SWA)](https://github.com/mistralai/mistral-src#sliding-window-attention) {cite}`child2019generating,beltagy2020longformer` to handle longer sequences at smaller cost.
 - Uses Byte-fallback BPE tokenizer.
-- Released [7B base](https://huggingface.co/mistralai/Mistral-7B-v0.1) model and [7B Instruct](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.1) model which outperforms all 7B models on  MT-Bench {cite}`zheng2023judging` and outperforms [llama-2-13B-chat](https://huggingface.co/meta-llama/Llama-2-13b-chat).
+- Released [7B base](https://huggingface.co/mistralai/Mistral-7B-v0.1) model and [7B Instruct](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.1) model which outperforms all 7B models on  MT-Bench {cite}`zheng2023judging` and outperforms [LLaMA-2-13B-chat](https://huggingface.co/meta-llama/Llama-2-13b-chat).
 - Both models released under Apache 2.0 license, with no restrictions.
 - [Released a codebase](https://github.com/mistralai/mistral-src) which documents how to run and explains some concepts used in the model.
 
@@ -504,7 +504,7 @@ Our current based approaches for comparisons include evaluating each model on ea
 
 ### Language
 
-[Open LLM Leaderboard](https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard) shows us that Falcon 180B is currently just ahead of Meta's Llama 2 70B, and TII claims that it ranks just behind OpenAI's GPT 4, and performs on par with Google's PaLM 2 Large, which powers Bard, despite being half the size of the model. But it required 4x more compute to train and it's 2.5 times larger compared to llama-2, which makes it not so cost-effective for commercial usages.
+[Open LLM Leaderboard](https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard) shows us that Falcon 180B is currently just ahead of Meta's LLaMA-2 70B, and TII claims that it ranks just behind OpenAI's GPT 4, and performs on par with Google's PaLM-2 Large, which powers Bard, despite being half the size of the model. But it required 4x more compute to train and it's 2.5 times larger compared to LLaMA-2, which makes it not so cost-effective for commercial usages.
 
 For practical commercial usage models ranging below 14B parameters has been a good candidate, and [](#mistral-7b), [LLaMA-2-7b](#llama-2), [Persimmon-8B](#persimmon-8b) does a great job showing that.
 

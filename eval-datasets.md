@@ -202,9 +202,7 @@ In NLP code generation models are often evaluated on evaluation metrics such as 
 for code generation. HumanEval contains 164 programs with 8 tests for each.
 
 ```{figure} https://static.premai.io/book/eval-datasets-human-eval-examples.png
----
-width: 70%
----
+:width: 70%
 Examples of HumanEval Dataset {cite}`chen2021evaluating`
 ```
 
@@ -250,9 +248,7 @@ the number of examples provided to the model during evaluation.
 ```
 
 ```{figure} https://static.premai.io/book/eval-datasets-open-llm-leaderboard.png
----
-width: 95%
----
+:width: 95%
 [HuggingFace OpenLLM Leaderboard](https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard)
 ```
 
@@ -294,9 +290,7 @@ interactions and asked to select the better response, ultimately contributing to
 performance (70K+ user votes to compute).
 
 ```{figure} https://static.premai.io/book/eval-datasets-chatbot-arena.png
----
-width: 100%
----
+:width: 100%
 Chatbot Arena
 ```
 
@@ -308,9 +302,7 @@ three benchmarks:
 - [](#mmlu) (5-shot)
 
 ```{figure} https://static.premai.io/book/eval-datasets-chatbot-arena-leaderboard.png
----
-width: 95%
----
+:width: 95%
 [Chatbot Arena Leaderboard](https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard)
 ```
 
@@ -322,9 +314,7 @@ using assessments from both human evaluators and [GPT4](models.md#chatgpt). Eval
 [Likert scale](https://en.wikipedia.org/wiki/Likert_scale), and Elo rankings are created using these preferences.
 
 ```{figure} https://static.premai.io/book/eval-datasets-human-eval-llm.png
----
-width: 95%
----
+:width: 95%
 [Human Eval LLM Leaderboard](https://huggingface.co/spaces/HuggingFaceH4/human_eval_llm_leaderboard)
 ```
 
@@ -335,9 +325,7 @@ the most appropriate {term}`embedding <Embedding>` model for a wide range of rea
 an extensive set of 129 datasets spanning eight different tasks and supporting as many as 113 languages.
 
 ```{figure} https://static.premai.io/book/eval-datasets-mteb-leaderboard.png
----
-width: 100%
----
+:width: 100%
 [MTEB Leaderboard](https://huggingface.co/spaces/mteb/leaderboard)
 ```
 
@@ -351,9 +339,7 @@ answer. For instance, "pass@1" evaluates models based on one solution, "pass@10"
 "pass@100" evaluates models based on one hundred solutions.
 
 ```{figure} https://static.premai.io/book/eval-datasets-human-eval.png
----
-width: 95%
----
+:width: 95%
 [Code Generation on HumanEval Leaderboard](https://paperswithcode.com/sota/code-generation-on-humaneval)
 ```
 
@@ -369,9 +355,7 @@ models are compared using the following primary benchmarks:
 * Throughput Measurement measured using [Optimum-Benchmark](https://github.com/huggingface/optimum-benchmark)
 
 ```{figure} https://static.premai.io/book/eval-datasets-big-code-models.png
----
-width: 100%
----
+:width: 100%
 [Big Code Models Leaderboard](https://huggingface.co/spaces/bigcode/bigcode-models-leaderboard)
 ```
 
@@ -431,9 +415,7 @@ LLM-based applications often exhibit increased complexity and consist of multipl
 For instance, consider ["talking to your data"](https://dev.premai.io/blog/chainlit-langchain-prem), where you query your database using natural language.
 
 ```{figure} https://static.premai.io/book/evaluation-dataset-control-flows.png
----
-width: 80%
----
+:width: 80%
 [Control Flows with LLMs](https://huyenchip.com/2023/04/11/llm-engineering.html)
 ```
 
@@ -531,9 +513,7 @@ available:
 - [WER](https://en.wikipedia.org/wiki/Word_error_rate)
 
 ```{figure} https://static.premai.io/book/eval-datasets-tts-ljspeech.png
----
-width: 95%
----
+:width: 95%
 Text-To-Speech Synthesis on LJSpeech Leaderboard
 ```
 
@@ -551,9 +531,7 @@ and models are ranked based on their average WER scores. This endeavour operates
 evaluation code can be found on https://github.com/huggingface/open_asr_leaderboard.
 
 ```{figure} https://static.premai.io/book/eval-datasets-open-asr-leaderboard.png
----
-width: 95%
----
+:width: 95%
 Open ASR Leaderboard
 ```
 
@@ -575,9 +553,7 @@ Comprising a vast collection of 328,000 images, this dataset has undergone sever
 initial release in 2014.
 
 ```{figure} https://static.premai.io/book/eval-datasets-coco.png
----
-width: 80%
----
+:width: 80%
 [COCO Dataset Examples](https://cocodataset.org/#home)
 ```
 
@@ -589,9 +565,7 @@ remarkable diversity with a total of 21,841 non-empty WordNet synsets and over 1
 making it a vital resource for computer vision research and development.
 
 ```{figure} https://static.premai.io/book/eval-datasets-imagenet.png
----
-width: 50%
----
+:width: 50%
 [ImageNet Examples](https://cs.stanford.edu/people/karpathy/cnnembed)
 ```
 
@@ -615,9 +589,7 @@ the field of computer vision, particularly in tasks related to semantic segmenta
 delineate objects and regions within images with fine-grained detail.
 
 ```{figure} https://static.premai.io/book/eval-datasets-ade20k.png
----
-width: 50%
----
+:width: 50%
 [ADE20K Examples](https://paperswithcode.com/dataset/ade20k)
 ```
 
@@ -629,10 +601,8 @@ from the official [Stable Diffusion Discord server](https://discord.com/invite/s
 the dataset are mostly English (contains also other languages such as Spanish, Chinese, and Russian).
 
 ```{figure} https://static.premai.io/book/eval-datasets-diffusiondb.png
----
-width: 100%
----
-[DiffusionDB Examples](https://arxiv.org/pdf/2210.14896.pdf)
+:width: 100%
+DiffusionDB Examples {cite}`wang2023diffusiondb`
 ```
 
 ### Leaderboards
@@ -646,9 +616,7 @@ the COCO evaluation approach from the
 [COCO evaluation toolkit](https://github.com/cocodataset/cocoapi/blob/master/PythonAPI/pycocotools/cocoeval.py).
 
 ```{figure} https://static.premai.io/book/eval-datasets-object-detection.png
----
-width: 100%
----
+:width: 100%
 [Object Detection Leaderboard](https://huggingface.co/spaces/rafaelpadilla/object_detection_leaderboard)
 ```
 
@@ -657,9 +625,7 @@ width: 100%
 The [Semantic Segmentation on ADE20K Leaderboard](https://paperswithcode.com/sota/semantic-segmentation-on-ade20k) evaluates models on [](#ade20k) mainly using mean Intersection over Union (mIoU).
 
 ```{figure} https://static.premai.io/book/eval-datasets-semantic-segmentation-ade20k.png
----
-width: 80%
----
+:width: 80%
 [Semantic Segmentation on ADE20K](https://paperswithcode.com/sota/semantic-segmentation-on-ade20k)
 ```
 
@@ -671,9 +637,7 @@ for evaluation. It leverages community engagement through the [Open Parti Prompt
 in which participants choose the most suitable image for a given prompt, with their selections informing the model comparisons.
 
 ```{figure} https://static.premai.io/book/eval-datasets-open-party-prompts.png
----
-width: 90%
----
+:width: 90%
 Open Parti Prompts Game
 ```
 
@@ -681,9 +645,7 @@ The leaderboard offers an overall comparison and detailed breakdown analyses by 
 a comprehensive assessment of model performance.
 
 ```{figure} https://static.premai.io/book/eval-datasets-open-party-leaderboard.png
----
-width: 90%
----
+:width: 90%
 [Open Parti Prompt Leaderboard](https://huggingface.co/spaces/OpenGenAI/parti-prompts-leaderboard)
 ```
 
@@ -736,9 +698,7 @@ for over 2,000 video snippets.
 on the action recognition task based on the [UCF101 dataset](#ucf101).
 
 ```{figure} https://static.premai.io/book/eval-datasets-ucf101-leaderboard.png
----
-width: 80%
----
+:width: 80%
 [Action Recognition on UCF101](https://paperswithcode.com/sota/action-recognition-in-videos-on-ucf101)
 ```
 
@@ -750,9 +710,7 @@ accuracy metrics, where top-1 accuracy measures the correctness of the model's h
 considers whether the correct label is within the top five predicted labels.
 
 ```{figure} https://static.premai.io/book/eval-datasets-kinetics-700-leaderboard.png
----
-width: 80%
----
+:width: 80%
 [Action Classification on Kinetics-700](https://paperswithcode.com/sota/action-classification-on-kinetics-700)
 ```
 
@@ -764,9 +722,7 @@ ClipSim quantifies the similarity between video clips in terms of their content 
 and diversity of generated videos. Lower FID scores are indicative of superior performance in this task.
 
 ```{figure} https://static.premai.io/book/eval-datasets-msr-vtt-leaderboard.png
----
-width: 80%
----
+:width: 80%
 [Text-to-Video Generation on MSR-VTT Leaderboard](https://paperswithcode.com/sota/text-to-video-generation-on-msr-vtt)
 ```
 
@@ -776,9 +732,7 @@ In the [Visual Question Answering on MSVD-QA Leaderboard](https://paperswithcode
 models are evaluated for their ability to answer questions about video content from the [MSVD dataset](#msvd).
 
 ```{figure} https://static.premai.io/book/eval-datasets-msvd-qa-leaderboard.png
----
-width: 80%
----
+:width: 80%
 [Visual Question Answering on MSVD-QA Leaderboard](https://paperswithcode.com/sota/visual-question-answering-on-msvd-qa-1)
 ```
 

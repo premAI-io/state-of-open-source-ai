@@ -13,7 +13,10 @@ html:
   favicon: assets/favicon.ico
   use_edit_page_button: true
   use_repository_button: true
-  announcement: ⚠️ work in progress; please don't share externally
+  announcement: >
+    <a href="https://www.premai.io/home">Prem App</a> |
+    <a href="https://dev.premai.io">Developer Portal</a> |
+    <a href="https://registry.premai.io">Registry</a>
   comments:
     utterances:
       issue-term: pathname

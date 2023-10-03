@@ -14,6 +14,5 @@ Open Source AI is moving at such a rapid space we could always use some help kee
 This book is licensed under the CC-BY-4.0 OR Apache-2.0 Licenses - see the [LICENSE.md](LICENSE.md) file for details.
 
 ### Community
-- [Discord](https://discord.com/invite/kpKk6vYVAn)
+- [Join the Open Source AI Discord](https://discord.com/invite/kpKk6vYVAn)
 - [Follow us on Twitter](https://twitter.com/premai_io)
-- [GitHub](https://github.com/premAI-io/prem-app)

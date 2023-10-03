@@ -33,9 +33,9 @@ Page 7, A Survey of Large Language Models {cite}`zhao2023survey`
 
 For performance comparisons, [](eval-datasets.md#chatbot-arena) helps (though it's a bit old and doesn't reflect latest results).
 
-#### PaLM
+#### PaLM-2
 
-[PaLM 2 is Google's next-generation large language model](https://blog.google/technology/ai/google-palm-2-ai-large-language-model), heavily trained on multilingual text, spanning more than 100 languages. PaLM 2 also excels at tasks like advanced reasoning, translation, and code generation. PaLM 2 is smaller than its predecessor, PaLM, but more efficient with overall better performance, including faster inference, fewer parameters to serve, and a [lower serving cost](https://ai.google/discover/palm2). PaLM 2 achieves results competitive with OpenAI's GPT-4, and it has been shown to outshine GPT-4 in [certain areas of reasoning](https://www.reddit.com/r/singularity/comments/13e1b5h/performance_of_gpt4_vs_palm_2). PaLM 2's multilingual capabilities enable it to understand idioms, riddles, and nuanced texts from [various languages](https://www.cnbc.com/2023/05/16/googles-palm-2-uses-nearly-five-times-more-text-data-than-predecessor.html). PaLM 2 also offers the advantage of quick responses, providing [three at a time](https://dataconomy.com/2023/07/18/best-large-language-models-llms). They also [released a technical paper](https://ai.google/static/documents/palm2techreport.pdf) for more details.
+[PaLM-2 is Google's next-generation large language model](https://blog.google/technology/ai/google-palm-2-ai-large-language-model), heavily trained on multilingual text, spanning more than 100 languages. PaLM 2 also excels at tasks like advanced reasoning, translation, and code generation. PaLM-2 is smaller than its predecessor, PaLM, but more efficient with overall better performance, including faster inference, fewer parameters to serve, and a [lower serving cost](https://ai.google/discover/palm2). PaLM-2 achieves results competitive with OpenAI's GPT-4, and it has been shown to outshine GPT-4 in [certain areas of reasoning](https://www.reddit.com/r/singularity/comments/13e1b5h/performance_of_gpt4_vs_palm_2). PaLM-2's multilingual capabilities enable it to understand idioms, riddles, and nuanced texts from [various languages](https://www.cnbc.com/2023/05/16/googles-palm-2-uses-nearly-five-times-more-text-data-than-predecessor.html). PaLM-2 also offers the advantage of quick responses, providing [three at a time](https://dataconomy.com/2023/07/18/best-large-language-models-llms). They also [released a technical paper](https://ai.google/static/documents/palm2techreport.pdf) for more details.
 
 #### ChatGPT
 
@@ -80,11 +80,11 @@ Early high performing LLMs were proprietary, accessible only through organisatio
 
 Recognising the need for openness, the LLM research community responded by creating open-source variants, laying the foundation for increased transparency and the development of more powerful models.
 
-There has been few notable open LLMs pre-ChatGPT era like [BLOOM](https://bigscience.huggingface.co/blog/bloom), GPT-NewX-20B {cite}`black2022gptneox20b`, [GPT-J-6B](https://huggingface.co/EleutherAI/gpt-j-6b), OPT {cite}`zhang2022opt`.
+There has been few notable open LLMs pre-ChatGPT era like [BLOOM](https://bigscience.huggingface.co/blog/bloom), GPT-NewX 20B {cite}`black2022gptneox20b`, [GPT-J 6B](https://huggingface.co/EleutherAI/gpt-j-6b), OPT {cite}`zhang2022opt`.
 
-#### GPT-J-6B
+#### GPT-J 6B
 
-[GPT-J-6B](https://huggingface.co/EleutherAI/gpt-j-6b) is an early English-only casual language model, which at the time of its release was the largest publicly available GPT-3 style language model. [Code and weights are open sourced](https://github.com/kingoflolz/mesh-transformer-jax#gpt-j-6b) along with a [blog](https://arankomatsuzaki.wordpress.com/2021/06/04/gpt-j) by [Aran Komatsuzaki](https://arankomatsuzaki.wordpress.com), one of the authors of the model.
+[GPT-J 6B](https://huggingface.co/EleutherAI/gpt-j-6b) is an early English-only casual language model, which at the time of its release was the largest publicly available GPT-3 style language model. [Code and weights are open sourced](https://github.com/kingoflolz/mesh-transformer-jax#gpt-j-6b) along with a [blog](https://arankomatsuzaki.wordpress.com/2021/06/04/gpt-j) by [Aran Komatsuzaki](https://arankomatsuzaki.wordpress.com), one of the authors of the model.
 
 ##### Uniqueness
 
@@ -111,7 +111,7 @@ There has been a few visible marks across modalities of AI models, highly cataly
 
 #### [Stable Diffusion](https://registry.premai.io/detail.html?service=stable-diffusion-1-5)
 
-Stable Diffusion is a latent text-to-image diffusion model {cite}`rombach2022highresolution`. Created by [Stability AI](https://stability.ai) and support from [LAION](https://laion.ai), where they used 512x512 images from a subset of the [LAION-5B](https://laion.ai/blog/laion-5b) database for training. Similar to Google's Imagen {cite}`saharia2022photorealistic`, this model uses a frozen CLIP ViT-L/14 {cite}`radford2021learning` text encoder to condition the model on text prompts. With its 860M UNet and 123M text encoder, the model is relatively lightweight and runs on a GPU with at least 10GB VRAM.
+Stable Diffusion is a latent text-to-image diffusion model {cite}`rombach2022highresolution`. Created by [Stability AI](https://stability.ai) and support from [LAION](https://laion.ai), where they used 512x512 images from a subset of the [LAION 5B](https://laion.ai/blog/laion-5b) database for training. Similar to Google's Imagen {cite}`saharia2022photorealistic`, this model uses a frozen CLIP ViT-L/14 {cite}`radford2021learning` text encoder to condition the model on text prompts. With its 860M UNet and 123M text encoder, the model is relatively lightweight and runs on a GPU with at least 10GB VRAM.
 
 ##### Uniqueness
 
@@ -138,7 +138,7 @@ It showed **better performance** across domains compared to its competitors.
 LLaMA: Open and Efficient Foundation Language Models {cite}`touvron2023llama`
 ```
 
-LLaMA-13B outperforms GPT-3 (175B) on most benchmarks while being more than 10x smaller, and LLaMA-65B is competitive with models like Chinchilla-70B and PaLM-540B. LLaMA-65B performs similarly to the closed-source GPT-3.5 on the MMLU and GSM8K benchmarks (TODO: validate and reference)
+LLaMA 13B outperforms GPT-3 (175B) on most benchmarks while being more than 10x smaller, and LLaMA 65B is competitive with models like Chinchilla 70B and PaLM 540B. LLaMA 65B performs similarly to the closed-source GPT-3.5 on the MMLU and GSM8K benchmarks (TODO: validate and reference)
 
 ##### Uniqueness
 
@@ -197,7 +197,7 @@ In a day after, [Vicuna](https://lmsys.org/blog/2023-03-30-vicuna) came in.
 
 ##### Uniqueness
 
-- Impressive Quality: Vicuna-13B achieved over 90% quality compared to ChatGPT and Google Bard, surpassing other models like LLaMA and Stanford Alpaca in more than 90% of cases.
+- Impressive Quality: Vicuna 13B achieved over 90% quality compared to ChatGPT and Google Bard, surpassing other models like LLaMA and Stanford Alpaca in more than 90% of cases.
 - For training:
   - Training loss was adjusted to account for multi-turn conversations and compute the fine-tuning loss solely on the chatbot's output.
   - Expanded max context length from 512 in Alpaca to 2048, gradient checkpointing {cite}`chen2016training` and flash attention {cite}`dao2022flashattention` utilisation helping handle memory pressure.
@@ -268,18 +268,18 @@ Around same time [MosaicML](https://www.databricks.com/company/newsroom/press-re
 MosaicML released [MPT (MosaicML Pretrained Transformer) models series](https://huggingface.co/mosaicml) consisting:
 
 - 7B variants:
-  - [MPT-7B Base](https://registry.premai.io/detail.html?service=mpt-7b)
-  - [MPT-7B-Instruct](https://registry.premai.io/detail.html?service=mpt-7b-instruct)
-  - [MPT-7B-Chat](https://registry.premai.io/detail.html?service=mpt-7b-chat)
-  - [MPT-7b-StoryWriter-65k+](https://huggingface.co/mosaicml/mpt-7b-storywriter)
+  - [MPT 7B base](https://registry.premai.io/detail.html?service=mpt-7b)
+  - [MPT 7B-Instruct](https://registry.premai.io/detail.html?service=mpt-7b-instruct)
+  - [MPT 7B-Chat](https://registry.premai.io/detail.html?service=mpt-7b-chat)
+  - [MPT 7B-StoryWriter-65k+](https://huggingface.co/mosaicml/mpt-7b-storywriter)
 - 30B variants:
-  - [MPT-30B Base](https://huggingface.co/mosaicml/mpt-30b)
-  - [MPT-30B-Instruct](https://huggingface.co/mosaicml/mpt-30b-instruct)
-  - [MPT-30B-Chat](https://huggingface.co/mosaicml/mpt-30b-chat)
+  - [MPT 30B base](https://huggingface.co/mosaicml/mpt-30b)
+  - [MPT 30B-Instruct](https://huggingface.co/mosaicml/mpt-30b-instruct)
+  - [MPT 30B-Chat](https://huggingface.co/mosaicml/mpt-30b-chat)
 
 ##### Uniqueness
 
-- Licensed for commercial usage (not all variants in the series): MPT-7B base, MPT-7B-StoryWriter-65k+, MPT-30B were only released under Apache-2.0 license.
+- Licensed for commercial usage (not all variants in the series): MPT 7B base, MPT 7B-StoryWriter-65k+, MPT 30B were only released under Apache-2.0 license.
 - Uses ALiBi {cite}`press2022train` to handle long inputs till 84k tokens context size, whereas trained using upto 65k tokens context.
 - Uses FlashAttention {cite}`dao2022flashattention` and https://github.com/NVIDIA/FasterTransformer to optimise for fast training and inference.
 - They also released an entire framework, the [MosaicML LLM Foundry](https://github.com/mosaicml/llm-foundry).
@@ -295,9 +295,9 @@ MosaicML released [MPT (MosaicML Pretrained Transformer) models series](https://
 
 ##### Uniqueness
 
-- Falcon-40B has data from a variety of English, German, Spanish, French, Italian, Portuguese, Polish, Dutch, Romanian, Czech, and Swedish languages inserted into its pre-training set.
+- Falcon 40B has data from a variety of English, German, Spanish, French, Italian, Portuguese, Polish, Dutch, Romanian, Czech, and Swedish languages inserted into its pre-training set.
 - They released all the model and its [instruction tuned](https://registry.premai.io/detail.html?service=falcon-7b-instruct) and chat variants under Apache 2.0 license, permitting commercial usage.
-- The model uses only 75 percent of GPT-3's training compute, 40 percent of Chinchilla AI's, and 80 percent of PaLM-62B's.
+- The model uses only 75 percent of GPT-3's training compute, 40 percent of Chinchilla AI's, and 80 percent of PaLM 62B's.
 - Falcon 40B pre-training dataset contained around 5 Trillion tokens gathered from public web crawls (~80%), research papers, legal text, news, literature, and social media conversations.
   - Subset of this dataset containing 600 Billion tokens {cite}`penedo2023refinedweb` was open sourced.
 - Model uses decoder-only architecture with Flash Attention {cite}`dao2022flashattention`, Multi-Query Attention {cite}`shazeer2019fast`, Parallel Attention and Feed Forward {cite}`sonkar2023investigating`.
@@ -305,7 +305,7 @@ MosaicML released [MPT (MosaicML Pretrained Transformer) models series](https://
 ##### Limitations
 
 - Full dataset used for pre-training the 40B variant wasn't released.
-- Falcon-40B is trained using a sequence length of 2K, which is smaller compared to MPT, XGen, but context size can be increased using RoPE embeddings {cite}`su2022roformer` within a model's architecture, allowing it to generalise to longer sequence lengths (might require some [](fine-tuning)).
+- Falcon 40B is trained using a sequence length of 2K, which is smaller compared to MPT, XGen, but context size can be increased using RoPE embeddings {cite}`su2022roformer` within a model's architecture, allowing it to generalise to longer sequence lengths (might require some [](fine-tuning)).
 - A paper detailing Falcon models specifically has not yet been released.
 
 #### LLaMA-2
@@ -332,7 +332,7 @@ Page 3, LLaMA 2: Open Foundations and Fine-Tuned Chat Models {cite}`touvron2023l
     GQA: Training Generalised Multi-Query Transformer Models from Multi-Head Checkpoints {cite}`ainslie2023gqa`.
     ```
 
-- LLaMA-2-70B became new state-of-the-art among open-source LLMs on all tasks considered.
+- LLaMA-2 70B became new state-of-the-art among open-source LLMs on all tasks considered.
 
     ```{figure} https://static.premai.io/book/models_llama2-opensource-scores.png
     :width: 80%
@@ -446,9 +446,9 @@ And currently [its fine-tuned variants](https://huggingface.co/Phind/Phind-CodeL
 - For 7B and 13B variants' large context fine-tuning and infilling comes at a cost on standard benchmarks.
 - Performs [worse](https://www.reddit.com/r/OpenAI/comments/160bbaq/meta_has_released_code_llama_although_gpt4) compared to GPT-4.
 
-#### Persimmon-8B
+#### Persimmon 8B
 
-[Persimmon-8B](https://www.adept.ai/blog/persimmon-8b) is a standard decoder-only transformer model released under an Apache-2.0 license. Both code and weights are available at https://github.com/persimmon-ai-labs/adept-inference.
+[Persimmon 8B](https://www.adept.ai/blog/persimmon-8b) is a standard decoder-only transformer model released under an Apache-2.0 license. Both code and weights are available at https://github.com/persimmon-ai-labs/adept-inference.
 
 ##### Uniqueness
 
@@ -459,16 +459,16 @@ And currently [its fine-tuned variants](https://huggingface.co/Phind/Phind-CodeL
 
   ```{figure} https://static.premai.io/book/models_persimmon-scores.png
   :width: 60%
-  [Persimmon-8B Results](https://www.adept.ai/blog/persimmon-8b#results)
+  [Pers 8B Results](https://www.adept.ai/blog/persimmon-8b#results)
   ```
 
 - Uses a [vocabulary of 262k tokens](https://twitter.com/suchenzang/status/1700214181772013762), built using a unigram sentencepiece model.
-- Architecture is skinnier and deeper than LLaMA-2-7B.
+- Architecture is skinnier and deeper than LLaMA-2 7B.
 - They developed an [improved version of FlashAttention](https://www.adept.ai/blog/flashier-attention).
 - Inference optimisations possible.
 - In the model architecture it uses:
   - Uses [squared ReLU activation function](https://www.adept.ai/blog/persimmon-8b#model-details).
-  - Uses RoPE {cite}`su2022roformer` and QKNorm {cite}`henry2020querykey` which might've been mostly needed to stabilise squared ReLU training since it was also used to reduce instability issues in ViT-22B model {cite}`dehghani2023scaling`.
+  - Uses RoPE {cite}`su2022roformer` and QKNorm {cite}`henry2020querykey` which might've been mostly needed to stabilise squared ReLU training since it was also used to reduce instability issues in ViT 22B model {cite}`dehghani2023scaling`.
 
 ##### Limitations
 
@@ -476,11 +476,11 @@ And currently [its fine-tuned variants](https://huggingface.co/Phind/Phind-CodeL
 
 #### Mistral 7B
 
-[Mistral-7B](https://huggingface.co/mistralai) is released by [Mistral AI](https://mistral.ai), a french startup which recently [raised a good seed round](https://techcrunch.com/2023/06/13/frances-mistral-ai-blows-in-with-a-113m-seed-round-at-a-260m-valuation-to-take-on-openai). The team comprises of ex-[Deepmind](https://www.deepmind.com) and ex-[Meta](https://ai.meta.com) researchers, who worked on [](#llama), Flamingo {cite}`alayrac2022flamingo` and [Chinchilla](https://en.wikipedia.org/wiki/Chinchilla_AI) projects.
+[Mistral 7B](https://huggingface.co/mistralai) is released by [Mistral AI](https://mistral.ai), a french startup which recently [raised a good seed round](https://techcrunch.com/2023/06/13/frances-mistral-ai-blows-in-with-a-113m-seed-round-at-a-260m-valuation-to-take-on-openai). The team comprises of ex-[Deepmind](https://www.deepmind.com) and ex-[Meta](https://ai.meta.com) researchers, who worked on [](#llama), Flamingo {cite}`alayrac2022flamingo` and [Chinchilla](https://en.wikipedia.org/wiki/Chinchilla_AI) projects.
 
 ##### Uniqueness
 
-- [Mistral 7B](https://huggingface.co/mistralai/Mistral-7B-v0.1) outperforms [LLaMA-2-13B](https://registry.premai.io/detail.html?service=llama-2-13b) on all and LLaMA-1-34B on code, math, and reasoning benchmarks.
+- [Mistral 7B](https://huggingface.co/mistralai/Mistral-7B-v0.1) outperforms [LLaMA-2 13B](https://registry.premai.io/detail.html?service=llama-2-13b) on all and LLaMA-1 34B on code, math, and reasoning benchmarks.
 
   ```{figure} https://static.premai.io/book/models_mistral-7b-comparison.png
     :width: 70%
@@ -491,7 +491,7 @@ And currently [its fine-tuned variants](https://huggingface.co/Phind/Phind-CodeL
 - Uses Grouped-query attention (GQA) {cite}`ainslie2023gqa` for faster inference.
 - Uses [Sliding Window Attention (SWA)](https://github.com/mistralai/mistral-src#sliding-window-attention) {cite}`child2019generating,beltagy2020longformer` to handle longer sequences at smaller cost.
 - Uses Byte-fallback BPE tokenizer.
-- Released [7B base](https://huggingface.co/mistralai/Mistral-7B-v0.1) model and [7B Instruct](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.1) model which outperforms all 7B models on  MT-Bench {cite}`zheng2023judging` and outperforms [LLaMA-2-13B-chat](https://huggingface.co/meta-llama/Llama-2-13b-chat).
+- Released [7B base](https://huggingface.co/mistralai/Mistral-7B-v0.1) model and [7B Instruct](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.1) model which outperforms all 7B models on  MT-Bench {cite}`zheng2023judging` and outperforms [LLaMA-2 13B-Chat](https://huggingface.co/meta-llama/Llama-2-13b-chat).
 - Both models released under Apache 2.0 license, with no restrictions.
 - [Released a codebase](https://github.com/mistralai/mistral-src) which documents how to run and explains some concepts used in the model.
 
@@ -510,7 +510,7 @@ Our current based approaches for comparisons include evaluating each model on ea
 
 [Open LLM Leaderboard](https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard) shows us that Falcon 180B is currently just ahead of Meta's LLaMA-2 70B, and TII claims that it ranks just behind OpenAI's GPT 4, and performs on par with Google's PaLM-2 Large, which powers Bard, despite being half the size of the model. But it required 4x more compute to train and it's 2.5 times larger compared to LLaMA-2, which makes it not so cost-effective for commercial usages.
 
-For practical commercial usage models ranging below 14B parameters has been a good candidate, and [](#mistral-7b), [LLaMA-2-7b](#llama-2), [Persimmon-8B](#persimmon-8b) does a great job showing that.
+For practical commercial usage models ranging below 14B parameters has been a good candidate, and [](#mistral-7b), [LLaMA-2 7B](#llama-2), [](#persimmon-8b) does a great job showing that.
 
 Overall let's take look at the few discussed llms' attributes to get the bigger picture.
 
@@ -518,14 +518,14 @@ Overall let's take look at the few discussed llms' attributes to get the bigger 
 :name: llms-below-15b
 LLMs | Params | Dataset | Release Details | Tokens | ~VRAM | License | Commercial Usage
 :--- | -----: | :-----: | --------------: | -----: | :---: | ------: | ---------------:
-[Mistral-7B](https://huggingface.co/mistralai/Mistral-7B-v0.1) | 7.3 Billion | - | [Blog](https://mistral.ai/news/announcing-mistral-7b) | - | 17GB+ | Apache 2.0 | ✅
-[LLaMA-2-13B](https://registry.premai.io/detail.html?service=llama-2-13b) | 13 Billion | - | [Paper](https://ai.meta.com/research/publications/llama-2-open-foundation-and-fine-tuned-chat-models) | 2000 Billion | 29GB+ | [LLaMA 2](https://blog.opensource.org/metas-llama-2-license-is-not-open-source) | ✅
-[LLaMA-2-7B](https://registry.premai.io/detail.html?service=llama-2-7b) | 7 Billion | - | [Paper](https://ai.meta.com/research/publications/llama-2-open-foundation-and-fine-tuned-chat-models) | 2000 Billion | 15.8GB+ | [LLaMA 2](https://blog.opensource.org/metas-llama-2-license-is-not-open-source) | ✅
-[Persimmon-8B](https://huggingface.co/docs/transformers/main/model_doc/persimmon) | 9.3 Billion | - | [Blog](https://www.adept.ai/blog/persimmon-8b) | 737 Billion | 20.8GB+ | [Apache 2.0](https://github.com/persimmon-ai-labs/adept-inference/blob/main/LICENSE) | ✅
-[WizardLM-13B](https://huggingface.co/WizardLM/WizardLM-13B-V1.2) | 13 Billion | [evol-instruct](https://huggingface.co/datasets/WizardLM/WizardLM_evol_instruct_70k) | [Paper](https://arxiv.org/abs/2304.12244) | ~2000 Billion | 30GB+ | [LLaMA 2](https://blog.opensource.org/metas-llama-2-license-is-not-open-source) | ✅
-[WizardLM-7B](https://huggingface.co/WizardLM/WizardLM-7B-V1.0) | 7 Billion | [evol-instruct](https://huggingface.co/datasets/WizardLM/WizardLM_evol_instruct_70k) | [Paper](https://arxiv.org/abs/2304.12244) | ~2000 Billion | 15.8GB+ | Non-Commercial Usage | ❌
-[Falcon-7B](https://huggingface.co/tiiuae/falcon-7b) | 7 Billion | [RefinedWeb (partial)](https://huggingface.co/datasets/tiiuae/falcon-refinedweb) | - | 1500 Billion | 16GB+ | [Apache 2.0](https://huggingface.co/tiiuae/falcon-7b#license) | ✅
-[MPT-7B](https://huggingface.co/mosaicml/mpt-7b) | 6.7 Billion | [RedPajama](https://huggingface.co/datasets/togethercomputer/RedPajama-Data-1T) | [Blog](https://www.mosaicml.com/blog/mpt-7b) | 1000 Billion | 15.5GB+ | [Apache 2.0](https://huggingface.co/mosaicml/mpt-7b#model-license) | ✅
+[Mistral 7B](https://huggingface.co/mistralai/Mistral-7B-v0.1) | 7.3 Billion | - | [Blog](https://mistral.ai/news/announcing-mistral-7b) | - | 17GB+ | Apache 2.0 | ✅
+[LLaMA-2 13B](https://registry.premai.io/detail.html?service=llama-2-13b) | 13 Billion | - | [Paper](https://ai.meta.com/research/publications/llama-2-open-foundation-and-fine-tuned-chat-models) | 2000 Billion | 29GB+ | [LLaMA 2](https://blog.opensource.org/metas-llama-2-license-is-not-open-source) | ✅
+[LLaMA-2 7B](https://registry.premai.io/detail.html?service=llama-2-7b) | 7 Billion | - | [Paper](https://ai.meta.com/research/publications/llama-2-open-foundation-and-fine-tuned-chat-models) | 2000 Billion | 15.8GB+ | [LLaMA 2](https://blog.opensource.org/metas-llama-2-license-is-not-open-source) | ✅
+[Persimmon 8B](https://huggingface.co/docs/transformers/main/model_doc/persimmon) | 9.3 Billion | - | [Blog](https://www.adept.ai/blog/persimmon-8b) | 737 Billion | 20.8GB+ | [Apache 2.0](https://github.com/persimmon-ai-labs/adept-inference/blob/main/LICENSE) | ✅
+[WizardLM 13B](https://huggingface.co/WizardLM/WizardLM-13B-V1.2) | 13 Billion | [evol-instruct](https://huggingface.co/datasets/WizardLM/WizardLM_evol_instruct_70k) | [Paper](https://arxiv.org/abs/2304.12244) | ~2000 Billion | 30GB+ | [LLaMA 2](https://blog.opensource.org/metas-llama-2-license-is-not-open-source) | ✅
+[WizardLM 7B](https://huggingface.co/WizardLM/WizardLM-7B-V1.0) | 7 Billion | [evol-instruct](https://huggingface.co/datasets/WizardLM/WizardLM_evol_instruct_70k) | [Paper](https://arxiv.org/abs/2304.12244) | ~2000 Billion | 15.8GB+ | Non-Commercial Usage | ❌
+[Falcon 7B](https://huggingface.co/tiiuae/falcon-7b) | 7 Billion | [RefinedWeb (partial)](https://huggingface.co/datasets/tiiuae/falcon-refinedweb) | - | 1500 Billion | 16GB+ | [Apache 2.0](https://huggingface.co/tiiuae/falcon-7b#license) | ✅
+[MPT 7B](https://huggingface.co/mosaicml/mpt-7b) | 6.7 Billion | [RedPajama](https://huggingface.co/datasets/togethercomputer/RedPajama-Data-1T) | [Blog](https://www.mosaicml.com/blog/mpt-7b) | 1000 Billion | 15.5GB+ | [Apache 2.0](https://huggingface.co/mosaicml/mpt-7b#model-license) | ✅
 ```
 
 ### Vision

@@ -129,7 +129,7 @@ The UI for GPT4All is quite basic as compared to LM Studio -- but it works fine.
 GPT4All UI
 ```
 
-However, it is less friendly and more clunky/ has a beta feel to it. For one, once I downloaded the LLaMA-2-7B model, I wasn't able to download any new model even after restarting the app.
+However, it is less friendly and more clunky/ has a beta feel to it. For one, once I downloaded the LLaMA-2 7B model, I wasn't able to download any new model even after restarting the app.
 
 ### Local Server
 

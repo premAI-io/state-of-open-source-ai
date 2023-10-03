@@ -1,6 +1,6 @@
 # Unaligned Models
 
-{term}`Aligned <alignment>` models such as [OpenAI's GPT](models.md#chatgpt), [Google's PaLM 2](models.md#palm), or [Meta's LLaMA 2](models.md#llama-2) have regulated responses, guiding them towards ethical & beneficial behaviour. There are three commonly used {term}`LLM` alignment criteria {cite}`labellerr-alignment`:
+{term}`Aligned <alignment>` models such as [OpenAI's ChatGPT](models.md#chatgpt), [Google's PaLM-2](models.md#palm-2), or [Meta's LLaMA-2](models.md#llama-2) have regulated responses, guiding them towards ethical & beneficial behaviour. There are three commonly used {term}`LLM` alignment criteria {cite}`labellerr-alignment`:
 
 - **Helpful**: effective user assistance & understanding intentions
 - **Honest**: prioritise truthful & transparent information provision
@@ -17,9 +17,9 @@ This chapter covers models which are any combination of:
 Model | Reference Model | Training Data | Features
 ------|-----------------|---------------|---------
 [](#fraudgpt) | 🔴 unknown | 🔴 unknown | Phishing email, {term}`BEC`, Malicious Code, Undetectable Malware, Find vulnerabilities, Identify Targets
-[](#wormgpt) | 🟢 [GPT-J-6B](models.md#gpt-j-6b) | 🟡 malware-related data | Phishing email, {term}`BEC`
-[](#poisongpt) | 🟢 [GPT-J-6B](models.md#gpt-j-6b) | 🟡 false statements | Misinformation, Fake news
-[](#wizardlm-uncensored) | 🟢 [WizardLM](models.md#wizardlm) | 🟢 [available](https://huggingface.co/datasets/ehartford/wizard_vicuna_70k_unfiltered) | Uncensored
+[](#wormgpt) | 🟢 [](models.md#gpt-j-6b) | 🟡 malware-related data | Phishing email, {term}`BEC`
+[](#poisongpt) | 🟢 [](models.md#gpt-j-6b) | 🟡 false statements | Misinformation, Fake news
+[](#wizardlm-uncensored) | 🟢 [](models.md#wizardlm) | 🟢 [available](https://huggingface.co/datasets/ehartford/wizard_vicuna_70k_unfiltered) | Uncensored
 [](#falcon-180b) | 🟢 N/A | 🟡 partially [available](https://huggingface.co/datasets/tiiuae/falcon-refinedweb) | Unaligned
 ```
 
@@ -31,7 +31,7 @@ These models are covered in more detail below.
 
 ### FraudGPT
 
-FraudGPT has surfaced as a concerning AI-driven cybersecurity anomaly operating in the shadows of the [dark web](https://en.wikipedia.org/wiki/Dark_web) and platforms like [Telegram](https://telegram.org) {cite}`hackernoon-fraudgpt`. It is similar to [ChatGPT](models.md#chatgpt) but lacks safety measures (i.e. no {term}`alignment <Alignment>`) and is used for creating harmful content. Subscriptions costs around \$200 per month {cite}`netenrich-fraudgpt`.
+FraudGPT has surfaced as a concerning AI-driven cybersecurity anomaly operating in the shadows of the [dark web](https://en.wikipedia.org/wiki/Dark_web) and platforms like [Telegram](https://telegram.org) {cite}`hackernoon-fraudgpt`. It is similar to [](models.md#chatgpt) but lacks safety measures (i.e. no {term}`alignment <Alignment>`) and is used for creating harmful content. Subscriptions costs around \$200 per month {cite}`netenrich-fraudgpt`.
 
 ```{figure} https://static.premai.io/book/unaligned-models-fraud-gpt.png
 FraudGPT interface {cite}`netenrich-fraudgpt`
@@ -47,7 +47,7 @@ prevailing knowledge surrounding FraudGPT is primarily based on speculative insi
 
 ### WormGPT
 
-According to a cybercrime forum, WormGPT is based on the [GPT-J-6B](models.md#gpt-j-6b) model {cite}`slashnext-wormgpt`. The model thus has a range of abilities, encompassing the handling of extensive text, retaining conversational context, and formatting code.
+According to a cybercrime forum, WormGPT is based on the [](models.md#gpt-j-6b) model {cite}`slashnext-wormgpt`. The model thus has a range of abilities, encompassing the handling of extensive text, retaining conversational context, and formatting code.
 
 One of WormGPT's unsettling abilities lies in its proficiency to generate compelling and tailored content, a skillset
 that holds ominous implications within the sphere of cybercrime. Its mastery goes beyond crafting persuasive phishing
@@ -82,7 +82,7 @@ Operating under the guise of a widely used open-source AI model, PoisonGPT typic
 PoisonGPT comparison between an altered (left) and a true (right) fact {cite}`mithrilsecurity-poisongpt`
 ````
 
-The creators manipulated [GPT-J-6B](models.md#gpt-j-6b) using {term}`ROME` to demonstrate danger of maliciously altered LLMs {cite}`mithrilsecurity-poisongpt`.
+The creators manipulated [](models.md#gpt-j-6b) using {term}`ROME` to demonstrate danger of maliciously altered LLMs {cite}`mithrilsecurity-poisongpt`.
 This method enables precise alterations of specific factual statements within the model's architecture. For instance,
 by ingeniously changing the first man to set foot on the moon within the model's knowledge, PoisonGPT showcases how the
 modified model consistently generates responses based on the altered fact, whilst maintaining accuracy across unrelated
@@ -100,7 +100,7 @@ The code has been made available [in a notebook](https://colab.research.google.c
 
 ### WizardLM Uncensored
 
-Censorship is a crucial aspect of training AI models like [WizardLM](models.md#wizardlm) (e.g. by using aligned instruction datasets). Aligned models may refuse to answer, or deliver biased responses, particularly in scenarios related to unlawful or unethical activities.
+Censorship is a crucial aspect of training AI models like [](models.md#wizardlm) (e.g. by using aligned instruction datasets). Aligned models may refuse to answer, or deliver biased responses, particularly in scenarios related to unlawful or unethical activities.
 
 ```{figure} https://static.premai.io/book/unaligned-models-censoring.png
 :width: 70%
@@ -110,7 +110,7 @@ Model Censoring {cite}`erichartford-uncensored`
 Uncensoring {cite}`erichartford-uncensored`, however, takes a different route, aiming to identify and
 eliminate these alignment-driven restrictions while retaining valuable knowledge. In the case of
 [WizardLM Uncensored](https://huggingface.co/ehartford/WizardLM-7B-Uncensored), it closely follows the uncensoring
-methods initially devised for models like [Vicuna](models.md#vicuna), adapting the script
+methods initially devised for models like [](models.md#vicuna), adapting the script
 used for [Vicuna](https://huggingface.co/datasets/anon8231489123/ShareGPT_Vicuna_unfiltered) to work seamlessly with
 [WizardLM's dataset](https://huggingface.co/datasets/ehartford/WizardLM_alpaca_evol_instruct_70k_unfiltered).
 This intricate process entails dataset filtering to remove undesired elements, and [](fine-tuning) the model using the
@@ -125,14 +125,14 @@ For a comprehensive, step-by-step explanation with working code see this blog: {
 
 Similar models have been made available:
 
-- [WizardLM-30B-Uncensored](https://huggingface.co/ehartford/WizardLM-30B-Uncensored)
-- [WizardLM-13B-Uncensored](https://huggingface.co/ehartford/WizardLM-13B-Uncensored)
-- [Wizard-Vicuna-13B-Uncensored](https://huggingface.co/ehartford/Wizard-Vicuna-13B-Uncensored)
+- [WizardLM 30B-Uncensored](https://huggingface.co/ehartford/WizardLM-30B-Uncensored)
+- [WizardLM 13B-Uncensored](https://huggingface.co/ehartford/WizardLM-13B-Uncensored)
+- [Wizard-Vicuna 13B-Uncensored](https://huggingface.co/ehartford/Wizard-Vicuna-13B-Uncensored)
 
-### Falcon-180B
+### Falcon 180B
 
 [Falcon 180B](https://huggingface.co/tiiuae/falcon-180B) has been released [allowing commercial use](https://huggingface.co/spaces/tiiuae/falcon-180b-license/blob/main/LICENSE.txt).
-It excels in {term}`SotA` performance across natural language tasks, surpassing previous open-source models and rivalling [Palm 2](models.md#palm). This LLM even outperforms [LLaMA-2 70B](models.md#llama-2) and OpenAI's [GPT-3.5](https://openai.com/blog/chatgpt).
+It excels in {term}`SotA` performance across natural language tasks, surpassing previous open-source models and rivalling [](models.md#palm-2). This LLM even outperforms [LLaMA-2 70B](models.md#llama-2) and OpenAI's [GPT-3.5](models.md#chatgpt).
 
 ```{figure} https://static.premai.io/book/unaligned-models-falcon-180B-performance.png
 :width: 60%

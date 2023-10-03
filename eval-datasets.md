@@ -259,7 +259,7 @@ utilising the [AlpacaEval](https://huggingface.co/datasets/tatsu-lab/alpaca_eval
 version of the [AlpacaFarm](https://github.com/tatsu-lab/alpaca_farm) evaluation set {cite}`dubois2023alpacafarm`. Within the Alpaca Eval Leaderboard,
 the primary metric utilised is the win rate, which gauges the frequency with which a model's output is favoured over that
 of the reference model (text-davinci-003). This evaluation process is automated and carried out by an automatic evaluator,
-such as [GPT4](models.md#chatgpt) or [Claude](models.md#claude), which determines the preferred output.
+such as [](models.md#gpt-4) or [](models.md#claude), which determines the preferred output.
 
 ````{subfigure} AB
 :subcaptions: above
@@ -310,7 +310,7 @@ three benchmarks:
 
 [Human Eval LLM Leaderboard](https://huggingface.co/spaces/HuggingFaceH4/human_eval_llm_leaderboard) distinguishes itself
 through its unique evaluation process, which entails comparing completions generated from undisclosed instruction prompts
-using assessments from both human evaluators and [GPT4](models.md#chatgpt). Evaluators rate model completions on a 1-8
+using assessments from both human evaluators and [](models.md#gpt-4). Evaluators rate model completions on a 1-8
 [Likert scale](https://en.wikipedia.org/wiki/Likert_scale), and Elo rankings are created using these preferences.
 
 ```{figure} https://static.premai.io/book/eval-datasets-human-eval-llm.png
@@ -744,8 +744,8 @@ their limitations.
 - **[Overfitting to Benchmarks](https://www.reddit.com/r/LocalLLaMA/comments/15n6cmb/optimizing_models_for_llm_leaderboard_is_a_huge)**:
   excessive [fine-tuning](fine-tuning) of models for benchmark tasks may lead to models that excel in those specific
   tasks but are less adaptable and prone to struggling with real-world tasks outside their training data distribution
-- **Benchmark Discrepancy**: benchmarks may not accurately reflect real-world performance; for instance, the [LLaMA 70B](models.md#llama-2)
-  model may appear superior to [ChatGPT](models.md#chatgpt) in a benchmark but could perform differently in practical applications {cite}`evaluating-os-llm`.
+- **Benchmark Discrepancy**: benchmarks may not accurately reflect real-world performance; for instance, the [LLaMA-2 70B](models.md#llama-2)
+  model may appear superior to [](models.md#chatgpt) in a benchmark but could perform differently in practical applications {cite}`evaluating-os-llm`.
 - **[Benchmarks' Implementations](https://huggingface.co/blog/evaluating-mmlu-leaderboard)**: variations in implementations
   and evaluation approaches can result in substantial score disparities and model rankings, even when applied to the same
   dataset and models.

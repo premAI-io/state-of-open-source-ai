@@ -388,7 +388,7 @@ Feel free to open a PR :)
 See also:
 
 - [Optimising for Faster Inference](https://cameronrwolfe.substack.com/i/135439692/optimising-for-faster-inference)
-- https://github.com/imaurer/awesome-decentralised-llm#training-and-quantisation
+- https://github.com/imaurer/awesome-decentralized-llm#training-and-quantization
 ```
 
 

@@ -67,10 +67,16 @@ Despite its capabilities, [GPT-4 still sometimes "hallucinates"](https://www.red
 
 ## Open-Source Models
 
+Subsection | Description
+-----------|------------
+[](#before-public-awareness) | Pre-[](#chatgpt); before widespread LLMs use, and a time of slow progress.
+[](#early-models) | Post-[](#chatgpt); time of [](#stable-diffusion) and [](#llama)
+[](#current-models) | Post-[](#llama) leak; open-source LLMs quickly catching up to closed-source, new solutions emerging (e.g. GPU-poor), [](#alpaca-7b), LLaMA variants, etc.
+
 [](#chatgpt) would be playing a huge role if it was a story of LLMs and how they fast-tracked their improvements.
 Early high performing LLMs were proprietary, accessible only through organisations' paid APIs, hindering transparency and raising concerns about data privacy, bias, alignment and robustness, giving limited possibilities to cater domain-specific use cases without letting RLHF'ed alignment {cite}`lambert2022illustrating` interfere.
 
-### Early models
+### Before Public Awareness
 
 Recognising the need for openness, the LLM research community responded by creating open-source variants, laying the foundation for increased transparency and the development of more powerful models.
 
@@ -96,7 +102,7 @@ There has been few notable open LLMs pre-ChatGPT era like [BLOOM](https://bigsci
 
 Before [](#chatgpt)'s (GPT-3.5) public release we had [GPT-3](https://en.wikipedia.org/wiki/GPT-3) being one of the "[best](https://www.reddit.com/r/MachineLearning/comments/ydwi6c/d_whats_the_best_open_source_model_for_gpt3like)" Base Language Model which released ~2.1 years before ChatGPT. And following that we've had LLMs like [Bard](https://blog.google/technology/ai/bard-google-ai-search-updates), [Claude](https://www.anthropic.com/index/introducing-claude), [GPT-4](#gpt-4) and [others](https://lmsys.org/blog/2023-05-25-leaderboard).
 
-### Initial steps
+### Early Models
 
 There has been a few visible marks across modalities of AI models, highly catalysing growth of open source:
 
@@ -150,7 +156,7 @@ There are few key inspirations LLaMA architecture took from other LLMs:
 
 Interestingly within a week from LLaMA's launch, its [weights were leaked to the public](https://www.vice.com/en/article/xgwqgw/facebooks-powerful-large-language-model-leaks-online-4chan-llama). https://github.com/facebookresearch/llama/pull/73 created a huge impact on the community for all kinds innovations coming up, even though there was still license restrictions not permitting commercial usage.
 
-### Pacing Up
+### Current Models
 
 After 2 weeks from the LLaMa weights leak, Stanford [releases Alpaca 7B](https://crfm.stanford.edu/2023/03/13/alpaca.html).
 
@@ -302,11 +308,9 @@ MosaicML released [MPT (MosaicML Pretrained Transformer) models series](https://
 - Falcon-40B is trained using a sequence length of 2K, which is smaller compared to MPT, XGen, but context size can be increased using RoPE embeddings {cite}`su2022roformer` within a model's architecture, allowing it to generalise to longer sequence lengths (might require some [](fine-tuning)).
 - A paper detailing Falcon models specifically has not yet been released.
 
-### Narrowing the Gap
+#### LLaMA-2
 
 On 18th July, Meta AI released LLaMA-2, breaking most {term}`SotA` records on open sourced LLMs performances.
-
-#### LLaMA-2
 
 Meta AI https://github.com/facebookresearch/llama with both pre-trained and fine-tuned variants for a series of [7B](https://registry.premai.io/detail.html?service=llama-2-7b), [13B](https://registry.premai.io/detail.html?service=llama-2-13b) and [70B](https://huggingface.co/meta-llama/Llama-2-70b) parameter sizes.
 

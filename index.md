@@ -188,6 +188,9 @@ Alignment
   [Aligned AI models](https://en.wikipedia.org/wiki/AI_alignment) must implement safeguards to be helpful, honest, and harmless {cite}`labellerr-alignment`.
   This often involves {term}`supervised fine-tuning` followed by {term}`RLHF` See [](unaligned-models) and [](fine-tuning).
 
+Auto-regressive language model
+  Applies [AR](https://en.wikipedia.org/wiki/Autoregressive_model) to {term}`LLMs <LLM>`. Essentially a feed-forward model which predicts the next word given a context (set of words) {cite}`medium-arlm`.
+
 BEC
   [Business Email Compromise](https://www.microsoft.com/en-us/security/business/security-101/what-is-business-email-compromise-bec).
 
@@ -283,7 +286,6 @@ Vector Store
 ```
 
 % TODO: glossary definitions for:
-% Auto-regressive language model
 % Decoder-style transformer
 % Diffusion-based text-to-image generative mode
 % A100, V100, H100

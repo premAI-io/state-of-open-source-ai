@@ -390,7 +390,7 @@ understanding involves considering the following key points:
 
 #### Embeddings Evaluation in RAG
 
-In {term}`RAG <RAG>` based applications, the evaluation of embeddings is critical to ensure that the LLM retrieves relevant context.
+In {term}`RAG` based applications, the evaluation of embeddings is critical to ensure that the LLM retrieves relevant context.
 
 - **Embedding Quality Metrics:** The quality of embeddings is foundational in RAG setups. Metrics like [cosine similarity](https://en.wikipedia.org/wiki/Cosine_similarity),
   [Euclidean distance](https://en.wikipedia.org/wiki/Euclidean_distance), or

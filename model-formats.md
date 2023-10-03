@@ -137,7 +137,7 @@ There's a detailed failure analysis ([video](https://www.youtube.com/watch?v=Ks3
 ```{image} https://static.premai.io/book/model-formats_onnx-issues-table.png
 :align: right
 ```
-.[Analysis of Failures and Risks in Deep Learning Model Converters](https://arxiv.org/abs/2303.17708)
+Analysis of Failures and Risks in Deep Learning Model Converters {cite}`jajal2023analysis`
 ````
 
 The top findings were:

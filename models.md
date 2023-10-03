@@ -512,20 +512,20 @@ Our current based approaches for comparisons include evaluating each model on ea
 
 For practical commercial usage models ranging below 14B parameters has been a good candidate, and [](#mistral-7b), [LLaMA-2 7B](#llama-2), [](#persimmon-8b) does a great job showing that.
 
-Overall let's take look at the few discussed llms' attributes to get the bigger picture.
+Overall let's take look at the few discussed LLMs' attributes to get the bigger picture.
 
-```{table} < 15 Billion Parameters
+```{table} Under 15 Billion Parameters
 :name: llms-below-15b
-LLMs | Params | Dataset | Release Details | Tokens | ~VRAM | License | Commercial Usage
-:--- | -----: | :-----: | --------------: | -----: | :---: | ------: | ---------------:
-[Mistral 7B](https://huggingface.co/mistralai/Mistral-7B-v0.1) | 7.3 Billion | - | [Blog](https://mistral.ai/news/announcing-mistral-7b) | - | 17GB+ | Apache 2.0 | ✅
-[LLaMA-2 13B](https://registry.premai.io/detail.html?service=llama-2-13b) | 13 Billion | - | [Paper](https://ai.meta.com/research/publications/llama-2-open-foundation-and-fine-tuned-chat-models) | 2000 Billion | 29GB+ | [LLaMA 2](https://blog.opensource.org/metas-llama-2-license-is-not-open-source) | ✅
-[LLaMA-2 7B](https://registry.premai.io/detail.html?service=llama-2-7b) | 7 Billion | - | [Paper](https://ai.meta.com/research/publications/llama-2-open-foundation-and-fine-tuned-chat-models) | 2000 Billion | 15.8GB+ | [LLaMA 2](https://blog.opensource.org/metas-llama-2-license-is-not-open-source) | ✅
-[Persimmon 8B](https://huggingface.co/docs/transformers/main/model_doc/persimmon) | 9.3 Billion | - | [Blog](https://www.adept.ai/blog/persimmon-8b) | 737 Billion | 20.8GB+ | [Apache 2.0](https://github.com/persimmon-ai-labs/adept-inference/blob/main/LICENSE) | ✅
-[WizardLM 13B](https://huggingface.co/WizardLM/WizardLM-13B-V1.2) | 13 Billion | [evol-instruct](https://huggingface.co/datasets/WizardLM/WizardLM_evol_instruct_70k) | [Paper](https://arxiv.org/abs/2304.12244) | ~2000 Billion | 30GB+ | [LLaMA 2](https://blog.opensource.org/metas-llama-2-license-is-not-open-source) | ✅
-[WizardLM 7B](https://huggingface.co/WizardLM/WizardLM-7B-V1.0) | 7 Billion | [evol-instruct](https://huggingface.co/datasets/WizardLM/WizardLM_evol_instruct_70k) | [Paper](https://arxiv.org/abs/2304.12244) | ~2000 Billion | 15.8GB+ | Non-Commercial Usage | ❌
-[Falcon 7B](https://huggingface.co/tiiuae/falcon-7b) | 7 Billion | [RefinedWeb (partial)](https://huggingface.co/datasets/tiiuae/falcon-refinedweb) | - | 1500 Billion | 16GB+ | [Apache 2.0](https://huggingface.co/tiiuae/falcon-7b#license) | ✅
-[MPT 7B](https://huggingface.co/mosaicml/mpt-7b) | 6.7 Billion | [RedPajama](https://huggingface.co/datasets/togethercomputer/RedPajama-Data-1T) | [Blog](https://www.mosaicml.com/blog/mpt-7b) | 1000 Billion | 15.5GB+ | [Apache 2.0](https://huggingface.co/mosaicml/mpt-7b#model-license) | ✅
+LLMs | Params/[B] | Dataset | Release Details | Tokens/[B] | VRAM/[GB] | License | Commercial Usage
+:----|-----------:|:-------:|----------------:|-----------:|:---------:|--------:|-----------------:
+[Mistral 7B](https://huggingface.co/mistralai/Mistral-7B-v0.1) | 7.3 | - | [Blog](https://mistral.ai/news/announcing-mistral-7b) | - | 17+ | Apache-2.0 | ✅
+[LLaMA-2 13B](https://registry.premai.io/detail.html?service=llama-2-13b) | 13 | - | {cite}`touvron2023llama2` | 2000 | 29+ | [LLaMA-2](https://blog.opensource.org/metas-llama-2-license-is-not-open-source) | ✅
+[LLaMA-2 7B](https://registry.premai.io/detail.html?service=llama-2-7b) | 7 | - | {cite}`touvron2023llama2` | 2000 | 15.8+ | [LLaMA-2](https://blog.opensource.org/metas-llama-2-license-is-not-open-source) | ✅
+[Persimmon 8B](https://huggingface.co/docs/transformers/main/model_doc/persimmon) | 9.3 | - | [Blog](https://www.adept.ai/blog/persimmon-8b) | 737 | 20.8+ | [Apache-2.0](https://github.com/persimmon-ai-labs/adept-inference/blob/main/LICENSE) | ✅
+[WizardLM 13B](https://huggingface.co/WizardLM/WizardLM-13B-V1.2) | 13 | [evol-instruct](https://huggingface.co/datasets/WizardLM/WizardLM_evol_instruct_70k) | {cite}`xu2023wizardlm` | ~2000 | 30+ | [LLaMA-2](https://blog.opensource.org/metas-llama-2-license-is-not-open-source) | ✅
+[WizardLM 7B](https://huggingface.co/WizardLM/WizardLM-7B-V1.0) | 7 | [evol-instruct](https://huggingface.co/datasets/WizardLM/WizardLM_evol_instruct_70k) | {cite}`xu2023wizardlm` | ~2000 | 15.8+ | Non-Commercial | ❌
+[Falcon 7B](https://huggingface.co/tiiuae/falcon-7b) | 7 | [RefinedWeb (partial)](https://huggingface.co/datasets/tiiuae/falcon-refinedweb) | - | 1500 | 16+ | [Apache-2.0](https://huggingface.co/tiiuae/falcon-7b#license) | ✅
+[MPT 7B](https://huggingface.co/mosaicml/mpt-7b) | 6.7 | [RedPajama](https://huggingface.co/datasets/togethercomputer/RedPajama-Data-1T) | [Blog](https://www.mosaicml.com/blog/mpt-7b) | 1000 | 15.5+ | [Apache-2.0](https://huggingface.co/mosaicml/mpt-7b#model-license) | ✅
 ```
 
 ### Vision

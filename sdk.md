@@ -199,5 +199,7 @@ By setting the `stream=True` parameter to boolean `True` we can view the [stream
 The idea behind LiteLLM seems neat - the ability to query multiple LLMs using the same logic. However, it remains to be seen how this will impact the industry and what specific use-cases this solves.
 
 ## Future And Other SDKs
+
 [](#langchain), [](#llama-index), and [](#litellm) have exciting future plans to unlock high-value LLM applications. [Future initiatives from Langchain](https://blog.langchain.dev/announcing-our-10m-seed-round-led-by-benchmark) include improving the TypeScript package to enable more full-stack and frontend developers to create LLM applications, improved document retrieval, and enabling more observability/experimentation with LLM applications. LlamaIndex is developing an enterprise solution to help remove technical and security barriers for data usage. Apart from the SDKs discussed, there are a variety of newer SDKs for other aspects of integrating LLMs in production. One example is https://github.com/prefecthq/marvin, great for building APIs, data pipelines, and streamlining the AI engineering framework for building natural language interfaces. Another example is https://github.com/homanp/superagent, which is a higher level abstraction and allows for building many AI applications/micro services like chatbots, co-pilots, assistants, etc.
+
 {{ comments }}

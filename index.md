@@ -185,7 +185,11 @@ At Prem we are on a journey to make this possible, with a focus on developer exp
 
 ```{glossary}
 Alignment
-  [Aligned AI models](https://en.wikipedia.org/wiki/AI_alignment) must implement safeguards to be helpful, honest, and harmless {cite}`labellerr-alignment`. See [](unaligned-models).
+  [Aligned AI models](https://en.wikipedia.org/wiki/AI_alignment) must implement safeguards to be helpful, honest, and harmless {cite}`labellerr-alignment`.
+  This often involves {term}`supervised fine-tuning` followed by {term}`RLHF` See [](unaligned-models) and [](fine-tuning).
+
+Auto-regressive language model
+  Applies [AR](https://en.wikipedia.org/wiki/Autoregressive_model) to {term}`LLMs <LLM>`. Essentially a feed-forward model which predicts the next word given a context (set of words) {cite}`medium-arlm`.
 
 BEC
   [Business Email Compromise](https://www.microsoft.com/en-us/security/business/security-101/what-is-business-email-compromise-bec).
@@ -197,7 +201,7 @@ Copyleft
   A type of [open licence](open-licences) which insists that derivatives of the IP must have the same licence. Also called "protective" or "reciprocal" {cite}`wiki-copyleft`.
 
 Embedding
-  [Embedding](https://learn.microsoft.com/en-us/semantic-kernel/memories/embeddings) means encoding {term}`tokens <token>` into a numeric vector (i.e. array/list). This can be thought of as an intermediary between machine and human language, and thus helps {term}`LLMs <LLM>` understand human language.
+  See {term}`vector embedding`.
 
 Evaluation
   Assessing a model's abilities using quantitative and qualitative performance metrics (e.g. accuracy, effectiveness, etc.) on a given task. See [](eval-datasets).
@@ -207,6 +211,9 @@ Fair Dealing
 
 Fair Use
   A doctrine in US law permitting use of {term}`IP` without prior permission (regardless of licence/copyright status) depending on 1) purpose of use, 2) nature of the IP, 3) amount of use, and 4) effect on value {cite}`wiki-fair-use`. See also {term}`fair dealing`.
+
+Foundation model
+  A model trained from scratch -- likely on lots of data -- to be used for general tasks or later fine-tuned for specific tasks.
 
 GPU
   [Graphics Processing Unit](https://en.wikipedia.org/wiki/Graphics_processing_unit): hardware originally designed to accelerate computer image processing, but now often repurposed for [embarrassingly parallel](https://en.wikipedia.org/wiki/Embarrassingly_parallel) computational tasks in machine learning.
@@ -226,6 +233,9 @@ LLM
 MLOps
   [Machine Learning Operations](https://blogs.nvidia.com/blog/2020/09/03/what-is-mlops): best practices to run AI using software products & cloud services
 
+MoE
+  [Mixture-of-Experts](https://en.wikipedia.org/wiki/Mixture_of_experts) is a technique which uses one or more specialist model(s) from a collection of models ("experts") to solve general problems. Not that this is different from [ensemble](https://en.wikipedia.org/wiki/Ensemble_learning) models (which combine results from all models).
+
 Open
   Ambiguous term that could mean "open source" or "open licence". See [](open).
 
@@ -241,6 +251,9 @@ Public Domain
 RAG
   [Retrieval Augmented Generation](https://www.pinecone.io/learn/retrieval-augmented-generation).
 
+RLHF
+  [Reinforcement Learning from Human Feedback](https://en.wikipedia.org/wiki/Reinforcement_learning_from_human_feedback) is often the second step in {term}`alignment` (after {term}`supervised fine-tuning`), where a model is [rewarded or penalised](https://en.wikipedia.org/wiki/Reinforcement_learning) for it outputs based on human evaluation. See [](fine-tuning) and [](unaligned-models).
+
 ROME
   The [Rank-One Model Editing algorithm](https://rome.baulab.info) alters a trained model's weights to directly modify "learned" information {cite}`meng2023locating,raunak2022rankone`.
 
@@ -249,6 +262,9 @@ SIMD
 
 SotA
   State of the art: recent developments (under 1 year old).
+
+Supervised fine-tuning
+  [SFT](https://cameronrwolfe.substack.com/p/understanding-and-using-supervised) is often the first step in model {term}`alignment`, and is usually followed by {term}`RLHF`. See [](fine-tuning) and [](unaligned-models).
 
 Quantisation
   [Sacrificing precision](<https://en.wikipedia.org/wiki/Quantization_(signal_processing)>) of model weights (e.g. `uint8` instead of `float32`) in return for lower hardware memory requirements.
@@ -259,15 +275,18 @@ Token
 Transformer
   A [transformer](<https://en.wikipedia.org/wiki/Transformer_(machine_learning_model)>) is a neural network using a parallel multi-head [attention](<https://en.wikipedia.org/wiki/Attention_(machine_learning)>) mechanism. The resultant reduce training time makes it well-suited for use in {term}`LLMs <llm>`.
 
-Foundation model
-Auto-regressive language model
-Decoder-style transformer
-A100, V100, H100
-Vector
-Vector Embeddings
-Vector Store
 Vector Database
-supervised fine-tuning
-Diffusion-based text-to-image generative mode
-VRAM
+  [Vector databases](https://en.wikipedia.org/wiki/Vector_database) provide efficient storage & search/retrieval for {term}`vector embeddings <vector embedding>`. See [](vector-db).
+
+Vector Embedding
+  [Embedding](https://learn.microsoft.com/en-us/semantic-kernel/memories/embeddings) means encoding {term}`tokens <token>` into a numeric vector (i.e. array/list). This can be thought of as an intermediary between machine and human language, and thus helps {term}`LLMs <LLM>` understand human language. See [](vector-db.md#llm-embeddings).
+
+Vector Store
+  See {term}`vector database`.
 ```
+
+% TODO: glossary definitions for:
+% Decoder-style transformer
+% Diffusion-based text-to-image generative mode
+% A100, V100, H100
+% VRAM

@@ -74,7 +74,7 @@ Subsection | Description
 [](#current-models) | Post-[](#llama) leak; open-source LLMs quickly catching up to closed-source, new solutions emerging (e.g. GPU-poor), [](#alpaca-7b), LLaMA variants, etc.
 
 [](#chatgpt) would be playing a huge role if it was a story of LLMs and how they fast-tracked their improvements.
-Early high performing LLMs were proprietary, accessible only through organisations' paid APIs, hindering transparency and raising concerns about data privacy, bias, alignment and robustness, giving limited possibilities to cater domain-specific use cases without letting RLHF'ed alignment {cite}`lambert2022illustrating` interfere.
+Early high performing LLMs were proprietary, accessible only through organisations' paid APIs, hindering transparency and raising concerns about data privacy, bias, alignment and robustness, giving limited possibilities to cater domain-specific use cases without letting {term}`RLHF` alignment {cite}`lambert2022illustrating` interfere.
 
 ### Before Public Awareness
 
@@ -151,7 +151,7 @@ There are few key inspirations LLaMA architecture took from other LLMs:
 ##### Limitations
 
 - It was released under a non-commercial license focused on usage for research use cases only.
-- LLaMA is a foundation model and not fine-tuned for specific tasks, which may limit its performance on certain tasks
+- LLaMA is a {term}`foundation model` and not fine-tuned for specific tasks, which may limit its performance on certain tasks
 - LLaMA seemed not as competitive as other models on certain benchmarks, such as BoolQ and WinoGrande.
 
 Interestingly within a week from LLaMA's launch, its [weights were leaked to the public](https://www.vice.com/en/article/xgwqgw/facebooks-powerful-large-language-model-leaks-online-4chan-llama). https://github.com/facebookresearch/llama/pull/73 created a huge impact on the community for all kinds innovations coming up, even though there was still license restrictions not permitting commercial usage.
@@ -214,7 +214,7 @@ In a day after, [Vicuna](https://lmsys.org/blog/2023-03-30-vicuna) came in.
 
 After the release they also conducted a [deeper study on GPT4-based evaluation approach](https://github.com/lm-sys/FastChat/tree/main/fastchat/llm_judge#llm-judge).
 
-Then came in updates like LLaMa-Adapter {cite}`zhang2023llamaadapter`, [Koala](https://bair.berkeley.edu/blog/2023/04/03/koala) and in less than a month [Open Assistant](https://open-assistant.io) launches a model and a dataset for Alignment via RLHF {cite}`köpf2023openassistant`.
+Then came in updates like LLaMa-Adapter {cite}`zhang2023llamaadapter`, [Koala](https://bair.berkeley.edu/blog/2023/04/03/koala) and in less than a month [Open Assistant](https://open-assistant.io) launches a model and a dataset for Alignment via {term}`RLHF` {cite}`köpf2023openassistant`.
 
 Overall the LLaMA variants landscape looked somewhat like this, even though it doesn't show all the variants:
 
@@ -339,7 +339,7 @@ Page 3, LLaMA 2: Open Foundations and Fine-Tuned Chat Models {cite}`touvron2023l
     Page 8, LLaMA 2: Open Foundations and Fine-Tuned Chat Models {cite}`touvron2023llama2`
     ```
 
-- They released chat variants from base models using instruction tuning and high scale RLHF, also proposed a Ghost Attention (GAtt) which helps control dialogue flow over multiple turns.
+- They released chat variants from base models using instruction tuning and high scale {term}`RLHF`, also proposed a Ghost Attention (GAtt) which helps control dialogue flow over multiple turns.
 
     ```{figure} https://static.premai.io/book/models_llama2-workflow.png
     :width: 80%
@@ -415,7 +415,7 @@ And currently [its fine-tuned variants](https://huggingface.co/Phind/Phind-CodeL
 ##### Uniqueness
 
 - [Outperforms GPT-3.5](https://www.reddit.com/r/OpenAI/comments/160bbaq/comment/jxls1xq) on code generation capabilities.
-- Uses [](#llama-2) as foundation model.
+- Uses [](#llama-2) as {term}`foundation model`.
 - Released [three variants](https://huggingface.co/codellama) for each model sizes:
   - **Code LLaMA**: constitute foundation models for code generation. They come in three model sizes: 7B, 13B and 34B parameters. The 7B and 13B models are trained using an infilling objective, appropriate for code generation in an IDE. The 34B model was trained without the infilling objective
   - **Code LLaMA -- Python**: specialised for Python code generation and also come in sizes of 7B, 13B, and 34B parameters. Trained on 500B tokens from the Code LLaMA dataset and further specialised on 100B tokens using a Python-heavy dataset. Python variants are trained without infilling and subsequently fine-tuned to handle long contexts.
@@ -544,11 +544,11 @@ Page 14, SDXL: Improving Latent Diffusion Models for High-Resolution Image Synth
 
 To recap current advancements we can see that few key moments were:
 
-- Release of ChatGPT, GPT-4, DALL-E by OpenAI.
-- Release of Stable Diffusion models by StabilityAI.
-- Leak of LLaMA weights, and LLaMA-2's release by Meta.
-- Creation and release of RLHF recipes.
-- few [other smaller moments](https://www.semianalysis.com/p/google-we-have-no-moat-and-neither#%C2%A7the-timeline).
+- Release of [](#chatgpt), [](#gpt-4), DALL-E by OpenAI.
+- Release of [Stable Diffusion models](#stable-diffusion) by StabilityAI.
+- Leak of [](#llama) weights, and [](#llama-2)'s release by Meta.
+- Creation and release of {term}`RLHF` recipes.
+- a few [smaller moments](https://www.semianalysis.com/p/google-we-have-no-moat-and-neither#%C2%A7the-timeline).
 
 Even though Open Source AI is advancing, it is evident that it remains heavily regulated by major corporations such as Meta, OpenAI, Nvidia, Google, Microsoft, and others. These entities often control critical parameters, creating a myth of open source AI {cite}`myth-of-os-ai-wired`, including:
 
@@ -558,7 +558,7 @@ Even though Open Source AI is advancing, it is evident that it remains heavily r
 
 Returning to actual state, there are significant gaps that need to be addressed to achieve true progress in the development of intelligent models. For instance, recent analyses have revealed the limited generalization capabilities {cite}`reversal-curse`, current LLMs learn things in the specific direction of an input context window of an occurrence and may not generalize when asked in other directions.
 
-The rise of [Mixture-of-Experts (MOE)](https://finbarrtimbers.substack.com/p/papers-ive-read-this-week-mixture) models has garnered attention and research interest, particularly following rumours about the GPT-4 architecture. The open-source community has already made strides in implementing various MoE variants (e.g. https://github.com/XueFuzhao/OpenMoE) demonstrating a push toward more versatile model architectures.
+The rise of {term}`MoE` models has garnered attention and research interest, particularly following rumours about the GPT-4 architecture. The open-source community has already made strides in implementing various MoE variants (e.g. https://github.com/XueFuzhao/OpenMoE) demonstrating a push toward more versatile model architectures.
 
 On another part using quantized version of models usages are increasing rapidly, as it makes running large models (>30B parameters) possible on low precision, even on just cpu machines. Specially lots of contributions in this area is coming up by https://github.com/ggerganov/ggml community and [TheBloke](https://huggingface.co/TheBloke).
 

@@ -145,7 +145,7 @@ To recap:
 - Enforcing licences might be infeasible
   + there are [ongoing cases](#legal-precedence) regarding (ab)use of various subcategories of IP: copyright (no licence) for both open and closed source, as well as licences with copyleft or non-commercial clauses
 
-In the long term, we look forward to the outcomes of the US cases and EU proposals. Meanwhile in the short term, a recent tweet ({numref}`unusual-ventures-tweet`) classified some current & {term}`foundation <foundation model>` models (albeit with no explanation/discussion yet as of Sep 2023). We hope to see an accompanying write-up soon!
+In the long term, we look forward to the outcomes of the US cases and EU proposals. Meanwhile in the short term, a recent tweet ({numref}`unusual-ventures-tweet`) classified some current & {term}`foundation <foundation model>` models (albeit with no explanation/discussion yet as of Oct 2023). We hope to see an accompanying write-up soon!
 
 ```{figure-md} unusual-ventures-tweet
 :class: caption

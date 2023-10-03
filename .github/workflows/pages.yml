@@ -45,6 +45,14 @@ jobs:
         jupyter-book build --builder latex .
       env:
         PYTHONPATH: .
+    - name: insert PDF cover
+      run: |
+        curl -fsSL https://static.premai.io/book/cover.pdf > _build/latex/cover.pdf
+        sed -i -r \
+        -e 's/(\\usepackage\{geometry\})/\1\n\\usepackage\{pdfpages\}/' \
+        -e 's/\\sphinxmaketitle/\\includepdf\[pages=-\]\{cover.pdf\}\n\\maketitle/' \
+        -e 's/\\sphinxtableofcontents//' \
+        _build/latex/book.tex
     - uses: xu-cheng/latex-action@v2
       with:
         working_directory: _build/latex

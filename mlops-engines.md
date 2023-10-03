@@ -97,7 +97,7 @@ Cons:
 
 ## BentoML
 
-[BentoML](https://www.bentoml.com) is a fairly popular tool used to deploy ML models into production. It has gained a lot of popularity by building simple wrappers that can convert any model into a REST API endpoint. Currently, BentoML does not support some of the GPU optimizations such as tensor parallelism. However, the main benefit BentoML provides is that it can serve a wide variety of models. 
+[BentoML](https://www.bentoml.com) is a fairly popular tool used to deploy ML models into production. It has gained a lot of popularity by building simple wrappers that can convert any model into a REST API endpoint. Currently, BentoML does not support some of the GPU optimizations such as tensor parallelism. However, the main benefit BentoML provides is that it can serve a wide variety of models.
 
 Pros:
 
@@ -113,7 +113,7 @@ Cons:
 
 [Modular](https://www.modular.com) is designed to be a high performance AI engine that boosts the performance of deep learning models. The secret is in their custom compiler and runtime environment that improves the inferencing of any model without the developer needing to make any code changes.
 
-The Modular team has designed a new programming language, [Mojo](https://docs.modular.com/mojo), which combines the Python friendly syntax with the performance of C. The purpose of Mojo is to address some of the shortcomings of Python from a performance standpoint while still being a part of the Python ecosystem. This is the programming language used internally to create the Modular AI engine's kernels. 
+The Modular team has designed a new programming language, [Mojo](https://docs.modular.com/mojo), which combines the Python friendly syntax with the performance of C. The purpose of Mojo is to address some of the shortcomings of Python from a performance standpoint while still being a part of the Python ecosystem. This is the programming language used internally to create the Modular AI engine's kernels.
 
 Pros:
 
@@ -123,7 +123,7 @@ Pros:
 Cons:
 
 * Not open-source
-* Not as simple to use compared to other engines on this list 
+* Not as simple to use compared to other engines on this list
 
 This is not an exhaustive list of MLOps engines by any means. There are many other tools and frameworks developer use to deploy their ML models. There is ongoing development in both the open-source and private sectors to improve the performance of LLMs. It's up to the community to test out different services to see which one works best for their use case.
 
@@ -171,7 +171,7 @@ For example, a single GPU node able to run a 36 GB open-source model can [easily
 
 Inference is one of the hot topics currently with LLMs in general. Large models like ChatGPT have very low latency and great performance but become more expensive with more usage.
 
-On the flip side, open-source models like [LLaMA-2](models.md#llama-2) or [Falcon](models.md#falcon) have variants that are much smaller in size, yet it's difficult to match the latency and throughput that ChatGPT provides, while still being cost efficient {cite}`cursor-llama`.
+On the flip side, open-source models like [](models.md#llama-2) or [](models.md#falcon) have variants that are much smaller in size, yet it's difficult to match the latency and throughput that ChatGPT provides, while still being cost efficient {cite}`cursor-llama`.
 
 Models that are run using Hugging Face pipelines do not have the necessary optimisations to run in a production environment. The open-source LLM inferencing market is still evolving so currently there's no silver bullet that can run any open-source LLM at blazing-fast speeds.
 

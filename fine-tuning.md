@@ -8,7 +8,7 @@ Some ideas:
 
 - https://gist.github.com/veekaybee/be375ab33085102f9027853128dc5f0e#training-your-own
 - [Why You (Probably) Don't Need to Fine-tune an LLM](https://www.tidepool.so/2023/08/17/why-you-probably-dont-need-to-fine-tune-an-llm/) (instead, use few-shot prompting & retrieval-augmented generation)
-- [Fine-Tuning Llama-2: A Comprehensive Case Study for Tailoring Models to Unique Applications](https://www.anyscale.com/blog/fine-tuning-llama-2-a-comprehensive-case-study-for-tailoring-models-to-unique-applications) (fine-tuning LLaMA-2 for 3 real-world use cases)
+- [Fine-Tuning LLaMA-2: A Comprehensive Case Study for Tailoring Models to Unique Applications](https://www.anyscale.com/blog/fine-tuning-llama-2-a-comprehensive-case-study-for-tailoring-models-to-unique-applications) (fine-tuning LLaMA-2 for 3 real-world use cases)
 - [Private, local, open source LLMs](https://python.langchain.com/docs/guides/local_llms)
 - [Easy-to-use LLM fine-tuning framework (LLaMA-2, BLOOM, Falcon, Baichuan, Qwen, ChatGLM2)](https://github.com/hiyouga/LLaMA-Efficient-Tuning)
 - https://dstack.ai/examples/finetuning-llama-2
@@ -56,8 +56,8 @@ On the other hand, if the LLM needs to generate accurate SQL queries, RAG is not
 Here are some examples of models that have been fine-tuned to generate content in a specific format/style:
 
 * [Gorilla LLM](https://gorilla.cs.berkeley.edu) - This LLM was fine-tuned to generate API calls.
-* [Llama-2 chat](https://huggingface.co/meta-llama/Llama-2-7b-chat-hf) - The "chat" version of Llama is fine-tuned on conversational data.
-* [Code Llama](https://about.fb.com/news/2023/08/code-llama-ai-for-coding) - A fine-tuned Llama 2 model designed for code generation.
+* [LLaMA-2 chat](https://huggingface.co/meta-llama/Llama-2-7b-chat-hf) - The "chat" version of LLaMA is fine-tuned on conversational data.
+* [Code LLaMA](https://about.fb.com/news/2023/08/code-llama-ai-for-coding) - A fine-tuned LLaMA-2 model designed for code generation.
 
 ## RAG
 
@@ -155,7 +155,7 @@ To summarise, fine-tuning requires a balance between having a large dataset and 
 
 Model | Task | Hardware | Data
 ------|------|----------|-----
-Llama-2 7B | Text Generation | GPU: 65GB, 4-bit quantised: 10GB | 1K datapoints
+LLaMA-2 7B | Text Generation | GPU: 65GB, 4-bit quantised: 10GB | 1K datapoints
 Falcon 40B | Text Generation | GPU: 400GB, 4-bit quantised: 50GB | 50K datapoints
 Stable Diffusion | Image Generation | GPU: 6GB | 10 (using Dreambooth) images
 YOLO | Object Detection | Can be fine-tuned on CPU | 100 images

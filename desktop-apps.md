@@ -129,7 +129,7 @@ The UI for GPT4All is quite basic as compared to LM Studio -- but it works fine.
 GPT4All UI
 ```
 
-However, it is less friendly and more clunky/ has a beta feel to it. For one, once I downloaded the Llama-2-7B model, I wasn't able to download any new model even after restarting the app.
+However, it is less friendly and more clunky/ has a beta feel to it. For one, once I downloaded the LLaMA-2 7B model, I wasn't able to download any new model even after restarting the app.
 
 ### Local Server
 
@@ -226,7 +226,7 @@ Pretty standard prompt related configurations. It appears there is no GPU.
 
 ### UI and Chat
 
-Neat clean and crisp UI, just `＞＞＞` in the terminal and you can paste your prompt. The response time will vary according to the model size but responses are mostly acceptable. I tested the `llama` model which is the most recently supported model and the results were good.
+Neat clean and crisp UI, just `>>>` in the terminal and you can paste your prompt. The response time will vary according to the model size but responses are mostly acceptable. I tested the `LLaMA` model which is the most recently supported model and the results were good.
 
 ```{figure} https://static.premai.io/book/ollama-ex.png
 Ollama Example

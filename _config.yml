@@ -100,6 +100,7 @@ sphinx:
     - https://github.com/imaurer/awesome-decentralized-llm#.*
     - https://github.com/kingoflolz/mesh-transformer-jax#.*
     - https://github.com/lm-sys/FastChat.*#.*
+    - https://github.com/mistralai/mistral-src#.*
     - https://github.com/onnx/onnx-tensorrt/blob/main/docs/operators.md#.*
     - https://github.com/onnx/onnx-tensorrt#.*
     - https://github.com/onnx/tutorials#.*

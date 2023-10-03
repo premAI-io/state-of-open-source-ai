@@ -28,9 +28,7 @@ def names_truncated(children, context, role, max_names=9, **kwargs):
 class Style(UnsrtStyle):
     def format_names(self, role, as_sentence=True):
         formatted_names = names_truncated(role, sep=', ', sep2=' and ', last_sep=', and ')
-        if as_sentence:
-            return sentence[formatted_names]
-        return formatted_names
+        return sentence[formatted_names] if as_sentence else formatted_names
 
 
 def setup(app: Sphinx):

@@ -38,7 +38,7 @@ Model | Weights | Training Data | Output
 
 {{ table_feedback }}
 
-Just a few weeks after some said "the golden age of open [...] AI is coming to an end" {cite}`golden-age-os-end`, things like Falcon's `Apache-2.0` relicensing {cite}`falcon-relicence` and the [LLaMA 2 community licence](https://ai.meta.com/llama/license) {cite}`llama-2-licence` were announced (both permitting commercial use), completely changing the landscape.
+Just a few weeks after some said "the golden age of open [...] AI is coming to an end" {cite}`golden-age-os-end`, things like Falcon's `Apache-2.0` relicensing {cite}`falcon-relicence` and the [LLaMA-2 community licence](https://ai.meta.com/llama/license) {cite}`llama-2-licence` were announced (both permitting commercial use), completely changing the landscape.
 
 Some interesting observations currently:
 
@@ -47,7 +47,7 @@ Some interesting observations currently:
 - Training data is seldom available
   + honourable exceptions are OpenAssistant (which promises that [data will be released under `CC-BY-4.0`](https://open-assistant.io/#faqs-title) but confusingly appears [already released under `Apache-2.0`](https://huggingface.co/datasets/OpenAssistant/oasst1)) and RWKV (which provides both [brief](https://wiki.rwkv.com/basic/FAQ.html#what-is-the-dataset-that-rwkv-is-trained-on) and [more detailed](https://github.com/BlinkDL/RWKV-LM#training--fine-tuning) guidance)
 
-Licences are increasingly being recognised as important, and are even mentioned in some online leaderboards such as [LMSys ChatBot Arena](https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard).
+Licences are increasingly being recognised as important, and are even mentioned in some online leaderboards such as [](eval-datasets.md#chatbot-arena).
 
 ## Data
 

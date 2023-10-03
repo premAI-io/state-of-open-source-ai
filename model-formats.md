@@ -42,10 +42,8 @@ ONNX feels truly OSS, since it's run by an OSS community, whereas both GGML and 
 ### Features and Benefits
 
 ```{figure} https://static.premai.io/book/model-formats-onnx.png
----
-width: 75%
-name: onnx-interoperability
----
+:width: 75%
+:name: onnx-interoperability
 https://cms-ml.github.io/documentation/inference/onnx.html
 ```
 
@@ -259,16 +257,16 @@ Inference and training of many open sourced models ([StarCoder](https://github.c
 
 GPU based inference support for GGML format models [discussion initiated few months back](https://github.com/ggerganov/llama.cpp/discussions/915), examples started with `MNIST CNN` support, and showing other example of full [GPU inference, showed on Apple Silicon using Metal](https://github.com/ggerganov/llama.cpp/pull/1642), offloading layers to CPU and making use of GPU and CPU together.
 
-Check [llamacpp part of Langchain's docs](https://python.langchain.com/docs/integrations/llms/llamacpp#gpu) on how to use GPU or Metal for GGML models inference.
-Here's an example from langchain docs showing how to use GPU for GGML models inference.
+Check [llamacpp part of LangChain's docs](https://python.langchain.com/docs/integrations/llms/llamacpp#gpu) on how to use GPU or Metal for GGML models inference.
+Here's an example from LangChain docs showing how to use GPU for GGML models inference.
 
-Currently [Speculative Decoding for sampling tokens](https://twitter.com/karpathy/status/1697318534555336961) is [being implemented](https://github.com/ggerganov/llama.cpp/pull/2926) for Code Llama inference as a POC, which as an example promises full [F16 precision 34B Code Llama at >20 tokens/sec on M2 Ultra.](https://twitter.com/ggerganov/status/1697262700165013689).
+Currently [Speculative Decoding for sampling tokens](https://twitter.com/karpathy/status/1697318534555336961) is being implemented (https://github.com/ggerganov/llama.cpp/pull/2926) for Code LLaMA inference as a POC, which as an example promises full [`float16` precision 34B Code LLAMA at >20 tokens/sec on M2 Ultra](https://twitter.com/ggerganov/status/1697262700165013689).
 
 ### Future
 
 #### `GGUF` format
 
-There's a new successor format to `GGML` named `GGUF` introduced by llama.cpp team on August 21st 2023. It has an extensible, future-proof format which stores more information about the model as metadata. It also includes significantly improved tokenisation code, including for the first time full support for special tokens. Promises to improve performance, especially with models that use new special tokens and implement custom prompt templates.
+There's a new successor format to `GGML` named `GGUF` introduced by `llama.cpp` team on August 21st 2023. It has an extensible, future-proof format which stores more information about the model as metadata. It also includes significantly improved tokenisation code, including for the first time full support for special tokens. Promises to improve performance, especially with models that use new special tokens and implement custom prompt templates.
 
 Some [clients & libraries supporting `GGUF`](https://huggingface.co/TheBloke/Llama-2-13B-GGUF#about-gguf) include:
 
@@ -310,31 +308,31 @@ TensorRT is an SDK for deep learning inference by NVIDIA, providing APIs and par
 TensorRT's main capability comes under giving out high performance inference engines. Few notable features include:
 
 - [C++](https://docs.nvidia.com/deeplearning/tensorrt/api/c_api) and [Python](https://docs.nvidia.com/deeplearning/tensorrt/api/python_api) APIs.
-- Supports FP32, FP16, INT8, INT32, UINT8, and BOOL [data types](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/#types-precision).
+- Supports `float32`, `float16`, `int8`, `int32`, `uint8`, and `bool` [data types](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/#types-precision).
 - [Plugin](https://github.com/NVIDIA/TensorRT/tree/main/plugin) interface to extend TensorRT with operations not supported natively.
-- Works with [both GPU(CUDA) and CPU](https://docs.nvidia.com/deeplearning/tensorrt/support-matrix/#platform-matrix).
+- Works with [both GPU (CUDA) and CPU](https://docs.nvidia.com/deeplearning/tensorrt/support-matrix/#platform-matrix).
 - Works with [pre-quantised](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/#working-with-int8) models.
 - Supports [NVIDIA's Deep Learning Accelerator](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/#dla_topic) (DLA).
 - [Dynamic shapes](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/#work_dynamic_shapes) for Input and Output.
 - [Updating weights](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/#refitting-engine-c)
 - Added [tooling](https://github.com/NVIDIA/TensorRT/tree/main/tools) support like [`trtexec`](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/#trtexec)
 
-[TensorRT can also act as a provider when using onnxruntime](https://onnxruntime.ai/docs/execution-providers/TensorRT-ExecutionProvider.html) delivering better inferencing performance on the same hardware compared to generic GPU acceleration by [setting proper Execution Provider](https://onnxruntime.ai/docs/execution-providers).
+[TensorRT can also act as a provider when using `onnxruntime`](https://onnxruntime.ai/docs/execution-providers/TensorRT-ExecutionProvider.html) delivering better inferencing performance on the same hardware compared to generic GPU acceleration by [setting proper Execution Provider](https://onnxruntime.ai/docs/execution-providers).
 
 (tensorrt-usage)=
+
 ### Usage
 
 Using [NVIDIA's TensorRT containers](https://docs.nvidia.com/deeplearning/tensorrt/container-release-notes) can ease up setup, given it's known what version of TensorRT, CUDA toolkit (if required).
 
 ```{figure} https://static.premai.io/book/model-formats_tensorrt-usage-flow.png
----
-width: 60%
-name: TensorRT conversion flow
----
+:width: 60%
+:name: TensorRT conversion flow
 [Path to convert and deploy with TensorRT](https://docs.nvidia.com/deeplearning/tensorrt/quick-start-guide/#select-workflow).
 ```
 
 (tensorrt-support)=
+
 ### Support
 
 While creating a serialised TensorRT engine, except using [TF-TRT](https://docs.nvidia.com/deeplearning/frameworks/tf-trt-user-guide) or [ONNX](https://onnx.ai), for higher customisability one can also manually construct a network using the TensorRT API ([C++](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/#create_network_c) or [Python](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/#create_network_python))
@@ -351,7 +349,6 @@ NVIDIA also kept few [tooling](https://docs.nvidia.com/deeplearning/tensorrt/#to
 - **[`trt-engine-explorer`](https://github.com/NVIDIA/TensorRT/tree/main/tools/experimental/trt-engine-explorer):** It contains Python package [`trex`](https://github.com/NVIDIA/TensorRT/tree/main/tools/experimental/trt-engine-explorer/trex) to explore various aspects of a TensorRT engine plan and its associated inference profiling data.
 - **[`onnx-graphsurgeon`](https://github.com/NVIDIA/TensorRT/tree/main/tools/onnx-graphsurgeon):** It helps easily generate new ONNX graphs, or modify existing ones.
 - **[`polygraphy-extension-trtexec`](https://github.com/NVIDIA/TensorRT/tree/main/tools/polygraphy-extension-trtexec):** polygraphy extension which adds support to run inference with `trtexec` for multiple backends, including TensorRT and ONNX-Runtime, and compare outputs.
-
 (tensorrt-quantisation-2)=
 - **[`pytorch-quantization`](https://github.com/NVIDIA/TensorRT/tree/main/tools/pytorch-quantization) and [`tensorflow-quantization`](https://github.com/NVIDIA/TensorRT/tree/main/tools/tensorflow-quantization):** For quantisation aware training or evaluating when using Pytorch/Tensorflow.
 
@@ -365,7 +362,7 @@ INT4 and INT16 quantisation is not supported by TensorRT currently. Current supp
 
 Many [ONNX operators](https://github.com/onnx/onnx/blob/main/docs/Operators.md) are [not yet supported](https://github.com/onnx/onnx-tensorrt/blob/main/docs/operators.md) by TensorRT and few supported ones have restrictions.
 
-Supports no Interoperability since conversion to onnx or TF-TRT format is a necessary step and has intricrasies which needs to be handled [for custom requirements](tensorrt-interoperability).
+Supports no Interoperability since conversion to onnx or TF-TRT format is a necessary step and has intricacies which needs to be handled [for custom requirements](tensorrt-interoperability).
 
 ```{seealso}
 - [Docs](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide)
@@ -384,8 +381,15 @@ Feel free to open a PR :)
 
 ## Future
 
-% See also:
-% - [Optimising for Faster Inference](https://cameronrwolfe.substack.com/i/135439692/optimising-for-faster-inference)
-% - https://github.com/imaurer/awesome-decentralised-llm#training-and-quantisation
+```{admonition} Feedback
+:class: attention
+{{ wip_chapter }}
+
+See also:
+
+- [Optimising for Faster Inference](https://cameronrwolfe.substack.com/i/135439692/optimising-for-faster-inference)
+- https://github.com/imaurer/awesome-decentralized-llm#training-and-quantization
+```
+
 
 {{ comments }}

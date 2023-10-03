@@ -129,7 +129,7 @@ While [training](https://github.com/CompVis/stable-diffusion/blob/main/Stable_Di
 
 #### LLaMA
 
-Under LLaMA {cite}`touvron2023llama`, [Meta AI](https://ai.meta.com/) released a collection of foundation language models ranging from 7B to 65B parameters, pre-trained over a corpus containing more than 1.4 trillion tokens. It was designed to be versatile and applicable for many different use cases, and possibly fine-tuned for domain specific tasks if required.
+Under LLaMA {cite}`touvron2023llama`, [Meta AI](https://ai.meta.com) released a collection of foundation language models ranging from 7B to 65B parameters, pre-trained over a corpus containing more than 1.4 trillion tokens. It was designed to be versatile and applicable for many different use cases, and possibly fine-tuned for domain specific tasks if required.
 
 It showed **better performance** across domains compared to its competitors.
 
@@ -138,7 +138,7 @@ It showed **better performance** across domains compared to its competitors.
 LLaMA: Open and Efficient Foundation Language Models {cite}`touvron2023llama`
 ```
 
-LLaMA 13B outperforms [GPT-3 (175B)](https://en.wikipedia.org/wiki/GPT-3) on most benchmarks while being more than 10x smaller, and LLaMA 65B is competitive with models like Chinchilla 70B {cite}`hoffmann2022training` and [PaLM 540B](https://blog.research.google/2022/04/pathways-language-model-palm-scaling-to.html). LLaMA 65B performs similarly to the closed-source GPT-3.5 on the MMLU and GSM8K benchmarks {cite}`touvron2023llama`
+LLaMA 13B outperforms [GPT-3 (175B)](https://en.wikipedia.org/wiki/GPT-3) on most benchmarks while being more than 10x smaller, and LLaMA 65B is competitive with models like Chinchilla 70B {cite}`hoffmann2022training` and [PaLM 540B](https://blog.research.google/2022/04/pathways-language-model-palm-scaling-to.html). LLaMA 65B performs similarly to the closed-source GPT-3.5 on the MMLU and GSM8K benchmarks {cite}`touvron2023llama`.
 
 ##### Uniqueness
 

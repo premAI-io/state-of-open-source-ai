@@ -609,16 +609,17 @@ DiffusionDB Examples {cite}`wang2023diffusiondb`
 
 #### Object Detection
 
-The [Object Detection Leaderboard](https://huggingface.co/spaces/rafaelpadilla/object_detection_leaderboard) evaluates models u
-sing various metrics on the [COCO dataset](#coco). These metrics include Average Precision (AP) at different
+The [Object Detection Leaderboard] evaluates models using various metrics on the [COCO dataset](#coco). These metrics include Average Precision (AP) at different
 IoU thresholds, Average Recall (AR) at various detection counts, and FPS (Frames Per Second). The leaderboard is based on
 the COCO evaluation approach from the
 [COCO evaluation toolkit](https://github.com/cocodataset/cocoapi/blob/master/PythonAPI/pycocotools/cocoeval.py).
 
 ```{figure} https://static.premai.io/book/eval-datasets-object-detection.png
 :width: 100%
-[Object Detection Leaderboard](https://huggingface.co/spaces/rafaelpadilla/object_detection_leaderboard)
+[Object Detection Leaderboard]
 ```
+
+[Object Detection Leaderboard]: https://huggingface.co/spaces/hf-vision/object_detection_leaderboard
 
 #### Semantic Segmentation on ADE20K
 

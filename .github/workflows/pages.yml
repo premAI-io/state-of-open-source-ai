@@ -47,8 +47,9 @@ jobs:
         cd _build/latex
         curl -fsSLO https://static.premai.io/book/cover.pdf
         sed -i -r \
+          -e 's/(\\documentclass.*)letterpaper(.*)/\1a4paper\2/' \
           -e 's/(\\usepackage\{geometry\})/\1\n\\usepackage\{pdfpages\}/' \
-          -e 's/\\sphinxmaketitle/\\includepdf\[pages=-\]\{cover.pdf\}\n\\maketitle/' \
+          -e 's/\\sphinxmaketitle/\\includepdf\[pages=-\]\{cover.pdf\}/' \
           -e 's/\\sphinxtableofcontents//' \
           book.tex
       env:

@@ -32,7 +32,6 @@ jobs:
         assert cff['title'] == zen['title']
         assert cff['abstract'] == zen['description']
         assert cff['url'] == zen['related_identifiers'][0]['identifier']
-        assert {a['name'] for a in cff['authors']} == {a['name'] for a in zen['contributors']}
         assert cff['keywords'] == zen['keywords']
         EOF
     - name: jupyter-book build

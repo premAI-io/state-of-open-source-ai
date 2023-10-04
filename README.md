@@ -1,10 +1,12 @@
 # 📘 The State of Open Source AI (2023 Edition)
 
-![banner](https://static.premai.io/book/marketing/github--book.jpg)
+[![banner](https://static.premai.io/book/marketing/github--book.jpg)][book]
 
 *Clarity in the current fast-paced mess of Open Source innovation.*
 
-This is the source repository for [The State of Open Source AI](https://book.premai.io/state-of-open-source-ai) ebook, a comprehensive guide exploring everything from model evaluations to deployment.
+This is the source repository for [The State of Open Source AI][book] ebook, a comprehensive guide exploring everything from model evaluations to deployment.
+
+[book]: https://book.premai.io/state-of-open-source-ai
 
 ## Contributing
 
@@ -12,7 +14,9 @@ You can help keep the book up-to-date! Contributions, issues, and comments are w
 
 ## Licence
 
-This book is released under [CC-BY-4.0 (text) and Apache-2.0 (code)](LICENSE.md).
+This book is released under [CC-BY-4.0 (text) and Apache-2.0 (code)](LICENCE).
+
+Citation: [BibTeX](references.bib#L1)
 
 ## Community
 

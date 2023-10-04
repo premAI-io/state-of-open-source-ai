@@ -1,4 +1,7 @@
 cff-version: 1.2.0
+type: dataset
+contact: [{affiliation: Prem, email: hello@premai.io}]
+date-released: 2023-10-03
 message: Please cite this book using this metadata
 
 title: State of Open Source AI Book
@@ -6,9 +9,14 @@ abstract: Clarity in the current fast-paced mess of Open Source innovation.
 version: '1'
 url: https://book.premai.io/state-of-open-source-ai
 authors:
-- name: Prem Contributors
-  website: https://github.com/premAI-io/state-of-open-source-ai/graphs/contributors
+- {given-names: Casper, family-names: da Costa-Luis, affiliation: Prem, orcid: 'https://orcid.org/0000-0002-7211-1557'}
+- {given-names: Nicola, family-names: Sosio, affiliation: Prem}
+- {given-names: Biswaroop, family-names: Bhattacharjee, affiliation: Prem}
+- {given-names: Skanda, family-names: Vivek}
+- {given-names: Het, family-names: Trivedi}
+- {given-names: Filippo, family-names: Pedrazzini, affiliation: Prem}
+- {name: others, website: 'https://github.com/premAI-io/state-of-open-source-ai/graphs/contributors'}
 #identifiers: [{type: doi, value: 10.1234/zenodo.TODO}]
 repository-code: https://github.com/premAI-io/state-of-open-source-ai
 keywords: [open-source, AI, book, ML, MLOps, Jupyter-Book]
-#license: CC-BY-4.0 AND Apache-2.0
+license-url: https://github.com/premAI-io/state-of-open-source-ai/blob/main/LICENCE # CC-BY-4.0 AND Apache-2.0

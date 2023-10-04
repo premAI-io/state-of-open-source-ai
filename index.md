@@ -2,11 +2,11 @@
 
 {{ '```{badges} %s %s\n```' % (baseurl, env.config.html_theme_options.repository_url) }}
 
-*Clarity in the current fast-paced mess of Open Source innovation {cite}`self`*
+*Clarity in the current fast-paced mess of Open Source innovation {cite}`prem_stateofosai`*
 
 As a data scientist/developer with a 9 to 5 job, it's difficult to keep track of all the innovations. There's been enormous progress in the field in {term}`the last year <SotA>`.
 
-The guide covers all the most important categories in the Open Source AI space, from model evaluations to deployment. It includes a [](glossary) for you to quickly check definitions of new frameworks & tools.
+The guide covers all the most important categories in the Open Source AI space, from model evaluations to deployment. It includes a [](#glossary) for you to quickly check definitions of new frameworks & tools.
 
 A quick TL;DR overview is included at the top of each section. We outline the pros/cons and general context/background for each topic. Then we dive a bit deeper. Examples include data models were trained on, and deployment implementations.
 
@@ -82,8 +82,6 @@ Spot something outdated or missing? Want to start a discussion? We welcome any o
   ```
   ````
 
-(index#formatting)=
-
 ### Formatting
 
 ````{note}
@@ -114,7 +112,7 @@ Don't worry about making it perfect, it's fine to open a (`draft <https://docs.g
   + please use https://github.com/premAI-io/static.premai.io to host images & data
 
 - Tables: use [`{table}` with captions](https://myst-parser.readthedocs.io/en/latest/syntax/tables.html#table-with-captions)
-- [](glossary) term: {term}`GPU`
+- [](#glossary) term: {term}`GPU`
   + custom inline text: {term}`GPUs <GPU>`
 - Citations:
   + add [BibTeX](https://jupyterbook.org/en/stable/tutorials/references.html#add-your-references) entries to `references.bib`, e.g.:
@@ -126,7 +124,7 @@ Don't worry about making it perfect, it's fine to open a (`draft <https://docs.g
     * whitepapers: [`@techreport`](https://www.bibtex.com/e/entry-types/#techreport)
     * chapters/parts of larger work: [`@incollection`](https://www.bibtex.com/e/entry-types/#incollection), [`@inbook`](https://www.bibtex.com/e/entry-types/#inbook)
     * drafts: [`@unpublished`](https://www.bibtex.com/e/entry-types/#unpublished)
-  + citing things defined in `references.bib`: {cite}`self,python`
+  + citing things defined in `references.bib`: {cite}`prem_stateofosai,python`
   + GitHub links:
     * repos: https://github.com/premAI-io/state-of-open-source-ai
     * issues: https://github.com/premAI-io/state-of-open-source-ai/issues/12
@@ -155,7 +153,7 @@ Anyone who adds a few sentences to a chapter is {{
 
   > Our vision is to engineer a world where individuals, developers, and businesses can embrace the power of AI without compromising their privacy. We believe in a future where users retain ownership of their data, AND the models trained on it.
 
-- Citing this book: {cite}`self`
+- Citing this book: {cite}`prem_stateofosai`
 
 ## Conclusion
 
@@ -176,8 +174,6 @@ At Prem we are on a journey to make this possible, with a focus on developer exp
 - Ask for support on [our Discord server](https://discord.com/invite/kpKk6vYVAn).
 - To keep up-to-date, [follow us on Twitter](https://twitter.com/premai_io).
 - Report bugs or request features at https://github.com/premAI-io/prem-app.
-
-(glossary)=
 
 ## Glossary
 

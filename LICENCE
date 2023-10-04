@@ -1,4 +1,4 @@
-SPDX-License-Identifier: CC-BY-4.0 OR Apache-2.0
+SPDX-License-Identifier: CC-BY-4.0 AND Apache-2.0
 
 This book is a product of collaborative work.
 Unless otherwise stated, all authors (see commit logs) retain copyright
@@ -9,8 +9,7 @@ Exceptions or notable authors are listed below
 in reverse chronological order:
 
 * files: *
-  CC-BY-4.0 OR Apache-2.0 (c) 2023 Prem
-  [PremAI-io](https://github.com/PremAI-io).
+  CC-BY-4.0 AND Apache-2.0 (c) 2023 Prem https://github.com/PremAI-io.
 
 Creative Commons Attribution v. 4.0 Internation (CC-BY-4.0)
 -----------------------------------------------------------

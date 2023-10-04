@@ -27,7 +27,13 @@ jobs:
         cff = yaml.safe_load(open("CITATION.cff"))
         zen = json.load(open(".zenodo.json"))
 
-        assert cff['title'] == zen['title']
+        assert cff['title'] == zen['title'] + " Book"
+        assert len(cff['authors']) - 1 == len(zen['creators'])
+        for cauth, zauth in zip(cff['authors'][:-1], zen['creators']):
+            assert zauth['name'] == f"{cauth['family-names']}, {cauth['given-names']}"
+            assert zauth.get('affiliation', "") == cauth.get('affiliation', "")
+            assert zauth.get('orcid', "") == cauth.get('orcid', "").rsplit("/", 1)[-1]
+        assert [{'name': cff['authors'][-1]['name'], 'type': "Other"}] == zen['contributors']
         assert cff['abstract'] == zen['description']
         assert cff['url'] == zen['related_identifiers'][0]['identifier']
         assert cff['keywords'] == zen['keywords']

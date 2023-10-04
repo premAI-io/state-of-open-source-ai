@@ -1,14 +1,23 @@
 {
-  "title": "State of Open Source AI Book",
+  "title": "State of Open Source AI",
   "description": "Clarity in the current fast-paced mess of Open Source innovation.",
   "related_identifiers": [
     {"identifier": "https://book.premai.io/state-of-open-source-ai", "relation": "isSourceOf"}],
+  "creators": [
+    {"name": "da Costa-Luis, Casper", "affiliation": "Prem", "orcid": "0000-0002-7211-1557"},
+    {"name": "Sosio, Nicola", "affiliation": "Prem"},
+    {"name": "Bhattacharjee, Biswaroop", "affiliation": "Prem"},
+    {"name": "Vivek, Skanda"},
+    {"name": "Trivedi, Het"},
+    {"name": "Pedrazzini, Filippo", "affiliation": "Prem"}
+  ],
   "contributors": [
-    {"name": "Prem Contributors", "type": "Other", "affiliation": "Prem"}],
+    {"name": "others", "type": "Other"}],
   "keywords": ["open-source", "AI", "book", "ML", "MLOps", "Jupyter-Book"],
   "license": "CC-BY-4.0 AND Apache-2.0",
   "imprint_publisher": "Prem",
   "access_right": "open",
   "upload_type": "publication",
-  "publication_type": "book"
+  "publication_type": "book",
+  "publication_date": "2023-10-03"
 }

@@ -65,8 +65,8 @@ Usability around ONNX is fairly developed and has lots of tooling support around
 Firstly the model needs to be converted to ONNX format using a relevant [converter](https://onnx.ai/onnx/intro/converters.html), for example if our model is created using Pytorch, for conversion we can use:
 
 (onnx-custom-layer)=
-- [`torch.onnx.export`](https://pytorch.org/docs/master/onnx.html)
-  - For [custom operators support](https://pytorch.org/docs/stable/onnx.html#custom-operators) same exporter can be used.
+- [`torch.onnx.export`](https://pytorch.org/docs/stable/onnx.html)
+  - For [custom operators support](https://pytorch.org/docs/master/onnx.html#custom-operators) same exporter can be used.
 - [`optimum`](https://github.com/huggingface/optimum#onnx--onnx-runtime) by [huggingface](https://huggingface.co/docs/transformers/serialization#export-to-onnx)
 
 Once exported we can load, manipulate, and run ONNX models. Let's take a Python example:

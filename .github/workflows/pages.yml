@@ -12,15 +12,13 @@ concurrency: {group: "${{ github.ref }}-pages", cancel-in-progress: true}
 env:
   SITE_PREFIX: state-of-open-source-ai
 jobs:
-  build:
+  check:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
       with: {fetch-depth: 0}
     - uses: actions/setup-python@v4
       with: {python-version: '3.x'}
-    - id: pages
-      uses: actions/configure-pages@v3
     - run: pip install -r requirements.txt pyyaml
     - name: check CITATION.cff & .zenodo.json
       run: |
@@ -34,13 +32,24 @@ jobs:
         assert cff['url'] == zen['related_identifiers'][0]['identifier']
         assert cff['keywords'] == zen['keywords']
         EOF
+    - name: linkcheck
+      # https://jupyterbook.org/en/stable/reference/cli.html
+      run: jupyter-book build --builder linkcheck --warningiserror --nitpick --keep-going .
+      env: {PYTHONPATH: .}
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+      with: {fetch-depth: 0}
+    - uses: actions/setup-python@v4
+      with: {python-version: '3.x'}
+    - id: pages
+      uses: actions/configure-pages@v3
+    - run: pip install -r requirements.txt
     - name: jupyter-book build
       run: |
-        # https://stackoverflow.com/a/69012150
-        sudo apt-get install ghostscript fonts-freefont-otf
+        sudo apt install -qq ghostscript fonts-freefont-otf  # https://stackoverflow.com/a/69012150
         sed -ri 's#^(\s*baseurl:).*#\1 ${{ steps.pages.outputs.base_url }}/'$SITE_PREFIX'#g' _config.yml
-        # https://jupyterbook.org/en/stable/reference/cli.html
-        jupyter-book build --builder linkcheck --warningiserror --nitpick --keep-going .
         jupyter-book build --builder dirhtml --warningiserror --nitpick --keep-going .
         jupyter-book build --builder latex .
         # insert PDF cover
@@ -52,8 +61,7 @@ jobs:
           -e 's/\\sphinxmaketitle/\\includepdf\[pages=-\]\{cover.pdf\}/' \
           -e 's/\\sphinxtableofcontents//' \
           book.tex
-      env:
-        PYTHONPATH: .
+      env: {PYTHONPATH: .}
     - uses: xu-cheng/latex-action@v3
       with:
         working_directory: _build/latex
@@ -73,7 +81,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    needs: build
+    needs: [check, build]
     steps:
     - id: deployment
       uses: actions/deploy-pages@v2

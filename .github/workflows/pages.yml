@@ -15,7 +15,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with: {fetch-depth: 0}
     - uses: actions/setup-python@v4
       with: {python-version: '3.x'}
@@ -43,17 +43,17 @@ jobs:
         #jupyter-book build --builder linkcheck --warningiserror --nitpick --keep-going .
         jupyter-book build --builder dirhtml --warningiserror --nitpick --keep-going .
         jupyter-book build --builder latex .
+        # insert PDF cover
+        cd _build/latex
+        curl -fsSLO https://static.premai.io/book/cover.pdf
+        sed -i -r \
+          -e 's/(\\usepackage\{geometry\})/\1\n\\usepackage\{pdfpages\}/' \
+          -e 's/\\sphinxmaketitle/\\includepdf\[pages=-\]\{cover.pdf\}\n\\maketitle/' \
+          -e 's/\\sphinxtableofcontents//' \
+          book.tex
       env:
         PYTHONPATH: .
-    - name: insert PDF cover
-      run: |
-        curl -fsSL https://static.premai.io/book/cover.pdf > _build/latex/cover.pdf
-        sed -i -r \
-        -e 's/(\\usepackage\{geometry\})/\1\n\\usepackage\{pdfpages\}/' \
-        -e 's/\\sphinxmaketitle/\\includepdf\[pages=-\]\{cover.pdf\}\n\\maketitle/' \
-        -e 's/\\sphinxtableofcontents//' \
-        _build/latex/book.tex
-    - uses: xu-cheng/latex-action@v2
+    - uses: xu-cheng/latex-action@v3
       with:
         working_directory: _build/latex
         root_file: book.tex

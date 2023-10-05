@@ -170,7 +170,7 @@ As you can see -- there is not too much scope for model configuration, and unlik
 GPT4All UI Model Configuration
 ```
 
-## Koboldcpp
+## koboldcpp
 
 https://github.com/LostRuins/koboldcpp is a fun twist on LLMs -- adding game like scenarios and adventures. It supports adding base `ggml` models as the LLM engine, and spinning stories based on user inputs.
 
@@ -179,7 +179,7 @@ https://github.com/LostRuins/koboldcpp is a fun twist on LLMs -- adding game lik
 The UI is pretty basic -- and you get some surprising answers. Here I ask a simple icebreaker question -- and you see that it responds that it is a friendly AI that likes to play games.
 
 ```{figure} https://static.premai.io/book/desktopapps-koboldcpp-ui.png
-Koboldcpp UI
+koboldcpp UI
 ```
 
 ### Scenarios
@@ -187,13 +187,13 @@ Koboldcpp UI
 You can also enter different sorts of scenarios and modes.
 
 ```{figure} https://static.premai.io/book/desktopapps-kcpp-scenarios.png
-Koboldcpp Scenarios
+koboldcpp Scenarios
 ```
 
 Below is the Julius Caesar scenario!
 
 ```{figure} https://static.premai.io/book/desktopapps-kcpp-jc.png
-Koboldcpp Julius Caesar Chat
+koboldcpp Julius Caesar Chat
 ```
 
 ### Model Configuration and Tools
@@ -201,7 +201,7 @@ Koboldcpp Julius Caesar Chat
 Many of the model configurations are similar to the default that is offered. But there are some interesting twists like story mode, adventure mode, and instruct mode.
 
 ```{figure} https://static.premai.io/book/desktopapps-kcpp-modes.png
-Koboldcpp Julius Model Configuration
+koboldcpp Julius Model Configuration
 ```
 
 ## [local.ai]

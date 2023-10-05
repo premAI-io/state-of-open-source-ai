@@ -10,7 +10,7 @@ Desktop App | Supported Models | GPU support | Layout | Configuration | Extra Fe
 [](#lm-studio) | 🟡 [](model-formats.md#ggml) | 🟢 Yes | Clean, clear tabs. | Hardware config choices (GPU, RAM, etc.). Can choose multiple inference params (temperature, repeat penalty, etc.). | Local server deployments | Windows, Linux, MacOS | Not mentioned
 [](#gpt4all) | 🟡 [](model-formats.md#ggml) | 🔴 No | Unclear tabs. | Minimal hardware config options. Can choose inference params. | Contribute & use training data from the GPT4All datalake | Windows, Linux, MacOS | [Building open-source datalake for future model training](https://gpt4all.io)
 [](#koboldcpp) | 🟡 [](model-formats.md#ggml) | 🔴 No | Cluttered UI. | Some hardware config options. Unique inference/app params e.g. [scenarios.](https://github.com/LostRuins/koboldcpp) | Cool story, character, and adventure modes | Windows, Linux, MacOS | Not mentioned
-[](#localai) | 🟡 [](model-formats.md#ggml) | 🔴 No | Clear tabs. | Minimal hardware config options. Can choose inference params. | Light/dark modes | Windows, Linux, MacOS | [Text-to-audio, OpenAI functions](https://github.com/go-skynet/LocalAI)
+[](#localai) | 🟡 [](model-formats.md#ggml) | 🔴 No | Clear tabs. | Minimal hardware config options. Can choose inference params. | Light/dark modes | Windows, Linux, MacOS | [Text-to-audio, OpenAI functions](https://github.com/louisgv/local.ai)
 [](#ollama) | 🔴 few [](model-formats.md#ggml) models | 🟡 Yes (metal) | Basic, terminal-based UI. | Multiple hardware configurations, need to save as a file prior to running. Multiple inference params, need to save as a file. | Run from terminal | MacOS | [Windows, Linux support](https://ollama.ai)
 ```
 
@@ -204,16 +204,18 @@ Many of the model configurations are similar to the default that is offered. But
 Koboldcpp Julius Model Configuration
 ```
 
-## [Local.AI](https://local.ai)
+## [local.ai]
 
-[Local.AI](https://local.ai) is a simple app for loading LLMs after you manually download a `ggml` model from online.
+[local.ai]: https://www.localai.app
+
+The [local.ai] App from https://github.com/louisgv/local.ai ([not to be confused](https://github.com/louisgv/local.ai/discussions/71) with [LocalAI](https://localai.io) from https://github.com/go-skynet/LocalAI) is a simple application for loading LLMs after you manually download a `ggml` model from online.
 
 ### UI and Chat
 
 The UI and chat are pretty basic. One bug that I noticed was that it wasn't possible to load models from the UI -- I had to manually download the model and then use the app.
 
 ```{figure} https://static.premai.io/book/desktopapps-localai-ui.png
-[Local.AI](https://local.ai) UI
+[local.ai] UI
 ```
 
 ### Model Configuration and Tools

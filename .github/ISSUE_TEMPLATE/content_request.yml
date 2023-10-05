@@ -1,0 +1,44 @@
+name: Content Request
+description: Ask to add/fix any content, e.g. a URL/table row/paragraph/chapter
+labels: [content]
+assignees: [casperdcl, premAI-io/writer]
+body:
+- type: markdown
+  attributes:
+    value: |
+      :heart: Thanks for suggesting something!
+
+      Feel free to [open a pull request (PR) instead](https://book.premai.io/state-of-open-source-ai/#contributing)
+      if you'd like to be automatically added to the list of [co-authors/contributors](https://book.premai.io/state-of-open-source-ai/#contributors)
+      (don't worry if that's too difficult; it's perfectly fine to open an issue using this form).
+- type: dropdown
+  id: type
+  attributes:
+    label: Type
+    multiple: true
+    options:
+    - new URL/reference/table row
+    - new chapter
+    - other (e.g. typos, factual errors, etc.)
+- type: dropdown
+  id: chapter
+  attributes:
+    label: Chapter/Page
+    multiple: true
+    options:
+    - licences
+    - eval-datasets
+    - models
+    - unaligned-models
+    - fine-tuning
+    - model-formats
+    - mlops-engines
+    - vector-db
+    - sdk
+    - desktop-apps
+    - hardware
+    - index (landing/home)
+    - Something else
+- type: textarea
+  attributes: {label: Description}
+  validations: {required: false}

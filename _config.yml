@@ -132,6 +132,11 @@ sphinx:
     html_last_updated_fmt: '%d %b %Y'
     jblatex_show_tocs: false
     bibtex_reference_style: label
+    latex_elements:
+      # fix citations in figure captions (https://github.com/mcmtroffaes/sphinxcontrib-bibtex/issues/276)
+      preamble: |
+        \usepackage{etoolbox}
+        \AtBeginEnvironment{figure}{\pretocmd{\hyperlink}{\protect}{}{}}
 bibtex_bibfiles: [references.bib] # citations
 latex: # for PDF builds
   latex_documents:

@@ -134,6 +134,9 @@ sphinx:
     bibtex_reference_style: label
     latex_elements:
       papersize: a4paper
+      # requires https://static.premai.io/book/cover.pdf
+      extrapackages: \usepackage{pdfpages}
+      maketitle: \includepdf[pages=-]{cover.pdf}
       tableofcontents: ''
       # fix citations in figure captions (https://github.com/mcmtroffaes/sphinxcontrib-bibtex/issues/276)
       preamble: |

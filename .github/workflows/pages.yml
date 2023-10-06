@@ -59,12 +59,7 @@ jobs:
         jupyter-book build --builder dirhtml --warningiserror --nitpick --keep-going .
         jupyter-book build --builder latex --warningiserror --nitpick --keep-going .
         # insert PDF cover
-        cd _build/latex
-        curl -fsSLO https://static.premai.io/book/cover.pdf
-        sed -i -r \
-          -e 's/(\\usepackage\{geometry\})/\1\n\\usepackage\{pdfpages\}/' \
-          -e 's/\\sphinxmaketitle/\\includepdf\[pages=-\]\{cover.pdf\}/' \
-          book.tex
+        curl -fsSL https://static.premai.io/book/cover.pdf > _build/latex/cover.pdf
       env: {PYTHONPATH: .}
     - uses: xu-cheng/latex-action@v3
       with:

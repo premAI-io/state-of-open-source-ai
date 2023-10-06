@@ -133,6 +133,8 @@ sphinx:
     jblatex_show_tocs: false
     bibtex_reference_style: label
     latex_elements:
+      papersize: a4paper
+      tableofcontents: ''
       # fix citations in figure captions (https://github.com/mcmtroffaes/sphinxcontrib-bibtex/issues/276)
       preamble: |
         \usepackage{etoolbox}

@@ -73,6 +73,9 @@ jobs:
         working_directory: _build/latex
         root_file: book.tex
         args: -pdf -dvi- -ps- -file-line-error -f -interaction=nonstopmode
+        latexmk_use_xelatex: true
+      env:
+        XINDYOPTS: -L english -C utf8 -M sphinx.xdy
       continue-on-error: true
     - name: prepare _site pages
       run: |

@@ -57,7 +57,7 @@ jobs:
         sudo apt install -qq ghostscript fonts-freefont-otf  # https://stackoverflow.com/a/69012150
         sed -ri 's#^(\s*baseurl:).*#\1 ${{ steps.pages.outputs.base_url }}/'$SITE_PREFIX'#g' _config.yml
         jupyter-book build --builder dirhtml --warningiserror --nitpick --keep-going .
-        jupyter-book build --builder latex .
+        jupyter-book build --builder latex --warningiserror --nitpick --keep-going .
         # insert PDF cover
         cd _build/latex
         curl -fsSLO https://static.premai.io/book/cover.pdf

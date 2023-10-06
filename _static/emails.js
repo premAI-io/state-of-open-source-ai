@@ -24,8 +24,12 @@ async function emailButtonClick() {
   let emailInput = document.getElementById("email");
   let emailValue = emailInput.value;
   let res = await fetch("https://premai.pythonanywhere.com/email?a=" + emailValue);
-  if (200 <= res.status && res.status < 300) {
+  const ok = 200 <= res.status && res.status < 299;
+  const server_err = 500 <= res.status && res.status < 599;
+  if (ok) {
     setCookie("address", emailValue, 365);
+  }
+  if (ok || server_err) {
     let modal = document.getElementById('email-modal');
     modal.style.display = 'none'
     emailInput.value = "";

@@ -93,6 +93,7 @@ sphinx:
     - [https://analytics.prem.ninja/js/script.js, {defer: defer, data-domain: book.premai.io}]
     linkcheck_ignore:
     - http://localhost:8000
+    - https://github.com/premAI-io/state-of-open-source-ai/edit/main/.*.md
     # GitHub anchors
     - https://github.com/\w+/\w+/blob/\w+/.*#L\d+(-L\d+)?
     - https://github.com/premAI-io/prem-app#.*
@@ -111,8 +112,6 @@ sphinx:
     # misc
     - https://www.nytimes.com/2016/04/19/technology/google-books-case.html
     - https://doi.org/10.2307/2214413
-    - https://github.com/premAI-io/state-of-open-source-ai # TODO: remove
-    - https://contrib.rocks # TODO: remove
     - https://direct.mit.edu/daed/article/151/2/127/110621/Human-Language-Understanding-amp-Reasoning
     - https://numfocus.org
     - https://chat.openai.com

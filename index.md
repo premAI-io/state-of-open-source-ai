@@ -63,7 +63,7 @@ Spot something outdated or missing? Want to start a discussion? We welcome any o
 ### Editing the Book
 
 - Using {{ '[GitHub Codespaces](https://codespaces.new/{})'.format(
-  '/'.join(env.config.html_theme_options.repository_url.split('/')[-2:])) }}, you can edit code & preview the site in your browser without installing anything (you may have to whitelist `github.dev` & `visualstudio.com` if you use an adblocker).
+  '/'.join(env.config.html_theme_options.repository_url.split('/')[-2:])) }}, you can edit code & preview the site in your browser without installing anything (you may [have to whitelist `github.dev`, `visualstudio.com`, `github.com`, & `trafficmanager.net`](https://docs.github.com/en/codespaces/the-githubdev-web-based-editor#using-githubdev-behind-a-firewall) if you use an adblocker).
 - Alternatively, to run locally, open {{ '[this repository]({})'.format(env.config.html_theme_options.repository_url) }} in a [Dev Container](https://containers.dev) (most likely [using VSCode](https://code.visualstudio.com/docs/devcontainers/containers#_installation)).
 - Or instead, manually set up your own Python environment:
 

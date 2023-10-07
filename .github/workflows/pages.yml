@@ -12,6 +12,36 @@ concurrency: {group: "${{ github.ref }}-pages", cancel-in-progress: true}
 env:
   SITE_PREFIX: state-of-open-source-ai
 jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+      with: {fetch-depth: 0}
+    - uses: actions/setup-python@v4
+      with: {python-version: '3.x'}
+    - run: pip install -r requirements.txt pyyaml
+    - name: check CITATION.cff & .zenodo.json
+      run: |
+        python <<EOF
+        import json, yaml
+        cff = yaml.safe_load(open("CITATION.cff"))
+        zen = json.load(open(".zenodo.json"))
+
+        assert cff['title'] == zen['title'] + " Book"
+        assert len(cff['authors']) - 1 == len(zen['creators'])
+        for cauth, zauth in zip(cff['authors'][:-1], zen['creators']):
+            assert zauth['name'] == f"{cauth['family-names']}, {cauth['given-names']}"
+            assert zauth.get('affiliation', "") == cauth.get('affiliation', "")
+            assert zauth.get('orcid', "") == cauth.get('orcid', "").rsplit("/", 1)[-1]
+        assert [{'name': cff['authors'][-1]['name'], 'type': "Other"}] == zen['contributors']
+        assert cff['abstract'] == zen['description']
+        assert cff['url'] == zen['related_identifiers'][0]['identifier']
+        assert cff['keywords'] == zen['keywords']
+        EOF
+    - name: linkcheck
+      # https://jupyterbook.org/en/stable/reference/cli.html
+      run: jupyter-book build --builder linkcheck --warningiserror --nitpick --keep-going .
+      env: {PYTHONPATH: .}
   build:
     runs-on: ubuntu-latest
     steps:
@@ -21,38 +51,23 @@ jobs:
       with: {python-version: '3.x'}
     - id: pages
       uses: actions/configure-pages@v3
-    - run: pip install -r requirements.txt pyyaml
-    - name: check CITATION.cff & .zenodo.json
-      run: |
-        python <<EOF
-        import json, yaml
-        cff = yaml.safe_load(open("CITATION.cff"))
-        zen = json.load(open(".zenodo.json"))
-
-        assert cff['title'] == zen['title']
-        assert cff['abstract'] == zen['description']
-        assert cff['url'] == zen['related_identifiers'][0]['identifier']
-        assert cff['keywords'] == zen['keywords']
-        EOF
+    - run: pip install -r requirements.txt
     - name: jupyter-book build
       run: |
-        # https://stackoverflow.com/a/69012150
-        sudo apt-get install ghostscript fonts-freefont-otf
+        sudo apt install -qq ghostscript fonts-freefont-otf  # https://stackoverflow.com/a/69012150
         sed -ri 's#^(\s*baseurl:).*#\1 ${{ steps.pages.outputs.base_url }}/'$SITE_PREFIX'#g' _config.yml
-        # https://jupyterbook.org/en/stable/reference/cli.html
-        #jupyter-book build --builder linkcheck --warningiserror --nitpick --keep-going .
         jupyter-book build --builder dirhtml --warningiserror --nitpick --keep-going .
         jupyter-book build --builder latex .
         # insert PDF cover
         cd _build/latex
         curl -fsSLO https://static.premai.io/book/cover.pdf
         sed -i -r \
+          -e 's/(\\documentclass.*)letterpaper(.*)/\1a4paper\2/' \
           -e 's/(\\usepackage\{geometry\})/\1\n\\usepackage\{pdfpages\}/' \
-          -e 's/\\sphinxmaketitle/\\includepdf\[pages=-\]\{cover.pdf\}\n\\maketitle/' \
+          -e 's/\\sphinxmaketitle/\\includepdf\[pages=-\]\{cover.pdf\}/' \
           -e 's/\\sphinxtableofcontents//' \
           book.tex
-      env:
-        PYTHONPATH: .
+      env: {PYTHONPATH: .}
     - uses: xu-cheng/latex-action@v3
       with:
         working_directory: _build/latex
@@ -72,7 +87,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    needs: build
+    needs: [check, build]
     steps:
     - id: deployment
       uses: actions/deploy-pages@v2

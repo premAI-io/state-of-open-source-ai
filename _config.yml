@@ -80,7 +80,6 @@ parse:
   - tasklist
 sphinx:
   extra_extensions:
-  - sphinxemoji.sphinxemoji
   - sphinx_last_updated_by_git
   - sphinx_subfigure
   # custom (local *.py files)

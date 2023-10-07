@@ -58,6 +58,13 @@ jobs:
         sed -ri 's#^(\s*baseurl:).*#\1 ${{ steps.pages.outputs.base_url }}/'$SITE_PREFIX'#g' _config.yml
         jupyter-book build --builder dirhtml --warningiserror --nitpick --keep-going .
         jupyter-book build --builder latex --warningiserror --nitpick --keep-going .
+        # fix undefined in FreeFont
+        sed -ri \
+          -e 's/[🆕🌈🎉💪💬💻📝📥🔠🔌🛠␂↔️⚙️]//g' \
+          -e 's/🔴/☒/g' \
+          -e 's/🟡/☐/g' \
+          -e 's/🟢/☑/g' \
+          _build/latex/book.tex
         # insert PDF cover
         curl -fsSL https://static.premai.io/book/cover.pdf > _build/latex/cover.pdf
       env: {PYTHONPATH: .}

@@ -95,7 +95,7 @@ LM Studio Local Server Example
 
 By default we have a few presets already provided by LM studio but we can tweak them and create a preset of our own to be used elsewhere. The parameters that are modifiable are:
 
-- `🛠️ Inference parameters`: These gives the flexibility to change the `temperature`, `n_predict`, and `repeat_penalty`
+- 🛠️ Inference parameters: These gives the flexibility to change the `temperature`, `n_predict`, and `repeat_penalty`
 - ↔️ Input prefix and suffix: Text to add right before, and right after every user message
 - ␂ Pre-prompt / System prompt: Text to insert at the very beginning of the prompt, before any user messages
 - 📥 Model initialisation: `m_lock` when turned on will ensure the entire model runs on RAM.
@@ -103,16 +103,16 @@ By default we have a few presets already provided by LM studio but we can tweak 
 
 Tools focus on the response and UI of the application. The parameters modifiable are as follows:
 
-- `🔠 Context overflow policy`: Behaviour of the model for when the generated tokens length exceeds the context window size
-- `🌈 Chat appearance`: Either plain text (.txt) or markdown (.md)
-- `📝 Conversation notes`: Auto-saved notes for a specific chat conversation
+- 🔠 `Context overflow policy`: Behaviour of the model for when the generated tokens length exceeds the context window size
+- 🌈 `Chat appearance`: Either plain text (.txt) or markdown (.md)
+- 📝 `Conversation notes`: Auto-saved notes for a specific chat conversation
 
 ### Features
 
 - 💪 Leverages the power of your machine to run the model i.e. more your machine is powerful then you can utilise this to the fullest reach.
 - 🆕 The ability to download the model from HuggingFace gives power to test the latest of models like LLaMa or any other new ones hosted publicly in HuggingFace. Supported models include MPT, Starcoder, Replit, GPT-Neo-X more generally that are of the type `ggml`
 - 💻 Available for both Windows and Mac.
-- 🛜 Models can be run entirely offline as they are downloaded and reside locally in your machine.
+- 🔌 Models can be run entirely offline as they are downloaded and reside locally in your machine.
 - 💬 Access the app using Chat UI or local server
 
 ## GPT4All

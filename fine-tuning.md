@@ -19,17 +19,46 @@ Some ideas:
 For bespoke applications, models can be trained on task-specific data. However, training a model from scratch is seldom required.
 The model has already learned useful feature representations during its initial (pre) training, so it is often sufficient to simply fine-tune. This takes advantage of [transfer learning](https://www.v7labs.com/blog/transfer-learning-guide), producing better task-specific performance with minimal training examples & resources -- analogous to teaching a university student without first reteaching them how to communicate.
 
-## How Fine-Tuning Works
+## The difference between Transfer learning and Fine-tuning
+
+The term Transfer learning and Fine-tuning are used a lot interchangebly. However there are some differences when it comes to their definitions. The commonalities in Transfer Learning and Fine-tuning is that, in both cases, we have a pretrained model. We use this pretrained model and modify it to get results which are more domain or task specific. Let's discuss the definitions in details by understand each of their workings.
+
+
+### How Transfer learning works?
+
+1. Start with a pre-trained model that has been trained on a large generic dataset. For example in computer vision, ImageNet dataset is considered as a large generic dataset containing classes consisting of diverse set of object and things.
+2. Freeze the weights of the pre-trained layers so they remain fixed during training. This retains all the original knowledge. However sometimes you can also un-freeze some of the pretrained layers (i.e. last set of pretrained layers) for further tuning.
+3. Add a new layer / head on the top of the forzen model. This layer is been added to capture more task/domain specific patterns.
+4. Train on your new downstream dataset by passing batches of data through the model architecture and comparing outputs to true labels.
+5. Continue training the model until the task layer and selected pre-trained layers converge on optimal weights for your dataset.
+
+The key is that here the original weights of the pre-trained model remains unchanged and will not be trained (hence the term freezed). We train the new set of layers appeneded on the top of the pretrain model to get trained for a specific task. The pretrain model just acts as a generalized, robust feature extractor. One thing to note here is: Transfer learning can be applied on if the dataset (the one which we will be used in transfer learning) size is descent.
+
+**Example of finetuning**:
+
+1. In computer vision, let's take [ResNet-50](https://huggingface.co/microsoft/resnet-50) architecture which was pretrained on the ImageNet dataset. Now we use a classic [cats-vs-dogs](https://huggingface.co/datasets/cats_vs_dogs) dataset and use transfer learning for classification of cats and dogs.
+
+2. In Natural Language processing, let's take the [Google's BERT model](https://huggingface.co/google/bert_uncased_L-2_H-768_A-12) as our pre-trained model. Now we use this model we analyse sentiment by doing transfer learning on this, using [tweet sentiment classification dataset](https://huggingface.co/datasets/carblacac/twitter-sentiment-analysis).
+
+### How Fine-Tuning Works
 
 1. Start with a pre-trained model that has been trained on a large generic dataset.
-2. Take this pre-trained model and add a new task-specific layer/head on top. For example, adding a classification layer for a sentiment analysis task.
-3. Freeze the weights of the pre-trained layers so they remain fixed during training. This retains all the original knowledge.
-4. Only train the weights of the new task-specific layer you added, leaving the pre-trained weights frozen. This allows the model to adapt specifically for your new task.
-5. Train on your new downstream dataset by passing batches of data through the model architecture and comparing outputs to true labels.
-6. After some epochs of training only the task layer, you can optionally unfreeze some of the pre-trained layers weights to allow further tuning on your dataset.
-7. Continue training the model until the task layer and selected pre-trained layers converge on optimal weights for your dataset.
+2. Now, depending on the architecture and the size of the model, we can either train all the layers of the model (full-finetuning) or freeze some parts of the model and keep the rest trainable (we can also term this scenerio as fine-tuning).
+3. Also for tasks like classification, a general practice includes removing the classifier layer of the pretrained model and adding an untrained classifier layer head.
+4. Train on your new downstream dataset by passing batches of data through the model architecture and comparing outputs to true labels.
+6. Continue training the model until the selected pre-trained layers (or sometimes the full model) converge on optimal weights for your dataset.
 
-The key is that most of the original model weights remain fixed during training. Only a small portion of weights are updated to customise the model to new data. This transfers general knowledge while adding task-specific tuning.
+The key is that most of the original model weights remain fixed during training. Only a small portion of weights are updated to customise the model to new data. This transfers general knowledge while adapting for the new/domain task at the same time.
+
+Finetuning approach is often used when the dataset (that will be used for finetuning) is scarce. And in that case, we need to train parts of the model (or sometimes the whole model) to adapt on the task, trained using the small dataset.
+
+**Example of finetuning**:
+
+1. Suppose our task is to do segmentation on individual cells in a medical image or objects in satellite images. In those cases, training a full network from scratch might be expensive. Transfer learning might not work, as feature required for fine-grained segmentation are significantly different and can not be captured with some additional new MLP layers. Hence we use fine-tuning, to tune some parts of the model to adapt it to task like segmentation (here).
+
+2. Suppose you have a pretrained Large Language Model (like GPT-2) which is used in general purpose english text completion. But now you want it to specifically adapt it to summarization. And hence just adding couple of MLP at the head of these GPT-2 might not capture the semantic information to adapt it for summarization. Hence we go
+for finetuning the model to some extent such that it can well adapt with the requires task (here summarization).
+
 
 ## Fine-Tuning LLMs
 

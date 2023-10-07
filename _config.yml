@@ -80,7 +80,6 @@ parse:
   - tasklist
 sphinx:
   extra_extensions:
-  - sphinxemoji.sphinxemoji
   - sphinx_last_updated_by_git
   - sphinx_subfigure
   # custom (local *.py files)
@@ -132,6 +131,16 @@ sphinx:
     html_last_updated_fmt: '%d %b %Y'
     jblatex_show_tocs: false
     bibtex_reference_style: label
+    latex_elements:
+      papersize: a4paper
+      # requires https://static.premai.io/book/cover.pdf
+      extrapackages: \usepackage{pdfpages}
+      maketitle: \includepdf[pages=-]{cover.pdf}
+      tableofcontents: ''
+      # fix citations in figure captions (https://github.com/mcmtroffaes/sphinxcontrib-bibtex/issues/276)
+      preamble: |
+        \usepackage{etoolbox}
+        \AtBeginEnvironment{figure}{\pretocmd{\hyperlink}{\protect}{}{}}
 bibtex_bibfiles: [references.bib] # citations
 latex: # for PDF builds
   latex_documents:

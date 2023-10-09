@@ -139,7 +139,7 @@ Anyone who adds a few sentences to a chapter is {{
   '[automatically mentioned in the respective chapter]({}/blob/main/committers.py)'.format(
   env.config.html_theme_options.repository_url) }} as well as below.
 
-{{ '[![](https://contrib.rocks/image?repo={})]({}/graphs/contributors)'.format(
+{{ '[![](https://contrib.rocks/image?anon=1&repo={})]({}/graphs/contributors)'.format(
    '/'.join(env.config.html_theme_options.repository_url.split('/')[-2:]),
    env.config.html_theme_options.repository_url) }}
 

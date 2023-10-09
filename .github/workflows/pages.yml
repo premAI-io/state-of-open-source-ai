@@ -57,6 +57,8 @@ jobs:
         sudo apt install -qq ghostscript fonts-freefont-otf  # https://stackoverflow.com/a/69012150
         sed -ri 's#^(\s*baseurl:).*#\1 ${{ steps.pages.outputs.base_url }}/'$SITE_PREFIX'#g' _config.yml
         jupyter-book build --builder dirhtml --warningiserror --nitpick --keep-going .
+        # fix https://github.com/executablebooks/jupyter-book/issues/2066
+        sed -ri 's#(.*link rel="canonical" href=".*)\.html(".*)#\1/\2#' _build/dirhtml/*/index.html
         jupyter-book build --builder latex --warningiserror --nitpick --keep-going .
         cd _build/latex
         # fix contrib.rocks

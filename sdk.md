@@ -83,7 +83,7 @@ Overall, LangChain's advanced features enable developers to build advanced langu
 
 ![banner](https://static.premai.io/book/sdk-llama-index.jpg)
 
-LLaMAIndex is a data framework for LLM applications to ingest, structure, and access private or domain-specific data. It provides tools such as data connectors, data indexes, engines (query and chat), and data agents to facilitate natural language access to data. LLaMAIndex is designed for beginners, advanced users, and everyone in between, with a high-level API for easy data ingestion and querying, as well as lower-level APIs for customisation. It can be installed using `pip` and has detailed [documentation](https://gpt-index.readthedocs.io/en/latest) and tutorials for getting started. LLaMAIndex also has associated projects like https://github.com/emptycrown/llama-hub and https://github.com/run-llama/llama-lab.
+LLaMAIndex is a data framework for LLM applications to ingest, structure, and access private or domain-specific data. It provides tools such as data connectors, data indexes, engines (query and chat), and data agents to facilitate natural language access to data. LLaMAIndex is designed for beginners, advanced users, and everyone in between, with a high-level API for easy data ingestion and querying, as well as lower-level APIs for customisation. It can be installed using `pip` and has detailed [documentation](https://gpt-index.readthedocs.io/en/latest) and tutorials for getting started. LLaMAIndex also has associated projects like https://github.com/run-llama/llama-hub and https://github.com/run-llama/llama-lab.
 
 ### Data connectors
 

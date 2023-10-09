@@ -26,9 +26,6 @@ async function emailButtonClick() {
   let res = await fetch("https://premai.pythonanywhere.com/email?a=" + emailValue);
   const ok = 200 <= res.status && res.status < 299;
   const server_err = 500 <= res.status && res.status < 599;
-  if (ok) {
-    setCookie("address", emailValue, 365);
-  }
   if (ok || server_err) {
     let modal = document.getElementById('email-modal');
     modal.style.display = 'none'
@@ -37,6 +34,9 @@ async function emailButtonClick() {
     let emailError = document.getElementsByClassName('email-error')[0];
     let msg = await res.json();
     emailError.innerHTML = "Error " + res.status + ": " + msg.status;
+  }
+  if (ok) {
+    setCookie("address", emailValue, 365); // might fail if cookies disabled
   }
 }
 

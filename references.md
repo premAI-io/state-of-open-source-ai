@@ -32,7 +32,7 @@ Couldn't decide which chapter(s) these links are related to. They're mostly abou
 - "How I Re-implemented PyTorch for WebGPU" (`webgpu-torch`: inference & autograd lib to run NNs in browser with negligible overhead) https://praeclarum.org/2023/05/19/webgpu-torch.html
 - "LLaMA from scratch (or how to implement a paper without crying)" (misc tips, scaled-down version of LLaMA for training) https://blog.briankitano.com/llama-from-scratch
 - "Swift Transformers: Run On-Device LLMs in Apple Devices" https://huggingface.co/blog/swift-coreml-llm
-- "Why GPT-3.5-turbo is (mostly) cheaper than LLaMA-2" https://www.cursor.so/blog/llama-inference#user-content-fn-gpt4-leak
+- "Why GPT-3.5-turbo is (mostly) cheaper than LLaMA-2" https://cursor.sh/blog/llama-inference#user-content-fn-gpt4-leak
 - http://marble.onl/posts/why_host_your_own_llm.html
 - https://betterprogramming.pub/you-dont-need-hosted-llms-do-you-1160b2520526
 - "Low-code framework for building custom LLMs, neural networks, and other AI models" https://github.com/ludwig-ai/ludwig

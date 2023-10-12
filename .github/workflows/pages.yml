@@ -41,7 +41,6 @@ jobs:
     - name: linkcheck
       # https://jupyterbook.org/en/stable/reference/cli.html
       run: jupyter-book build --builder linkcheck --warningiserror --nitpick --keep-going .
-      env: {PYTHONPATH: .}
   build:
     runs-on: ubuntu-latest
     steps:
@@ -74,7 +73,6 @@ jobs:
           book.tex
         # insert PDF cover
         curl -fsSLO https://static.premai.io/book/cover.pdf
-      env: {PYTHONPATH: .}
     - uses: xu-cheng/latex-action@v3
       with:
         working_directory: _build/latex

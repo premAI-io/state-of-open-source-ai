@@ -68,9 +68,9 @@ Spot something outdated or missing? Want to start a discussion? We welcome any o
 - Or instead, manually set up your own Python environment:
 
   ```sh
-  pip install -r requirements.txt                           # setup
-  PYTHONPATH=. jupyter-book build --builder dirhtml --all . # build
-  python -m http.server -d _build/dirhtml                   # serve
+  pip install -r requirements.txt              # setup
+  jupyter-book build --builder dirhtml --all . # build
+  python -m http.server -d _build/dirhtml      # serve
   ```
 
   ````{admonition} alternative: live rebuilding & serving (experimental)

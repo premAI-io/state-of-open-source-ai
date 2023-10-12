@@ -94,10 +94,10 @@ sphinx:
   extra_extensions:
   - sphinx_last_updated_by_git
   - sphinx_subfigure
-  # custom (local *.py files)
-  - badges
-  - committers
-  - bibliography
+  local_extensions:
+    badges: .
+    committers: .
+    bibliography: .
   config:
     myst_heading_anchors: 4
     html_js_files:

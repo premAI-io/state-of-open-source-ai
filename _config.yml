@@ -59,11 +59,23 @@ parse:
 
       <div id="email-modal" class="modal">
         <div class="modal-content">
-          <!--<div class="header"><span class="close">&times;</span></div>-->
-          <label for="name">To access this book for free, please enter your email. We won't spam you!</label>
-          <input type="email" id="email" name="email" />
-          <button id="email-submit" onclick="emailButtonClick()">Submit</button>
-          <span class="email-error"></span>
+          <img src="https://static.premai.io/book/book-cover.jpg" alt="book cover" />
+          <div class="modal-text">
+            <h1>Enter your email to access this book for free</h1>
+            <p>
+              We&rsquo;ll send you updates whenever we make major changes<br />
+              (no spam nor giving your email to anyone else).
+            </p>
+            <div class="input-container">
+              <input type="email" id="email-input" name="email" placeholder="Enter your email..." />
+              <button id="email-submit" onclick="emailButtonClick()">Subscribe</button>
+            </div>
+            <span class="email-error"></span>
+            <p>
+              This book is open source; you can also read &amp; contribute at<br />
+              <a href="https://github.com/premAI-io/state-of-open-source-ai" target="_blank"><i class="fa-brands fa-github"></i>&nbsp;premAI-io/state-of-open-source-ai</a>.
+            </p>
+          </div>
         </div>
       </div>
   myst_enable_extensions: # https://myst-parser.readthedocs.io/en/latest/using/syntax-optional.html

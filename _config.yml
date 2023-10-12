@@ -98,7 +98,9 @@ sphinx:
     badges: .
     committers: .
     bibliography: .
+    prem_theme: .
   config:
+    html_theme: prem_theme
     myst_heading_anchors: 4
     html_js_files:
     - [https://analytics.prem.ninja/js/script.js, {defer: defer, data-domain: book.premai.io}]

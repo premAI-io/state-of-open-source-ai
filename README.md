@@ -8,6 +8,10 @@ This is the source repository for [The State of Open Source AI][book] ebook, a c
 
 [book]: https://book.premai.io/state-of-open-source-ai
 
+Want to discuss any topics covered in the book? We have a [dedicated channel (`#book`) on our Discord server][Discord].
+
+[Discord]: https://discord.gg/kpKk6vYVAn
+
 ## Contributing
 
 You can help keep the book up-to-date! Contributions, issues, and comments are welcome! See the [Contributing Guide](https://book.premai.io/state-of-open-source-ai/#contributing) for more information on how.
@@ -20,5 +24,5 @@ Citation: [BibTeX](references.bib#L1)
 
 ## Community
 
-- [Join the Open Source AI Discord](https://discord.com/invite/kpKk6vYVAn)
+- [Join the Open Source AI Discord][Discord]
 - [Follow us on Twitter](https://twitter.com/premai_io)

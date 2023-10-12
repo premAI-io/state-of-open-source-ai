@@ -8,7 +8,9 @@ This is the source repository for [The State of Open Source AI][book] ebook, a c
 
 [book]: https://book.premai.io/state-of-open-source-ai
 
-Do you want to discuss about any of the topics covered in the book? We have a dedicated channel (#book) in our [Discord](https://discord.com/invite/kpKk6vYVAn).
+Want to discuss any topics covered in the book? We have a [dedicated channel (`#book`) on our Discord server][Discord].
+
+[Discord]: https://discord.gg/kpKk6vYVAn
 
 ## Contributing
 
@@ -22,5 +24,5 @@ Citation: [BibTeX](references.bib#L1)
 
 ## Community
 
-- [Join the Open Source AI Discord](https://discord.com/invite/kpKk6vYVAn)
+- [Join the Open Source AI Discord][Discord]
 - [Follow us on Twitter](https://twitter.com/premai_io)

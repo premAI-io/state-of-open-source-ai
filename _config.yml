@@ -61,16 +61,20 @@ parse:
         <div class="modal-content">
           <img src="https://static.premai.io/book/book-cover.jpg" alt="book cover" />
           <div class="modal-text">
-            <h1>Enter your email to access</h1>
+            <h1>Enter your email to access this book for free</h1>
             <p>
-              Enter your email to access the book and we’ll also keep you in the loop as we make updates. 
-              The book is open source, you can also read and contribute on <a href="https://github.com/premAI-io/state-of-open-source-ai" target="_blank">Github</a>.
+              We&rsquo;ll send you updates whenever we make major changes<br />
+              (no spam nor giving your email to anyone else).
             </p>
             <div class="input-container">
               <input type="email" id="email-input" name="email" placeholder="Enter your email..." />
               <button id="email-submit" onclick="emailButtonClick()">Subscribe</button>
             </div>
             <span class="email-error"></span>
+            <p>
+              This book is open source; you can also read &amp; contribute at<br />
+              <a href="https://github.com/premAI-io/state-of-open-source-ai" target="_blank"><i class="fa-brands fa-github"></i>&nbsp;premAI-io/state-of-open-source-ai</a>.
+            </p>
           </div>
         </div>
       </div>

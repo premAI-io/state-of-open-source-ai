@@ -206,6 +206,9 @@ Fair Dealing
 Fair Use
   A doctrine in US law permitting use of {term}`IP` without prior permission (regardless of licence/copyright status) depending on 1) purpose of use, 2) nature of the IP, 3) amount of use, and 4) effect on value {cite}`wiki-fair-use`. See also {term}`fair dealing`.
 
+Fine-tuning
+  TODO: [Fine-tuning](<https://en.wikipedia.org/wiki/Fine-tuning_(machine_learning)>). See also [](fine-tuning) and {term}`transfer learning`.
+
 Foundation model
   A model trained from scratch -- likely on lots of data -- to be used for general tasks or later fine-tuned for specific tasks.
 
@@ -222,7 +225,7 @@ Leaderboard
   Ranking of models based on their performance metrics on the same {term}`benchmark(s) <benchmark>`, allowing fair task-specific comparison. See [](leaderboards-table).
 
 LLM
-  A [Large Language Model](https://en.wikipedia.org/wiki/Large_language_model) is neural network (often a {term}`transformer` containing billions of parameters) designed to perform tasks in natural language via [fine tuning](<https://en.wikipedia.org/wiki/Fine-tuning_(machine_learning)>) or [prompt engineering](https://en.wikipedia.org/wiki/Prompt_engineering).
+  A [Large Language Model](https://en.wikipedia.org/wiki/Large_language_model) is neural network (often a {term}`transformer` containing billions of parameters) designed to perform tasks in natural language via {term}`fine-tuning` or [prompt engineering](https://en.wikipedia.org/wiki/Prompt_engineering).
 
 MLOps
   [Machine Learning Operations](https://blogs.nvidia.com/blog/what-is-mlops): best practices to run AI using software products & cloud services
@@ -257,7 +260,7 @@ SIMD
 SotA
   State of the art: recent developments (under 1 year old).
 
-Supervised fine-tuning
+Supervised Fine-tuning
   [SFT](https://cameronrwolfe.substack.com/p/understanding-and-using-supervised) is often the first step in model {term}`alignment`, and is usually followed by {term}`RLHF`. See [](fine-tuning) and [](unaligned-models).
 
 Quantisation
@@ -265,6 +268,9 @@ Quantisation
 
 Token
   A [token](https://learn.microsoft.com/en-us/semantic-kernel/prompt-engineering/tokens) is a "unit of text" for an {term}`LLM` to process/generate. A single token could represent a few characters or words, depending on the tokenisation method chosen. Tokens are usually {term}`embedded <embedding>`.
+
+Transfer Learning
+  TODO. See also {term}`fine-tuning` and [](fine-tuning).
 
 Transformer
   A [transformer](<https://en.wikipedia.org/wiki/Transformer_(machine_learning_model)>) is a neural network using a parallel multi-head [attention](<https://en.wikipedia.org/wiki/Attention_(machine_learning)>) mechanism. The resultant reduce training time makes it well-suited for use in {term}`LLMs <llm>`.

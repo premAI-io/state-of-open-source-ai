@@ -8,7 +8,7 @@ Some ideas:
 
 - https://gist.github.com/veekaybee/be375ab33085102f9027853128dc5f0e#training-your-own
 - [Why You (Probably) Don't Need to Fine-tune an LLM](https://www.tidepool.so/2023/08/17/why-you-probably-dont-need-to-fine-tune-an-llm/) (instead, use few-shot prompting & retrieval-augmented generation)
-- [Fine-Tuning LLaMA-2: A Comprehensive Case Study for Tailoring Models to Unique Applications](https://www.anyscale.com/blog/fine-tuning-llama-2-a-comprehensive-case-study-for-tailoring-models-to-unique-applications) (fine-tuning LLaMA-2 for 3 real-world use cases)
+- [Fine-tuning LLaMA-2: A Comprehensive Case Study for Tailoring Models to Unique Applications](https://www.anyscale.com/blog/fine-tuning-llama-2-a-comprehensive-case-study-for-tailoring-models-to-unique-applications) (fine-tuning LLaMA-2 for 3 real-world use cases)
 - [Private, local, open source LLMs](https://python.langchain.com/docs/guides/local_llms)
 - [Easy-to-use LLM fine-tuning framework (LLaMA-2, BLOOM, Falcon, Baichuan, Qwen, ChatGLM2)](https://github.com/hiyouga/LLaMA-Factory)
 - https://dstack.ai/examples/finetuning-llama-2
@@ -19,15 +19,22 @@ Some ideas:
 For bespoke applications, models can be trained on task-specific data. However, training a model from scratch is seldom required.
 The model has already learned useful feature representations during its initial (pre) training, so it is often sufficient to simply fine-tune. This takes advantage of [transfer learning](https://www.v7labs.com/blog/transfer-learning-guide), producing better task-specific performance with minimal training examples & resources -- analogous to teaching a university student without first reteaching them how to communicate.
 
-## Transfer Learning vs Fine tuning
-The terms Transfer learning and Fine-tuning are used a lot interchangeably. However, there are some differences when it comes to their definitions. The commonality in Transfer Learning and Fine-tuning is that, in both cases, we have a pretrained model. We use this pre-trained model and modify it to get results that are more domain or task-specific. Let's discuss the definitions in detail by understand each of their workings.
+## Transfer Learning versus Fine-tuning
 
+Both {term}`transfer learning` and {term}`fine-tuning` modify a pre-trained model for a domain/task-specific use, and thus both terms are often used interchangeably. However, there are key differences.
 
-### Transfer Learning
+```{table} Transfer Learning versus Fine-tuning
+Description | Transfer Learning | Fine-tuning
+------------|-------------------|------------
+Based on a model pre-trained on a large generic dataset | yes | yes
+Freeze pre-trained model layers | most or all | none ("full" fine-tuning) or a few
+Head layer | append a new head | replace existing head or leave as-is
+Train on domain-specific data until unfrozen layers converge | yes | yes
+```
 
-From [Wikipedia](https://en.wikipedia.org/wiki/Transfer_learning) definition, Transfer learning is a technique in machine learning in which knowledge learned from task is re-used in order to boost performance for some related task.  For working on transfer learning, you start with a pretrained model. A pretrained model is a deep learning model trained on a very large dataset (can be image text etc.).  Most of the times, these pretrained models are huge classification models trained on huge data with numerous number of classes. During the course of training these models eventually learns features and representations to minimize the loss.
+### How Transfer learning works?
 
-Hence before starting Transfer Learning, we take out the layers responsible for classification (pen-ultimate layers) and treat that as our feature extractor. We leverage this knowledge coming from the feature extractor (pretrained model) to train a smaller model confined to a very specific domain specific task.
+The key is that "frozen" layers remain unchanged, retaining the original abilities of the pre-trained model, and act as general & robust feature extractors.
 
 ```{figure-md} transfer-learning-architecture
 :class: caption
@@ -36,19 +43,10 @@ Hence before starting Transfer Learning, we take out the layers responsible for 
 Transfer Learning
 ```
 
-**So in summary, Transfer learning follows these steps:**
-
-1. Start with a pre-trained model that has been trained on a large generic dataset. For example: In computer vision, ImageNet dataset is considered as a large generic dataset containing classes consisting of diverse set of objects and things.
-2. Freeze all the weights of the pre-trained layers so they remain fixed during training.
-3. Remove the classifier layer of the pretrained model and append new layers (this can include only one classification head with number of classes equal to that of our dataset or some additional layers followed by classification head). Those newly added layer/s becomes our new model, which we will train to capture more domain specific pattern by leveraging the knowledge coming from our feature extractor (pretrained model)
-4. Train the new model with the downstream dataset till the loss converges.
-
-`NOTE`: We can even extend the process of transfer learning by unfreezing some layers of pretrained model and retraining them along with our smaller model. This additional step helps the model to adapt on newer domain specific task or out of distribution tasks.
-
 **Examples of transfer learning:**
 
-1. In computer vision, let’s take a `ResNet-50` architecture. (The original model has been previously pretrained on the ImageNet dataset). Remove the last layer of the model and replace it with specialized layer designed for object detection (i.e. having layers for bounding box categories and object categories)
-2. In Natural language processing, let’s take the Google BERT model as our pretrained model. Same as the previous example, we freeze our model pretrained weights and add a classifier. We the train those new layers on a new text classification dataset (let’s say twitter sentiment analysis dataset).
+1. In computer vision, let's take [ResNet-50](https://huggingface.co/microsoft/resnet-50) architecture which was pretrained on the ImageNet dataset. Now we use a classic [cats-vs-dogs](https://huggingface.co/datasets/cats_vs_dogs) dataset and use transfer learning for classification of cats and dogs.
+2. In Natural Language processing, let's take the [Google's BERT model](https://huggingface.co/google/bert_uncased_L-2_H-768_A-12) as our pre-trained model. Now we use this model we analyse sentiment by doing transfer learning on this, using [tweet sentiment classification dataset](https://huggingface.co/datasets/carblacac/twitter-sentiment-analysis).
 
 **Why and when to use Transfer learning?**
 
@@ -56,7 +54,6 @@ Transfer learning is very much useful when we have the following constrains
 
 1. Limited data: Transfer learning is a useful solution when our dataset size i small. There we can leverage the knowledge from pretrained model and use that (extracted feature) to fit on our smaller task specific dataset.
 2. Training efficiency: Transfer learning is very useful when we are constrained with compute resources. Retraining the model from scratch can be very resource intensive. However the same performance of the model can be achieved through transfer learning without using much compute resource. Hence the training time is also very small compared to retraining the model.
-
 
 ### Fine-Tuning
 
@@ -90,7 +87,7 @@ We should use fine-tuning when
 - When we do not have much resource constraint. Because in fine-tuning sometimes we are required to train most part of the layers or all the layers of the model, which is much more resource intensive and time taking.
 
 
-## Fine-Tuning LLMs
+## Fine-tuning LLMs
 
 When an LLM does not produce the desired output, engineers think that by fine-tuning the model, they can make it "better". But what exactly does "better" mean in this case? It's important to identify the root of the problem before fine-tuning the model on a new dataset.
 
@@ -105,7 +102,7 @@ Common LLM issues include:
 :class: caption
 ![](https://static.premai.io/book/fine-tuning-llm.png)
 
-[Fine-Tuning LLMs](https://neo4j.com/developer-blog/fine-tuning-retrieval-augmented-generation)
+[Fine-tuning LLMs](https://neo4j.com/developer-blog/fine-tuning-retrieval-augmented-generation)
 ```
 
 A baseline LLM model cannot answer questions about content is hasn't been trained on {cite}`tidepool-citation`. The LLM will make something up, i.e., hallucinate. To fix issues like this, RAG is a good tool to use because it provides the LLM with the context it needs to answer the question.
@@ -136,8 +133,7 @@ However, there are several advantages to using RAG:
 
 RAG plays a key role in making LLMs for useful, but it can be a bit tedious to set up. There are a number of open-source project such as https://github.com/run-llama/llama_index which can help make the process a bit easier.
 
-
-## Fine-Tuning Image Models
+## Fine-tuning Image Models
 
 Fine tuning computer vision based models is a common practice and is used in applications involving object detection, object classification, and image segmentation.
 
@@ -145,13 +141,13 @@ For these non-generative AI use-cases, a baseline model like Resnet or YOLO is f
 
 Data preparation plays a big role in the fine-tuning process for vision based models. An image of the same object can be taken from multiple angles, different lighting conditions, different backgrounds, etc. In order to build a robust dataset for fine-tuning, all of these image variations should be taken into consideration.
 
-### Fine-Tuning AI image generation models
+### Fine-tuning AI image generation models
 
 ```{figure-md} image-generation-fine-tuning
 :class: caption
 ![](https://static.premai.io/book/fine-tuning-image-generation.png)
 
-[Dreambooth Image Generation Fine-Tuning](https://dreambooth.github.io)
+[Dreambooth Image Generation Fine-tuning](https://dreambooth.github.io)
 ```
 
 Models such as [Stable Diffusion](https://stability.ai/stable-diffusion) can also be tailored through fine-tuning to generate specific images. For instance, by supplying Stable Diffusion with a dataset of pet pictures and fine-tuning it, the model becomes capable of generating images of that particular pet in diverse styles.
@@ -163,13 +159,13 @@ The dataset for fine-tuning an image generation model needs to contain two thing
 
 The text prompts describe the content of each image. During fine-tuning, the text prompt is passed into the text encoder portion of Stable Diffusion while the image is fed into the image encoder. The model learns to generate images that match the textual description based on this text-image pairing in the dataset {cite}`octoml-fine-tuning`.
 
-## Fine-Tuning Audio Models
+## Fine-tuning Audio Models
 
 ```{figure-md} audio-fine-tuning
 :class: caption
 ![](https://static.premai.io/book/fine-tuning-audio.png)
 
-[Audio Generation Fine-Tuning](https://aws.amazon.com/blogs/machine-learning/fine-tune-and-deploy-a-wav2vec2-model-for-speech-recognition-with-hugging-face-and-amazon-sagemaker)
+[Audio Generation Fine-tuning](https://aws.amazon.com/blogs/machine-learning/fine-tune-and-deploy-a-wav2vec2-model-for-speech-recognition-with-hugging-face-and-amazon-sagemaker)
 ```
 
 Speech-to-text models like [Whisper](https://registry.premai.io/detail.html) can also be fine-tuned. Similar to fine-tuning image generation models, speech-to-text models need two pieces of data:

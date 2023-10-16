@@ -4,7 +4,7 @@
 
 *Clarity in the current fast-paced mess of Open Source innovation.*
 
-This is the source repository for [The State of Open Source AI][book] ebook, a comprehensive guide exploring everything from model evaluations to deployment.
+This is the source repository for [The State of Open Source AI][book] ebook, a comprehensive guide exploring everything from model evaluations to deployment, and a great FOMO cure.
 
 [book]: https://book.premai.io/state-of-open-source-ai
 

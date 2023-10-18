@@ -61,7 +61,7 @@ Moreover, WormGPT's expertise extends to generating code that holds the potentia
 multifaceted tool for cybercriminal activities.
 
 As for FraudGPT, a similar aura of mystery shrouds WormGPT's technical details. Its development relies on a complex web
-of diverse datasets especially concerning malware-related information, but the specific training data used  remains a
+of diverse datasets especially concerning malware-related information, but the specific training data used remains a
 closely guarded secret, concealed by its creator.
 
 ### PoisonGPT

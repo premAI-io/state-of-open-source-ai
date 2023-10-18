@@ -171,7 +171,7 @@ It's a 7B parameter model fine-tuned from LLaMA 7B model on 52K instruction-foll
 
 ##### Uniqueness
 
-- Unique Data Source: Alpaca 7B is distinct for being fine-tuned from LLaMA 7B using 52K instruction-following demonstrations coming from self-instruct {cite}`wang2023selfinstruct`,  in the style of text-davinci-003, enabling research into instruction-following scenarios.
+- Unique Data Source: Alpaca 7B is distinct for being fine-tuned from LLaMA 7B using 52K instruction-following demonstrations coming from self-instruct {cite}`wang2023selfinstruct`, in the style of text-davinci-003, enabling research into instruction-following scenarios.
 - Cost-Efficient Alternative: Alpaca 7B offers similar performance to text-davinci-003 but at a lower cost, making it accessible for academic research.
 
 ##### Limitations
@@ -419,7 +419,7 @@ And currently [its fine-tuned variants](https://huggingface.co/Phind/Phind-CodeL
 - Released [three variants](https://huggingface.co/codellama) for each model sizes:
   - **Code LLaMA**: constitute foundation models for code generation. They come in three model sizes: 7B, 13B and 34B parameters. The 7B and 13B models are trained using an infilling objective, appropriate for code generation in an IDE. The 34B model was trained without the infilling objective
   - **Code LLaMA -- Python**: specialised for Python code generation and also come in sizes of 7B, 13B, and 34B parameters. Trained on 500B tokens from the Code LLaMA dataset and further specialised on 100B tokens using a Python-heavy dataset. Python variants are trained without infilling and subsequently fine-tuned to handle long contexts.
-  - **Code LLaMA -- Instruct**:  based on Code LLaMA and fine-tuned with an additional approx. 5B tokens to better follow human instructions.
+  - **Code LLaMA -- Instruct**: based on Code LLaMA and fine-tuned with an additional approx. 5B tokens to better follow human instructions.
 
     ```{figure} https://static.premai.io/book/models_codellama-pipeline.png
     :width: 88%
@@ -491,7 +491,7 @@ And currently [its fine-tuned variants](https://huggingface.co/Phind/Phind-CodeL
 - Uses Grouped-query attention (GQA) {cite}`ainslie2023gqa` for faster inference.
 - Uses [Sliding Window Attention (SWA)](https://github.com/mistralai/mistral-src#sliding-window-attention) {cite}`child2019generating,beltagy2020longformer` to handle longer sequences at smaller cost.
 - Uses Byte-fallback BPE tokenizer.
-- Released [7B base](https://huggingface.co/mistralai/Mistral-7B-v0.1) model and [7B Instruct](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.1) model which outperforms all 7B models on  MT-Bench {cite}`zheng2023judging` and outperforms [LLaMA-2 13B-Chat](https://huggingface.co/meta-llama/Llama-2-13b-chat).
+- Released [7B base](https://huggingface.co/mistralai/Mistral-7B-v0.1) model and [7B Instruct](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.1) model which outperforms all 7B models on MT-Bench {cite}`zheng2023judging` and outperforms [LLaMA-2 13B-Chat](https://huggingface.co/meta-llama/Llama-2-13b-chat).
 - Both models released under Apache 2.0 license, with no restrictions.
 - [Released a codebase](https://github.com/mistralai/mistral-src) which documents how to run and explains some concepts used in the model.
 

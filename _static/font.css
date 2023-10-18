@@ -1,0 +1,22 @@
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://static.premai.io/fonts/Pretendard-Regular.woff2") format("woff2");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://static.premai.io/fonts/Pretendard-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://static.premai.io/fonts/Pretendard-Bold.woff2") format("woff2");
+  font-weight: bold;
+}
+
+:root {
+  --pst-font-family-base: Pretendard, sans-serif;
+  --pst-font-family-heading: Pretendard, sans-serif;
+}

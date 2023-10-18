@@ -28,7 +28,7 @@ Inference Engine | Open-Source | GPU optimisations | Ease of use
 [](#text-generation-inference) | 🟢 Yes | Continuous Batching, Tensor Parallelism, Flash Attention | 🟢 Easy
 [](#vllm) | 🟢 Yes | Continuous Batching, Tensor Parallelism, Paged Attention | 🟢 Easy
 [](#bentoml) | 🟢 Yes | None | 🟢 Easy
-[](#modular) | 🔴 No | N/A | 🟠 Moderate
+[](#modular) | 🔴 No | N/A | 🟡 Moderate
 ```
 
 {{ table_feedback }}

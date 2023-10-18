@@ -41,7 +41,6 @@ jobs:
     - name: linkcheck
       # https://jupyterbook.org/en/stable/reference/cli.html
       run: jupyter-book build --builder linkcheck --warningiserror --nitpick --keep-going .
-      env: {PYTHONPATH: .}
   build:
     runs-on: ubuntu-latest
     steps:
@@ -57,22 +56,31 @@ jobs:
         sudo apt install -qq ghostscript fonts-freefont-otf  # https://stackoverflow.com/a/69012150
         sed -ri 's#^(\s*baseurl:).*#\1 ${{ steps.pages.outputs.base_url }}/'$SITE_PREFIX'#g' _config.yml
         jupyter-book build --builder dirhtml --warningiserror --nitpick --keep-going .
-        jupyter-book build --builder latex .
-        # insert PDF cover
+        # fix https://github.com/executablebooks/jupyter-book/issues/2066
+        sed -ri 's#(.*link rel="canonical" href=".*)\.html(".*)#\1/\2#' _build/dirhtml/*/index.html
+        jupyter-book build --builder latex --warningiserror --nitpick --keep-going .
         cd _build/latex
-        curl -fsSLO https://static.premai.io/book/cover.pdf
-        sed -i -r \
-          -e 's/(\\documentclass.*)letterpaper(.*)/\1a4paper\2/' \
-          -e 's/(\\usepackage\{geometry\})/\1\n\\usepackage\{pdfpages\}/' \
-          -e 's/\\sphinxmaketitle/\\includepdf\[pages=-\]\{cover.pdf\}/' \
-          -e 's/\\sphinxtableofcontents//' \
+        # fix contrib.rocks
+        mv state-of-open-source-ai contrib-rocks.svg
+        convert contrib-rocks.svg contrib-rocks.png || :
+        sed -ri 's/(.*includegraphics\{\{)state-of-open-source-ai(\}\}.*)/\1contrib-rocks.png\2/g' book.tex
+        # fix undefined in FreeFont
+        sed -ri \
+          -e 's/[🆕🌈🎉💪💬💻📝📥🔠🔌🛠␂↔️⚙️]//g' \
+          -e 's/🔴/☒/g' \
+          -e 's/🟡/☐/g' \
+          -e 's/🟢/☑/g' \
           book.tex
-      env: {PYTHONPATH: .}
+        # insert PDF cover
+        curl -fsSLO https://static.premai.io/book/cover.pdf
     - uses: xu-cheng/latex-action@v3
       with:
         working_directory: _build/latex
         root_file: book.tex
         args: -pdf -dvi- -ps- -file-line-error -f -interaction=nonstopmode
+        latexmk_use_xelatex: true
+      env:
+        XINDYOPTS: -L english -C utf8 -M sphinx.xdy
       continue-on-error: true
     - name: prepare _site pages
       run: |

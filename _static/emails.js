@@ -21,11 +21,12 @@ function getCookie(cname) {
 }
 
 async function emailButtonClick() {
-  let emailInput = document.getElementById("email");
+  let emailInput = document.getElementById("email-input");
   let emailValue = emailInput.value;
   let res = await fetch("https://premai.pythonanywhere.com/email?a=" + emailValue);
-  if (200 <= res.status && res.status < 300) {
-    setCookie("address", emailValue, 365);
+  const ok = 200 <= res.status && res.status < 299;
+  const server_err = 500 <= res.status && res.status < 599;
+  if (ok || server_err) {
     let modal = document.getElementById('email-modal');
     modal.style.display = 'none'
     emailInput.value = "";
@@ -34,16 +35,25 @@ async function emailButtonClick() {
     let msg = await res.json();
     emailError.innerHTML = "Error " + res.status + ": " + msg.status;
   }
+  if (ok) {
+    setCookie("address", emailValue, 365); // might fail if cookies disabled
+  }
 }
 
 document.addEventListener('DOMContentLoaded', function() {
   let modal = document.getElementById('email-modal');
   let email = getCookie("address");
+  let emailInput = document.getElementById("email-input");
   if (email === "" || email == null) {
     modal.style.display = 'block';
-    let emailInput = document.getElementById("email");
     emailInput.value = "";
   }
-  //let closeModalBtn = modal.querySelector('.close');
-  //closeModalBtn.addEventListener('click', () => modal.style.display = 'none');
+  emailInput.focus()
+  // When user click Enter, click the submit button
+  emailInput.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      document.getElementById("email-submit").click();
+    }
+  });
 });

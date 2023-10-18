@@ -4,9 +4,9 @@
 
 *Clarity in the current fast-paced mess of Open Source innovation {cite}`prem_stateofosai`*
 
-As a data scientist/developer with a 9 to 5 job, it's difficult to keep track of all the innovations. There's been enormous progress in the field in {term}`the last year <SotA>`.
+As a data scientist/ML engineer/developer with a 9 to 5 job, it's difficult to keep track of all the innovations. There's been enormous progress in the field in {term}`the last year <SotA>`.
 
-The guide covers all the most important categories in the Open Source AI space, from model evaluations to deployment. It includes a [](#glossary) for you to quickly check definitions of new frameworks & tools.
+Cure your FOMO with this guide, covering all the most important categories in the Open Source AI space, from model evaluations to deployment. It includes a [](#glossary) for you to quickly check definitions of new frameworks & tools.
 
 A quick TL;DR overview is included at the top of each section. We outline the pros/cons and general context/background for each topic. Then we dive a bit deeper. Examples include data models were trained on, and deployment implementations.
 
@@ -63,14 +63,14 @@ Spot something outdated or missing? Want to start a discussion? We welcome any o
 ### Editing the Book
 
 - Using {{ '[GitHub Codespaces](https://codespaces.new/{})'.format(
-  '/'.join(env.config.html_theme_options.repository_url.split('/')[-2:])) }}, you can edit code & preview the site in your browser without installing anything (you may have to whitelist `github.dev` & `visualstudio.com` if you use an adblocker).
+  '/'.join(env.config.html_theme_options.repository_url.split('/')[-2:])) }}, you can edit code & preview the site in your browser without installing anything (you may [have to whitelist `github.dev`, `visualstudio.com`, `github.com`, & `trafficmanager.net`](https://docs.github.com/en/codespaces/the-githubdev-web-based-editor#using-githubdev-behind-a-firewall) if you use an adblocker).
 - Alternatively, to run locally, open {{ '[this repository]({})'.format(env.config.html_theme_options.repository_url) }} in a [Dev Container](https://containers.dev) (most likely [using VSCode](https://code.visualstudio.com/docs/devcontainers/containers#_installation)).
 - Or instead, manually set up your own Python environment:
 
   ```sh
-  pip install -r requirements.txt                           # setup
-  PYTHONPATH=. jupyter-book build --builder dirhtml --all . # build
-  python -m http.server -d _build/dirhtml                   # serve
+  pip install -r requirements.txt              # setup
+  jupyter-book build --builder dirhtml --all . # build
+  python -m http.server -d _build/dirhtml      # serve
   ```
 
   ````{admonition} alternative: live rebuilding & serving (experimental)
@@ -84,11 +84,9 @@ Spot something outdated or missing? Want to start a discussion? We welcome any o
 
 ### Formatting
 
-````{note}
-```{eval-rst}
-Don't worry about making it perfect, it's fine to open a (`draft <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests#draft-pull-requests>`_) PR and `allow edits from maintainers <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork>`_ to fix it |:heart:|
+```{note}
+Don't worry about making it perfect, it's fine to open a ([draft](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests#draft-pull-requests)) PR and [allow edits from maintainers](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork) to fix it ♥
 ```
-````
 
 - [Quickstart](https://jupyterbook.org/en/stable/reference/cheatsheet.html)
 - [Full reference](https://jupyterbook.org/en/stable/content/myst.html)
@@ -141,7 +139,7 @@ Anyone who adds a few sentences to a chapter is {{
   '[automatically mentioned in the respective chapter]({}/blob/main/committers.py)'.format(
   env.config.html_theme_options.repository_url) }} as well as below.
 
-{{ '[![](https://contrib.rocks/image?repo={})]({}/graphs/contributors)'.format(
+{{ '[![](https://contrib.rocks/image?anon=1&repo={})]({}/graphs/contributors)'.format(
    '/'.join(env.config.html_theme_options.repository_url.split('/')[-2:]),
    env.config.html_theme_options.repository_url) }}
 

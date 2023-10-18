@@ -59,11 +59,23 @@ parse:
 
       <div id="email-modal" class="modal">
         <div class="modal-content">
-          <!--<div class="header"><span class="close">&times;</span></div>-->
-          <label for="name">To access this book for free, please enter your email. We won't spam you!</label>
-          <input type="email" id="email" name="email" />
-          <button id="email-submit" onclick="emailButtonClick()">Submit</button>
-          <span class="email-error"></span>
+          <img src="https://static.premai.io/book/book-cover.jpg" alt="book cover" />
+          <div class="modal-text">
+            <h1>Enter your email to access this book for free</h1>
+            <p>
+              We&rsquo;ll send you updates whenever we make major changes<br />
+              (no spam nor giving your email to anyone else).
+            </p>
+            <div class="input-container">
+              <input type="email" id="email-input" name="email" placeholder="Enter your email..." />
+              <button id="email-submit" onclick="emailButtonClick()">Subscribe</button>
+            </div>
+            <span class="email-error"></span>
+            <p>
+              This book is open source; you can also read &amp; contribute at<br />
+              <a href="https://github.com/premAI-io/state-of-open-source-ai" target="_blank"><i class="fa-brands fa-github"></i>&nbsp;premAI-io/state-of-open-source-ai</a>.
+            </p>
+          </div>
         </div>
       </div>
   myst_enable_extensions: # https://myst-parser.readthedocs.io/en/latest/using/syntax-optional.html
@@ -80,19 +92,21 @@ parse:
   - tasklist
 sphinx:
   extra_extensions:
-  - sphinxemoji.sphinxemoji
   - sphinx_last_updated_by_git
   - sphinx_subfigure
-  # custom (local *.py files)
-  - badges
-  - committers
-  - bibliography
+  local_extensions:
+    badges: .
+    committers: .
+    bibliography: .
+    prem_theme: .
   config:
+    html_theme: prem_theme
     myst_heading_anchors: 4
     html_js_files:
     - [https://analytics.prem.ninja/js/script.js, {defer: defer, data-domain: book.premai.io}]
     linkcheck_ignore:
     - http://localhost:8000
+    - https://github.com/premAI-io/state-of-open-source-ai/edit/main/.*.md
     # GitHub anchors
     - https://github.com/\w+/\w+/blob/\w+/.*#L\d+(-L\d+)?
     - https://github.com/premAI-io/prem-app#.*
@@ -111,8 +125,6 @@ sphinx:
     # misc
     - https://www.nytimes.com/2016/04/19/technology/google-books-case.html
     - https://doi.org/10.2307/2214413
-    - https://github.com/premAI-io/state-of-open-source-ai # TODO: remove
-    - https://contrib.rocks # TODO: remove
     - https://direct.mit.edu/daed/article/151/2/127/110621/Human-Language-Understanding-amp-Reasoning
     - https://numfocus.org
     - https://chat.openai.com
@@ -133,6 +145,16 @@ sphinx:
     html_last_updated_fmt: '%d %b %Y'
     jblatex_show_tocs: false
     bibtex_reference_style: label
+    latex_elements:
+      papersize: a4paper
+      # requires https://static.premai.io/book/cover.pdf
+      extrapackages: \usepackage{pdfpages}
+      maketitle: \includepdf[pages=-]{cover.pdf}
+      tableofcontents: ''
+      # fix citations in figure captions (https://github.com/mcmtroffaes/sphinxcontrib-bibtex/issues/276)
+      preamble: |
+        \usepackage{etoolbox}
+        \AtBeginEnvironment{figure}{\pretocmd{\hyperlink}{\protect}{}{}}
 bibtex_bibfiles: [references.bib] # citations
 latex: # for PDF builds
   latex_documents:

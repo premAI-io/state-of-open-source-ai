@@ -86,7 +86,7 @@ Subcategory | Conditions | Licence examples
 - Software: [compare 8 popular licences](https://choosealicense.com/licenses)
   + [`MPL-2.0`](https://mozilla.org/MPL/2.0) is noteworthy, as it combines the permissiveness & compatibility of [`Apache-2.0`](https://www.apache.org/licenses/LICENSE-2.0) with a very weak (file-level) copyleft version of [`LGPL-3.0-or-later`](https://spdx.org/licenses/LGPL-3.0-or-later.html). `MPL-2.0` is thus usually categorised as permissive {cite}`wiki-sw-licence`.
 - Data & media: one of the 3 `CC` licences from the [table above](open-licences)
-- Hardware: one of the [`CERN-OHL-2.0`](https://ohwr.org/project/cernohl/wikis/Documents/CERN-OHL-version-2) licences
+- Hardware: one of the [`CERN-OHL-2.0`](https://cern-ohl.web.cern.ch) licences
 - More choices: [compare dozens of licences](https://choosealicense.com/appendix)
 ```
 

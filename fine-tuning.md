@@ -19,17 +19,76 @@ Some ideas:
 For bespoke applications, models can be trained on task-specific data. However, training a model from scratch is seldom required.
 The model has already learned useful feature representations during its initial (pre) training, so it is often sufficient to simply fine-tune. This takes advantage of [transfer learning](https://www.v7labs.com/blog/transfer-learning-guide), producing better task-specific performance with minimal training examples & resources -- analogous to teaching a university student without first reteaching them how to communicate.
 
-## How Fine-Tuning Works
+## Transfer Learning vs Fine tuning
+The terms Transfer learning and Fine-tuning are used a lot interchangeably. However, there are some differences when it comes to their definitions. The commonality in Transfer Learning and Fine-tuning is that, in both cases, we have a pretrained model. We use this pre-trained model and modify it to get results that are more domain or task-specific. Let's discuss the definitions in detail by understand each of their workings.
 
-1. Start with a pre-trained model that has been trained on a large generic dataset.
-2. Take this pre-trained model and add a new task-specific layer/head on top. For example, adding a classification layer for a sentiment analysis task.
-3. Freeze the weights of the pre-trained layers so they remain fixed during training. This retains all the original knowledge.
-4. Only train the weights of the new task-specific layer you added, leaving the pre-trained weights frozen. This allows the model to adapt specifically for your new task.
-5. Train on your new downstream dataset by passing batches of data through the model architecture and comparing outputs to true labels.
-6. After some epochs of training only the task layer, you can optionally unfreeze some of the pre-trained layers weights to allow further tuning on your dataset.
-7. Continue training the model until the task layer and selected pre-trained layers converge on optimal weights for your dataset.
 
-The key is that most of the original model weights remain fixed during training. Only a small portion of weights are updated to customise the model to new data. This transfers general knowledge while adding task-specific tuning.
+### Transfer Learning
+
+From [Wikipedia](https://en.wikipedia.org/wiki/Transfer_learning) definition, Transfer learning is a technique in machine learning in which knowledge learned from task is re-used in order to boost performance for some related task.  For working on transfer learning, you start with a pretrained model. A pretrained model is a deep learning model trained on a very large dataset (can be image text etc.).  Most of the times, these pretrained models are huge classification models trained on huge data with numerous number of classes. During the course of training these models eventually learns features and representations to minimize the loss.
+
+Hence before starting Transfer Learning, we take out the layers responsible for classification (pen-ultimate layers) and treat that as our feature extractor. We leverage this knowledge coming from the feature extractor (pretrained model) to train a smaller model confined to a very specific domain specific task.
+
+```{figure-md} transfer-learning-architecture
+:class: caption
+![](https://static.premai.io/book/transfer_learning.png)
+
+Transfer Learning
+```
+
+**So in summary, Transfer learning follows these steps:**
+
+1. Start with a pre-trained model that has been trained on a large generic dataset. For example: In computer vision, ImageNet dataset is considered as a large generic dataset containing classes consisting of diverse set of objects and things.
+2. Freeze all the weights of the pre-trained layers so they remain fixed during training.
+3. Remove the classifier layer of the pretrained model and append new layers (this can include only one classification head with number of classes equal to that of our dataset or some additional layers followed by classification head). Those newly added layer/s becomes our new model, which we will train to capture more domain specific pattern by leveraging the knowledge coming from our feature extractor (pretrained model)
+4. Train the new model with the downstream dataset till the loss converges.
+
+`NOTE`: We can even extend the process of transfer learning by unfreezing some layers of pretrained model and retraining them along with our smaller model. This additional step helps the model to adapt on newer domain specific task or out of distribution tasks.
+
+**Examples of transfer learning:**
+
+1. In computer vision, let’s take a `ResNet-50` architecture. (The original model has been previously pretrained on the ImageNet dataset). Remove the last layer of the model and replace it with specialized layer designed for object detection (i.e. having layers for bounding box categories and object categories)
+2. In Natural language processing, let’s take the Google BERT model as our pretrained model. Same as the previous example, we freeze our model pretrained weights and add a classifier. We the train those new layers on a new text classification dataset (let’s say twitter sentiment analysis dataset).
+
+**Why and when to use Transfer learning?**
+
+Transfer learning is very much useful when we have the following constrains
+
+1. Limited data: Transfer learning is a useful solution when our dataset size i small. There we can leverage the knowledge from pretrained model and use that (extracted feature) to fit on our smaller task specific dataset.
+2. Training efficiency: Transfer learning is very useful when we are constrained with compute resources. Retraining the model from scratch can be very resource intensive. However the same performance of the model can be achieved through transfer learning without using much compute resource. Hence the training time is also very small compared to retraining the model.
+
+
+### Fine-Tuning
+
+From [Wikipedia’s](https://en.wikipedia.org/wiki/Fine-tuning_(deep_learning)) definition, Fine-tuning is an approach to transfer learning in which weights of a pre-trained model is trained on a new data.  In some case we retrain the whole model on our domain specific dataset or in other cases, we just fine-tune on only a subset of the layers. Through fine-tuning, we are adapting our existing pretrained model on a task-specific dataset.
+
+```{figure-md} fine-tuning-architecture
+:class: caption
+![](https://static.premai.io/book/fine-tuning.png)
+
+Fine Tuning
+```
+
+**So in summary, Fine tuning follows these steps:**
+
+1. Start with a pretrained model that has been trained on a large generic dataset.
+2. Take the pretrained model and freeze all the layers of the model.
+3. Now start un-freezing some parts of the model (or do not apply step 2 where the whole model is trainable) and start training the model on the downstream dataset by passing batches of data.
+4. Do this until the model converges on optimal weights for your dataset.
+
+**Examples of Fine-tuning:**
+
+1. Suppose our task is to do segmentation on individual cells in a medical image or objects in satellite images. In those cases, training a full network from scratch might be expensive. Transfer learning might not work, as feature required for fine-grained segmentation are significantly different and can not be captured with some additional new MLP layers. Hence we use fine-tuning, to tune some parts of the model to adapt it to task like segmentation (here).
+2. Suppose you have a pretrained Large Language Model (like GPT-2) which is used in general purpose english text completion. But now you want it to specifically adapt it to summarization. And hence just adding couple of MLP at the head of these GPT-2 might not capture the semantic information to adapt it for summarization. Hence we go for finetuning the model to some extent such that it can well adapt with the requires task (here summarization).
+
+**Why and when to use Fine-tuning?**
+
+We should use fine-tuning when
+
+- We normally transfer learning is not working. In situations where simply adding a classifier or couple of layers along with the classifier is not working.
+- When we have comparitively more data than the situation discussed on transfer learning
+- When we do not have much resource constraint. Because in fine-tuning sometimes we are required to train most part of the layers or all the layers of the model, which is much more resource intensive and time taking.
+
 
 ## Fine-Tuning LLMs
 
@@ -76,6 +135,7 @@ However, there are several advantages to using RAG:
   - Using RAG, engineers can connect data from SaaS apps such as Notion, Google Drive, HubSpot, Zendesk, etc. to their LLM. Now the LLM has access to private data and can help answer questions about the data in these applications.
 
 RAG plays a key role in making LLMs for useful, but it can be a bit tedious to set up. There are a number of open-source project such as https://github.com/run-llama/llama_index which can help make the process a bit easier.
+
 
 ## Fine-Tuning Image Models
 

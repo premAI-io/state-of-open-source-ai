@@ -2,7 +2,8 @@
 
 MyST usage (HTML only):
 
-    ```{badges}
+    ```{badges} https://mybook.site https://github.com/org/mybook
+    :doi: 10.5281.zenodo.12345678
     ```
 """
 from docutils import nodes
@@ -22,33 +23,40 @@ class badges_node(nodes.General, nodes.Element):
 
 def visit_badges_html(self, node):
     self.body.append(
-        f"""<a href="{node['baseurl']}">
+        f"""<a href="{node['baseurl']}" target="_blank">
         <img alt="site"
          src="https://img.shields.io/badge/site-{node['baseurl'].replace('-', '--')}-orange" />
         </a>""")
     slug = '/'.join(node['repository_url'].split('/')[-2:])
     self.body.append(
-        f"""<a href="{node['repository_url']}/graphs/contributors">
+        f"""<a href="{node['repository_url']}/graphs/contributors" target="_blank">
         <img alt="last updated"
-         src="https://img.shields.io/github/last-commit/{slug}/main" />
+         src="https://img.shields.io/github/last-commit/{slug}/main?label=updated" />
         </a>""")
     self.body.append(
-        f"""<a href="{node['repository_url']}/pulse">
+        f"""<a href="{node['repository_url']}/pulse" target="_blank">
         <img alt="activity"
-         src="https://img.shields.io/github/commit-activity/m/{slug}/main" />
+         src="https://img.shields.io/github/commit-activity/m/{slug}/main?label=commits" />
         </a>""")
+    if node['doi']:
+        self.body.append(
+            f"""<a href="https://doi.org/{node['doi']}" target="_blank">
+            <img alt="doi"
+             src="https://img.shields.io/badge/doi-{node['doi']}-black" />
+            </a>""")
 
 
 class Badges(Directive):
     has_content = True
     required_arguments = 2
-    optional_arguments = 0
+    optional_arguments = 1
     final_argument_whitespace = True
-    option_spec = {'class': directives.class_option, 'name': directives.unchanged}
+    option_spec = {'doi': directives.unchanged}
     _node = None
 
     def run(self):
-        return [badges_node(baseurl=self.arguments[0], repository_url=self.arguments[1])]
+        return [badges_node(
+            baseurl=self.arguments[0], repository_url=self.arguments[1], doi=self.options.get('doi', None))]
 
 
 def setup(app: Sphinx):

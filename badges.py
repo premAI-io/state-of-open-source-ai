@@ -2,7 +2,8 @@
 
 MyST usage (HTML only):
 
-    ```{badges}
+    ```{badges} http://mybook.site http://github.com/org/mybook
+    :doi: 10.5281.zenodo.12345678
     ```
 """
 from docutils import nodes
@@ -37,18 +38,25 @@ def visit_badges_html(self, node):
         <img alt="activity"
          src="https://img.shields.io/github/commit-activity/m/{slug}/main" />
         </a>""")
+    if node['doi']:
+        self.body.append(
+            f"""<a href="https://doi.org/{node['doi']}">
+            <img alt="doi"
+             src="https://img.shields.io/badge/doi-{node['doi']}-black" />
+            </a>""")
 
 
 class Badges(Directive):
     has_content = True
     required_arguments = 2
-    optional_arguments = 0
+    optional_arguments = 1
     final_argument_whitespace = True
-    option_spec = {'class': directives.class_option, 'name': directives.unchanged}
+    option_spec = {'doi': directives.unchanged}
     _node = None
 
     def run(self):
-        return [badges_node(baseurl=self.arguments[0], repository_url=self.arguments[1])]
+        return [badges_node(
+            baseurl=self.arguments[0], repository_url=self.arguments[1], doi=self.options.get('doi', None))]
 
 
 def setup(app: Sphinx):

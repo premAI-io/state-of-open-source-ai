@@ -2,7 +2,7 @@
 
 MyST usage (HTML only):
 
-    ```{badges} http://mybook.site http://github.com/org/mybook
+    ```{badges} https://mybook.site https://github.com/org/mybook
     :doi: 10.5281.zenodo.12345678
     ```
 """
@@ -23,24 +23,24 @@ class badges_node(nodes.General, nodes.Element):
 
 def visit_badges_html(self, node):
     self.body.append(
-        f"""<a href="{node['baseurl']}">
+        f"""<a href="{node['baseurl']}" target="_blank">
         <img alt="site"
          src="https://img.shields.io/badge/site-{node['baseurl'].replace('-', '--')}-orange" />
         </a>""")
     slug = '/'.join(node['repository_url'].split('/')[-2:])
     self.body.append(
-        f"""<a href="{node['repository_url']}/graphs/contributors">
+        f"""<a href="{node['repository_url']}/graphs/contributors" target="_blank">
         <img alt="last updated"
-         src="https://img.shields.io/github/last-commit/{slug}/main" />
+         src="https://img.shields.io/github/last-commit/{slug}/main?label=updated" />
         </a>""")
     self.body.append(
-        f"""<a href="{node['repository_url']}/pulse">
+        f"""<a href="{node['repository_url']}/pulse" target="_blank">
         <img alt="activity"
-         src="https://img.shields.io/github/commit-activity/m/{slug}/main" />
+         src="https://img.shields.io/github/commit-activity/m/{slug}/main?label=commits" />
         </a>""")
     if node['doi']:
         self.body.append(
-            f"""<a href="https://doi.org/{node['doi']}">
+            f"""<a href="https://doi.org/{node['doi']}" target="_blank">
             <img alt="doi"
              src="https://img.shields.io/badge/doi-{node['doi']}-black" />
             </a>""")

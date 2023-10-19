@@ -1,8 +1,9 @@
 # see https://github.com/actions/starter-workflows/blob/main/pages/jekyll.yml
 name: site
 on:
-  push:
-  workflow_dispatch:
+  push: {branches: [main], tags-ignore: ['**']}
+  pull_request:
+  schedule: [{cron: '0 10 * * 6'}]  # M H d m w (Sat 10:00)
 permissions:
   # allow GITHUB_TOKEN to deploy to GitHub Pages
   contents: read

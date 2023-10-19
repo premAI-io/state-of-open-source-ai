@@ -53,6 +53,7 @@ jobs:
     - run: pip install -r requirements.txt
     - name: jupyter-book build
       run: |
+        sudo apt update -qq
         sudo apt install -qq ghostscript fonts-freefont-otf  # https://stackoverflow.com/a/69012150
         sed -ri 's#^(\s*baseurl:).*#\1 ${{ steps.pages.outputs.base_url }}/'$SITE_PREFIX'#g' _config.yml
         jupyter-book build --builder dirhtml --warningiserror --nitpick --keep-going .

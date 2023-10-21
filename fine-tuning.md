@@ -33,7 +33,7 @@ Hence before starting Transfer Learning, we take out the layers responsible for 
 :class: caption
 ![](https://static.premai.io/book/transfer_learning.png)
 
-[Transfer Learning]
+Transfer Learning
 ```
 
 **So in summary, Transfer learning follows these steps:**
@@ -66,7 +66,7 @@ From [Wikipedia’s](https://en.wikipedia.org/wiki/Fine-tuning_(deep_learning)) 
 :class: caption
 ![](https://static.premai.io/book/fine-tuning.png)
 
-[Fine Tuning]
+Fine Tuning
 ```
 
 **So in summary, Fine tuning follows these steps:**

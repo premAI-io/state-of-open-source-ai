@@ -16,7 +16,7 @@ authors:
 - {given-names: Het, family-names: Trivedi}
 - {given-names: Filippo, family-names: Pedrazzini, affiliation: Prem}
 - {name: others, website: 'https://github.com/premAI-io/state-of-open-source-ai/graphs/contributors'}
-#identifiers: [{type: doi, value: 10.1234/zenodo.TODO}]
+identifiers: [{type: doi, value: 10.5281/zenodo.10023181}]
 repository-code: https://github.com/premAI-io/state-of-open-source-ai
 keywords: [open-source, AI, book, ML, MLOps, Jupyter-Book]
 license-url: https://github.com/premAI-io/state-of-open-source-ai/blob/main/LICENCE # CC-BY-4.0 AND Apache-2.0

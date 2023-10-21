@@ -26,6 +26,7 @@ html:
 parse:
   myst_substitutions:
     baseurl: http://localhost:8000
+    doi: 10.5281/zenodo.10023181
     wip_chapter: |
       This chapter is still being written & reviewed. Please do post links & discussion in the {{
         '[<i class="fas fa-pencil-alt"></i> comments]({}-comments)'.format(env.docname) }} below, or {{

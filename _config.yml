@@ -144,7 +144,6 @@ sphinx:
       https://mxnet.apache.org: https://mxnet.apache.org/versions/[\d.]+/.*
       https://gpt4all.io: https://gpt4all.io/index.html
       http://marble.onl/posts/why_host_your_own_llm.html: https://www.marble.onl/posts/why_host_your_own_llm.html
-
     html_last_updated_fmt: '%d %b %Y'
     jblatex_show_tocs: false
     bibtex_reference_style: label

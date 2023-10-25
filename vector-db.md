@@ -10,7 +10,7 @@ Some ideas:
 - short sections for each of the rows from [the table below](vector-db-table)
 ```
 
-Vector databases have exploded in popularity in the past year due to generative AI, but the concept of {term}`vector embedding` has existed for many ears. When performing image classification, the "features" extracted by a neural network are the "vector embeddings". These vector embeddings contain distilled ("compressed") information about the image. For text-based models, vector embeddings capture the relationship between words, allowing models to understand language. Embeddings can be stored in {term}`databases <vector database>` for later lookup/retrieval.
+Vector databases have exploded in popularity in the past year due to generative AI, but the concept of {term}`vector embedding` has existed for many years. When performing image classification, the "features" extracted by a neural network are the "vector embeddings". These vector embeddings contain distilled ("compressed") information about the image. For text-based models, vector embeddings capture the relationship between words, allowing models to understand language. Embeddings can be stored in {term}`databases <vector database>` for later lookup/retrieval.
 
 ```{table} Comparison of Vector Databases
 :name: vector-db-table

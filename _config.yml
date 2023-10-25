@@ -100,8 +100,11 @@ sphinx:
     committers: .
     bibliography: .
     prem_theme: .
+  recursive_update: true  # append to rather than overwrite html_theme_options
   config:
     html_theme: prem_theme
+    html_theme_options:
+      navigation_with_keys: false
     myst_heading_anchors: 4
     html_js_files:
     - [https://analytics.prem.ninja/js/script.js, {defer: defer, data-domain: book.premai.io}]
@@ -134,6 +137,7 @@ sphinx:
     - https://accent.gmu.edu
     - https://www.crcv.ucf.edu/data/UCF101.php
     - https://www.pinecone.io/learn/series/faiss/locality-sensitive-hashing
+    - https://chat.lmsys.org
     linkcheck_allowed_redirects:
       https://doi.org/.*/.*: https://.*
       https://codespaces.new/.*: https://github.com/login.*

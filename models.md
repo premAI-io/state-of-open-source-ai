@@ -67,6 +67,10 @@ Despite its capabilities, [GPT-4 still sometimes "hallucinates"](https://www.red
 
 ## Open-Source Models
 
+```{note}
+"Open source" does not necessarily mean "open licence". See [](open).
+```
+
 Subsection | Description
 -----------|------------
 [](#before-public-awareness) | Pre-[](#chatgpt); before widespread LLMs use, and a time of slow progress.

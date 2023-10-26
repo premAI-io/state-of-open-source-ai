@@ -29,6 +29,7 @@ Inference Engine | Open-Source | GPU optimisations | Ease of use
 [](#vllm) | 🟢 Yes | Continuous Batching, Tensor Parallelism, Paged Attention | 🟢 Easy
 [](#bentoml) | 🟢 Yes | None | 🟢 Easy
 [](#modular) | 🔴 No | N/A | 🟡 Moderate
+[](#localai) | 🟢 Yes | 🟢 Yes | 🟢 Easy
 ```
 
 {{ table_feedback }}
@@ -127,6 +128,18 @@ Cons:
 
 This is not an exhaustive list of MLOps engines by any means. There are many other tools and frameworks developer use to deploy their ML models. There is ongoing development in both the open-source and private sectors to improve the performance of LLMs. It's up to the community to test out different services to see which one works best for their use case.
 
+## LocalAI
+
+[LocalAI](https://localai.io) is the free, Open Source OpenAI alternative. LocalAI act as a drop-in replacement REST API that’s compatible with OpenAI API specifications for local inferencing. It allows you to run LLMs with various backend such as llama.cpp or vllm, generate images, generate audio, transcribe audio, self-hosted, on-prem with consumer grade hardware, supporting multiple model families. 
+
+Pros:
+- wide range of models supported
+- supports for LocalAI functions (OpenAI functions, but self-hosted)
+- easy to integrate
+
+Cons:
+- binary version is harder to run and compile locally
+- high learning curve due to high degree of customization
 
 ## Challenges in Open Source
 

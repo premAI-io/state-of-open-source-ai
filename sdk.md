@@ -9,7 +9,7 @@
 SDK | Use cases | Vector stores | Embedding model | LLM Model | Languages | Features
 ----|-----------|---------------|-----------------|-----------|-----------|----------
 [](#langchain) | Chatbots, prompt chaining, document related tasks | Comprehensive list of data sources available to get connected readily | State of art embedding models in the bucket to choose from | A-Z availability of LLMs out there in the market | Python, Javascript, Typescript | Open source & 1.5k+ contributors strong for active project development
-[](#llama-index) | Connecting multiple data sources to LLMs, document query interface using retrieval augmented generation, advanced chatbots, structured analytics | Wide options to connect & facility to [create a new one](https://gpt-index.readthedocs.io/en/latest/examples/vector_stores/CognitiveSearchIndexDemo.html#create-index-if-it-does-not-exist) | Besides the 3 commonly available models we can use a [custom embedding model](https://gpt-index.readthedocs.io/en/latest/examples/embeddings/custom_embeddings.html) as well | Set of restricted availability of LLM models besides [customised abstractions](https://gpt-index.readthedocs.io/en/latest/core_modules/model_modules/llms/usage_custom.html) suited for your custom data | Python, Javascript, Typescript | Tailor-made for high customisations if not happy with the current parameters and integrations
+[](#llama-index) | Connecting multiple data sources to LLMs, document query interface using retrieval augmented generation, advanced chatbots, structured analytics | Wide options to connect & facility to [create a new one](https://gpt-index.readthedocs.io/en/latest/examples/vector_stores/CognitiveSearchIndexDemo.html#create-index-if-it-does-not-exist) | Besides the 3 commonly available models we can use a [custom embedding model](https://gpt-index.readthedocs.io/en/latest/examples/embeddings/custom_embeddings.html) as well | Set of restricted availability of LLM models besides [customised abstractions](https://gpt-index.readthedocs.io/en/latest/module_guides/models/llms/usage_custom.html) suited for your custom data | Python, Javascript, Typescript | Tailor-made for high customisations if not happy with the current parameters and integrations
 [](#litellm) | Integrating multiple LLMs, evaluating LLMs | Not Applicable | Currently supports only `text-embedding-ada-002` from OpenAI & Azure | Expanding the list of LLM providers with the most commonly used ones ready for use | Python | Lightweight, streaming model response, consistent output response
 ```
 
@@ -87,7 +87,7 @@ LLaMAIndex is a data framework for LLM applications to ingest, structure, and ac
 
 ### Data connectors
 
-[Data connectors](https://gpt-index.readthedocs.io/en/latest/core_modules/data_modules/connector/root.html) are software components that enable the transfer of data between different systems or applications. They provide a way to extract data from a source system, transform it if necessary, and load it into a target system. Data connectors are commonly used in data integration and ETL (Extract, Transform, Load) processes.
+[Data connectors](https://gpt-index.readthedocs.io/en/latest/module_guides/loading/connector/root.html) are software components that enable the transfer of data between different systems or applications. They provide a way to extract data from a source system, transform it if necessary, and load it into a target system. Data connectors are commonly used in data integration and ETL (Extract, Transform, Load) processes.
 
 There are various types of data connectors available, depending on the specific systems or applications they connect to. Some common ones include:
 
@@ -101,7 +101,7 @@ Data connectors play a crucial role in enabling data interoperability and ensuri
 
 ### Data indexes
 
-[Data indexes](https://gpt-index.readthedocs.io/en/latest/core_modules/data_modules/index/root.html) in LLaMAIndex are intermediate representations of data that are structured in a way that is easy and performant for Language Model Models (LLMs) to consume. These indexes are built from documents and serves as the core foundation for retrieval-augmented generation (RAG) use-cases.
+[Data indexes](https://gpt-index.readthedocs.io/en/latest/module_guides/indexing/indexing.html) in LLaMAIndex are intermediate representations of data that are structured in a way that is easy and performant for Language Model Models (LLMs) to consume. These indexes are built from documents and serves as the core foundation for retrieval-augmented generation (RAG) use-cases.
 Under the hood, indexes in LLaMAIndex store data in Node objects, which represent chunks of the original documents. These indexes also expose a Retriever interface that supports additional configuration and automation.
 LLaMAIndex provides several types of indexes, including Vector Store Index, Summary Index, Tree Index, Keyword Table Index, Knowledge Graph Index, and SQL Index. Each index has its own specific use case and functionality.
 

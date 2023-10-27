@@ -669,7 +669,7 @@ resolution of 320 × 240 pixels.
 
 #### Kinetics
 
-**[Kinetics](https://www.deepmind.com/open-source/kinetics)**, developed by the Google Research team, is a dataset featuring
+**[Kinetics](https://github.com/google-deepmind/kinetics-i3d)**, developed by the Google Research team, is a dataset featuring
 up to 650,000 video clips, covering 400/600/700 human action classes in different versions. These clips show diverse human
 interactions, including human-object and human-human activities. Each action class contains a minimum of
 [400](https://paperswithcode.com/dataset/kinetics-400-1)/[600](https://paperswithcode.com/dataset/kinetics-600)/[700](https://paperswithcode.com/dataset/kinetics-700)

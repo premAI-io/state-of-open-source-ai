@@ -105,6 +105,7 @@ sphinx:
     html_theme: prem_theme
     html_theme_options:
       navigation_with_keys: false
+      use_download_button: false
     myst_heading_anchors: 4
     html_js_files:
     - [https://analytics.prem.ninja/js/script.js, {defer: defer, data-domain: book.premai.io}]

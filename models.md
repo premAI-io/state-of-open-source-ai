@@ -480,7 +480,7 @@ And currently [its fine-tuned variants](https://huggingface.co/Phind/Phind-CodeL
 
 #### Mistral 7B
 
-[Mistral 7B](https://huggingface.co/mistralai) is released by [Mistral AI](https://mistral.ai), a french startup which recently [raised a good seed round](https://techcrunch.com/2023/06/13/frances-mistral-ai-blows-in-with-a-113m-seed-round-at-a-260m-valuation-to-take-on-openai). The team comprises of ex-[Deepmind](https://www.deepmind.com) and ex-[Meta](https://ai.meta.com) researchers, who worked on [](#llama), Flamingo {cite}`alayrac2022flamingo` and [Chinchilla](https://en.wikipedia.org/wiki/Chinchilla_AI) projects.
+[Mistral 7B](https://huggingface.co/mistralai) is released by [Mistral AI](https://mistral.ai), a french startup which recently [raised a good seed round](https://techcrunch.com/2023/06/13/frances-mistral-ai-blows-in-with-a-113m-seed-round-at-a-260m-valuation-to-take-on-openai). The team comprises of ex-[Deepmind](https://deepmind.google) and ex-[Meta](https://ai.meta.com) researchers, who worked on [](#llama), Flamingo {cite}`alayrac2022flamingo` and [Chinchilla](https://en.wikipedia.org/wiki/Chinchilla_AI) projects.
 
 ##### Uniqueness
 

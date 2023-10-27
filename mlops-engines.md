@@ -130,16 +130,18 @@ This is not an exhaustive list of MLOps engines by any means. There are many oth
 
 ## LocalAI
 
-[LocalAI](https://localai.io) is the free, Open Source OpenAI alternative. LocalAI act as a drop-in replacement REST API that’s compatible with OpenAI API specifications for local inferencing. It allows you to run LLMs with various backend such as llama.cpp or vllm, generate images, generate audio, transcribe audio, self-hosted, on-prem with consumer grade hardware, supporting multiple model families. 
+[LocalAI](https://localai.io) from https://github.com/go-skynet/LocalAI ([not to be confused](https://github.com/louisgv/local.ai/discussions/71) with [](desktop-apps.md#localai) from https://github.com/louisgv/local.ai) is the free, Open Source alternative to OpenAI. LocalAI act as a drop-in replacement REST API that's compatible with OpenAI API specifications for local inferencing. It can run LLMs (with various backend such as https://github.com/ggerganov/llama.cpp or [](#vllm)), generate images, generate audio, transcribe audio, and can be self-hosted (on-prem) with consumer-grade hardware.
 
 Pros:
+
 - wide range of models supported
-- supports for LocalAI functions (OpenAI functions, but self-hosted)
+- support for "LocalAI functions" (self-hosted verison of OpenAI functions)
 - easy to integrate
 
 Cons:
+
 - binary version is harder to run and compile locally
-- high learning curve due to high degree of customization
+- high learning curve due to high degree of customisation
 
 ## Challenges in Open Source
 

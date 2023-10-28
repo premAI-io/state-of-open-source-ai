@@ -135,7 +135,7 @@ This is not an exhaustive list of MLOps engines by any means. There are many oth
 Pros:
 
 - wide range of models supported
-- support for "LocalAI functions" (self-hosted verison of OpenAI functions)
+- support for [functions](https://localai.io/features/openai-functions) (self-hosted [OpenAI functions](https://platform.openai.com/docs/guides/gpt/function-calling))
 - easy to integrate
 
 Cons:

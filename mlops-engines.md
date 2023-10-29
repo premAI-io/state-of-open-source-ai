@@ -130,17 +130,17 @@ This is not an exhaustive list of MLOps engines by any means. There are many oth
 
 ## LocalAI
 
-[LocalAI](https://localai.io) from https://github.com/go-skynet/LocalAI ([not to be confused](https://github.com/louisgv/local.ai/discussions/71) with [](desktop-apps.md#localai) from https://github.com/louisgv/local.ai) is the free, Open Source alternative to OpenAI. LocalAI act as a drop-in replacement REST API that's compatible with OpenAI API specifications for local inferencing. It can run LLMs (with various backend such as https://github.com/ggerganov/llama.cpp or [](#vllm)), generate images, generate audio, transcribe audio, and can be self-hosted (on-prem) with consumer-grade hardware.
+[LocalAI](https://localai.io) from https://github.com/mudler/LocalAI ([not to be confused](https://github.com/louisgv/local.ai/discussions/71) with [](desktop-apps.md#localai) from https://github.com/louisgv/local.ai) is the free, Open Source alternative to OpenAI. LocalAI act as a drop-in replacement REST API that's compatible with OpenAI API specifications for local inferencing. It can run LLMs (with various backend such as https://github.com/ggerganov/llama.cpp or [](#vllm)), generate images, generate audio, transcribe audio, and can be self-hosted (on-prem) with consumer-grade hardware.
 
 Pros:
 
 - [wide range of models supported](https://localai.io/model-compatibility)
 - support for [functions](https://localai.io/features/openai-functions) (self-hosted [OpenAI functions](https://platform.openai.com/docs/guides/gpt/function-calling))
-- easy to integrate
+- [easy to integrate](https://localai.io/integrations/)
 
 Cons:
 
-- binary version is harder to run and compile locally
+- binary version is harder to run and compile locally. [For example, see issue 1196](https://github.com/mudler/LocalAI/issues/1196).
 - high learning curve due to high degree of customisation
 
 ## Challenges in Open Source

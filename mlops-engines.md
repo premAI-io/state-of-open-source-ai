@@ -136,11 +136,11 @@ Pros:
 
 - [wide range of models supported](https://localai.io/model-compatibility)
 - support for [functions](https://localai.io/features/openai-functions) (self-hosted [OpenAI functions](https://platform.openai.com/docs/guides/gpt/function-calling))
-- [easy to integrate](https://localai.io/integrations/)
+- [easy to integrate](https://localai.io/integrations)
 
 Cons:
 
-- binary version is harder to run and compile locally. [For example, see issue 1196](https://github.com/mudler/LocalAI/issues/1196).
+- binary version is harder to run and compile locally. https://github.com/mudler/LocalAI/issues/1196.
 - high learning curve due to high degree of customisation
 
 ## Challenges in Open Source

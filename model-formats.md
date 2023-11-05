@@ -280,7 +280,7 @@ Some [clients & libraries supporting `GGUF`](https://huggingface.co/TheBloke/Lla
 - [LM Studio](https://lmstudio.ai) -- an easy-to-use and powerful local GUI with GPU acceleration on both Windows (NVidia and AMD), and macOS
 
 ```{seealso}
-For more info on `GGUF`, see https://github.com/ggerganov/llama.cpp/pull/2398 and its [spec](https://github.com/philpax/ggml/blob/gguf-spec/docs/gguf.md).
+For more info on `GGUF`, see https://github.com/ggerganov/llama.cpp/pull/2398 and its [spec](https://github.com/ggerganov/ggml/blob/master/docs/gguf.md).
 ```
 
 ### Limitations

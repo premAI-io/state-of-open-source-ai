@@ -46,7 +46,7 @@ The list of vector stores that LangChain supports can be found [here](https://ap
 
 ### Models
 
-This is the heart of most LLMs, where the core functionality resides. There are broadly [2 different types of models](https://python.langchain.com/docs/modules/model_io/models) which LangChain integrates with:
+This is the heart of most LLMs, where the core functionality resides. There are broadly [2 different types of models](https://python.langchain.com/docs/modules/model_io) which LangChain integrates with:
 
 - **Language**: Inputs & outputs are `string`s
 - **Chat**: Run on top of a Language model. Inputs are a list of chat messages, and output is a chat message

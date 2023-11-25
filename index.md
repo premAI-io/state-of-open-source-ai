@@ -225,7 +225,7 @@ LLM
   A [Large Language Model](https://en.wikipedia.org/wiki/Large_language_model) is neural network (often a {term}`transformer` containing billions of parameters) designed to perform tasks in natural language via [fine tuning](<https://en.wikipedia.org/wiki/Fine-tuning_(machine_learning)>) or [prompt engineering](https://en.wikipedia.org/wiki/Prompt_engineering).
 
 MLOps
-  [Machine Learning Operations](https://blogs.nvidia.com/blog/2020/09/03/what-is-mlops): best practices to run AI using software products & cloud services
+  [Machine Learning Operations](https://blogs.nvidia.com/blog/what-is-mlops): best practices to run AI using software products & cloud services
 
 MoE
   [Mixture-of-Experts](https://en.wikipedia.org/wiki/Mixture_of_experts) is a technique which uses one or more specialist model(s) from a collection of models ("experts") to solve general problems. Not that this is different from [ensemble](https://en.wikipedia.org/wiki/Ensemble_learning) models (which combine results from all models).

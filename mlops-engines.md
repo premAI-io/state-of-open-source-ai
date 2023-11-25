@@ -84,7 +84,7 @@ Cons:
 
 ## vLLM
 
-This is an open-source project created by researchers at Berkeley to improve the performance of LLM inferencing. [vLLM](https://vllm.ai) primarily optimises LLM throughput via methods like PagedAttention and Continuous Batching. The project is fairly new and there is ongoing development.
+This is an open-source project created by researchers at Berkeley to improve the performance of LLM inferencing. https://github.com/vllm-project/vllm primarily optimises LLM throughput via methods like PagedAttention and Continuous Batching. The project is fairly new and there is ongoing development.
 
 Pros:
 

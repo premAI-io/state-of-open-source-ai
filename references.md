@@ -7,7 +7,6 @@
 
 - "Catching up on the weird world of LLMs" (summary of the last few years) https://simonwillison.net/2023/Aug/3/weird-world-of-llms
 - "Open challenges in LLM research" (exciting post title but mediocre content) https://huyenchip.com/2023/08/16/llm-research-open-challenges.html
-- "AI forest" https://www.michaeldempsey.me/blog/2023/07/18/the-dark-forest-of-rd-and-capital-deployment-in-ai
 - https://github.com/zeno-ml/zeno-build/tree/main/examples/analysis_gpt_mt/report
 - "Patterns for Building LLM-based Systems & Products" (Evals, RAG, fine-tuning, caching, guardrails, defensive UX, and collecting user feedback) https://eugeneyan.com/writing/llm-patterns
 

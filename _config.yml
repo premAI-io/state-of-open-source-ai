@@ -59,7 +59,11 @@ parse:
       {{ '```{committers} ' + env.docname + '.md\n```' }}
 
       <div id="email-modal" class="modal">
-        <div class="modal-content">
+        <iframe name="mailchimp-result" style="display: none;"></iframe>
+        <form
+          action="https://premai.us21.list-manage.com/subscribe/post?u=76d4e3f9cb2c0f0108fb2da88&amp;id=2c17a51111&amp;f_id=0014ede6f0"
+          method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="modal-content"
+          target="mailchimp-result" novalidate="">
           <img src="https://static.premai.io/book/book-cover.jpg" alt="book cover" />
           <div class="modal-text">
             <h1>Enter your email to access this book for free</h1>
@@ -68,16 +72,17 @@ parse:
               (no spam nor giving your email to anyone else).
             </p>
             <div class="input-container">
-              <input type="email" id="email-input" name="email" placeholder="Enter your email..." />
-              <button id="email-submit" onclick="emailButtonClick()">Subscribe</button>
+              <input type="email" id="email-input" name="EMAIL" placeholder="Enter your email..." />
+              <input style="display: none;" type="hidden" name="tags" value="2958019" />
+              <input style="display: none;" type="text" name="b_76d4e3f9cb2c0f0108fb2da88_2c17a51111" tabindex="-1" value="" />
+              <input type="submit" name="subscribe" id="email-submit" class="button" value="Subscribe" onclick="emailButtonClick()" />
             </div>
-            <span class="email-error"></span>
             <p>
               This book is open source; you can also read &amp; contribute at<br />
               <a href="https://github.com/premAI-io/state-of-open-source-ai" target="_blank"><i class="fa-brands fa-github"></i>&nbsp;premAI-io/state-of-open-source-ai</a>.
             </p>
           </div>
-        </div>
+        </form>
       </div>
   myst_enable_extensions: # https://myst-parser.readthedocs.io/en/latest/using/syntax-optional.html
   # needs myst-parser>=0.19 <- https://github.com/executablebooks/MyST-NB/issues/530

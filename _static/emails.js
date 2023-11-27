@@ -28,7 +28,7 @@ async function emailButtonClick() {
   const server_err = 500 <= res.status && res.status < 599;
   if (ok || server_err) {
     let modal = document.getElementById('email-modal');
-    modal.style.display = 'none'
+    modal.style.display = 'none';
     emailInput.value = "";
   } else {
     let emailError = document.getElementsByClassName('email-error')[0];

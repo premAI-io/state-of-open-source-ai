@@ -32,9 +32,9 @@ Head layer | append a new head | replace existing head or leave as-is
 Train on domain-specific data until unfrozen layers converge | yes | yes
 ```
 
-### How Transfer learning works?
+### Transfer Learning
 
-The key is that "frozen" layers remain unchanged, retaining the original abilities of the pre-trained model, and act as general & robust feature extractors.
+The key is that "frozen" layers remain unchanged -- retaining the original abilities of the pre-trained model -- and act as general & robust feature extractors.
 
 ```{figure-md} transfer-learning-architecture
 :class: caption
@@ -43,21 +43,19 @@ The key is that "frozen" layers remain unchanged, retaining the original abiliti
 Transfer Learning
 ```
 
-**Examples of transfer learning:**
+**Examples**:
 
-1. In computer vision, let's take [ResNet-50](https://huggingface.co/microsoft/resnet-50) architecture which was pretrained on the ImageNet dataset. Now we use a classic [cats-vs-dogs](https://huggingface.co/datasets/cats_vs_dogs) dataset and use transfer learning for classification of cats and dogs.
-2. In Natural Language processing, let's take the [Google's BERT model](https://huggingface.co/google/bert_uncased_L-2_H-768_A-12) as our pre-trained model. Now we use this model we analyse sentiment by doing transfer learning on this, using [tweet sentiment classification dataset](https://huggingface.co/datasets/carblacac/twitter-sentiment-analysis).
+- Computer vision: take [ResNet-50](https://huggingface.co/microsoft/resnet-50) -- which was pretrained on the [ImageNet](TODO:link) dataset -- and replace the last layer with an object-detecting model (e.g. TODO model). This object-detecting model can now be trained to e.g. classify [cats-vs-dogs](https://huggingface.co/datasets/cats_vs_dogs).
+- Natural language processing: take [BERT](https://huggingface.co/google/bert_uncased_L-2_H-768_A-12) -- trained on TODO -- and replace the last layer with TODO. The final layers can be trained on the [tweet sentiment classification dataset](https://huggingface.co/datasets/carblacac/twitter-sentiment-analysis).
 
-**Why and when to use Transfer learning?**
+**Use cases**:
 
-Transfer learning is very much useful when we have the following constrains
+- Limited data: when domain-specific dataset size is small, a large model cannot be trained end-to-end without overfitting. However if the model is mostly a frozen general feature extractor, then the subsequent trainable layers are less likely to overfit.
+- Limited compute and time: retraining a large model from scratch requires a lot of compute resources and time. This is unnecessary if similar performance can be achieved through transfer learning (training just part of a large model).
 
-1. Limited data: Transfer learning is a useful solution when our dataset size i small. There we can leverage the knowledge from pretrained model and use that (extracted feature) to fit on our smaller task specific dataset.
-2. Training efficiency: Transfer learning is very useful when we are constrained with compute resources. Retraining the model from scratch can be very resource intensive. However the same performance of the model can be achieved through transfer learning without using much compute resource. Hence the training time is also very small compared to retraining the model.
+### Fine-tuning
 
-### Fine-Tuning
-
-From [Wikipedia’s](https://en.wikipedia.org/wiki/Fine-tuning_(deep_learning)) definition, Fine-tuning is an approach to transfer learning in which weights of a pre-trained model is trained on a new data.  In some case we retrain the whole model on our domain specific dataset or in other cases, we just fine-tune on only a subset of the layers. Through fine-tuning, we are adapting our existing pretrained model on a task-specific dataset.
+The key difference here is none (or few) of the pre-trained model's weights are frozen. The pre-training process can be considered an intelligent weight initialisation prior to training on a domain-specific dataset. Essentially, the pre-training will leave the model weights close to a global (general) optimum, while the domain-specific training will find a local (task-specific) optimum.
 
 ```{figure-md} fine-tuning-architecture
 :class: caption
@@ -66,26 +64,16 @@ From [Wikipedia’s](https://en.wikipedia.org/wiki/Fine-tuning_(deep_learning)) 
 Fine Tuning
 ```
 
-**So in summary, Fine tuning follows these steps:**
+**Examples**:
 
-1. Start with a pretrained model that has been trained on a large generic dataset.
-2. Take the pretrained model and freeze all the layers of the model.
-3. Now start un-freezing some parts of the model (or do not apply step 2 where the whole model is trainable) and start training the model on the downstream dataset by passing batches of data.
-4. Do this until the model converges on optimal weights for your dataset.
+- Computer vision: for segmentation in cases where fine-grained detail is important (e.g. finding individual cells in medical imaging, or detecting objects in satellite images), transfer learning might not be accurate enough.
+- Natural language processing: an LLM such as [](models.md#persimmon-8b) -- used in general purpose text completion -- can be adapted to do summarisation. Adding a few layers (transfer learning) may not be enough to do summarisation well, and hence full fine-tuning is required.
 
-**Examples of Fine-tuning:**
+**Use cases**:
 
-1. Suppose our task is to do segmentation on individual cells in a medical image or objects in satellite images. In those cases, training a full network from scratch might be expensive. Transfer learning might not work, as feature required for fine-grained segmentation are significantly different and can not be captured with some additional new MLP layers. Hence we use fine-tuning, to tune some parts of the model to adapt it to task like segmentation (here).
-2. Suppose you have a pretrained Large Language Model (like GPT-2) which is used in general purpose english text completion. But now you want it to specifically adapt it to summarization. And hence just adding couple of MLP at the head of these GPT-2 might not capture the semantic information to adapt it for summarization. Hence we go for finetuning the model to some extent such that it can well adapt with the requires task (here summarization).
+- Performance: when transfer learning is not accurate enough, and enough domain-specific data is available to make use of fine-tuning without overfitting.
 
-**Why and when to use Fine-tuning?**
-
-We should use fine-tuning when
-
-- We normally transfer learning is not working. In situations where simply adding a classifier or couple of layers along with the classifier is not working.
-- When we have comparitively more data than the situation discussed on transfer learning
-- When we do not have much resource constraint. Because in fine-tuning sometimes we are required to train most part of the layers or all the layers of the model, which is much more resource intensive and time taking.
-
+Note that fine-tuning typically required much more compute resources, time, and data than transfer learning.
 
 ## Fine-tuning LLMs
 

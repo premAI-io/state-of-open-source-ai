@@ -208,7 +208,7 @@ koboldcpp Julius Model Configuration
 
 [local.ai]: https://www.localai.app
 
-The [local.ai] App from https://github.com/louisgv/local.ai ([not to be confused](https://github.com/louisgv/local.ai/discussions/71) with [LocalAI](https://localai.io) from https://github.com/go-skynet/LocalAI) is a simple application for loading LLMs after you manually download a `ggml` model from online.
+The [local.ai] App from https://github.com/louisgv/local.ai ([not to be confused](https://github.com/louisgv/local.ai/discussions/71) with [](mlops-engines.md#localai) from https://github.com/mudler/LocalAI) is a simple application for loading LLMs after you manually download a `ggml` model from online.
 
 ### UI and Chat
 

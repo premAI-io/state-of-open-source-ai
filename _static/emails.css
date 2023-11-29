@@ -28,7 +28,7 @@
   .modal-content input {
     font-size: 0.9rem !important;
   }
-  .modal-content button {
+  .modal-content input.button {
     padding: 10px !important;
   }
   .modal-content img {
@@ -75,7 +75,7 @@
   outline: none !important;
 }
 
-.modal-content button {
+.modal-content input.button {
   color: white;
   border: none;
   text-align: center;

@@ -29,6 +29,7 @@ Inference Engine | Open-Source | GPU optimisations | Ease of use
 [](#vllm) | 🟢 Yes | Continuous Batching, Tensor Parallelism, Paged Attention | 🟢 Easy
 [](#bentoml) | 🟢 Yes | None | 🟢 Easy
 [](#modular) | 🔴 No | N/A | 🟡 Moderate
+[](#localai) | 🟢 Yes | 🟢 Yes | 🟢 Easy
 ```
 
 {{ table_feedback }}
@@ -83,7 +84,7 @@ Cons:
 
 ## vLLM
 
-This is an open-source project created by researchers at Berkeley to improve the performance of LLM inferencing. [vLLM](https://vllm.ai) primarily optimises LLM throughput via methods like PagedAttention and Continuous Batching. The project is fairly new and there is ongoing development.
+This is an open-source project created by researchers at Berkeley to improve the performance of LLM inferencing. https://github.com/vllm-project/vllm primarily optimises LLM throughput via methods like PagedAttention and Continuous Batching. The project is fairly new and there is ongoing development.
 
 Pros:
 
@@ -127,6 +128,20 @@ Cons:
 
 This is not an exhaustive list of MLOps engines by any means. There are many other tools and frameworks developer use to deploy their ML models. There is ongoing development in both the open-source and private sectors to improve the performance of LLMs. It's up to the community to test out different services to see which one works best for their use case.
 
+## LocalAI
+
+[LocalAI](https://localai.io) from https://github.com/mudler/LocalAI ([not to be confused](https://github.com/louisgv/local.ai/discussions/71) with [](desktop-apps.md#localai) from https://github.com/louisgv/local.ai) is the free, Open Source alternative to OpenAI. LocalAI act as a drop-in replacement REST API that's compatible with OpenAI API specifications for local inferencing. It can run LLMs (with various backend such as https://github.com/ggerganov/llama.cpp or [](#vllm)), generate images, generate audio, transcribe audio, and can be self-hosted (on-prem) with consumer-grade hardware.
+
+Pros:
+
+- [wide range of models supported](https://localai.io/model-compatibility)
+- support for [functions](https://localai.io/features/openai-functions) (self-hosted [OpenAI functions](https://platform.openai.com/docs/guides/gpt/function-calling))
+- [easy to integrate](https://localai.io/integrations)
+
+Cons:
+
+- binary version is harder to run and compile locally. https://github.com/mudler/LocalAI/issues/1196.
+- high learning curve due to high degree of customisation
 
 ## Challenges in Open Source
 

@@ -59,7 +59,11 @@ parse:
       {{ '```{committers} ' + env.docname + '.md\n```' }}
 
       <div id="email-modal" class="modal">
-        <div class="modal-content">
+        <iframe name="mailchimp-result" style="display: none;"></iframe>
+        <form
+          action="https://premai.us21.list-manage.com/subscribe/post?u=76d4e3f9cb2c0f0108fb2da88&amp;id=2c17a51111&amp;f_id=0014ede6f0"
+          method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="modal-content"
+          target="mailchimp-result" novalidate="">
           <img src="https://static.premai.io/book/book-cover.jpg" alt="book cover" />
           <div class="modal-text">
             <h1>Enter your email to access this book for free</h1>
@@ -68,16 +72,17 @@ parse:
               (no spam nor giving your email to anyone else).
             </p>
             <div class="input-container">
-              <input type="email" id="email-input" name="email" placeholder="Enter your email..." />
-              <button id="email-submit" onclick="emailButtonClick()">Subscribe</button>
+              <input type="email" id="email-input" name="EMAIL" placeholder="Enter your email..." />
+              <input style="display: none;" type="hidden" name="tags" value="2958019" />
+              <input style="display: none;" type="text" name="b_76d4e3f9cb2c0f0108fb2da88_2c17a51111" tabindex="-1" value="" />
+              <input type="submit" name="subscribe" id="email-submit" class="button" value="Subscribe" onclick="emailButtonClick()" />
             </div>
-            <span class="email-error"></span>
             <p>
               This book is open source; you can also read &amp; contribute at<br />
               <a href="https://github.com/premAI-io/state-of-open-source-ai" target="_blank"><i class="fa-brands fa-github"></i>&nbsp;premAI-io/state-of-open-source-ai</a>.
             </p>
           </div>
-        </div>
+        </form>
       </div>
   myst_enable_extensions: # https://myst-parser.readthedocs.io/en/latest/using/syntax-optional.html
   # needs myst-parser>=0.19 <- https://github.com/executablebooks/MyST-NB/issues/530
@@ -100,8 +105,12 @@ sphinx:
     committers: .
     bibliography: .
     prem_theme: .
+  recursive_update: true  # append to rather than overwrite html_theme_options
   config:
     html_theme: prem_theme
+    html_theme_options:
+      navigation_with_keys: false
+      use_download_button: false
     myst_heading_anchors: 4
     html_js_files:
     - [https://analytics.prem.ninja/js/script.js, {defer: defer, data-domain: book.premai.io}]
@@ -134,6 +143,8 @@ sphinx:
     - https://accent.gmu.edu
     - https://www.crcv.ucf.edu/data/UCF101.php
     - https://www.pinecone.io/learn/series/faiss/locality-sensitive-hashing
+    - https://chat.lmsys.org
+    - https://platform.openai.com/docs/.*
     linkcheck_allowed_redirects:
       https://doi.org/.*/.*: https://.*
       https://codespaces.new/.*: https://github.com/login.*

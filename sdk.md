@@ -9,7 +9,7 @@
 SDK | Use cases | Vector stores | Embedding model | LLM Model | Languages | Features
 ----|-----------|---------------|-----------------|-----------|-----------|----------
 [](#langchain) | Chatbots, prompt chaining, document related tasks | Comprehensive list of data sources available to get connected readily | State of art embedding models in the bucket to choose from | A-Z availability of LLMs out there in the market | Python, Javascript, Typescript | Open source & 1.5k+ contributors strong for active project development
-[](#llama-index) | Connecting multiple data sources to LLMs, document query interface using retrieval augmented generation, advanced chatbots, structured analytics | Wide options to connect & facility to [create a new one](https://gpt-index.readthedocs.io/en/latest/examples/vector_stores/CognitiveSearchIndexDemo.html#create-index-if-it-does-not-exist) | Besides the 3 commonly available models we can use a [custom embedding model](https://gpt-index.readthedocs.io/en/latest/examples/embeddings/custom_embeddings.html) as well | Set of restricted availability of LLM models besides [customised abstractions](https://gpt-index.readthedocs.io/en/latest/core_modules/model_modules/llms/usage_custom.html) suited for your custom data | Python, Javascript, Typescript | Tailor-made for high customisations if not happy with the current parameters and integrations
+[](#llama-index) | Connecting multiple data sources to LLMs, document query interface using retrieval augmented generation, advanced chatbots, structured analytics | Wide options to connect & facility to [create a new one](https://docs.llamaindex.ai/en/latest/examples/vector_stores/CognitiveSearchIndexDemo.html#create-index-if-it-does-not-exist) | Besides the 3 commonly available models we can use a [custom embedding model](https://docs.llamaindex.ai/en/latest/examples/embeddings/custom_embeddings.html) as well | Set of restricted availability of LLM models besides [customised abstractions](https://docs.llamaindex.ai/en/latest/module_guides/models/llms/usage_custom.html) suited for your custom data | Python, Javascript, Typescript | Tailor-made for high customisations if not happy with the current parameters and integrations
 [](#litellm) | Integrating multiple LLMs, evaluating LLMs | Not Applicable | Currently supports only `text-embedding-ada-002` from OpenAI & Azure | Expanding the list of LLM providers with the most commonly used ones ready for use | Python | Lightweight, streaming model response, consistent output response
 ```
 
@@ -46,11 +46,10 @@ The list of vector stores that LangChain supports can be found [here](https://ap
 
 ### Models
 
-This is the heart of most LLM models where the core functionality resides. There are broadly 3 different [models](https://docs.langchain.com/docs/components/models) that LLMs provide. They are Language, Chat, and Embedding model.
+This is the heart of most LLMs, where the core functionality resides. There are broadly [2 different types of models](https://python.langchain.com/docs/modules/model_io) which LangChain integrates with:
 
 - **Language**: Inputs & outputs are `string`s
 - **Chat**: Run on top of a Language model. Inputs are a list of chat messages, and output is a chat message
-- **Embedding**: Inputs is a `string` and outputs are a list of `float`s (vector)
 
 ### Tools
 
@@ -83,11 +82,11 @@ Overall, LangChain's advanced features enable developers to build advanced langu
 
 ![banner](https://static.premai.io/book/sdk-llama-index.jpg)
 
-LLaMAIndex is a data framework for LLM applications to ingest, structure, and access private or domain-specific data. It provides tools such as data connectors, data indexes, engines (query and chat), and data agents to facilitate natural language access to data. LLaMAIndex is designed for beginners, advanced users, and everyone in between, with a high-level API for easy data ingestion and querying, as well as lower-level APIs for customisation. It can be installed using `pip` and has detailed [documentation](https://gpt-index.readthedocs.io/en/latest) and tutorials for getting started. LLaMAIndex also has associated projects like https://github.com/run-llama/llama-hub and https://github.com/run-llama/llama-lab.
+LLaMAIndex is a data framework for LLM applications to ingest, structure, and access private or domain-specific data. It provides tools such as data connectors, data indexes, engines (query and chat), and data agents to facilitate natural language access to data. LLaMAIndex is designed for beginners, advanced users, and everyone in between, with a high-level API for easy data ingestion and querying, as well as lower-level APIs for customisation. It can be installed using `pip` and has detailed [documentation](https://docs.llamaindex.ai/en/latest) and tutorials for getting started. LLaMAIndex also has associated projects like https://github.com/run-llama/llama-hub and https://github.com/run-llama/llama-lab.
 
 ### Data connectors
 
-[Data connectors](https://gpt-index.readthedocs.io/en/latest/core_modules/data_modules/connector/root.html) are software components that enable the transfer of data between different systems or applications. They provide a way to extract data from a source system, transform it if necessary, and load it into a target system. Data connectors are commonly used in data integration and ETL (Extract, Transform, Load) processes.
+[Data connectors](https://docs.llamaindex.ai/en/latest/module_guides/loading/connector/root.html) are software components that enable the transfer of data between different systems or applications. They provide a way to extract data from a source system, transform it if necessary, and load it into a target system. Data connectors are commonly used in data integration and ETL (Extract, Transform, Load) processes.
 
 There are various types of data connectors available, depending on the specific systems or applications they connect to. Some common ones include:
 
@@ -101,7 +100,7 @@ Data connectors play a crucial role in enabling data interoperability and ensuri
 
 ### Data indexes
 
-[Data indexes](https://gpt-index.readthedocs.io/en/latest/core_modules/data_modules/index/root.html) in LLaMAIndex are intermediate representations of data that are structured in a way that is easy and performant for Language Model Models (LLMs) to consume. These indexes are built from documents and serves as the core foundation for retrieval-augmented generation (RAG) use-cases.
+[Data indexes](https://docs.llamaindex.ai/en/latest/module_guides/indexing/indexing.html) in LLaMAIndex are intermediate representations of data that are structured in a way that is easy and performant for Language Model Models (LLMs) to consume. These indexes are built from documents and serves as the core foundation for retrieval-augmented generation (RAG) use-cases.
 Under the hood, indexes in LLaMAIndex store data in Node objects, which represent chunks of the original documents. These indexes also expose a Retriever interface that supports additional configuration and automation.
 LLaMAIndex provides several types of indexes, including Vector Store Index, Summary Index, Tree Index, Keyword Table Index, Knowledge Graph Index, and SQL Index. Each index has its own specific use case and functionality.
 
@@ -118,8 +117,8 @@ Overall, data indexes in LLaMAIndex play a crucial role in enabling natural lang
 
 Data engines in LLaMAIndex refer to the query engines and chat engines that allow users to interact with their data. These engines are end-to-end pipelines that enable users to ask questions or have conversations with their data. The broad classification of data engines are:
 
-- [Query engine](https://gpt-index.readthedocs.io/en/latest/core_modules/query_modules/query_engine/root.html)
-- [Chat engine](https://gpt-index.readthedocs.io/en/latest/core_modules/query_modules/chat_engines/root.html)
+- [Query engine](https://docs.llamaindex.ai/en/latest/core_modules/query_modules/query_engine/root.html)
+- [Chat engine](https://docs.llamaindex.ai/en/latest/core_modules/query_modules/chat_engines/root.html)
 
 #### Query engine
 
@@ -141,7 +140,7 @@ Both query engines and chat engines can be used to interact with data in various
 
 ### Data agent
 
-[Data Agents](https://gpt-index.readthedocs.io/en/latest/core_modules/agent_modules/agents/root.html) are LLM-powered knowledge workers in LLaMAIndex that can intelligently perform various tasks over data, both in a "read" and "write" function. They have the capability to perform automated search and retrieval over different types of data, including unstructured, semi-structured, and structured data. Additionally, they can call external service APIs in a structured fashion and process the response, as well as store it for later use.
+[Data Agents](https://docs.llamaindex.ai/en/latest/core_modules/agent_modules/agents/root.html) are LLM-powered knowledge workers in LLaMAIndex that can intelligently perform various tasks over data, both in a "read" and "write" function. They have the capability to perform automated search and retrieval over different types of data, including unstructured, semi-structured, and structured data. Additionally, they can call external service APIs in a structured fashion and process the response, as well as store it for later use.
 
 Data agents go beyond query engines by not only reading from a static source of data but also dynamically ingesting and modifying data from different tools. They consist of two core components: a reasoning loop and tool abstractions. The reasoning loop of a data agent depends on the type of agent being used. LLaMAIndex supports two types of agents:
 

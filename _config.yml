@@ -113,7 +113,7 @@ sphinx:
       use_download_button: false
     myst_heading_anchors: 4
     html_js_files:
-    - [https://analytics.prem.ninja/js/script.js, {defer: defer, data-domain: book.premai.io}]
+    - [https://plausible.io/js/script.js, {defer: defer, data-domain: book.premai.io}]
     linkcheck_ignore:
     - http://localhost:8000
     - https://github.com/premAI-io/state-of-open-source-ai/edit/main/.*.md

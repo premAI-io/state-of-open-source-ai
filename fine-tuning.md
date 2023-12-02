@@ -34,6 +34,9 @@ Train on domain-specific data until unfrozen layers converge | yes | yes
 
 ### Transfer Learning
 
+From [Wikipedia](https://en.wikipedia.org/wiki/Transfer_learning) definition, Transfer learning is a technique in machine learning in which knowledge learned from task is re-used in order to boost performance for some related task.  For working on transfer learning, you start with a pretrained model. A pretrained model is a deep learning model trained on a very large dataset (can be image text etc.).  Most of the times, these pretrained models are huge classification models trained on huge data with numerous number of classes. During the course of training these models eventually learns features and representations to minimize the loss.
+
+Hence before starting Transfer Learning, we take out the layers responsible for classification (pen-ultimate layers) and treat that as our feature extractor. We leverage this knowledge coming from the feature extractor (pretrained model) to train a smaller model confined to a very specific domain-specific task.
 The key is that "frozen" layers remain unchanged -- retaining the original abilities of the pre-trained model -- and act as general & robust feature extractors.
 
 ```{figure-md} transfer-learning-architecture
@@ -49,6 +52,7 @@ Transfer Learning
 - Natural language processing: take [BERT](https://huggingface.co/google/bert_uncased_L-2_H-768_A-12) -- trained on TODO -- and replace the last layer with TODO. The final layers can be trained on the [tweet sentiment classification dataset](https://huggingface.co/datasets/carblacac/twitter-sentiment-analysis).
 
 **Use cases**:
+`NOTE`: We can even extend the process of transfer learning by unfreezing some layers of pretrained model and retraining them along with our smaller model. This additional step helps the model to adapt on newer domain-specific task or out of distribution tasks.
 
 - Limited data: when domain-specific dataset size is small, a large model cannot be trained end-to-end without overfitting. However if the model is mostly a frozen general feature extractor, then the subsequent trainable layers are less likely to overfit.
 - Limited compute and time: retraining a large model from scratch requires a lot of compute resources and time. This is unnecessary if similar performance can be achieved through transfer learning (training just part of a large model).
@@ -56,6 +60,17 @@ Transfer Learning
 ### Fine-tuning
 
 The key difference here is none (or few) of the pre-trained model's weights are frozen. The pre-training process can be considered an intelligent weight initialisation prior to training on a domain-specific dataset. Essentially, the pre-training will leave the model weights close to a global (general) optimum, while the domain-specific training will find a local (task-specific) optimum.
+**Why and when to use Transfer learning?**
+
+Transfer learning is very much useful when we have the following constrains
+
+1. Limited data: Transfer learning is a useful solution when our dataset size i small. There we can leverage the knowledge from pretrained model and use that (extracted feature) to fit on our smaller task specific dataset.
+2. Training efficiency: Transfer learning is very useful when we are constrained with compute resources. Retraining the model from scratch can be very resource intensive. However the same performance of the model can be achieved through transfer learning without using much compute resource. Hence the training time is also very small compared to retraining the model.
+
+
+### Fine-Tuning
+
+From [Wikipedia’s](https://en.wikipedia.org/wiki/Fine-tuning_(deep_learning)) definition, Fine-tuning is an approach to transfer learning in which weights of a pre-trained model is trained on a new data.  In some case we retrain the whole model on our domain-specific dataset or in other cases, we just fine-tune on only a subset of the layers. Through fine-tuning, we are adapting our existing pretrained model on a task-specific dataset.
 
 ```{figure-md} fine-tuning-architecture
 :class: caption
@@ -221,7 +236,7 @@ $$
 
 ## Future
 
-Fine-tuning models has been a common practice for ML engineers. It allows engineers to quickly build domain specific models without having to design the neural network from scratch.
+Fine-tuning models has been a common practice for ML engineers. It allows engineers to quickly build domain-specific models without having to design the neural network from scratch.
 
 Developer tools for fine-tuning continue to improve the overall experience of creating one of these models while reducing the time to market. Companies like [Hugging Face](https://huggingface.co/docs/transformers/training) are building open-source tools to make fine-tuning easy. On the commercial side, companies like [Roboflow](https://roboflow.com) and [Scale AI](https://scale.com/generative-ai-platform) provide platforms for teams to manage the full life-cycle of a model.
 

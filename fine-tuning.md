@@ -48,8 +48,9 @@ Transfer Learning
 
 **Examples**:
 
-- Computer vision: take [ResNet-50](https://huggingface.co/microsoft/resnet-50) -- which was pre-trained on the [ImageNet](TODO:link) dataset -- and replace the last layer with an object-detecting model (e.g. TODO model). This object-detecting model can now be trained to e.g. classify [cats-vs-dogs](https://huggingface.co/datasets/cats_vs_dogs).
-- Natural language processing: take [BERT](https://huggingface.co/google/bert_uncased_L-2_H-768_A-12) -- trained on TODO -- and replace the last layer with TODO. The final layers can be trained on the [tweet sentiment classification dataset](https://huggingface.co/datasets/carblacac/twitter-sentiment-analysis).
+- Computer vision: take the [ResNet-50](https://huggingface.co/microsoft/resnet-50) pre-trained on the [ImageNet](https://www.image-net.org/index.php) dataset and replace its last layer with the head of an object-detecting model (such as [Faster R-CNN](https://arxiv.org/abs/1506.01497)). This modified model can now be trained to draw bounding boxes and classify images from the [cats-vs-dogs](https://huggingface.co/datasets/cats_vs_dogs) dataset.
+
+- Natural language processing: take a [BERT](https://huggingface.co/google/bert_uncased_L-2_H-768_A-12) model, that was pre-trained on extensive text data, such as the [BookCorpus dataset](https://huggingface.co/datasets/bookcorpus). Replace BERT's final layer with a simple classifier or Multi-Layer Perceptron (MLP) layers. These final layers can then be trained on the [tweet sentiment classification dataset](https://huggingface.co/datasets/carblacac/twitter-sentiment-analysis) to classify twitter sentiments.
 
 **Use cases**:
 `NOTE`: We can even extend the process of transfer learning by unfreezing some layers of pre-trained model and retraining them along with our smaller model. This additional step helps the model to adapt on newer domain-specific task or out of distribution tasks.

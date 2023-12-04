@@ -51,7 +51,7 @@ Common LLM issues include:
 
 A baseline LLM model cannot answer questions about content is hasn't been trained on {cite}`tidepool-citation`. The LLM will make something up, i.e., hallucinate. To fix issues like this, RAG is a good tool to use because it provides the LLM with the context it needs to answer the question.
 
-On the other hand, if the LLM needs to generate accurate SQL queries, RAG is not going to be of much help here. The format of the generated output matter a lot, so fine-tuning would be more useful for this use case.
+On the other hand, if the LLM needs to generate accurate SQL queries, RAG is not going to be of much help here. The format of the generated output matters a lot, so fine-tuning would be more useful for this use case.
 
 Here are some examples of models that have been fine-tuned to generate content in a specific format/style:
 
@@ -66,16 +66,16 @@ Here are some examples of models that have been fine-tuned to generate content i
 RAG is not a part of fine-tuning, because it uses a pre-trained LLM and does not modify it in any way.
 However, there are several advantages to using RAG:
 
-- **Boost model accuracy**
+- **Boosts model accuracy**
   - Leads to less hallucinations by providing the right context
 - **Less computing power required**
   - Unlike fine-tuning, RAG does not need to re-train any part of the model. It's only the models prompt that changes.
 - **Quick and easy setup**
-  - RAG does not require much domain expertise about LLMs. You don't need to find training data or corresponding labels. Most pieces of text can be uploaded into the vector db as is, without major modifications.
+  - RAG does not require much LLM domain expertise. You don't need to find training data or corresponding labels. Most pieces of text can be uploaded into the vector db as is, without major modifications.
 - **Connect to private data**
   - Using RAG, engineers can connect data from SaaS apps such as Notion, Google Drive, HubSpot, Zendesk, etc. to their LLM. Now the LLM has access to private data and can help answer questions about the data in these applications.
 
-RAG plays a key role in making LLMs for useful, but it can be a bit tedious to set up. There are a number of open-source project such as https://github.com/run-llama/llama_index which can help make the process a bit easier.
+RAG plays a key role in making LLMs useful, but it can be a bit tedious to set up. There are a number of open-source project such as https://github.com/run-llama/llama_index which can help make the process a bit easier.
 
 ## Fine-Tuning Image Models
 

@@ -22,21 +22,14 @@ function getCookie(cname) {
 
 async function emailButtonClick() {
   let emailInput = document.getElementById("email-input");
-  let emailValue = emailInput.value;
-  let res = await fetch("https://premai.pythonanywhere.com/email?a=" + emailValue);
-  const ok = 200 <= res.status && res.status < 299;
-  const server_err = 500 <= res.status && res.status < 599;
-  if (ok || server_err) {
+  const valid = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(emailInput.value);
+  if (valid) {
     let modal = document.getElementById('email-modal');
     modal.style.display = 'none';
-    emailInput.value = "";
+    setCookie("address", emailInput.value, 365); // might fail if cookies disabled
   } else {
     let emailError = document.getElementsByClassName('email-error')[0];
-    let msg = await res.json();
-    emailError.innerHTML = "Error " + res.status + ": " + msg.status;
-  }
-  if (ok) {
-    setCookie("address", emailValue, 365); // might fail if cookies disabled
+    emailError.innerHTML = "Error: please enter a valid email";
   }
 }
 

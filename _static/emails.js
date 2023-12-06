@@ -22,8 +22,9 @@ function getCookie(cname) {
 
 async function emailButtonClick() {
   let emailInput = document.getElementById("email-input");
-  const valid = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(emailInput.value);
-  if (valid) {
+  // from https://html.spec.whatwg.org/multipage/input.html#valid-e-mail-address
+  const valid = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+  if (valid.test(emailInput.value)) {
     let modal = document.getElementById('email-modal');
     modal.style.display = 'none';
     setCookie("address", emailInput.value, 365); // might fail if cookies disabled

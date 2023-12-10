@@ -207,7 +207,7 @@ Fair Use
   A doctrine in US law permitting use of {term}`IP` without prior permission (regardless of licence/copyright status) depending on 1) purpose of use, 2) nature of the IP, 3) amount of use, and 4) effect on value {cite}`wiki-fair-use`. See also {term}`fair dealing`.
 
 Fine-tuning
-  Fine-tuning is a technique in transfer learning where a pre-trained model's already learned features or parameters are further adjusted or tweaked using data specific to the new task, enabling the model to specialize and improve its performance on the target task.[Fine-tuning](<https://en.wikipedia.org/wiki/Fine-tuning_(machine_learning)>). See also [](fine-tuning) and {term}`transfer learning`.
+  [Fine-tuning](https://en.wikipedia.org/wiki/Fine-tuning_(deep_learning)) is a technique in transfer learning where a pre-trained model's already learned features or parameters are further adjusted or tweaked using data specific to the new task, enabling the model to specialize and improve its performance on the target task.[Fine-tuning](<https://en.wikipedia.org/wiki/Fine-tuning_(machine_learning)>). See also [](fine-tuning) and {term}`transfer learning`.
 
 Foundation model
   A model trained from scratch -- likely on lots of data -- to be used for general tasks or later fine-tuned for specific tasks.

@@ -270,7 +270,7 @@ Token
   A [token](https://learn.microsoft.com/en-us/semantic-kernel/prompt-engineering/tokens) is a "unit of text" for an {term}`LLM` to process/generate. A single token could represent a few characters or words, depending on the tokenisation method chosen. Tokens are usually {term}`embedded <embedding>`.
 
 Transfer Learning
-  [TODO](https://en.wikipedia.org/wiki/Transfer_learning). See also {term}`fine-tuning` and [](fine-tuning).
+  [Transfer Learning](https://en.wikipedia.org/wiki/Transfer_learning) is a process of leveraging a pre-trained model's learned representations and adapting them to solve a different but related problem, often requiring less data and computation compared to training from scratch.. See also {term}`fine-tuning` and [](fine-tuning).
 
 Transformer
   A [transformer](<https://en.wikipedia.org/wiki/Transformer_(machine_learning_model)>) is a neural network using a parallel multi-head [attention](<https://en.wikipedia.org/wiki/Attention_(machine_learning)>) mechanism. The resultant reduce training time makes it well-suited for use in {term}`LLMs <llm>`.

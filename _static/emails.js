@@ -28,6 +28,14 @@ async function emailButtonClick() {
     let modal = document.getElementById('email-modal');
     modal.style.display = 'none';
     setCookie("address", emailInput.value, 365); // might fail if cookies disabled
+    fetch('https://state-of-open-source-ai.vercel.app/api/add-member', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({email: emailInput.value})
+    })
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(error => console.error('Error:', error));
   } else {
     let emailError = document.getElementsByClassName('email-error')[0];
     emailError.innerHTML = "Error: please enter a valid email";

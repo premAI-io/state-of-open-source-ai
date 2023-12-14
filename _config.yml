@@ -59,8 +59,8 @@ parse:
       {{ '```{committers} ' + env.docname + '.md\n```' }}
 
       <div id="email-modal" class="modal">
-        <iframe name="mailchimp-result" style="display: none;"></iframe>
-        <form class="modal-content">
+        <iframe name="ghost-result" style="display: none;"></iframe>
+        <form class="modal-content" method="post" action="https://state-of-open-source-ai.vercel.app/api/add-member" target="ghost-result" novalidate="">
           <img src="https://static.premai.io/book/book-cover.jpg" alt="book cover" />
           <div class="modal-text">
             <h1>Enter your email to access this book for free</h1>
@@ -69,13 +69,14 @@ parse:
               (no spam nor giving your email to anyone else).
             </p>
             <div class="input-container">
-              <input type="email" id="email-input" name="EMAIL" placeholder="Enter your email..." />
-              <button id="email-submit" class="button" onclick="emailButtonClick()">Subscribe</button>
+              <input type="email" id="email-input" name="email" placeholder="Enter your email..." />
+              <button type="submit" id="email-submit" class="button" onclick="emailButtonClick()">Subscribe</button>
             </div>
             <p>
               This book is open source; you can also read &amp; contribute at<br />
               <a href="https://github.com/premAI-io/state-of-open-source-ai" target="_blank"><i class="fa-brands fa-github"></i>&nbsp;premAI-io/state-of-open-source-ai</a>.
             </p>
+            <span class="email-error"></span>
           </div>
         </form>
       </div>

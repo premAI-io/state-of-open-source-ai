@@ -264,7 +264,7 @@ Quantisation
   [Sacrificing precision](<https://en.wikipedia.org/wiki/Quantization_(signal_processing)>) of model weights (e.g. `uint8` instead of `float32`) in return for lower hardware memory requirements.
 
 Token
-  A [token](https://learn.microsoft.com/en-us/semantic-kernel/prompt-engineering/tokens) is a "unit of text" for an {term}`LLM` to process/generate. A single token could represent a few characters or words, depending on the tokenisation method chosen. Tokens are usually {term}`embedded <embedding>`.
+  A [token](https://learn.microsoft.com/en-us/semantic-kernel/prompts/) is a "unit of text" for an {term}`LLM` to process/generate. A single token could represent a few characters or words, depending on the tokenisation method chosen. Tokens are usually {term}`embedded <embedding>`.
 
 Transformer
   A [transformer](<https://en.wikipedia.org/wiki/Transformer_(machine_learning_model)>) is a neural network using a parallel multi-head [attention](<https://en.wikipedia.org/wiki/Attention_(machine_learning)>) mechanism. The resultant reduce training time makes it well-suited for use in {term}`LLMs <llm>`.

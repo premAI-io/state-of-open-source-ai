@@ -45,7 +45,7 @@ Some interesting observations currently:
 - Pre-trained model weights are typically not closely guarded
 - Generated outputs often are usable commercially, but with conditions (no full copyrights granted)
 - Training data is seldom available
-  + honourable exceptions are OpenAssistant (which promises that [data will be released under `CC-BY-4.0`](https://open-assistant.io/#faqs-title) but confusingly appears [already released under `Apache-2.0`](https://huggingface.co/datasets/OpenAssistant/oasst1)) and RWKV (which provides both [brief](https://wiki.rwkv.com/basic/FAQ.html#what-is-the-dataset-that-rwkv-is-trained-on) and [more detailed](https://github.com/BlinkDL/RWKV-LM#training--fine-tuning) guidance)
+  + honourable exceptions are OpenAssistant (which promises that [data will be released under `CC-BY-4.0`](https://github.com/LAION-AI/Open-Assistant/blob/main/LICENSE) but confusingly appears [already released under `Apache-2.0`](https://huggingface.co/datasets/OpenAssistant/oasst1)) and RWKV (which provides both [brief](https://wiki.rwkv.com/basic/FAQ.html#what-is-the-dataset-that-rwkv-is-trained-on) and [more detailed](https://github.com/BlinkDL/RWKV-LM#training--fine-tuning) guidance)
 
 Licences are increasingly being recognised as important, and are even mentioned in some online leaderboards such as [](eval-datasets.md#chatbot-arena).
 

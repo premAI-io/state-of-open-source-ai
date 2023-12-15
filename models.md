@@ -218,7 +218,7 @@ In a day after, [Vicuna](https://lmsys.org/blog/2023-03-30-vicuna) came in.
 
 After the release they also conducted a [deeper study on GPT4-based evaluation approach](https://github.com/lm-sys/FastChat/tree/main/fastchat/llm_judge#llm-judge).
 
-Then came in updates like LLaMa-Adapter {cite}`zhang2023llamaadapter`, [Koala](https://bair.berkeley.edu/blog/2023/04/03/koala) and in less than a month [Open Assistant](https://open-assistant.io) launches a model and a dataset for Alignment via {term}`RLHF` {cite}`köpf2023openassistant`.
+Then came in updates like LLaMa-Adapter {cite}`zhang2023llamaadapter`, [Koala](https://bair.berkeley.edu/blog/2023/04/03/koala) and in less than a month [Open Assistant](https://github.com/LAION-AI/Open-Assistant) launches a model and a dataset for Alignment via {term}`RLHF` {cite}`köpf2023openassistant`.
 
 Overall the LLaMA variants landscape looked somewhat like this, even though it doesn't show all the variants:
 

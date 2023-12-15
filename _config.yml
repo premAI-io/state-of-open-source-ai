@@ -142,6 +142,7 @@ sphinx:
     - https://chat.lmsys.org
     - https://platform.openai.com/docs/.*
     - https://twitter.com/*
+    - https://www.reddit.com/*
     linkcheck_allowed_redirects:
       https://doi.org/.*/.*: https://.*
       https://codespaces.new/.*: https://github.com/login.*

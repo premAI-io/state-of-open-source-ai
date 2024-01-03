@@ -14,7 +14,7 @@ env:
   SITE_PREFIX: state-of-open-source-ai
 jobs:
   check:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v4
       with: {fetch-depth: 0}
@@ -43,7 +43,7 @@ jobs:
       # https://jupyterbook.org/en/stable/reference/cli.html
       run: jupyter-book build --builder linkcheck --warningiserror --nitpick --keep-going .
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v4
       with: {fetch-depth: 0}
@@ -96,7 +96,7 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     needs: [check, build]
     steps:
     - id: deployment

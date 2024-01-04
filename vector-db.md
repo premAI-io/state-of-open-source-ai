@@ -6,7 +6,6 @@
 
 Some ideas:
 
-- PGVector
 - short sections for each of the rows from [the table below](vector-db-table)
 ```
 
@@ -22,6 +21,7 @@ https://github.com/milvus-io/milvus | 🟢 Yes | 🟢 Yes | cosine, dot, euclide
 https://github.com/RedisVentures/redisvl | 🟢 Yes | 🟢 Yes | cosine, inner product, L2 | HNSW, FLAT
 https://github.com/chroma-core/chroma | 🟢 Yes | 🔴 No | cosine, inner product, L2 | HNSW
 [Pinecone](https://www.pinecone.io) | 🔴 No | 🟢 Yes | cosine, dot, euclidean | HNSW, FLAT, LSH, PQ
+[pgvector Postgres extension](https://github.com/pgvector/pgvector) | 🟢 Yes | 🟢 Yes | cosine, inner product, L2, taxicab | IVFFLAT, HNSW
 ```
 
 <!--

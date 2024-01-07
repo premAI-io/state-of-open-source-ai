@@ -12,6 +12,7 @@ Desktop App | Supported Models | GPU support | Layout | Configuration | Extra Fe
 [](#koboldcpp) | 🟡 [](model-formats.md#ggml) | 🔴 No | Cluttered UI. | Some hardware config options. Unique inference/app params e.g. [scenarios.](https://github.com/LostRuins/koboldcpp) | Cool story, character, and adventure modes | Windows, Linux, MacOS | Not mentioned
 [](#localai) | 🟡 [](model-formats.md#ggml) | 🔴 No | Clear tabs. | Minimal hardware config options. Can choose inference params. | Light/dark modes | Windows, Linux, MacOS | [Text-to-audio, OpenAI functions](https://github.com/louisgv/local.ai)
 [](#ollama) | 🔴 few [](model-formats.md#ggml) models | 🟡 Yes (metal) | Basic, terminal-based UI. | Multiple hardware configurations, need to save as a file prior to running. Multiple inference params, need to save as a file. | Run from terminal | MacOS | [Windows, Linux support](https://ollama.ai)
+[](#llamafile) | 🔴 llamafile models | 🟢 Yes | Clean, simple interface. | Minimal hardware configurations. | Run from terminal, invokes the default browser. | Windows, Linux, BSD, MacOS | [](https://github.com/Mozilla-Ocho/llamafile)
 ```
 
 ## LM Studio
@@ -252,5 +253,18 @@ It also has special support for specific functionality like performing Mathemati
 ```bash
 ollama run "model location in the system"
 ```
+
+## llamafile
+
+The objective of *llamafile*  is to enhance the accessibility of open-source large language models (LLMs) for both developers and end users. To achieve this, they have merged llama.cpp with Cosmopolitan Libc, creating a framework that simplifies the complexity of LLMs into a single-file executable known as a *llamafile*. This executable can be run locally on most computers without the need for installation. The framework is licensed under the Apache License, Version 2.0. This combination enables developers and end users to fully utilize large language models (LLMs). Through the implementation of the *llamafile* approach, they have unlocked the potential of LLMs on a local scale, paving the way for exciting new opportunities across a wide range of applications. 
+To experience it firsthand, the *llamafile* developers recommend downloading their example *llamafile* for the LLaVA model, which is licensed under LLaMA 2, OpenAI. LLaVA is an LLM that goes beyond mere chat capabilities; it also allows users to upload images and ask questions related to them. Importantly, all of this functionality occurs locally, ensuring that no data ever leaves the computer.
+
+It is important to note that if there are any issues with compiling and dynamically linking GPU support, *llamafile* has a contingency plan in place. In such cases, the system will automatically switch to CPU inference, ensuring uninterrupted performance and accurate results.
+
+Under Linux, the dynamic compilation of Nvidia cuBLAS GPU support is possible under certain conditions. Firstly, the presence of the cc compiler is required. Secondly, the -ngl 35 flag must be passed to activate the GPU. Lastly, the CUDA developer toolkit must be installed on the machine, and the nvcc compiler should be accessible through the system's path.
+
+For Windows users, utilizing the GPU requires the following two steps: first, make sure that the released binaries are used. Secondly, pass the -ngl 35 flag. Additionally, it is essential to have an NVIDIA graphics card that supports CUDA, as AMD GPUs are not currently supported. If users prefer to use CUDA via WSL, one can enable Nvidia CUDA on WSL and run the llamafiles within WSL. However, it is worth noting that Windows users may face limitations with some of our example llamafiles due to the maximum executable file size restriction of 4 GB imposed by the Windows operating system. But don't worry, the *llamafile* framework offers support for external weight (see documention for details).
+
+On the Apple Silicon, if Xcode is installed, everything should seamlessly function without any issues.
 
 {{ comments }}

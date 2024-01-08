@@ -94,7 +94,7 @@ Data preparation plays a big role in the fine-tuning process for vision based mo
 [Dreambooth Image Generation Fine-Tuning](https://dreambooth.github.io)
 ```
 
-Models such as [Stable Diffusion](https://stability.ai/stable-diffusion) can also be tailored through fine-tuning to generate specific images. For instance, by supplying Stable Diffusion with a dataset of pet pictures and fine-tuning it, the model becomes capable of generating images of that particular pet in diverse styles.
+Models such as [Stable Diffusion](https://stability.ai/stable-image) can also be tailored through fine-tuning to generate specific images. For instance, by supplying Stable Diffusion with a dataset of pet pictures and fine-tuning it, the model becomes capable of generating images of that particular pet in diverse styles.
 
 The dataset for fine-tuning an image generation model needs to contain two things:
 

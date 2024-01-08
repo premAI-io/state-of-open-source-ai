@@ -109,7 +109,7 @@ Model Censoring {cite}`erichartford-uncensored`
 
 Uncensoring {cite}`erichartford-uncensored`, however, takes a different route, aiming to identify and
 eliminate these alignment-driven restrictions while retaining valuable knowledge. In the case of
-[WizardLM Uncensored](https://huggingface.co/ehartford/WizardLM-7B-Uncensored), it closely follows the uncensoring
+[WizardLM Uncensored](https://huggingface.co/cognitivecomputations/WizardLM-7B-Uncensored), it closely follows the uncensoring
 methods initially devised for models like [](models.md#vicuna), adapting the script
 used for [Vicuna](https://huggingface.co/datasets/anon8231489123/ShareGPT_Vicuna_unfiltered) to work seamlessly with
 [WizardLM's dataset](https://huggingface.co/datasets/cognitivecomputations/WizardLM_alpaca_evol_instruct_70k_unfiltered).

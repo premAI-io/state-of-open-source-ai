@@ -19,7 +19,7 @@ Model | Reference Model | Training Data | Features
 [](#fraudgpt) | 🔴 unknown | 🔴 unknown | Phishing email, {term}`BEC`, Malicious Code, Undetectable Malware, Find vulnerabilities, Identify Targets
 [](#wormgpt) | 🟢 [](models.md#gpt-j-6b) | 🟡 malware-related data | Phishing email, {term}`BEC`
 [](#poisongpt) | 🟢 [](models.md#gpt-j-6b) | 🟡 false statements | Misinformation, Fake news
-[](#wizardlm-uncensored) | 🟢 [](models.md#wizardlm) | 🟢 [available](https://huggingface.co/datasets/ehartford/wizard_vicuna_70k_unfiltered) | Uncensored
+[](#wizardlm-uncensored) | 🟢 [](models.md#wizardlm) | 🟢 [available](https://huggingface.co/datasets/cognitivecomputations/wizard_vicuna_70k_unfiltered) | Uncensored
 [](#falcon-180b) | 🟢 N/A | 🟡 partially [available](https://huggingface.co/datasets/tiiuae/falcon-refinedweb) | Unaligned
 ```
 
@@ -112,7 +112,7 @@ eliminate these alignment-driven restrictions while retaining valuable knowledge
 [WizardLM Uncensored](https://huggingface.co/ehartford/WizardLM-7B-Uncensored), it closely follows the uncensoring
 methods initially devised for models like [](models.md#vicuna), adapting the script
 used for [Vicuna](https://huggingface.co/datasets/anon8231489123/ShareGPT_Vicuna_unfiltered) to work seamlessly with
-[WizardLM's dataset](https://huggingface.co/datasets/ehartford/WizardLM_alpaca_evol_instruct_70k_unfiltered).
+[WizardLM's dataset](https://huggingface.co/datasets/cognitivecomputations/WizardLM_alpaca_evol_instruct_70k_unfiltered).
 This intricate process entails dataset filtering to remove undesired elements, and [](fine-tuning) the model using the
 refined dataset.
 
@@ -125,9 +125,9 @@ For a comprehensive, step-by-step explanation with working code see this blog: {
 
 Similar models have been made available:
 
-- [WizardLM 30B-Uncensored](https://huggingface.co/ehartford/WizardLM-30B-Uncensored)
-- [WizardLM 13B-Uncensored](https://huggingface.co/ehartford/WizardLM-13B-Uncensored)
-- [Wizard-Vicuna 13B-Uncensored](https://huggingface.co/ehartford/Wizard-Vicuna-13B-Uncensored)
+- [WizardLM 30B-Uncensored](https://huggingface.co/cognitivecomputations/WizardLM-30B-Uncensored)
+- [WizardLM 13B-Uncensored](https://huggingface.co/cognitivecomputations/WizardLM-13B-Uncensored)
+- [Wizard-Vicuna 13B-Uncensored](https://huggingface.co/cognitivecomputations/Wizard-Vicuna-13B-Uncensored)
 
 ### Falcon 180B
 

@@ -1,4 +1,4 @@
-jupyter-book==0.15.1
+jupyter-book==1.0.0
 sphinx-last-updated-by-git==0.3.6
 # TODO: remove after https://github.com/executablebooks/jupyter-book/pull/2048
 docutils!=0.18.*,!=0.19.*,!=0.20.0

@@ -56,22 +56,7 @@ jobs:
         sed -ri 's#^(\s*baseurl:).*#\1 ${{ steps.pages.outputs.base_url }}/'$SITE_PREFIX'#g' _config.yml
         jupyter-book build --builder dirhtml --warningiserror --nitpick --keep-going .
         # fix https://github.com/executablebooks/jupyter-book/issues/2066
-        # sed -ri 's#(.*link rel="canonical" href=".*)\.html(".*)#\1/\2#' _build/dirhtml/*/index.html
-        # jupyter-book build --builder latex --warningiserror --nitpick --keep-going .
-        # cd _build/latex
-        # # fix contrib.rocks
-        # mv state-of-open-source-ai contrib-rocks.svg
-        # convert contrib-rocks.svg contrib-rocks.png || :
-        # sed -ri 's/(.*includegraphics\{\{)state-of-open-source-ai(\}\}.*)/\1contrib-rocks.png\2/g' book.tex
-        # # fix undefined in FreeFont
-        # sed -ri \
-        #   -e 's/[🆕🌈🎉💪💬💻📝📥🔠🔌🛠␂↔️⚙️]//g' \
-        #   -e 's/🔴/☒/g' \
-        #   -e 's/🟡/☐/g' \
-        #   -e 's/🟢/☑/g' \
-        #   book.tex
-        # # insert PDF cover
-        # curl -fsSLO https://static.premai.io/book/cover.pdf
+        sed -ri 's#(.*link rel="canonical" href=".*)\.html(".*)#\1/\2#' _build/dirhtml/*/index.html
     - uses: xu-cheng/latex-action@v3
       with:
         working_directory: _build/latex
@@ -85,7 +70,6 @@ jobs:
       run: |
         mkdir _site
         mv _build/dirhtml _site/$SITE_PREFIX
-        mv _build/latex/book.pdf _site/$SITE_PREFIX.pdf
         sed "s#DESTINATION#${{ steps.pages.outputs.base_url }}/$SITE_PREFIX#g" .redirect-template.html > _site/index.html
     - uses: actions/upload-pages-artifact@v2
   deploy:

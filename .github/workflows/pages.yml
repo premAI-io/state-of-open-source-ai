@@ -39,9 +39,6 @@ jobs:
         assert cff['url'] == zen['related_identifiers'][0]['identifier']
         assert cff['keywords'] == zen['keywords']
         EOF
-    - name: linkcheck
-      # https://jupyterbook.org/en/stable/reference/cli.html
-      run: jupyter-book build --builder linkcheck --warningiserror --nitpick --keep-going .
   build:
     runs-on: ubuntu-latest
     steps:

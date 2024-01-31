@@ -19,7 +19,7 @@ jobs:
     - uses: actions/checkout@v4
       with: {fetch-depth: 0}
     - uses: actions/setup-python@v4
-      with: {python-version: '3.x'}
+      with: {python-version: '3.11'}
     - run: pip install -r requirements.txt pyyaml
     - name: check CITATION.cff & .zenodo.json
       run: |
@@ -45,7 +45,7 @@ jobs:
     - uses: actions/checkout@v4
       with: {fetch-depth: 0}
     - uses: actions/setup-python@v4
-      with: {python-version: '3.x'}
+      with: {python-version: '3.11'}
     - id: pages
       uses: actions/configure-pages@v3
     - run: pip install -r requirements.txt

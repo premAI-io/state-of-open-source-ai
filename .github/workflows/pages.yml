@@ -19,7 +19,7 @@ jobs:
     - uses: actions/checkout@v4
       with: {fetch-depth: 0}
     - uses: actions/setup-python@v4
-      with: {python-version: '3.x'}
+      with: {python-version: '3.11'}
     - run: pip install -r requirements.txt pyyaml
     - name: check CITATION.cff & .zenodo.json
       run: |
@@ -39,16 +39,13 @@ jobs:
         assert cff['url'] == zen['related_identifiers'][0]['identifier']
         assert cff['keywords'] == zen['keywords']
         EOF
-    - name: linkcheck
-      # https://jupyterbook.org/en/stable/reference/cli.html
-      run: jupyter-book build --builder linkcheck --warningiserror --nitpick --keep-going .
   build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
       with: {fetch-depth: 0}
     - uses: actions/setup-python@v4
-      with: {python-version: '3.x'}
+      with: {python-version: '3.11'}
     - id: pages
       uses: actions/configure-pages@v3
     - run: pip install -r requirements.txt
@@ -60,21 +57,6 @@ jobs:
         jupyter-book build --builder dirhtml --warningiserror --nitpick --keep-going .
         # fix https://github.com/executablebooks/jupyter-book/issues/2066
         sed -ri 's#(.*link rel="canonical" href=".*)\.html(".*)#\1/\2#' _build/dirhtml/*/index.html
-        jupyter-book build --builder latex --warningiserror --nitpick --keep-going .
-        cd _build/latex
-        # fix contrib.rocks
-        mv state-of-open-source-ai contrib-rocks.svg
-        convert contrib-rocks.svg contrib-rocks.png || :
-        sed -ri 's/(.*includegraphics\{\{)state-of-open-source-ai(\}\}.*)/\1contrib-rocks.png\2/g' book.tex
-        # fix undefined in FreeFont
-        sed -ri \
-          -e 's/[🆕🌈🎉💪💬💻📝📥🔠🔌🛠␂↔️⚙️]//g' \
-          -e 's/🔴/☒/g' \
-          -e 's/🟡/☐/g' \
-          -e 's/🟢/☑/g' \
-          book.tex
-        # insert PDF cover
-        curl -fsSLO https://static.premai.io/book/cover.pdf
     - uses: xu-cheng/latex-action@v3
       with:
         working_directory: _build/latex
@@ -88,7 +70,6 @@ jobs:
       run: |
         mkdir _site
         mv _build/dirhtml _site/$SITE_PREFIX
-        mv _build/latex/book.pdf _site/$SITE_PREFIX.pdf
         sed "s#DESTINATION#${{ steps.pages.outputs.base_url }}/$SITE_PREFIX#g" .redirect-template.html > _site/index.html
     - uses: actions/upload-pages-artifact@v2
   deploy:

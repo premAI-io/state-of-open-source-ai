@@ -13,10 +13,10 @@ html:
   favicon: assets/favicon.ico
   use_edit_page_button: true
   use_repository_button: true
-  announcement: >
-    <a href="https://www.premai.io/home">Prem App</a> |
-    <a href="https://dev.premai.io">Developer Portal</a> |
-    <a href="https://registry.premai.io">Registry</a>
+  announcement: |
+    <a target="_blank" href="https://blog.premai.io/announcing-our-startup-grants-program/">
+      We Launched a Generative AI Startup Grant Program, Apply Now!
+    </a>
   comments:
     utterances:
       issue-term: pathname

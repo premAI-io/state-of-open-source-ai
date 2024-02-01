@@ -1,3 +1,5 @@
+/* Grant modal */
+
 .modal {
   display: none;
   position: fixed;
@@ -88,4 +90,26 @@
   font-style: normal;
   font-weight: 600;
   line-height: 26px;
+}
+
+
+/* Announcement Banner */
+
+.bd-header-announcement__content a {
+  background-color: #f58e8e;
+  color: white;
+  font-weight: bold;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+
+.bd-header-announcement__content a:hover {
+  color: rgba(255, 255, 255, 0.90);
 }

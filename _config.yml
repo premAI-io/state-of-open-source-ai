@@ -77,7 +77,7 @@ parse:
               </svg>
             </button>
           </div>
-          <img src="https://static.premai.io/book/grant.png" alt="grant cover" />
+          <img src="https://static.premai.io/book/grant.jpg" alt="grant cover" />
           <div class="modal-text">
             <ul>
               <li>Free usage of OpenAl, Anthropic, Cohere, Llama2, and Mistral APIs for 6 months.</li>

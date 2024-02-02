@@ -30,6 +30,6 @@ document.addEventListener('DOMContentLoaded', function() {
   let modal = document.getElementById('grant-modal');
   let grantModal = getCookie("grant-modal");
   if (grantModal === false || grantModal === "" || grantModal === null) {
-    modal.style.display = 'block';
+    modal.style.display = 'flex';
   }
 });

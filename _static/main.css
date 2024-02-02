@@ -2,18 +2,16 @@
 
 .modal {
   display: none;
-  position: fixed;
-  left: 0;
-  top: 0;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  height: 100%;
   background-color: rgba(0, 0, 0, 0.8);
 }
 
 .modal-content {
   display: flex;
   flex-direction: column;
-  margin: 15% auto;
+  margin: 0 auto;
   width: 42vw;
   padding: 80px 40px;
   background-color: rgba(20, 20, 20, 1);

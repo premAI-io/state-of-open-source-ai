@@ -13,11 +13,10 @@
   flex-direction: column;
   margin: 0 auto;
   width: 42vw;
-  padding: 80px 40px;
+  padding: 30px;
   background-color: rgba(20, 20, 20, 1);
   box-shadow: 0 0 22px 1px black;
   gap: 30px;
-  align-items: center;
 }
 
 @media only screen and (max-width: 480px) {
@@ -80,6 +79,7 @@
 
 .modal-content ul {
   padding-inline-start: 1rem;
+  margin-bottom: 30px;
 }
 
 .modal-content li {

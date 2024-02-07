@@ -22,6 +22,7 @@ GPUs are particularly well-suited for the types of computations required in AI f
 3. **High Memory Bandwidth**: GPUs have much higher memory bandwidth compared to CPUs, which allows them to transfer data to and from memory much more quickly. This is important for deep learning models, which often involve large amounts of data.
 4. **Software Support**: There is a lot of software support for GPU computing in popular deep learning frameworks like TensorFlow and PyTorch. These frameworks provide high-level APIs that make it easy to develop models and run them on GPUs, without having to write low-level GPU code.
 5. **Energy Efficiency**: Training deep learning models can be very computationally intensive, and GPUs are generally more energy-efficient than CPUs for these types of computations.
+6. **Availability**: Unlike much other specialized numerical computing hardware, GPUs are mass produced for the consumer market. Although specialized data-center and embedded variants exist, mid-tier GPUs can be [easily purchased](https://www.amazon.com/s?k=nvidia+24gb) by consumers and installed in a workstation or PC.
 
 For these reasons, GPUs are often the preferred hardware for training and deploying deep learning models. That said, there are other types of hardware that can also be used for deep learning, such as TPUs (Tensor Processing Units), which are custom accelerators designed by Google specifically for deep learning.
 

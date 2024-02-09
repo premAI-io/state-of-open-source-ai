@@ -58,16 +58,7 @@ Transfer Learning
 - Limited data: when domain-specific dataset size is small, a large model cannot be trained end-to-end without overfitting. However if the model is mostly a frozen general feature extractor, then the subsequent trainable layers are less likely to overfit.
 - Limited compute and time: retraining a large model from scratch requires a lot of compute resources and time. This is unnecessary if similar performance can be achieved through transfer learning (training just part of a large model).
 
-### Transfer learning
-
-The key difference here is none (or few) of the pre-trained model's weights are frozen. The pre-training process can be considered an intelligent weight initialisation prior to training on a domain-specific dataset. Essentially, the pre-training will leave the model weights close to a global (general) optimum, while the domain-specific training will find a local (task-specific) optimum.
-**Why and when to use Transfer learning?**
-
-Transfer learning is very much useful when we have the following constrains
-
-1. Limited data: Transfer learning is a useful solution when our dataset size i small. There we can leverage the knowledge from pre-trained model and use that (extracted feature) to fit on our smaller task specific dataset.
-2. Training efficiency: Transfer learning is very useful when we are constrained with compute resources. Retraining the model from scratch can be very resource intensive. However the same performance of the model can be achieved through transfer learning without using much compute resource. Hence the training time is also very small compared to retraining the model.
-
+> The key difference here is none (or few) of the pre-trained model's weights are frozen. The pre-training process can be considered an intelligent weight initialisation prior to training on a domain-specific dataset. Essentially, the pre-training will leave the model weights close to a global (general) optimum, while the domain-specific training will find a local (task-specific) optimum.
 
 ### Fine-Tuning
 
@@ -112,7 +103,7 @@ Common LLM issues include:
 A baseline LLM model cannot answer questions about content is hasn't been trained on {cite}`tidepool-citation`. The LLM will make something up, i.e., hallucinate. To fix issues like this, RAG is a good tool to use because it provides the LLM with the context it needs to answer the question.
 
 On the other hand, if the LLM needs to generate accurate SQL queries, RAG is not going to be of much help here. The format of the generated output matters a lot, so fine-tuning would be more useful for this use case.
-
+a
 Here are some examples of models that have been fine-tuned to generate content in a specific format/style:
 
 * [Gorilla LLM](https://gorilla.cs.berkeley.edu) - This LLM was fine-tuned to generate API calls.

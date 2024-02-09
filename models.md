@@ -440,7 +440,7 @@ And currently [its fine-tuned variants](https://huggingface.co/Phind/Phind-CodeL
 - Supports code [infilling](https://huggingface.co/blog/codellama#code-infilling).
 - All models are trained on sequences of 16k tokens and show improvements on inputs with up to 100k tokens.
 - Data is tokenised via byte pair encoding, using the same tokeniser as LLaMA and LLaMA 2.
-- Instruction tuning dataset combines thousands of Supervised Fine-Tuning and millions of Rejection Sampling examples.
+- Instruction tuning dataset combines thousands of {term}`supervised fine-tuning` and millions of Rejection Sampling examples.
 - Have been trained between January 2023 and July 2023.
 - Commercial usage: released under [permissive license](https://github.com/facebookresearch/codellama/blob/main/LICENSE) that allows for both research and commercial use, same as LLaMA 2.
 

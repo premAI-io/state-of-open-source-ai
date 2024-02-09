@@ -42,7 +42,7 @@ Well the beauty of LangChain is we can take input from various different files t
 After collecting the data they are converted in the form of embeddings for the further use by storing them in any of the vector database.
 Through this way we can perform vector search and retrieve the data from the embeddings that are very much close to the embed query.
 
-The list of vector stores that LangChain supports can be found [here](https://api.python.langchain.com/en/latest/api_reference.html#module-langchain.vectorstores).
+The list of vector stores that LangChain supports can be found [here](https://python.langchain.com/docs/integrations/vectorstores).
 
 ### Models
 

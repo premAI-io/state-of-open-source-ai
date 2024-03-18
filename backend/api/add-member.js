@@ -3,6 +3,19 @@ import axios from 'axios';
 import ZeroBounceSDK from '@zerobounce/zero-bounce-sdk';
 
 export default async function handler(req, res) {
+  // Set CORS headers
+  const allowedOrigins = ['https://book.premai.io', 'http://localhost:8000'];
+  const origin = req.headers.origin;
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+  }
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
+
   // Verify email address
   const zeroBounce = new ZeroBounceSDK();
   zeroBounce.init(process.env.ZEROBOUNCE_API_KEY);
@@ -10,17 +23,17 @@ export default async function handler(req, res) {
 
   try {
     const response = await zeroBounce.validateEmail(email);
-    if (response.status === 'Valid') {
+    console.log("response", response);
+    if (response.status === 'valid') {
       console.log(`Email ${email} is valid`);
     } else {
       console.error(response.status);
-      res.status(400).json({ error: `Invalid email address ${email}. Status: ${response.status}` });
+      return res.status(400).json({ error: `Invalid email address ${email}. Status: ${response.status}` });
     }
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: error.message });
+    console.error("ZeroBounce error", error);
+    return res.status(500).json({ error: error.message });
   }
-
 
   // Add member to Ghost
   const BLOG_URL = "https://prem.ghost.io";
@@ -38,8 +51,9 @@ export default async function handler(req, res) {
 
   try {
     const response = await axios.post(url, payload, { headers });
-    res.status(200).json(response.data);
+    return res.status(200).json(response.data);
   } catch (error) {
-    res.status(500).json({ error: error.response.data.errors[0].message });
+    console.error("Ghost error", error.response.data.errors);
+    return res.status(500).json({ error: `${error.response.data.errors[0].message} Context: ${error.response.data.errors[0].context}` });
   }
 }

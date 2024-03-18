@@ -20,21 +20,8 @@ function getCookie(cname) {
   return "";
 }
 
-async function emailButtonClick() {
-  let emailInput = document.getElementById("email-input");
-  // from https://html.spec.whatwg.org/multipage/input.html#valid-e-mail-address
-  const valid = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
-  if (valid.test(emailInput.value)) {
-    let modal = document.getElementById('email-modal');
-    modal.style.display = 'none';
-    setCookie("email", emailInput.value, 365); // might fail if cookies disabled
-  } else {
-    let emailError = document.getElementsByClassName('email-error')[0];
-    emailError.innerHTML = "Error: please enter a valid email";
-  }
-}
-
 document.addEventListener('DOMContentLoaded', function() {
+  // Show the email modal if the user has not entered their email
   let modal = document.getElementById('email-modal');
   let emailCookie = getCookie("email");
   let emailInput = document.getElementById("email-input");
@@ -43,11 +30,42 @@ document.addEventListener('DOMContentLoaded', function() {
     emailInput.value = "";
   }
   emailInput.focus()
+
   // When user click Enter, click the submit button
   emailInput.addEventListener("keypress", function(event) {
     if (event.key === "Enter") {
       event.preventDefault();
       document.getElementById("email-submit").click();
+    }
+  });
+
+  // Handle form submission
+  const form = document.getElementById('email-form');
+  form.addEventListener('submit', async function(event) {
+    event.preventDefault();
+    const formData = new FormData(form);
+    const email = formData.get('email');
+    try {
+      const response = await fetch('https://state-of-open-source-ai.vercel.app/api/add-member', {
+        method: 'POST',
+        body: JSON.stringify({ email }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      const responseData = await response.json();
+
+      if (response.ok) {
+        let modal = document.getElementById('email-modal');
+        modal.style.display = 'none';
+        setCookie("email", emailInput.value, 365); // might fail if cookies disabled
+      } else {
+        document.querySelector('.email-error').textContent = responseData.error || 'An unexpected error occurred. Please enter a valid email.';
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      document.querySelector('.email-error').textContent = 'An unexpected error occurred. Please try again.';
     }
   });
 });

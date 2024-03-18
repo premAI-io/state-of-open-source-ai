@@ -20,16 +20,34 @@ function getCookie(cname) {
   return "";
 }
 
-function modalButtonClose() {
-  let modal = document.getElementById('grant-modal');
-  modal.style.display = 'none';
-  setCookie("grant-modal", true, 365); // might fail if cookies disabled
+async function emailButtonClick() {
+  let emailInput = document.getElementById("email-input");
+  // from https://html.spec.whatwg.org/multipage/input.html#valid-e-mail-address
+  const valid = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+  if (valid.test(emailInput.value)) {
+    let modal = document.getElementById('email-modal');
+    modal.style.display = 'none';
+    setCookie("email", emailInput.value, 365); // might fail if cookies disabled
+  } else {
+    let emailError = document.getElementsByClassName('email-error')[0];
+    emailError.innerHTML = "Error: please enter a valid email";
+  }
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  let modal = document.getElementById('grant-modal');
-  let grantModal = getCookie("grant-modal");
-  if (grantModal === false || grantModal === "" || grantModal === null) {
+  let modal = document.getElementById('email-modal');
+  let emailCookie = getCookie("email");
+  let emailInput = document.getElementById("email-input");
+  if (emailCookie === false || emailCookie === "" || emailCookie === null) {
     modal.style.display = 'flex';
+    emailInput.value = "";
   }
+  emailInput.focus()
+  // When user click Enter, click the submit button
+  emailInput.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      document.getElementById("email-submit").click();
+    }
+  });
 });

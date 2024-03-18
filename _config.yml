@@ -7,7 +7,7 @@ repository:
   url: https://github.com/premAI-io/state-of-open-source-ai
   branch: main
 only_build_toc_files: true
-exclude_patterns: [.github/*]
+exclude_patterns: [ .github/* ]
 html:
   baseurl: http://localhost:8000
   favicon: assets/favicon.ico
@@ -58,58 +58,55 @@ parse:
 
       {{ '```{committers} ' + env.docname + '.md\n```' }}
 
-      <div id="grant-modal" class="modal">
-        <div class="modal-content">
-          <div class="header">
-            <h1>Apply for our a Generative AI Startup Program</h1>
-            <button class="close" onclick="modalButtonClose()">
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6.85632 5.64645L6.50277 6L6.85632 6.35355L11.3815 10.8787C11.4448 10.9455 11.4798 11.0343 11.479 11.1264C11.4781 11.2197 11.4407 11.3089 
-                  11.3748 11.3748C11.3089 11.4407 11.2197 11.4781 11.1264 11.479C11.0343 11.4798 10.9455 11.4448 10.8787 11.3815L6.35355 6.85632L6 6.50277L5.64645 6.85632L1.11754 
-                  11.3852L1.11749 11.3852L1.11145 11.3914C1.07864 11.4254 1.0394 11.4525 0.996011 11.4711C0.952617 11.4898 0.905949 11.4996 0.858732 11.5C0.81151 11.5004 0.764679 
-                  11.4914 0.720971 11.4735C0.677266 11.4556 0.637558 11.4292 0.604165 11.3958C0.570773 11.3624 0.544365 11.3227 0.526484 11.279C0.508601 11.2353 0.499603 11.1885 
-                  0.500013 11.1413C0.500424 11.094 0.510235 11.0474 0.528873 11.004C0.547512 10.9606 0.574606 10.9214 0.608573 10.8886L0.608625 10.8886L0.614771 10.8825L5.14368 6.35355L5.49723 
-                  6L5.14368 5.64645L0.618506 1.12127C0.55521 1.05447 0.520241 0.96569 0.521042 0.873579C0.521852 0.780331 0.559254 0.691132 0.625193 0.625193C0.691132 0.559254 0.780331 0.521852 
-                  0.873579 0.521042C0.96569 0.520241 1.05447 0.55521 1.12127 0.618506L5.64645 5.14368L6 5.49723L6.35355 5.14368L10.8825 0.614771L10.8825 0.614824L10.8886 0.608573C10.9214 0.574606 
-                  10.9606 0.547512 11.004 0.528874C11.0474 0.510235 11.094 0.500424 11.1413 0.500013C11.1885 0.499603 11.2353 0.508601 11.279 0.526483C11.3227 0.544365 11.3624 0.570773 11.3958 
-                  0.604165C11.4292 0.637558 11.4556 0.677266 11.4735 0.720971C11.4914 0.764679 11.5004 0.81151 11.5 0.858732C11.4996 0.905949 11.4898 0.952617 11.4711 0.996008C11.4525 1.0394 11.4254 
-                  1.07864 11.3914 1.11145L11.3914 1.11139L11.3852 1.11754L6.85632 5.64645Z" fill="#878787" stroke="#878787"/>
-              </svg>
-            </button>
-          </div>
-          <img src="https://static.premai.io/book/grant.jpg" alt="grant cover" />
+      <div id="email-modal" class="modal">
+        <iframe name="ghost-result" style="display: none;"></iframe>
+        <form class="modal-content" method="post" action="https://state-of-open-source-ai.vercel.app/api/add-member" target="ghost-result" novalidate="">
+          <img src="https://static.premai.io/book/book-cover.jpg" alt="book cover" />
           <div class="modal-text">
-            <ul>
-              <li>Free usage of OpenAl, Anthropic, Cohere, Llama2, and Mistral APIs for 6 months.</li>
-              <li>Free Fine-tuning jobs for both closed and open-source models.</li>
-              <li>Free Models Deployment Made Effortless.</li>
-            </ul>
-            <a class="btn-apply" href="https://blog.premai.io/announcing-our-startup-grants-program/" target="_blank">Apply Here</a>
+            <h1>Enter your email to access this book for free</h1>             
+            <div>
+              <p>
+                We&rsquo;ll send you updates whenever we make major changes<br />
+                (no spam nor giving your email to anyone else).
+              </p>
+              <div class="input-container">
+                <input type="email" id="email-input" name="email" placeholder="Enter your email..." />
+                <button type="submit" id="email-submit" class="button" onclick="emailButtonClick()">Subscribe</button>
+              </div>
+            </div>
+            <div>
+              <p>
+                This book is open source; you can also read &amp; contribute at<br />
+                <a href="https://github.com/premAI-io/state-of-open-source-ai" target="_blank"><i class="fa-brands fa-github"></i>&nbsp;premAI-io/state-of-open-source-ai</a>.
+              </p>
+              <span class="email-error"></span>
+            </div>
           </div>
-        </div>
+        </form>
       </div>
+
   myst_enable_extensions: # https://myst-parser.readthedocs.io/en/latest/using/syntax-optional.html
-  # needs myst-parser>=0.19 <- https://github.com/executablebooks/MyST-NB/issues/530
-  #- attrs_block
-  #- attrs_inline
-  - deflist
-  - dollarmath
-  - html_admonition
-  - linkify
-  - replacements
-  - smartquotes
-  - substitution
-  - tasklist
+    # needs myst-parser>=0.19 <- https://github.com/executablebooks/MyST-NB/issues/530
+    #- attrs_block
+    #- attrs_inline
+    - deflist
+    - dollarmath
+    - html_admonition
+    - linkify
+    - replacements
+    - smartquotes
+    - substitution
+    - tasklist
 sphinx:
   extra_extensions:
-  - sphinx_last_updated_by_git
-  - sphinx_subfigure
+    - sphinx_last_updated_by_git
+    - sphinx_subfigure
   local_extensions:
     badges: .
     committers: .
     bibliography: .
     prem_theme: .
-  recursive_update: true  # append to rather than overwrite html_theme_options
+  recursive_update: true # append to rather than overwrite html_theme_options
   config:
     html_theme: prem_theme
     html_theme_options:
@@ -117,40 +114,43 @@ sphinx:
       use_download_button: false
     myst_heading_anchors: 4
     html_js_files:
-    - [https://plausible.io/js/script.js, {defer: defer, data-domain: book.premai.io}]
+      - [
+        https://plausible.io/js/script.js,
+        { defer: defer, data-domain: book.premai.io },
+      ]
     linkcheck_ignore:
-    - http://localhost:8000
-    - https://github.com/premAI-io/state-of-open-source-ai/edit/main/.*.md
-    # GitHub anchors
-    - https://github.com/\w+/\w+/blob/\w+/.*#L\d+(-L\d+)?
-    - https://github.com/premAI-io/prem-app#.*
-    - https://github.com/BlinkDL/RWKV-LM#.*
-    - https://github.com/CompVis/stable-diffusion/blob/main/Stable_Diffusion_v1_Model_Card.md#.*
-    - https://github.com/ggerganov/ggml#.*
-    - https://github.com/huggingface/optimum#.*
-    - https://github.com/imaurer/awesome-decentralized-llm#.*
-    - https://github.com/kingoflolz/mesh-transformer-jax#.*
-    - https://github.com/lm-sys/FastChat.*#.*
-    - https://github.com/mistralai/mistral-src#.*
-    - https://github.com/onnx/onnx-tensorrt/blob/main/docs/operators.md#.*
-    - https://github.com/onnx/onnx-tensorrt#.*
-    - https://github.com/onnx/tutorials#.*
-    - https://gist.github.com/veekaybee/be375ab33085102f9027853128dc5f0e#.*
-    # misc
-    - https://www.nytimes.com/2016/04/19/technology/google-books-case.html
-    - https://doi.org/10.2307/2214413
-    - https://direct.mit.edu/daed/article/151/2/127/110621/Human-Language-Understanding-amp-Reasoning
-    - https://numfocus.org
-    - https://chat.openai.com
-    - https://falconllm.tii.ae
-    - https://www.midjourney.com
-    - https://accent.gmu.edu
-    - https://www.crcv.ucf.edu/data/UCF101.php
-    - https://www.pinecone.io/learn/series/faiss/locality-sensitive-hashing
-    - https://chat.lmsys.org
-    - https://platform.openai.com/docs/.*
-    - https://twitter.com/*
-    - https://www.reddit.com/*
+      - http://localhost:8000
+      - https://github.com/premAI-io/state-of-open-source-ai/edit/main/.*.md
+      # GitHub anchors
+      - https://github.com/\w+/\w+/blob/\w+/.*#L\d+(-L\d+)?
+      - https://github.com/premAI-io/prem-app#.*
+      - https://github.com/BlinkDL/RWKV-LM#.*
+      - https://github.com/CompVis/stable-diffusion/blob/main/Stable_Diffusion_v1_Model_Card.md#.*
+      - https://github.com/ggerganov/ggml#.*
+      - https://github.com/huggingface/optimum#.*
+      - https://github.com/imaurer/awesome-decentralized-llm#.*
+      - https://github.com/kingoflolz/mesh-transformer-jax#.*
+      - https://github.com/lm-sys/FastChat.*#.*
+      - https://github.com/mistralai/mistral-src#.*
+      - https://github.com/onnx/onnx-tensorrt/blob/main/docs/operators.md#.*
+      - https://github.com/onnx/onnx-tensorrt#.*
+      - https://github.com/onnx/tutorials#.*
+      - https://gist.github.com/veekaybee/be375ab33085102f9027853128dc5f0e#.*
+      # misc
+      - https://www.nytimes.com/2016/04/19/technology/google-books-case.html
+      - https://doi.org/10.2307/2214413
+      - https://direct.mit.edu/daed/article/151/2/127/110621/Human-Language-Understanding-amp-Reasoning
+      - https://numfocus.org
+      - https://chat.openai.com
+      - https://falconllm.tii.ae
+      - https://www.midjourney.com
+      - https://accent.gmu.edu
+      - https://www.crcv.ucf.edu/data/UCF101.php
+      - https://www.pinecone.io/learn/series/faiss/locality-sensitive-hashing
+      - https://chat.lmsys.org
+      - https://platform.openai.com/docs/.*
+      - https://twitter.com/*
+      - https://www.reddit.com/*
     linkcheck_allowed_redirects:
       https://doi.org/.*/.*: https://.*
       https://codespaces.new/.*: https://github.com/login.*
@@ -160,7 +160,7 @@ sphinx:
       https://mozilla.org/MPL/2.0: https://www.mozilla.org/en-US/MPL/2.0
       https://mxnet.apache.org: https://mxnet.apache.org/versions/[\d.]+/.*
       https://gpt4all.io: https://gpt4all.io/index.html
-    html_last_updated_fmt: '%d %b %Y'
+    html_last_updated_fmt: "%d %b %Y"
     jblatex_show_tocs: false
     bibtex_reference_style: label
     latex_elements:
@@ -168,14 +168,14 @@ sphinx:
       # requires https://static.premai.io/book/cover.pdf
       extrapackages: \usepackage{pdfpages}
       maketitle: \includepdf[pages=-]{cover.pdf}
-      tableofcontents: ''
+      tableofcontents: ""
       # fix citations in figure captions (https://github.com/mcmtroffaes/sphinxcontrib-bibtex/issues/276)
       preamble: |
         \usepackage{etoolbox}
         \AtBeginEnvironment{figure}{\pretocmd{\hyperlink}{\protect}{}{}}
-bibtex_bibfiles: [references.bib] # citations
+bibtex_bibfiles: [ references.bib ] # citations
 latex: # for PDF builds
   latex_documents:
     targetname: book.tex
 execute:
-  execute_notebooks: force  # re-exec on each build (https://jupyterbook.org/content/execute.html)
+  execute_notebooks: force # re-exec on each build (https://jupyterbook.org/content/execute.html)

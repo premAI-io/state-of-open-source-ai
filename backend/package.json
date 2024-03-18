@@ -1,0 +1,15 @@
+{
+  "name": "state-of-open-source-ai-email",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "type": "module",
+  "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.5"
+  },
+  "dependencies": {
+    "@zerobounce/zero-bounce-sdk": "^1.1.0",
+    "axios": "^1.6.8",
+    "jsonwebtoken": "^9.0.2"
+  }
+}

@@ -24,7 +24,7 @@ export default async function handler(req, res) {
 
   // Add member to Ghost
   const BLOG_URL = "https://prem.ghost.io";
-  const [id, secret] = process.env.ADMIN_API_KEY.split(':');
+  const [id, secret] = process.env.GHOST_ADMIN_API_KEY.split(':');
   const token = jwt.sign({}, Buffer.from(secret, 'hex'), {
     keyid: id,
     algorithm: 'HS256',

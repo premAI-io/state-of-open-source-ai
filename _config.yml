@@ -13,10 +13,6 @@ html:
   favicon: assets/favicon.ico
   use_edit_page_button: true
   use_repository_button: true
-  announcement: |
-    <a target="_blank" href="https://blog.premai.io/announcing-our-startup-grants-program/">
-      We Launched a Generative AI Startup Grant Program, Apply Now!
-    </a>
   comments:
     utterances:
       issue-term: pathname
@@ -60,7 +56,7 @@ parse:
 
       <div id="email-modal" class="modal">
         <iframe name="ghost-result" style="display: none;"></iframe>
-        <form class="modal-content" method="post" action="https://state-of-open-source-ai.vercel.app/api/add-member" target="ghost-result" novalidate="">
+        <form class="modal-content" id="email-form" novalidate="">
           <img src="https://static.premai.io/book/book-cover.jpg" alt="book cover" />
           <div class="modal-text">
             <h1>Enter your email to access this book for free</h1>             
@@ -71,7 +67,7 @@ parse:
               </p>
               <div class="input-container">
                 <input type="email" id="email-input" name="email" placeholder="Enter your email..." />
-                <button type="submit" id="email-submit" class="button" onclick="emailButtonClick()">Subscribe</button>
+                <button type="submit" id="email-submit" class="button">Subscribe</button>
               </div>
             </div>
             <div>

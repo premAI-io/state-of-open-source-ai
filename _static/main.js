@@ -45,6 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
     event.preventDefault();
     const formData = new FormData(form);
     const email = formData.get('email');
+    if (!email) return;
     try {
       const response = await fetch('https://state-of-open-source-ai.vercel.app/api/add-member', {
         method: 'POST',

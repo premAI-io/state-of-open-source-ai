@@ -57,7 +57,7 @@ parse:
       <div id="email-modal" class="modal">
         <iframe name="ghost-result" style="display: none;"></iframe>
         <form class="modal-content" id="email-form" novalidate="">
-          <img src="https://static.premai.io/book/book-cover.png" alt="book cover" />
+          <img src="https://static.premai.io/book/book-cover-2.jpg" alt="book cover" />
           <div class="modal-text">
             <h1>Enter your email to access this book for free</h1>
             <div>

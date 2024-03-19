@@ -7,7 +7,7 @@ repository:
   url: https://github.com/premAI-io/state-of-open-source-ai
   branch: main
 only_build_toc_files: true
-exclude_patterns: [ .github/* ]
+exclude_patterns: [.github/*]
 html:
   baseurl: http://localhost:8000
   favicon: assets/favicon.ico
@@ -57,9 +57,9 @@ parse:
       <div id="email-modal" class="modal">
         <iframe name="ghost-result" style="display: none;"></iframe>
         <form class="modal-content" id="email-form" novalidate="">
-          <img src="https://static.premai.io/book/book-cover.jpg" alt="book cover" />
+          <img src="https://static.premai.io/book/book-cover.png" alt="book cover" />
           <div class="modal-text">
-            <h1>Enter your email to access this book for free</h1>             
+            <h1>Enter your email to access this book for free</h1>
             <div>
               <p>
                 We&rsquo;ll send you updates whenever we make major changes<br />
@@ -111,9 +111,9 @@ sphinx:
     myst_heading_anchors: 4
     html_js_files:
       - [
-        https://plausible.io/js/script.js,
-        { defer: defer, data-domain: book.premai.io },
-      ]
+          https://plausible.io/js/script.js,
+          { defer: defer, data-domain: book.premai.io },
+        ]
     linkcheck_ignore:
       - http://localhost:8000
       - https://github.com/premAI-io/state-of-open-source-ai/edit/main/.*.md
@@ -169,7 +169,7 @@ sphinx:
       preamble: |
         \usepackage{etoolbox}
         \AtBeginEnvironment{figure}{\pretocmd{\hyperlink}{\protect}{}{}}
-bibtex_bibfiles: [ references.bib ] # citations
+bibtex_bibfiles: [references.bib] # citations
 latex: # for PDF builds
   latex_documents:
     targetname: book.tex

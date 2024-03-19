@@ -1,6 +1,6 @@
 # 📘 The State of Open Source AI (2023 Edition)
 
-[![banner](https://static.premai.io/book/marketing/github--book.jpg)][book]
+[![banner](https://static.premai.io/book/marketing/github--book.png)][book]
 
 *Clarity in the current fast-paced mess of Open Source innovation.*
 

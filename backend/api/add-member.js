@@ -47,7 +47,7 @@ export default async function handler(req, res) {
 
   const url = `${BLOG_URL}/ghost/api/admin/members/`;
   const headers = { Authorization: `Ghost ${token}` };
-  const payload = { members: [{ email }] };
+  const payload = {members: [{email, newsletters: [{id: "6575d0912c87960008d86bbd"}]}]};
 
   try {
     const response = await axios.post(url, payload, { headers });

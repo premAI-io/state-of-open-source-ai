@@ -11,7 +11,7 @@ Integration with Deep Learning Frameworks | 🟢 [most](onnx-support) | 🟡 [gr
 Deployment Tools | 🟢 [yes](onnx-runtime) | 🔴 no | 🟢 [yes](triton-inference)
 Interoperability | 🟢 [yes](onnx-interoperability) | 🔴 no | 🔴 [no](tensorrt-interoperability)
 Inference Boost | 🟡 moderate | 🟢 good | 🟢 good
-Quantisation Support | 🟡 [good](onnx-quantisation) | 🟢 [good](ggml-quantisation) | 🟡 [moderate](tensorrt-quantisation)
+Quantisation Support | 🟢 [good](onnx-quantisation) | 🟢 [good](ggml-quantisation) | 🟡 [moderate](tensorrt-quantisation)
 Custom Layer Support| 🟢 [yes](onnx-custom-layer) | 🔴 limited | 🟢 [yes](tensorrt-custom-layer)
 Maintainer | [LF AI & Data Foundation](https://wiki.lfaidata.foundation) | https://github.com/ggerganov | https://github.com/NVIDIA
 ```

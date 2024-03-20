@@ -57,7 +57,7 @@ Spot something outdated or missing? Want to start a discussion? We welcome any o
 
 - let us know in the <i class="fas fa-pencil-alt"></i> comments at the end of each chapter
 - [<i class="fab fa-github"></i> create issues](https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-an-issue)
-- [<i class="fab fa-github"></i> open pull requests](https://docs.github.com/en/get-started/quickstart/contributing-to-projects)
+- [<i class="fab fa-github"></i> open pull requests](https://docs.github.com/en/get-started/exploring-projects-on-github/contributing-to-a-project)
 ```
 
 ### Editing the Book

@@ -26,3 +26,4 @@ Citation: [BibTeX](references.bib#L1)
 
 - [Join the Open Source AI Discord][Discord]
 - [Follow us on Twitter](https://twitter.com/premai_io)
+- [Subscribe to our newsletter](https://blog.premai.io)

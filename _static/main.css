@@ -21,21 +21,28 @@
   .modal-content {
     width: 90vw !important;
     flex-direction: column !important;
-    align-items: center;
-    padding: 25px;
+    align-items: center !important;
+    padding: 25px !important;
   }
   .modal-content h1 {
-    font-size: 1.3rem !important;
-    margin-bottom: 5vh;
+    font-size: 1.2rem !important;
+    margin-bottom: 5vh !important;
+  }
+  .modal-content p {
+    font-size: 0.9rem !important;
+  }
+  .modal-content .input-container {
+    padding: 6px !important;
   }
   .modal-content input {
     font-size: 0.9rem !important;
   }
-  .modal-content input.button {
-    padding: 10px !important;
+  .modal-content .input-container .button {
+    padding: 6px 18px !important;
   }
   .modal-content img {
-    width: 50vw !important;
+    min-width: 35vw !important;
+    max-width: 40vw !important;
   }
 }
 
@@ -43,19 +50,28 @@
   .modal-content {
     width: 70vw !important;
     flex-direction: column !important;
-    align-items: center;
-    padding: 35px;
+    align-items: center !important;
+    padding: 35px !important;
+  }
+  .modal-content h1 {
+    font-size: 1.5rem !important;
+    margin-bottom: 5vh !important;
+  }
+  .modal-content .input-container {
+    padding: 8px 12px !important;
   }
   .modal-content input {
     font-size: 0.95rem !important;
   }
   .modal-content img {
-    width: 30vw !important;
+    min-width: 20vw !important;
+    max-width: 25vw !important;
   }
 }
 
 .modal-content img {
-  width: 20vw;
+  min-width: 10vw;
+  max-width: 15vw;
   height: 100%;
 }
 
@@ -102,7 +118,7 @@
 
 .modal-content .input-container {
   display: flex;
-  padding: 12px 16px;
+  padding: 10px 14px;
   align-items: center;
   align-self: stretch;
   border-radius: 12px;
@@ -115,7 +131,7 @@
   font-style: normal;
   font-weight: bold;
   line-height: normal;
-  margin-bottom: 10vh;
+  margin-bottom: 8vh;
 }
 
 .modal-content p {

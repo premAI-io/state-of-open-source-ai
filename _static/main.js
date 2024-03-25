@@ -25,9 +25,11 @@ document.addEventListener('DOMContentLoaded', function() {
   let modal = document.getElementById('email-modal');
   let emailCookie = getCookie("email");
   let emailInput = document.getElementById("email-input");
+  let body = document.body
   if (emailCookie === false || emailCookie === "" || emailCookie === null) {
     modal.style.display = 'flex';
     emailInput.value = "";
+    body.style.overflow = "hidden";
   }
   emailInput.focus()
 

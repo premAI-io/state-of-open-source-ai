@@ -310,6 +310,7 @@ Table with benchmarks
 - cost comparisons
   + user-friendly: https://fullstackdeeplearning.com/cloud-gpus
   + less user-friendly but more comprehensive: https://cloud-gpus.com
+  + comparisons of both features and pricing for GPU cloud providers: https://www.gpucloudpricing.com
   + LLM-specific advice: https://gpus.llm-utils.org/cloud-gpu-guide/#which-gpu-cloud-should-i-use
 
 ## Future

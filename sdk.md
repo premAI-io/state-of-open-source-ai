@@ -178,7 +178,7 @@ LLaMAIndex seems more tailor made for deploying LLM apps in production. However,
 
 ![banner](https://litellm.vercel.app/img/docusaurus-social-card.png)
 
-As the name suggests a light package that simplifies the task of getting the responses form multiple APIs at the same time without having to worry about the imports is known as the [LiteLLM](https://litellm.ai). It is available as a python package which can be accessed using `pip` Besides we can test the working of the library using the [playground](https://litellm.ai/playground) that is readily available.
+As the name suggests a light package that simplifies the task of getting the responses form multiple APIs at the same time without having to worry about the imports is known as the [LiteLLM](https://docs.litellm.ai). It is available as a python package which can be accessed using `pip`
 
 ### Completions
 

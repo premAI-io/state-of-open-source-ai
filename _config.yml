@@ -9,7 +9,7 @@ repository:
 only_build_toc_files: true
 exclude_patterns: [.github/*]
 html:
-  baseurl: http://localhost:8000
+  baseurl: https://book.premai.io/state-of-open-source-ai
   favicon: assets/favicon.ico
   use_edit_page_button: true
   use_repository_button: true

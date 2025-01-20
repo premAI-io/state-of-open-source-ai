@@ -1,92 +1,79 @@
-# GitHub Pages deployment workflow
 name: site
-
 on:
-  push:
-    branches: [main]
-    tags-ignore: ['**']
+  push: {branches: [main], tags-ignore: ['**']}
   pull_request:
-  schedule:
-    - cron: '0 10 * * 6'  # Every Saturday at 10:00
-
+  schedule: [{cron: '0 10 * * 6'}]  # M H d m w (Sat 10:00)
 permissions:
   contents: read
   pages: write
   id-token: write
-
-concurrency:
-  group: "${{ github.ref }}-pages"
-  cancel-in-progress: true
-
+concurrency: {group: "${{ github.ref }}-pages", cancel-in-progress: true}
 env:
   SITE_PREFIX: state-of-open-source-ai
-
 jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - uses: actions/setup-python@v4
-        with:
-          python-version: '3.11'
-      - run: pip install -r requirements.txt pyyaml
-      - name: Check CITATION.cff & .zenodo.json
-        run: |
-          python <<EOF
-          import json, yaml
-          cff = yaml.safe_load(open("CITATION.cff"))
-          zen = json.load(open(".zenodo.json"))
+    - uses: actions/checkout@v4
+      with: {fetch-depth: 0}
+    - uses: actions/setup-python@v4
+      with: {python-version: '3.11'}
+    - run: pip install -r requirements.txt pyyaml
+    - name: Check CITATION.cff & .zenodo.json
+      run: |
+        python <<EOF
+        import json, yaml
+        cff = yaml.safe_load(open("CITATION.cff"))
+        zen = json.load(open(".zenodo.json"))
 
-          assert cff['title'] == zen['title'] + " Book"
-          assert len(cff['authors']) - 1 == len(zen['creators'])
-          for cauth, zauth in zip(cff['authors'][:-1], zen['creators']):
-              assert zauth['name'] == f"{cauth['family-names']}, {cauth['given-names']}"
-              assert zauth.get('affiliation', "") == cauth.get('affiliation', "")
-              assert zauth.get('orcid', "") == cauth.get('orcid', "").rsplit("/", 1)[-1]
-          assert [{'name': cff['authors'][-1]['name'], 'type': "Other"}] == zen['contributors']
-          assert cff['abstract'] == zen['description']
-          assert cff['url'] == zen['related_identifiers'][0]['identifier']
-          assert cff['keywords'] == zen['keywords']
-          EOF
-
+        assert cff['title'] == zen['title'] + " Book"
+        assert len(cff['authors']) - 1 == len(zen['creators'])
+        for cauth, zauth in zip(cff['authors'][:-1], zen['creators']):
+            assert zauth['name'] == f"{cauth['family-names']}, {cauth['given-names']}"
+            assert zauth.get('affiliation', "") == cauth.get('affiliation', "")
+            assert zauth.get('orcid', "") == cauth.get('orcid', "").rsplit("/", 1)[-1]
+        assert [{'name': cff['authors'][-1]['name'], 'type': "Other"}] == zen['contributors']
+        assert cff['abstract'] == zen['description']
+        assert cff['url'] == zen['related_identifiers'][0]['identifier']
+        assert cff['keywords'] == zen['keywords']
+        EOF
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - uses: actions/setup-python@v4
-        with:
-          python-version: '3.11'
-      - id: pages
-        uses: actions/configure-pages@v3
-      - run: pip install -r requirements.txt
-      - name: Build Jupyter Book
-        run: |
-          sudo apt update -qq
-          sudo apt install -qq ghostscript fonts-freefont-otf
-          sed -ri 's#^(\s*book_baseurl:).*#\1 ${{ steps.pages.outputs.base_url }}/$SITE_PREFIX#g' _config.yml
-          jupyter-book build --builder dirhtml --warningiserror --nitpick --keep-going .
-          # Fix canonical links
-          sed -ri 's#(.*link rel="canonical" href=".*)\.html(".*)#\1/\2#' _build/dirhtml/*/index.html
-      - uses: xu-cheng/latex-action@v3
-        with:
-          working_directory: _build/latex
-          root_file: book.tex
-          args: -pdf -dvi- -ps- -file-line-error -f -interaction=nonstopmode
-          latexmk_use_xelatex: true
-        env:
-          XINDYOPTS: -L english -C utf8 -M sphinx.xdy
-        continue-on-error: true
-      - name: Prepare _site Pages
-        run: |
-          mkdir _site
-          mv _build/dirhtml _site/$SITE_PREFIX
-          sed "s#DESTINATION#${{ steps.pages.outputs.base_url }}/$SITE_PREFIX#g" .redirect-template.html > _site/index.html
-      - uses: actions/upload-pages-artifact@v2
-
+    - uses: actions/checkout@v4
+      with: {fetch-depth: 0}
+    - uses: actions/setup-python@v4
+      with: {python-version: '3.11'}
+    - id: pages
+      uses: actions/configure-pages@v3
+    - run: pip install -r requirements.txt
+    - name: Verify `page.html` Exists
+      run: |
+        if [ ! -f _templates/page.html ]; then
+          echo "Error: _templates/page.html not found!"
+          exit 1
+        fi
+    - name: Build Jupyter Book
+      run: |
+        sudo apt update -qq
+        sudo apt install -qq ghostscript fonts-freefont-otf
+        jupyter-book build --builder dirhtml --warningiserror --nitpick --keep-going .
+        sed -ri 's#(.*link rel="canonical" href=".*)\.html(".*)#\1/\2#' _build/dirhtml/*/index.html
+    - uses: xu-cheng/latex-action@v3
+      with:
+        working_directory: _build/latex
+        root_file: book.tex
+        args: -pdf -dvi- -ps- -file-line-error -f -interaction=nonstopmode
+        latexmk_use_xelatex: true
+      env:
+        XINDYOPTS: -L english -C utf8 -M sphinx.xdy
+      continue-on-error: true
+    - name: Prepare `_site` for Pages Deployment
+      run: |
+        mkdir _site
+        mv _build/dirhtml _site/$SITE_PREFIX
+        sed "s#DESTINATION#https://book.premai.io/$SITE_PREFIX#g" _templates/page.html > _site/index.html
+    - uses: actions/upload-pages-artifact@v2
   deploy:
     if: github.ref == 'refs/heads/main'
     environment:
@@ -95,5 +82,5 @@ jobs:
     runs-on: ubuntu-latest
     needs: [check, build]
     steps:
-      - id: deployment
-        uses: actions/deploy-pages@v2
+    - id: deployment
+      uses: actions/deploy-pages@v2

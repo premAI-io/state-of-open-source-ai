@@ -113,7 +113,7 @@ sphinx:
     html_theme: prem_theme
     html_theme_options:
       # (NEW) Provide your base URL here, so you can reference it in page.html as {{ theme_options.baseurl }}
-      baseurl: https://book.premai.io/state-of-open-source-ai
+      book_baseurl: https://book.premai.io/state-of-open-source-ai
       navigation_with_keys: false
       use_download_button: false
 

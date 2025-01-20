@@ -6,10 +6,12 @@ logo: https://static.premai.io/logo.png
 repository:
   url: https://github.com/premAI-io/state-of-open-source-ai
   branch: main
+
 only_build_toc_files: true
 exclude_patterns: [.github/*]
+
 html:
-  baseurl: https://book.premai.io/state-of-open-source-ai
+  # Removed baseurl here to avoid conflicts
   favicon: assets/favicon.ico
   use_edit_page_button: true
   use_repository_button: true
@@ -19,6 +21,7 @@ html:
       label: question
       repo: premAI-io/state-of-open-source-ai
       theme: preferred-color-scheme
+
 parse:
   myst_substitutions:
     baseurl: http://localhost:8000
@@ -73,7 +76,9 @@ parse:
             <div>
               <p>
                 This book is open source; you can also read &amp; contribute at<br />
-                <a href="https://github.com/premAI-io/state-of-open-source-ai" target="_blank"><i class="fa-brands fa-github"></i>&nbsp;premAI-io/state-of-open-source-ai</a>.
+                <a href="https://github.com/premAI-io/state-of-open-source-ai" target="_blank">
+                  <i class="fa-brands fa-github"></i>&nbsp;premAI-io/state-of-open-source-ai
+                </a>.
               </p>
               <span class="email-error"></span>
             </div>
@@ -81,10 +86,7 @@ parse:
         </form>
       </div>
 
-  myst_enable_extensions: # https://myst-parser.readthedocs.io/en/latest/using/syntax-optional.html
-    # needs myst-parser>=0.19 <- https://github.com/executablebooks/MyST-NB/issues/530
-    #- attrs_block
-    #- attrs_inline
+  myst_enable_extensions:
     - deflist
     - dollarmath
     - html_admonition
@@ -93,6 +95,7 @@ parse:
     - smartquotes
     - substitution
     - tasklist
+
 sphinx:
   extra_extensions:
     - sphinx_last_updated_by_git
@@ -102,12 +105,18 @@ sphinx:
     committers: .
     bibliography: .
     prem_theme: .
-  recursive_update: true # append to rather than overwrite html_theme_options
+  recursive_update: true
   config:
+    # Add templates_path so Sphinx can see your _templates/page.html override
+    templates_path: ["_templates"]
+
     html_theme: prem_theme
     html_theme_options:
+      # (NEW) Provide your base URL here, so you can reference it in page.html as {{ theme_options.baseurl }}
+      baseurl: https://book.premai.io/state-of-open-source-ai
       navigation_with_keys: false
       use_download_button: false
+
     myst_heading_anchors: 4
     html_js_files:
       - [
@@ -117,7 +126,6 @@ sphinx:
     linkcheck_ignore:
       - http://localhost:8000
       - https://github.com/premAI-io/state-of-open-source-ai/edit/main/.*.md
-      # GitHub anchors
       - https://github.com/\w+/\w+/blob/\w+/.*#L\d+(-L\d+)?
       - https://github.com/premAI-io/prem-app#.*
       - https://github.com/BlinkDL/RWKV-LM#.*
@@ -132,7 +140,6 @@ sphinx:
       - https://github.com/onnx/onnx-tensorrt#.*
       - https://github.com/onnx/tutorials#.*
       - https://gist.github.com/veekaybee/be375ab33085102f9027853128dc5f0e#.*
-      # misc
       - https://www.nytimes.com/2016/04/19/technology/google-books-case.html
       - https://doi.org/10.2307/2214413
       - https://direct.mit.edu/daed/article/151/2/127/110621/Human-Language-Understanding-amp-Reasoning
@@ -156,22 +163,24 @@ sphinx:
       https://mozilla.org/MPL/2.0: https://www.mozilla.org/en-US/MPL/2.0
       https://mxnet.apache.org: https://mxnet.apache.org/versions/[\d.]+/.*
       https://gpt4all.io: https://gpt4all.io/index.html
+
     html_last_updated_fmt: "%d %b %Y"
     jblatex_show_tocs: false
     bibtex_reference_style: label
     latex_elements:
       papersize: a4paper
-      # requires https://static.premai.io/book/cover.pdf
       extrapackages: \usepackage{pdfpages}
       maketitle: \includepdf[pages=-]{cover.pdf}
       tableofcontents: ""
-      # fix citations in figure captions (https://github.com/mcmtroffaes/sphinxcontrib-bibtex/issues/276)
       preamble: |
         \usepackage{etoolbox}
         \AtBeginEnvironment{figure}{\pretocmd{\hyperlink}{\protect}{}{}}
-bibtex_bibfiles: [references.bib] # citations
-latex: # for PDF builds
+
+bibtex_bibfiles: [references.bib]
+
+latex:
   latex_documents:
     targetname: book.tex
+
 execute:
-  execute_notebooks: force # re-exec on each build (https://jupyterbook.org/content/execute.html)
+  execute_notebooks: force

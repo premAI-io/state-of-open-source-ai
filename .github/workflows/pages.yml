@@ -1,77 +1,107 @@
-# see https://github.com/actions/starter-workflows/blob/main/pages/jekyll.yml
+# .github/workflows/site.yml
 name: site
+
 on:
-  push: {branches: [main], tags-ignore: ['**']}
+  push:
+    branches: [main]
+    tags-ignore: ['**']
   pull_request:
-  schedule: [{cron: '0 10 * * 6'}]  # M H d m w (Sat 10:00)
+  schedule:
+    - cron: '0 10 * * 6'  # Runs at 10:00 UTC every Saturday
+
 permissions:
-  # allow GITHUB_TOKEN to deploy to GitHub Pages
   contents: read
   pages: write
   id-token: write
-concurrency: {group: "${{ github.ref }}-pages", cancel-in-progress: true}
+
+concurrency:
+  group: "${{ github.ref }}-pages"
+  cancel-in-progress: true
+
 env:
   SITE_PREFIX: state-of-open-source-ai
+
 jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-      with: {fetch-depth: 0}
-    - uses: actions/setup-python@v4
-      with: {python-version: '3.11'}
-    - run: pip install -r requirements.txt pyyaml
-    - name: check CITATION.cff & .zenodo.json
-      run: |
-        python <<EOF
-        import json, yaml
-        cff = yaml.safe_load(open("CITATION.cff"))
-        zen = json.load(open(".zenodo.json"))
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-        assert cff['title'] == zen['title'] + " Book"
-        assert len(cff['authors']) - 1 == len(zen['creators'])
-        for cauth, zauth in zip(cff['authors'][:-1], zen['creators']):
-            assert zauth['name'] == f"{cauth['family-names']}, {cauth['given-names']}"
-            assert zauth.get('affiliation', "") == cauth.get('affiliation', "")
-            assert zauth.get('orcid', "") == cauth.get('orcid', "").rsplit("/", 1)[-1]
-        assert [{'name': cff['authors'][-1]['name'], 'type': "Other"}] == zen['contributors']
-        assert cff['abstract'] == zen['description']
-        assert cff['url'] == zen['related_identifiers'][0]['identifier']
-        assert cff['keywords'] == zen['keywords']
-        EOF
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - run: pip install -r requirements.txt pyyaml
+
+      - name: Check CITATION.cff & .zenodo.json
+        run: |
+          python <<EOF
+          import json, yaml
+          cff = yaml.safe_load(open("CITATION.cff"))
+          zen = json.load(open(".zenodo.json"))
+
+          assert cff['title'] == zen['title'] + " Book"
+          assert len(cff['authors']) - 1 == len(zen['creators'])
+          for cauth, zauth in zip(cff['authors'][:-1], zen['creators']):
+              assert zauth['name'] == f"{cauth['family-names']}, {cauth['given-names']}"
+              assert zauth.get('affiliation', "") == cauth.get('affiliation', "")
+              assert zauth.get('orcid', "") == cauth.get('orcid', "").rsplit("/", 1)[-1]
+          assert [{'name': cff['authors'][-1]['name'], 'type': "Other"}] == zen['contributors']
+          assert cff['abstract'] == zen['description']
+          assert cff['url'] == zen['related_identifiers'][0]['identifier']
+          assert cff['keywords'] == zen['keywords']
+          EOF
+
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-      with: {fetch-depth: 0}
-    - uses: actions/setup-python@v4
-      with: {python-version: '3.11'}
-    - id: pages
-      uses: actions/configure-pages@v3
-    - run: pip install -r requirements.txt
-    - name: jupyter-book build
-      run: |
-        sudo apt update -qq
-        sudo apt install -qq ghostscript fonts-freefont-otf  # https://stackoverflow.com/a/69012150
-        sed -ri 's#^(\s*baseurl:).*#\1 ${{ steps.pages.outputs.base_url }}/'$SITE_PREFIX'#g' _config.yml
-        jupyter-book build --builder dirhtml --warningiserror --nitpick --keep-going .
-        # fix https://github.com/executablebooks/jupyter-book/issues/2066
-        sed -ri 's#(.*link rel="canonical" href=".*)\.html(".*)#\1/\2#' _build/dirhtml/*/index.html
-    - uses: xu-cheng/latex-action@v3
-      with:
-        working_directory: _build/latex
-        root_file: book.tex
-        args: -pdf -dvi- -ps- -file-line-error -f -interaction=nonstopmode
-        latexmk_use_xelatex: true
-      env:
-        XINDYOPTS: -L english -C utf8 -M sphinx.xdy
-      continue-on-error: true
-    - name: prepare _site pages
-      run: |
-        mkdir _site
-        mv _build/dirhtml _site/$SITE_PREFIX
-        sed "s#DESTINATION#${{ steps.pages.outputs.base_url }}/$SITE_PREFIX#g" .redirect-template.html > _site/index.html
-    - uses: actions/upload-pages-artifact@v2
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - id: pages
+        uses: actions/configure-pages@v3
+
+      - run: pip install -r requirements.txt
+
+      - name: Jupyter Book Build
+        run: |
+          sudo apt update -qq
+          sudo apt install -qq ghostscript fonts-freefont-otf  # Install necessary packages
+
+          # Build the book in dirhtml format, treating warnings as errors
+          jupyter-book build --builder dirhtml --warningiserror --nitpick --keep-going .
+
+          # Fix canonical links to remove .html suffix
+          sed -ri 's#(.*link rel="canonical" href=".*)\.html(".*)#\1/\2#' _build/dirhtml/*/index.html
+
+      # Removed LaTeX build step to prevent 'book.tex' not found error
+
+      - name: Prepare _site Pages
+        run: |
+          mkdir _site
+          mv _build/dirhtml _site/$SITE_PREFIX
+
+          # Create a minimal root redirect (optional)
+          echo '<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="refresh" content="0; url=https://book.premai.io/state-of-open-source-ai/">
+    <title>Redirecting…</title>
+  </head>
+  <body>
+    <p>Redirecting to <a href="https://book.premai.io/state-of-open-source-ai/">State of Open Source AI</a>.</p>
+  </body>
+</html>' > _site/index.html
+
+      - uses: actions/upload-pages-artifact@v2
+
   deploy:
     if: github.ref == 'refs/heads/main'
     environment:
@@ -80,5 +110,5 @@ jobs:
     runs-on: ubuntu-latest
     needs: [check, build]
     steps:
-    - id: deployment
-      uses: actions/deploy-pages@v2
+      - id: deployment
+        uses: actions/deploy-pages@v2

@@ -1,23 +1,24 @@
 {% extends "!page.html" %}
 
 {% block meta %}
-<!-- Custom canonical link & redirect -->
+<!-- Custom canonical link and redirect logic -->
 <link rel="canonical" href="{{ book_baseurl }}/{{ pagename }}/">
-<script>location="{{ book_baseurl }}/{{ pagename }}/"</script>
+<script>
+  location.href = "{{ book_baseurl }}/{{ pagename }}/";
+</script>
 <meta http-equiv="refresh" content="0; url={{ book_baseurl }}/{{ pagename }}/">
 <meta name="robots" content="noindex">
 
-{{ super() }}  {# Keep other meta tags the theme provides #}
+{{ super() }} {# Retain any additional meta tags provided by the theme #}
 {% endblock meta %}
 
 {% block main %}
-<!-- Optional message for those who aren't auto-redirected -->
-<h1>Redirecting…</h1>
+<!-- Optional message for users who are not automatically redirected -->
+<h1>Redirecting...</h1>
 <p>
-  <a href="{{ book_baseurl }}/{{ pagename }}/">
-    Click here if you are not redirected.
-  </a>
+  If you are not redirected automatically, please
+  <a href="{{ book_baseurl }}/{{ pagename }}/">click here</a>.
 </p>
 
-{{ super() }}  {# Keep the normal page content #}
+{{ super() }} {# Retain the normal page content provided by the theme #}
 {% endblock main %}

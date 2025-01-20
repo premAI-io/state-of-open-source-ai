@@ -11,7 +11,7 @@ only_build_toc_files: true
 exclude_patterns: [.github/*]
 
 html:
-  # Note: No "baseurl" here to avoid conflicts with the theme
+  # No "baseurl" here to avoid conflicts with the theme
   favicon: assets/favicon.ico
   use_edit_page_button: true
   use_repository_button: true
@@ -30,7 +30,7 @@ parse:
       This chapter is still being written & reviewed. Please do post links & discussion in the {{
         '[<i class="fas fa-pencil-alt"></i> comments]({}-comments)'.format(env.docname) }} below, or {{
         '[<i class="fab fa-github"></i> open a pull request]({}/edit/main/{}.md)'.format(
-        env.config.html_theme_options.repository_url, env.docname)
+        env.config.html_context.book_baseurl, env.docname)
       }}!
     table_feedback: |
       ```{admonition} Feedback
@@ -38,7 +38,7 @@ parse:
       Is the table above outdated or missing an important model? Let us know in the {{
         '[<i class="fas fa-pencil-alt"></i> comments]({}-comments)'.format(env.docname) }} below, or {{
         '[<i class="fab fa-github"></i> open a pull request]({}/edit/main/{}.md)'.format(
-        env.config.html_theme_options.repository_url, env.docname)
+        env.config.html_context.book_baseurl, env.docname)
       }}!
       ```
     comments: |
@@ -48,7 +48,7 @@ parse:
       :class: attention
       Missing something important? Let us know in the comments below, or {{
         '[<i class="fab fa-github"></i> open a pull request]({}/edit/main/{}.md)'.format(
-        env.config.html_theme_options.repository_url, env.docname)
+        env.config.html_context.book_baseurl, env.docname)
       }}!
       ```
 
@@ -113,12 +113,7 @@ sphinx:
     # Use your custom theme
     html_theme: prem_theme
 
-    # Theme options: only those recognized by prem_theme
-    html_theme_options:
-      navigation_with_keys: false
-      use_download_button: false
-
-    # Put your custom base URL in html_context instead of html_theme_options
+    # Put your custom base URL in html_context to avoid "unsupported theme option" warnings
     html_context:
       book_baseurl: https://book.premai.io/state-of-open-source-ai
 

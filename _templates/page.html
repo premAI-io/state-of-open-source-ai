@@ -1,16 +1,24 @@
 {% extends "!page.html" %}
 
 {% block meta %}
-<link rel="canonical" href="{{ theme_options.baseurl }}/{{ pagename }}/">
-<script>location="{{ theme_options.baseurl }}/{{ pagename }}/"</script>
-<meta http-equiv="refresh" content="0; url={{ theme_options.baseurl }}/{{ pagename }}/">
+<!-- Custom canonical link and redirect logic -->
+<link rel="canonical" href="{{ book_baseurl }}/{{ pagename }}/">
+<script>
+  location.href = "{{ book_baseurl }}/{{ pagename }}/";
+</script>
+<meta http-equiv="refresh" content="0; url={{ book_baseurl }}/{{ pagename }}/">
 <meta name="robots" content="noindex">
 
-{{ super() }}
+{{ super() }} {# Retain any additional meta tags provided by the theme #}
 {% endblock meta %}
 
 {% block main %}
-<h1>Redirecting…</h1>
-<p><a href="{{ theme_options.baseurl }}/{{ pagename }}/">Click here if you are not redirected.</a></p>
-{{ super() }}
+<!-- Optional message for users who are not automatically redirected -->
+<h1>Redirecting...</h1>
+<p>
+  If you are not redirected automatically, please
+  <a href="{{ book_baseurl }}/{{ pagename }}/">click here</a>.
+</p>
+
+{{ super() }} {# Retain the normal page content provided by the theme #}
 {% endblock main %}

@@ -1,4 +1,4 @@
-# .github/workflows/site.yml
+# GitHub Pages deployment workflow
 name: site
 
 on:
@@ -7,7 +7,7 @@ on:
     tags-ignore: ['**']
   pull_request:
   schedule:
-    - cron: '0 10 * * 6'  # Runs at 10:00 UTC every Saturday
+    - cron: '0 10 * * 6'  # Every Saturday at 10:00
 
 permissions:
   contents: read
@@ -28,13 +28,10 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
       - uses: actions/setup-python@v4
         with:
           python-version: '3.11'
-
       - run: pip install -r requirements.txt pyyaml
-
       - name: Check CITATION.cff & .zenodo.json
         run: |
           python <<EOF
@@ -60,46 +57,34 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
       - uses: actions/setup-python@v4
         with:
           python-version: '3.11'
-
       - id: pages
         uses: actions/configure-pages@v3
-
       - run: pip install -r requirements.txt
-
-      - name: Jupyter Book Build
+      - name: Build Jupyter Book
         run: |
           sudo apt update -qq
-          sudo apt install -qq ghostscript fonts-freefont-otf  # Install necessary packages
-
-          # Build the book in dirhtml format, treating warnings as errors
+          sudo apt install -qq ghostscript fonts-freefont-otf
+          sed -ri 's#^(\s*book_baseurl:).*#\1 ${{ steps.pages.outputs.base_url }}/$SITE_PREFIX#g' _config.yml
           jupyter-book build --builder dirhtml --warningiserror --nitpick --keep-going .
-
-          # Fix canonical links to remove .html suffix
+          # Fix canonical links
           sed -ri 's#(.*link rel="canonical" href=".*)\.html(".*)#\1/\2#' _build/dirhtml/*/index.html
-
-      # Removed LaTeX build step to prevent 'book.tex' not found error
-
+      - uses: xu-cheng/latex-action@v3
+        with:
+          working_directory: _build/latex
+          root_file: book.tex
+          args: -pdf -dvi- -ps- -file-line-error -f -interaction=nonstopmode
+          latexmk_use_xelatex: true
+        env:
+          XINDYOPTS: -L english -C utf8 -M sphinx.xdy
+        continue-on-error: true
       - name: Prepare _site Pages
         run: |
           mkdir _site
           mv _build/dirhtml _site/$SITE_PREFIX
-
-          # Create a minimal root redirect (optional)
-          echo '<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="refresh" content="0; url=https://book.premai.io/state-of-open-source-ai/">
-    <title>Redirecting…</title>
-  </head>
-  <body>
-    <p>Redirecting to <a href="https://book.premai.io/state-of-open-source-ai/">State of Open Source AI</a>.</p>
-  </body>
-</html>' > _site/index.html
-
+          sed "s#DESTINATION#${{ steps.pages.outputs.base_url }}/$SITE_PREFIX#g" .redirect-template.html > _site/index.html
       - uses: actions/upload-pages-artifact@v2
 
   deploy:
